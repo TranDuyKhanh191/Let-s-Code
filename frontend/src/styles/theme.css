@@ -1,0 +1,17 @@
+:root {
+  --lc-purple: #9c00e5;
+  --lc-purple-dark: #5b27f5;
+  --lc-blue: #3fd9ff;
+  --lc-blue-dark: #443fff;
+  --lc-green: #4fca5f;
+  --lc-yellow: #ffe400;
+  --lc-orange: #ff862d;
+  --lc-pink: #ff7c7c;
+  --lc-red: #fd3d3d;
+
+  --bg-main: #0f0518;
+  --bg-card: rgba(255,255,255,0.06);
+
+  --glow-purple: 0 0 30px rgba(156,0,229,0.5);
+  --glow-yellow: 0 0 30px rgba(255,228,0,0.4);
+}

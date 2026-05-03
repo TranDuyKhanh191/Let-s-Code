@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* === BẢNG MÀU THƯƠNG HIỆU (Từ ảnh image_90094e.png) === */
+
+  /* SAMPLE 1 - Màu chính */
+  --lc-purple: #9c00e5;
+  --lc-dark-blue: #443fff;
+  --lc-light-blue: #3fd9ff;
+  --lc-dark-green: #4fc5a5;
+  --lc-light-green: #46fb93;
+  --lc-yellow: #ffe400;
+  --lc-light-orange: #ffbd3f;
+  --lc-orange: #ff862d;
+  --lc-dark-pink: #ff7c7c;
+  --lc-red: #fd3d3d;
+
+  /* SAMPLE 2 - Màu phụ trợ (Dùng cho nền, gradient nhẹ) */
+  --lc-pastel-purple: #e5caf2;
+  --lc-medium-purple: #b327f5;
+  --lc-bg-dark: #1a0b2e; /* Màu nền tối dựa trên tông tím */
+}
+
+body {
+  @apply bg-[var(--lc-bg-dark)] text-white; /* Đặt màu nền và chữ mặc định */
+  font-family: 'Inter', sans-serif; /* Sử dụng font Inter cho hiện đại (cần cài đặt nếu chưa có) */
+}
+
+/* CSS để làm đẹp cho chữ LET'S CODE */
+.logo-text {
+  /* Tạo hiệu ứng chuyển màu gradient cho chữ */
+  background: linear-gradient(to right, #9c00e5, #ffe400); /* Gradient từ tím sang vàng */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Thêm bóng đổ nhẹ để tạo chiều sâu */
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+  /* Tăng độ đậm và kích thước một chút nếu cần (tùy chọn) */
+  /* font-weight: 800; */
+  /* font-size: 1.5rem; */
+
+  /* Hiệu ứng chuyển đổi mượt mà */
+  transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi di chuột qua */
+.logo-text:hover {
+  /* Làm cho chữ sáng hơn hoặc thay đổi gradient khi hover */
+  background: linear-gradient(to right, #b327f5, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Tăng hiệu ứng bóng đổ/phát sáng khi hover */
+  text-shadow: 0px 0px 10px rgba(156, 0, 229, 0.6), 0px 0px 20px rgba(255, 228, 0, 0.4);
+  
+  /* Có thể thêm hiệu ứng scale nhẹ (tùy chọn) */
+  /* transform: scale(1.05); */
+}
