@@ -200,7 +200,7 @@ export default function LessonChallenge({ lessonId }: Props) {
          });
          
          if (!upRes.ok) {
-             const err = await upRes.json();
+             const err = await upRes.json().catch(() => ({}));
              throw new Error("Lỗi upload file: " + (err.error || upRes.statusText));
          }
          

@@ -43,7 +43,10 @@ export default function LessonPresentation({ lessonId }: Props) {
             const uploadRes = await fetch(`${API_BASE}/media/upload`, {
                method: "POST", headers: { Authorization: `Bearer ${token}` }, body: formData
             });
-            if (!uploadRes.ok) throw new Error("Upload file thất bại");
+            if (!uploadRes.ok) {
+               const errData = await uploadRes.json().catch(() => ({}));
+               throw new Error(errData.error || "Upload file thất bại");
+            }
             const uploadData = await uploadRes.json();
             const mediaId = uploadData.media?.id || uploadData.id;
             
@@ -98,7 +101,7 @@ export default function LessonPresentation({ lessonId }: Props) {
 
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
          <label className={`aspect-square rounded-xl border-2 border-dashed border-white/20 hover:border-[#9c00e5] hover:bg-[#9c00e5]/10 flex flex-col items-center justify-center cursor-pointer transition-all group ${loading ? 'opacity-50 pointer-events-none' : ''}`}>
-            <input type="file" accept="image/*" multiple onChange={handleUpload} className="hidden" />
+            <input type="file" accept="image/*,video/*" multiple onChange={handleUpload} className="hidden" />
             {loading ? <span className="text-xs text-[#9c00e5] animate-pulse font-bold">Uploading...</span> : <><PlusIcon className="w-8 h-8 text-gray-400 group-hover:text-[#9c00e5] mb-2"/><span className="text-xs text-gray-400 font-bold group-hover:text-white">Thêm ảnh</span></>}
          </label>
 

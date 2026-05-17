@@ -187,7 +187,10 @@ export default function LessonContent({ lessonId }: Props) {
             const uploadRes = await fetch(`${API_BASE}/media/upload`, {
                method: "POST", headers: { Authorization: `Bearer ${token}` }, body: formData
             });
-            if (!uploadRes.ok) throw new Error("Upload file thất bại");
+            if (!uploadRes.ok) {
+               const errData = await uploadRes.json().catch(() => ({}));
+               throw new Error(errData.error || "Upload file thất bại");
+            }
             const uploadData = await uploadRes.json();
             const mediaId = uploadData.media?.id || uploadData.id;
             if (!mediaId) throw new Error("Không tìm thấy Media ID");
@@ -395,7 +398,7 @@ export default function LessonContent({ lessonId }: Props) {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
              {/* Nút Upload */}
              <label className={`aspect-square rounded-xl border-2 border-dashed border-white/20 hover:border-[#9c00e5] hover:bg-[#9c00e5]/10 flex flex-col items-center justify-center cursor-pointer transition-all group ${imgLoading ? 'opacity-50 pointer-events-none' : ''}`}>
-                <input type="file" accept="image/*" multiple onChange={handleUploadImage} className="hidden" />
+                <input type="file" accept="image/*,video/*" multiple onChange={handleUploadImage} className="hidden" />
                 {imgLoading ? (
                     <span className="text-xs text-[#9c00e5] animate-pulse font-bold">Uploading...</span> 
                 ) : (

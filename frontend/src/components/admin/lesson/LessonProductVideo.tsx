@@ -58,7 +58,10 @@ export default function LessonProductVideo({ lessonId }: Props) {
          method: "POST", headers: { "Authorization": `Bearer ${token}` }, body: formData
       });
       
-      if (!uploadRes.ok) throw new Error("Lỗi upload file");
+      if (!uploadRes.ok) {
+         const errData = await uploadRes.json().catch(() => ({}));
+         throw new Error(errData.error || "Lỗi upload file");
+      }
       const uploadData = await uploadRes.json();
       const mediaId = uploadData.media?.id || uploadData.id;
 

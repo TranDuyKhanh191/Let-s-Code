@@ -75,4 +75,12 @@ app.use("/admin/dashboard", dashboardRoutes);
 app.use("/admin/logs", logsRoutes);
 
 // ====================== SERVER ======================
+app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  if (err) {
+    res.status(400).json({ error: err.message || "Lỗi server" });
+  } else {
+    next();
+  }
+});
+
 app.listen(3000, () => console.log("Server chạy port 3000"));

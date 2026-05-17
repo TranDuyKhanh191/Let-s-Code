@@ -40,7 +40,10 @@ export default function LessonSlides({ lessonId }: Props) {
            method: "POST", headers: { Authorization: `Bearer ${token}` }, body: fd
         });
         
-        if (!upRes.ok) throw new Error("Lỗi upload file");
+        if (!upRes.ok) {
+           const errData = await upRes.json().catch(() => ({}));
+           throw new Error(errData.error || "Lỗi upload file");
+        }
         const upData = await upRes.json();
         const mediaId = upData.media?.id || upData.id;
 

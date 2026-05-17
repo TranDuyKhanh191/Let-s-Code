@@ -14,9 +14,17 @@ export const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 30 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
-    if (!allowed.includes(file.mimetype)) {
-      return cb(new Error("File type không được phép!"));
+    if (
+      file.mimetype.startsWith("image/") ||
+      file.mimetype.startsWith("video/") ||
+      file.mimetype === "application/pdf" ||
+      file.mimetype === "application/zip" ||
+      file.mimetype === "application/x-zip-compressed" ||
+      file.mimetype === "application/vnd.ms-powerpoint" ||
+      file.mimetype === "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+    ) {
+      return cb(null, true);
     }
-    cb(null, true);
+    return cb(new Error(`File type không được phép! (${file.mimetype})`));
   }
 });

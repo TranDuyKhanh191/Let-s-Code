@@ -15,14 +15,35 @@ export const uploadMedia = async (file: Express.Multer.File) => {
   const filePath = `${folder}/${fileName}`;
 
   // upload
-  const { error: uploadErr } = await supabase.storage
+  let { error: uploadErr } = await supabase.storage
     .from(BUCKET)
     .upload(filePath, file.buffer, {
       contentType: file.mimetype,
       upsert: false
     });
 
-  if (uploadErr) throw new Error(uploadErr.message);
+  if (uploadErr) {
+    // Tự động tạo bucket nếu chưa có
+    if (uploadErr.message.toLowerCase().includes("bucket not found") || uploadErr.message.includes("The resource was not found")) {
+      console.log(`Đang tự động tạo bucket: ${BUCKET}...`);
+      const { error: createBucketErr } = await supabase.storage.createBucket(BUCKET, { public: true });
+
+      if (createBucketErr && !createBucketErr.message.includes("already exists")) {
+        throw new Error(`Lỗi tạo bucket ${BUCKET}: ${createBucketErr.message}`);
+      }
+
+      // Thử upload lại
+      const { error: retryErr } = await supabase.storage
+        .from(BUCKET)
+        .upload(filePath, file.buffer, {
+          contentType: file.mimetype,
+          upsert: false
+        });
+      if (retryErr) throw new Error(`Lỗi upload sau khi tạo bucket: ${retryErr.message}`);
+    } else {
+      throw new Error(uploadErr.message);
+    }
+  }
 
   // public url
   const { data: urlData } = supabase.storage
@@ -66,15 +87,15 @@ export const deleteMedia = async (id: number) => {
 
   // remove storage
   try {
-      if (media.url && media.url.includes(BUCKET)) {
-          const parts = media.url.split(`/${BUCKET}/`); // Tách chuỗi
-          if (parts.length > 1) {
-              const storagePath = parts[1]; // Lấy phần path phía sau bucket
-              await supabase.storage.from(BUCKET).remove([storagePath]);
-          }
+    if (media.url && media.url.includes(BUCKET)) {
+      const parts = media.url.split(`/${BUCKET}/`); // Tách chuỗi
+      if (parts.length > 1) {
+        const storagePath = parts[1]; // Lấy phần path phía sau bucket
+        await supabase.storage.from(BUCKET).remove([storagePath]);
       }
+    }
   } catch (e) {
-      console.warn("Lỗi xóa file storage, tiếp tục xóa DB:", e);
+    console.warn("Lỗi xóa file storage, tiếp tục xóa DB:", e);
   }
 
   // Xóa record khỏi Database
