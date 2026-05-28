@@ -52,6 +52,32 @@ export const updateUser = async (id: string, body: any) => {
 };
 
 export const deleteUser = async (id: string) => {
+    // Xoá các log do user này thực hiện hoặc liên quan đến assignment của user này
+    const { data: assignments } = await supabase
+        .from("assignments")
+        .select("id")
+        .or(`teacher_id.eq.${id},created_by_user_id.eq.${id}`);
+
+    const assignmentIds = assignments?.map(a => a.id) || [];
+
+    if (assignmentIds.length > 0) {
+        await supabase
+            .from("assignment_logs")
+            .delete()
+            .in("assignment_id", assignmentIds);
+            
+        await supabase
+            .from("assignments")
+            .delete()
+            .in("id", assignmentIds);
+    }
+
+    await supabase
+        .from("assignment_logs")
+        .delete()
+        .eq("action_user_id", id);
+
+    // Sau khi xoá hết khoá ngoại, xoá user
     const { error } = await supabase.from(TABLE).delete().eq("id", id);
     if (error) throw new Error(error.message);
 };
