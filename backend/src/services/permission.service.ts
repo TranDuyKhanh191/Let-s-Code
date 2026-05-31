@@ -67,6 +67,21 @@ export const createAssignment = async (opts: {
     access_code, start_at, end_at, code_expires_at, created_by_user_id
   } = opts;
 
+  // Kiểm tra xem giáo viên có bị vô hiệu hoá không
+  const { data: teacher, error: teacherError } = await supabase
+      .from("users")
+      .select("is_active")
+      .eq("id", teacher_id)
+      .single();
+
+  if (teacherError || !teacher) {
+      throw new Error("Không tìm thấy giáo viên.");
+  }
+
+  if (teacher.is_active === false) {
+      throw new Error("Không thể phân công: Tài khoản giáo viên này đã bị vô hiệu hóa.");
+  }
+
   const access_code_hash = access_code ? await bcrypt.hash(access_code, 12) : null;
 
   const { data, error } = await supabase

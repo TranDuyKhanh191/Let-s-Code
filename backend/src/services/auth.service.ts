@@ -27,6 +27,10 @@ export const login = async (identifier: string, password: string) => {
         throw new Error("Sai tài khoản hoặc mật khẩu");
     }
 
+    if (user.is_active === false) {
+        throw new Error("Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ Admin.");
+    }
+
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) throw new Error("Sai tài khoản hoặc mật khẩu");
 

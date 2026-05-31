@@ -26,7 +26,8 @@ export const createUser = async (data: any) => {
 export const getAllUsers = async () => {
     const { data, error } = await supabase
         .from(TABLE)
-        .select("id, username, email, full_name, role, created_at");
+        .select("id, username, email, full_name, role, created_at, is_active")
+        .eq("is_active", true);
 
     if (error) throw new Error(error.message);
     return data;
@@ -52,33 +53,28 @@ export const updateUser = async (id: string, body: any) => {
 };
 
 export const deleteUser = async (id: string) => {
-    // Xoá các log do user này thực hiện hoặc liên quan đến assignment của user này
+    // Bước 1: Thu hồi toàn bộ quyền phân công (assignments)
     const { data: assignments } = await supabase
         .from("assignments")
         .select("id")
-        .or(`teacher_id.eq.${id},created_by_user_id.eq.${id}`);
+        .eq("teacher_id", id)
+        .eq("status", "active");
 
     const assignmentIds = assignments?.map(a => a.id) || [];
 
     if (assignmentIds.length > 0) {
         await supabase
-            .from("assignment_logs")
-            .delete()
-            .in("assignment_id", assignmentIds);
-            
-        await supabase
             .from("assignments")
-            .delete()
+            .update({ status: "revoked" })
             .in("id", assignmentIds);
     }
 
-    await supabase
-        .from("assignment_logs")
-        .delete()
-        .eq("action_user_id", id);
+    // Bước 2: Cập nhật trạng thái người dùng thành ngưng hoạt động thay vì xoá (Deactivate)
+    const { error } = await supabase
+        .from(TABLE)
+        .update({ is_active: false })
+        .eq("id", id);
 
-    // Sau khi xoá hết khoá ngoại, xoá user
-    const { error } = await supabase.from(TABLE).delete().eq("id", id);
     if (error) throw new Error(error.message);
 };
 
