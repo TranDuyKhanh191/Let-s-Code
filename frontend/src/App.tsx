@@ -1,6 +1,9 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
+import { Toaster } from "react-hot-toast";
+import { useAssignmentNotification } from "./hooks/useAssignmentNotification";
+
 // --- AUTH PAGES ---
 import LoginPage from "./pages/auth/LoginPage";
 import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
@@ -55,15 +58,19 @@ const DefaultRedirect = () => {
 };
 
 export default function App() {
+  useAssignmentNotification();
+
   return (
-    <Routes>
-      {/* ================= AUTH ================= */}
+    <>
+      <Toaster />
+      <Routes>
+        {/* ================= AUTH ================= */}
       <Route path="/login" element={<LoginPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-      
+
       {/* --- MỚI: Đã bổ sung route nhập OTP --- */}
       <Route path="/verify-otp" element={<VerifyOtpPage />} />
-      
+
       <Route path="/reset-password" element={<ResetPasswordPage />} />
 
       {/* ================= TEACHER ROUTES ================= */}
@@ -176,6 +183,7 @@ export default function App() {
       {/* ================= DEFAULT ================= */}
       <Route path="/" element={<DefaultRedirect />} />
       <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+      </Routes>
+    </>
   );
 }

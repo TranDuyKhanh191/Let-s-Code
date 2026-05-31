@@ -1,0 +1,4 @@
+-- Kích hoạt Realtime cho bảng assignments
+-- Script: Kích hoạt supabase_realtime cho bảng assignments
+-- Chạy lệnh sau trong SQL Editor nếu chưa được bật:
+-- alter publication supabase_realtime add table assignments;
