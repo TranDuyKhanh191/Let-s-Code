@@ -62,7 +62,7 @@ export default function CreateTeacherPage() {
         email: formData.email,
         full_name: formData.full_name,
         password: formData.password,
-        // Không gửi program_id nữa
+        role: "teacher",
       };
 
       const response = await fetch("http://localhost:3000/api/users", {

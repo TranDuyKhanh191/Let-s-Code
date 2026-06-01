@@ -69,12 +69,25 @@ export class EnrollmentService {
       .from('enrollments')
       .select(`
         *,
-        courses!enrollments_course_id_fkey (*)
+        courses!enrollments_course_id_fkey (
+          *,
+          lessons (id, status)
+        )
       `)
       .eq('student_id', studentId)
       .eq('status', 'active');
 
     if (error) throw error;
-    return data.map(enr => enr.courses);
+    
+    return data
+      .filter((enr: any) => enr.courses && enr.courses.status === 'published')
+      .map((enr: any) => {
+        const course = enr.courses;
+        // Count only published lessons
+        const publishedLessons = course.lessons ? course.lessons.filter((l: any) => l.status === 'published') : [];
+        course.lesson_count = publishedLessons.length;
+        delete course.lessons;
+        return course;
+      });
   }
 }
