@@ -68,4 +68,36 @@ router.get(
   LessonController.getLessonById
 );
 
+// Giáo viên xem bài nộp của học sinh
+router.get(
+  "/:id/submissions",
+  checkAccess("lesson", "id"),
+  viewOnly,
+  LessonController.getSubmissions
+);
+
+// ===================== STUDENT ======================
+
+router.get(
+  "/student/course/:courseId",
+  authRequired,
+  requireRole(["student"]),
+  LessonController.getLessonsForStudent
+);
+
+router.get(
+  "/student/:id",
+  authRequired,
+  requireRole(["student"]),
+  LessonController.getLessonByIdForStudent
+);
+
+// Học sinh nộp bài giảng
+router.post(
+  "/student/:id/submit",
+  authRequired,
+  requireRole(["student"]),
+  LessonController.submitLesson
+);
+
 export default router;

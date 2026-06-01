@@ -53,6 +53,15 @@ export const getMyCourses = async (req: any, res: Response) => {
       });
     }
 
+    // 👨‍🎓 STUDENT: lấy khóa học đã ghi danh
+    if (user.role === "student") {
+      const courses = await CourseService.getStudentEnrolledCourses(user.id);
+      return res.json({
+        success: true,
+        courses
+      });
+    }
+
     return res.status(403).json({ error: "Forbidden" });
   } catch (err: any) {
     res.status(400).json({ error: err.message });

@@ -43,7 +43,7 @@ export default function Header() {
     nav("/login");
   };
 
-  const checkActive = (path) => {
+  const checkActive = (path: string) => {
     if (path === "/teacher/programs") {
       return location.pathname.includes("/teacher/programs") || location.pathname.includes("/teacher/courses");
     }

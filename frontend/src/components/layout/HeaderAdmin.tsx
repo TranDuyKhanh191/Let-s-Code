@@ -78,7 +78,10 @@ export default function HeaderAdmin() {
       return location.pathname.includes("/admin/courses");
     }
     if (path === "/admin/manage-teachers") {
-      return location.pathname.includes("/admin/manage-teachers");
+      return location.pathname.includes("/admin/manage-teachers") || location.pathname.includes("/admin/assign-courses") || location.pathname.includes("/admin/create-teacher");
+    }
+    if (path === "/admin/manage-students") {
+      return location.pathname.includes("/admin/manage-students") || location.pathname.includes("/admin/assign-student-courses") || location.pathname.includes("/admin/create-student");
     }
     if (path === "/admin/lessons") {
       return location.pathname.includes("/admin/lessons");
@@ -101,6 +104,11 @@ export default function HeaderAdmin() {
     { 
       name: "Giáo viên", 
       path: "/admin/manage-teachers", 
+      icon: <UserGroupIcon className="w-5 h-5" /> 
+    },
+    { 
+      name: "Học sinh", 
+      path: "/admin/manage-students", 
       icon: <UserGroupIcon className="w-5 h-5" /> 
     },
     { 

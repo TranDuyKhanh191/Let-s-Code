@@ -5,6 +5,7 @@ import cors from "cors";
 import authRoutes from "./routes/auth.routes";
 import userRoutes from "./routes/user.routes";
 import permissionRoutes from "./routes/permission.routes";
+import enrollmentRoutes from "./routes/enrollment.routes";
 
 // Core structure: Program / Course / Lesson
 import programRoutes from "./routes/program.routes";
@@ -44,6 +45,7 @@ app.use("/auth", authRoutes);
 
 // ====================== RBAC ======================
 app.use("/api/permissions", permissionRoutes);
+app.use("/api/enrollments", enrollmentRoutes);
 app.use("/api/users", userRoutes);
 
 // ====================== PROGRAM STRUCTURE ======================

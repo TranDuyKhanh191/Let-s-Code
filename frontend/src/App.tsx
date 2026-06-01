@@ -17,6 +17,9 @@ import CoursesPage from "./pages/teacher/CoursesPage";
 import CourseDetailPage from "./pages/teacher/LessonPage";
 import LessonDetailPage from "./pages/teacher/LessonDetailPlayer";
 import ProfilePage from "./pages/teacher/ProfilePage";
+import StudentLessonPlayer from "./pages/student/StudentLessonPlayer";
+import StudentHomePage from "./pages/student/StudentHomePage";
+import StudentLessonListPage from "./pages/student/StudentLessonListPage";
 
 // --- ADMIN PAGES ---
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
@@ -25,11 +28,14 @@ import AssignCoursesPage from "./pages/admin/AssignCoursesPage";
 import CreateTeacherPage from "./pages/admin/CreateTeacherPage";
 import ManageTeachersPage from "./pages/admin/ManageTeachersPage";
 import AdminLessonPage from "./pages/admin/AdminLessonPage";
+import ManageStudentsPage from "./pages/admin/ManageStudentsPage";
+import AssignStudentCoursesPage from "./pages/admin/AssignStudentCoursesPage";
+import CreateStudentPage from "./pages/admin/CreateStudentPage";
 
 import { useAuth } from "./context/AuthContext";
 // import { i } from "framer-motion/client"; // Dòng này có vẻ thừa hoặc auto-import sai, nhưng tôi cứ để đó theo ý bạn
 
-type AllowedRole = "admin" | "teacher";
+type AllowedRole = "admin" | "teacher" | "student";
 
 type ProtectedProps = {
   children: React.ReactNode;
@@ -54,6 +60,7 @@ const DefaultRedirect = () => {
   const { user } = useAuth();
   if (!user) return <Navigate to="/login" replace />;
   if (user.role === 'admin') return <Navigate to="/admin/dashboard" replace />;
+  if (user.role === 'student') return <Navigate to="/student/home" replace />;
   return <Navigate to="/teacher/home" replace />;
 };
 
@@ -180,6 +187,56 @@ export default function App() {
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/admin/manage-students"
+        element={
+          <ProtectedRoute allowedRoles={['admin']}>
+            <ManageStudentsPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/assign-student-courses"
+        element={
+          <ProtectedRoute allowedRoles={['admin']}>
+            <AssignStudentCoursesPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/create-student"
+        element={
+          <ProtectedRoute allowedRoles={['admin']}>
+            <CreateStudentPage />
+          </ProtectedRoute>
+        }
+      />
+      {/* ================= STUDENT ROUTES ================= */}
+      <Route
+        path="/student/home"
+        element={
+          <ProtectedRoute allowedRoles={['student']}>
+            <StudentHomePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/student/courses/:id"
+        element={
+          <ProtectedRoute allowedRoles={['student']}>
+            <StudentLessonListPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/student/lessons/:lessonId"
+        element={
+          <ProtectedRoute allowedRoles={['student']}>
+            <StudentLessonPlayer />
+          </ProtectedRoute>
+        }
+      />
+
       {/* ================= DEFAULT ================= */}
       <Route path="/" element={<DefaultRedirect />} />
       <Route path="*" element={<Navigate to="/" replace />} />
