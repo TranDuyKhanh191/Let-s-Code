@@ -99,3 +99,80 @@ export const deleteLesson = async (req: Request, res: Response) => {
         res.status(400).json({ error: err.message });
     }
 };
+
+// ===================== STUDENT ======================
+
+// Học sinh xem bài giảng của khóa học đã đăng ký
+export const getLessonsForStudent = async (req: any, res: Response) => {
+    try {
+        const studentId = req.user.id;
+        const courseId = Number(req.params.courseId);
+
+        // Kiểm tra xem học sinh có được ghi danh vào khóa học không
+        const isEnrolled = await LessonService.isStudentEnrolled(studentId, courseId);
+        if (!isEnrolled) {
+            return res.status(403).json({ error: "Bạn không có quyền truy cập khóa học này." });
+        }
+
+        const lessons = await LessonService.getLessonsByCourseForStudent(studentId, courseId);
+        res.json({ success: true, lessons });
+    } catch (err: any) {
+        res.status(400).json({ error: err.message });
+    }
+};
+
+// Học sinh xem chi tiết 1 bài giảng
+export const getLessonByIdForStudent = async (req: any, res: Response) => {
+    try {
+        const studentId = req.user.id;
+        const lessonId = Number(req.params.id);
+
+        const lesson = await LessonService.getLessonById(lessonId);
+        if (!lesson) {
+            return res.status(404).json({ error: "Không tìm thấy bài học." });
+        }
+
+        // Kiểm tra xem học sinh có được ghi danh vào khóa học chứa bài học này không
+        const isEnrolled = await LessonService.isStudentEnrolled(studentId, lesson.course_id);
+        if (!isEnrolled) {
+            return res.status(403).json({ error: "Bạn không có quyền truy cập bài học này." });
+        }
+
+        const progress = await LessonService.getStudentLessonProgress(studentId, lessonId);
+
+        res.json({ success: true, lesson, progress });
+    } catch (err: any) {
+        res.status(400).json({ error: err.message });
+    }
+};
+
+// ===================== TEACHER ======================
+
+// Giáo viên / Admin lấy danh sách bài nộp của học sinh
+export const getSubmissions = async (req: Request, res: Response) => {
+    try {
+        const lessonId = Number(req.params.id);
+        const submissions = await LessonService.getSubmissionsForLesson(lessonId);
+        res.json({ success: true, data: submissions });
+    } catch (err: any) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
+// Học sinh nộp bài giảng
+export const submitLesson = async (req: any, res: Response) => {
+    try {
+        const studentId = req.user.id;
+        const lessonId = Number(req.params.id);
+        const { fileUrl } = req.body;
+
+        if (!fileUrl) {
+            return res.status(400).json({ error: "Missing fileUrl" });
+        }
+
+        const progress = await LessonService.submitLessonProgress(studentId, lessonId, fileUrl);
+        res.json({ success: true, progress });
+    } catch (err: any) {
+        res.status(500).json({ error: err.message });
+    }
+};

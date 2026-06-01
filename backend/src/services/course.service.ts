@@ -199,3 +199,84 @@ export const deleteCourse = async (id: number) => {
   if (error) throw new Error(error.message);
 };
 
+export const getStudentEnrolledCourses = async (studentId: number) => {
+  // 1. Lấy danh sách ghi danh
+  const { data: enrollments, error } = await supabase
+    .from("enrollments")
+    .select(`
+      course_id,
+      courses (
+        id,
+        program_id,
+        name,
+        slug,
+        course_code,
+        short_description,
+        age_group,
+        general_objectives,
+        status,
+        sort_order
+      )
+    `)
+    .eq("student_id", studentId);
+
+  if (error) throw new Error(error.message);
+
+  const courses = enrollments
+    .map(e => e.courses)
+    .filter(c => c !== null && !Array.isArray(c));
+
+  const courseIds = courses.map((c: any) => c.id);
+  if (courseIds.length === 0) return [];
+
+  // 2. Đếm lesson published
+  const { data: lessons, error: lessonError } = await supabase
+    .from("lessons")
+    .select("id, course_id")
+    .eq("status", "published")
+    .in("course_id", courseIds);
+
+  if (lessonError) throw new Error(lessonError.message);
+
+  const lessonCountMap = new Map<number, number>();
+  const lessonIds = lessons?.map(l => l.id) || [];
+  lessons?.forEach(l => {
+    lessonCountMap.set(l.course_id, (lessonCountMap.get(l.course_id) ?? 0) + 1);
+  });
+
+  // 3. Tính phần trăm hoàn thành dựa trên lesson_progress
+  let completedMap = new Map<number, number>();
+  if (lessonIds.length > 0) {
+    const { data: progress, error: progError } = await supabase
+      .from("lesson_progress")
+      .select("lesson_id, status")
+      .eq("student_id", studentId)
+      .eq("status", "đã nộp bài")
+      .in("lesson_id", lessonIds);
+      
+    if (progError) throw new Error(progError.message);
+    
+    const lessonToCourseMap = new Map<number, number>();
+    lessons?.forEach(l => lessonToCourseMap.set(l.id, l.course_id));
+    
+    progress?.forEach(p => {
+      const cId = lessonToCourseMap.get(p.lesson_id);
+      if (cId) {
+        completedMap.set(cId, (completedMap.get(cId) ?? 0) + 1);
+      }
+    });
+  }
+
+  // 4. Trả kết quả
+  return courses.map((c: any) => {
+    const totalLessons = lessonCountMap.get(c.id) ?? 0;
+    const completed = completedMap.get(c.id) ?? 0;
+    const progressPercent = totalLessons === 0 ? 0 : Math.round((completed / totalLessons) * 100);
+    
+    return {
+      ...c,
+      lesson_count: totalLessons,
+      progress: progressPercent
+    };
+  });
+};

@@ -24,7 +24,7 @@ const customStyles = `
 const API_BASE = "http://localhost:3000";
 
 // Type Definitions - Đã bỏ program_id
-interface Teacher {
+interface Student {
   id: number | string;
   username: string;
   email: string;
@@ -40,18 +40,18 @@ interface FormData {
   password: string;
 }
 
-export default function ManageTeachersPage() {
+export default function ManageStudentsPage() {
   const navigate = useNavigate(); 
 
-  const [teachers, setTeachers] = useState<Teacher[]>([]);
-  const [filteredTeachers, setFilteredTeachers] = useState<Teacher[]>([]);
+  const [students, setStudents] = useState<Student[]>([]);
+  const [filteredStudents, setFilteredStudents] = useState<Student[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   // Đã xóa filterProgram
   const [currentPage, setCurrentPage] = useState(1);
   
   const [showModal, setShowModal] = useState(false);
-  const [editingTeacher, setEditingTeacher] = useState<Teacher | null>(null);
+  const [editingStudent, setEditingStudent] = useState<Student | null>(null);
   const [formData, setFormData] = useState<FormData>({
     username: "",
     email: "",
@@ -61,7 +61,7 @@ export default function ManageTeachersPage() {
 
   const ITEMS_PER_PAGE = 10;
 
-  const fetchTeachers = async () => {
+  const fetchStudents = async () => {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
@@ -80,8 +80,8 @@ export default function ManageTeachersPage() {
         userList = data;
       }
 
-      const mappedTeachers: Teacher[] = userList
-        .filter((item: any) => item.role === "teacher")
+      const mappedStudents: Student[] = userList
+        .filter((item: any) => item.role === "student")
         .map((item: any) => ({
           id: item.id,
           username: item.username,
@@ -92,32 +92,32 @@ export default function ManageTeachersPage() {
           avatar_url: item.avatar_url
         }));
 
-      setTeachers(mappedTeachers);
-      setFilteredTeachers(mappedTeachers);
+      setStudents(mappedStudents);
+      setFilteredStudents(mappedStudents);
     } catch (error) {
-      console.error("Lỗi khi tải danh sách giáo viên:", error);
+      console.error("Lỗi khi tải danh sách học sinh:", error);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchTeachers();
+    fetchStudents();
   }, []);
 
   useEffect(() => {
-    let result = teachers;
+    let result = students;
     // Đã xóa logic lọc theo program
     if (searchTerm) {
-      result = result.filter(teacher =>
-        (teacher.full_name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (teacher.email || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (teacher.username || "").toLowerCase().includes(searchTerm.toLowerCase())
+      result = result.filter(student =>
+        (student.full_name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (student.email || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+        (student.username || "").toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
-    setFilteredTeachers(result);
+    setFilteredStudents(result);
     setCurrentPage(1);
-  }, [searchTerm, teachers]);
+  }, [searchTerm, students]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -126,7 +126,7 @@ export default function ManageTeachersPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editingTeacher) return; 
+    if (!editingStudent) return; 
 
     try {
       const token = localStorage.getItem("token");
@@ -143,19 +143,19 @@ export default function ManageTeachersPage() {
         ...(formData.password && { password: formData.password }) 
       };
 
-      const response = await fetch(`${API_BASE}/api/users/${editingTeacher.id}`, {
+      const response = await fetch(`${API_BASE}/api/users/${editingStudent.id}`, {
         method: "PATCH",
         headers,
         body: JSON.stringify(updateData)
       });
 
       if (response.ok) {
-        alert("Cập nhật giáo viên thành công!");
-        fetchTeachers(); 
+        alert("Cập nhật học sinh thành công!");
+        fetchStudents(); 
         setShowModal(false);
         resetForm();
       } else {
-        alert("Lỗi khi cập nhật giáo viên");
+        alert("Lỗi khi cập nhật học sinh");
       }
     } catch (error) {
       console.error("Lỗi:", error);
@@ -163,29 +163,29 @@ export default function ManageTeachersPage() {
     }
   };
 
-  const handleEdit = (teacher: Teacher) => {
-    setEditingTeacher(teacher);
+  const handleEdit = (student: Student) => {
+    setEditingStudent(student);
     setFormData({
-      username: teacher.username,
-      email: teacher.email,
-      full_name: teacher.full_name,
+      username: student.username,
+      email: student.email,
+      full_name: student.full_name,
       password: "", 
     });
     setShowModal(true);
   };
 
   const handleDelete = async (id: string | number) => {
-    if (confirm("Bạn có chắc chắn muốn xóa giáo viên này?")) {
+    if (confirm("Bạn có chắc chắn muốn xóa học sinh này?")) {
       try {
         const token = localStorage.getItem("token");
         const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${token}` };
         const response = await fetch(`${API_BASE}/api/users/${id}`, { method: "DELETE", headers });
 
         if (response.ok) {
-          setTeachers(teachers.filter(teacher => teacher.id?.toString() !== id.toString()));
-          alert("Xóa giáo viên thành công!");
+          setStudents(students.filter(student => student.id?.toString() !== id.toString()));
+          alert("Xóa học sinh thành công!");
         } else {
-          alert("Lỗi khi xóa giáo viên");
+          alert("Lỗi khi xóa học sinh");
         }
       } catch (error) {
         console.error("Lỗi:", error);
@@ -195,13 +195,13 @@ export default function ManageTeachersPage() {
 
   const resetForm = () => {
     setFormData({ username: "", email: "", full_name: "", password: "" });
-    setEditingTeacher(null);
+    setEditingStudent(null);
   };
 
-  const totalPages = Math.ceil(filteredTeachers.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(filteredStudents.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentTeachers = filteredTeachers.slice(startIndex, endIndex);
+  const currentStudents = filteredStudents.slice(startIndex, endIndex);
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#1a0b2e] via-[#0f061a] to-[#1a0b2e] text-white font-sans">
@@ -223,22 +223,30 @@ export default function ManageTeachersPage() {
                 </span>
                 <div>
                   <h1 className="text-4xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                    Quản lý giáo viên
+                    Quản lý học sinh
                   </h1>
                   <span className="inline-block mt-1 text-xs font-bold text-[#9c00e5] bg-[#9c00e5]/20 px-3 py-1 rounded-full">
-                    {filteredTeachers.length} giáo viên
+                    {filteredStudents.length} học sinh
                   </span>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm ml-12">Quản lý tất cả giáo viên trên nền tảng LETSCODE.</p>
+              <p className="text-gray-400 text-sm ml-12">Quản lý tất cả học sinh trên nền tảng LETSCODE.</p>
             </div>
 
-            <button
-              onClick={() => navigate("/admin/create-teacher")}
-              className="px-6 py-2.5 text-sm font-bold text-white transition-all duration-200 shadow-lg bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] rounded-xl hover:shadow-[#9c00e5]/40 hover:from-[#ff7c7c] hover:to-[#9c00e5] hover:scale-105 active:scale-95 w-fit"
-            >
-              + Thêm giáo viên
-            </button>
+            <div className="flex gap-3">
+              <button
+                onClick={() => navigate("/admin/assign-student-courses")}
+                className="px-6 py-2.5 text-sm font-bold text-white transition-all duration-200 border border-[#9c00e5]/50 bg-white/5 rounded-xl hover:bg-white/10 w-fit"
+              >
+                Phân quyền khóa học
+              </button>
+              <button
+                onClick={() => navigate("/admin/create-student")}
+                className="px-6 py-2.5 text-sm font-bold text-white transition-all duration-200 shadow-lg bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] rounded-xl hover:shadow-[#9c00e5]/40 hover:from-[#ff7c7c] hover:to-[#9c00e5] hover:scale-105 active:scale-95 w-fit"
+              >
+                + Thêm học sinh
+              </button>
+            </div>
           </div>
 
           <div className="mb-8">
@@ -246,7 +254,7 @@ export default function ManageTeachersPage() {
               <SearchIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
               <input
                 type="text"
-                placeholder="Tìm kiếm giáo viên..."
+                placeholder="Tìm kiếm học sinh..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#9c00e5] transition-colors"
@@ -258,7 +266,7 @@ export default function ManageTeachersPage() {
             <table className="w-full">
               <thead>
                 <tr className="bg-gradient-to-r from-[#2a1b3d] to-[#1f1428] border-b border-[#9c00e5]/20">
-                  <th className="px-6 py-4 text-left text-sm font-bold text-gray-400">Tên giáo viên</th>
+                  <th className="px-6 py-4 text-left text-sm font-bold text-gray-400">Tên học sinh</th>
                   <th className="px-6 py-4 text-left text-sm font-bold text-gray-400">Email</th>
                   <th className="px-6 py-4 text-left text-sm font-bold text-gray-400">Username</th>
                   {/* Đã xóa cột Program */}
@@ -268,32 +276,32 @@ export default function ManageTeachersPage() {
               </thead>
               <tbody>
                 {loading ? (
-                  <tr><td colSpan={5} className="px-6 py-12 text-center text-gray-400">Đang tải danh sách giáo viên...</td></tr>
-                ) : filteredTeachers.length === 0 ? (
-                  <tr><td colSpan={5} className="px-6 py-12 text-center text-gray-400">Không tìm thấy giáo viên nào</td></tr>
+                  <tr><td colSpan={5} className="px-6 py-12 text-center text-gray-400">Đang tải danh sách học sinh...</td></tr>
+                ) : filteredStudents.length === 0 ? (
+                  <tr><td colSpan={5} className="px-6 py-12 text-center text-gray-400">Không tìm thấy học sinh nào</td></tr>
                 ) : (
-                  currentTeachers.map((teacher, idx) => (
-                    <tr key={teacher.id} className={`${idx % 2 === 0 ? "bg-white/[0.02]" : "bg-transparent"} border-b border-[#9c00e5]/10 hover:bg-white/5 transition-colors`}>
+                  currentStudents.map((student, idx) => (
+                    <tr key={student.id} className={`${idx % 2 === 0 ? "bg-white/[0.02]" : "bg-transparent"} border-b border-[#9c00e5]/10 hover:bg-white/5 transition-colors`}>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#9c00e5] to-[#ff7c7c] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                            {teacher.full_name.charAt(0).toUpperCase()}
+                            {student.full_name.charAt(0).toUpperCase()}
                           </div>
-                          <p className="text-white font-semibold">{teacher.full_name}</p>
+                          <p className="text-white font-semibold">{student.full_name}</p>
                         </div>
                       </td>
-                      <td className="px-6 py-4"><span className="text-gray-300 text-sm">{teacher.email}</span></td>
-                      <td className="px-6 py-4"><span className="text-gray-300 text-sm">{teacher.username}</span></td>
+                      <td className="px-6 py-4"><span className="text-gray-300 text-sm">{student.email}</span></td>
+                      <td className="px-6 py-4"><span className="text-gray-300 text-sm">{student.username}</span></td>
                       {/* Đã xóa hiển thị Program */}
                       <td className="px-6 py-4">
-                        <span className="text-gray-400 text-sm">{teacher.created_at ? new Date(teacher.created_at).toLocaleDateString("vi-VN") : "N/A"}</span>
+                        <span className="text-gray-400 text-sm">{student.created_at ? new Date(student.created_at).toLocaleDateString("vi-VN") : "N/A"}</span>
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center justify-center gap-2">
-                          <button onClick={() => handleEdit(teacher)} className="p-2 bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] hover:from-[#ff7c7c] hover:to-[#9c00e5] rounded-lg font-bold text-white transition-all hover:shadow-lg hover:shadow-[#9c00e5]/30">
+                          <button onClick={() => handleEdit(student)} className="p-2 bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] hover:from-[#ff7c7c] hover:to-[#9c00e5] rounded-lg font-bold text-white transition-all hover:shadow-lg hover:shadow-[#9c00e5]/30">
                             <PencilIcon className="w-4 h-4" />
                           </button>
-                          <button onClick={() => handleDelete(teacher.id)} className="p-2 bg-red-500/20 hover:bg-red-500/30 border border-red-500/30 rounded-lg font-bold text-red-400 transition-all">
+                          <button onClick={() => handleDelete(student.id)} className="p-2 bg-red-500/20 hover:bg-red-500/30 border border-red-500/30 rounded-lg font-bold text-red-400 transition-all">
                             <TrashIcon className="w-4 h-4" />
                           </button>
                         </div>
@@ -307,7 +315,7 @@ export default function ManageTeachersPage() {
 
           {totalPages > 1 && (
             <div className="flex items-center justify-between mt-6 px-4">
-              <div className="text-sm text-gray-400">Hiển thị {startIndex + 1}-{Math.min(endIndex, filteredTeachers.length)} trong {filteredTeachers.length} giáo viên</div>
+              <div className="text-sm text-gray-400">Hiển thị {startIndex + 1}-{Math.min(endIndex, filteredStudents.length)} trong {filteredStudents.length} học sinh</div>
               <div className="flex items-center gap-2">
                 <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1} className="px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:enabled:bg-white/10">← Trước</button>
                 <div className="flex gap-1">
@@ -328,7 +336,7 @@ export default function ManageTeachersPage() {
           <div className="bg-gradient-to-br from-[#2a1b3d] to-[#1f1428] border border-[#9c00e5]/20 rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar shadow-2xl">
             <div className="sticky top-0 z-10 flex items-center justify-between px-8 py-6 border-b border-[#9c00e5]/20 bg-gradient-to-r from-[#2a1b3d] to-[#1f1428]">
               <h2 className="text-2xl font-bold text-white">
-                {editingTeacher ? "Chỉnh sửa giáo viên" : "Thêm giáo viên"}
+                {editingStudent ? "Chỉnh sửa học sinh" : "Thêm học sinh"}
               </h2>
               <button 
                 onClick={() => { setShowModal(false); resetForm(); }} 
@@ -357,13 +365,13 @@ export default function ManageTeachersPage() {
 
               {/* Đã xóa phần chọn Program trong Modal, chỉ còn Mật khẩu */}
               <div>
-                  <label className="block mb-2 text-sm font-bold text-gray-400">Mật khẩu {editingTeacher && "(Để trống nếu không đổi)"}</label>
+                  <label className="block mb-2 text-sm font-bold text-gray-400">Mật khẩu {editingStudent && "(Để trống nếu không đổi)"}</label>
                   <input type="password" name="password" value={formData.password} onChange={handleInputChange} className="w-full px-4 py-3 text-white transition-colors border rounded-lg bg-white/5 border-white/10 focus:outline-none focus:border-[#9c00e5]" />
               </div>
 
               <div className="flex gap-3 pt-6 border-t border-white/10">
                 <button type="submit" className="flex-1 px-6 py-3 font-bold text-white transition-all rounded-lg shadow-lg bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] hover:shadow-[#9c00e5]/30">
-                  {editingTeacher ? "Cập nhật" : "Thêm mới"}
+                  {editingStudent ? "Cập nhật" : "Thêm mới"}
                 </button>
                 <button type="button" onClick={() => { setShowModal(false); resetForm(); }} className="flex-1 px-6 py-3 font-bold text-gray-300 transition-colors border rounded-lg bg-white/5 border-white/10 hover:text-white">
                   Hủy

@@ -162,3 +162,151 @@ export const deleteLesson = async (id: number) => {
   const { error } = await supabase.from(TABLE).delete().eq("id", id);
   if (error) throw new Error(error.message);
 };
+
+// Kiểm tra xem học sinh có được ghi danh vào khóa học không
+export const isStudentEnrolled = async (studentId: number, courseId: number) => {
+  const { data, error } = await supabase
+    .from("enrollments")
+    .select("id")
+    .eq("student_id", studentId)
+    .eq("course_id", courseId)
+    .eq("status", "active")
+    .maybeSingle();
+
+  if (error) throw new Error(error.message);
+  return !!data;
+};
+
+// Lấy danh sách bài giảng của khóa học cho học sinh, kèm tiến độ
+export const getLessonsByCourseForStudent = async (studentId: number, courseId: number) => {
+  // 1. Lấy danh sách bài giảng
+  const { data: lessons, error: lessonError } = await supabase
+    .from("lessons")
+    .select("*")
+    .eq("course_id", courseId)
+    .order("sort_order", { ascending: true });
+
+  if (lessonError) throw new Error(lessonError.message);
+  if (!lessons || lessons.length === 0) return [];
+
+  // 2. Lấy tiến độ của học sinh
+  const lessonIds = lessons.map(l => l.id);
+  const { data: progresses, error: progressError } = await supabase
+    .from("lesson_progress")
+    .select("lesson_id, status")
+    .eq("student_id", studentId)
+    .in("lesson_id", lessonIds);
+
+  if (progressError) throw new Error(progressError.message);
+
+  // 3. Map isCompleted
+  return lessons.map(lesson => {
+    const p = progresses?.find(prog => prog.lesson_id === lesson.id);
+    return {
+      ...lesson,
+      isCompleted: p?.status === "đã nộp bài"
+    };
+  });
+};
+
+// Lấy danh sách bài nộp của học sinh trong 1 bài học (dành cho giáo viên/admin)
+export const getSubmissionsForLesson = async (lessonId: number) => {
+  // 1. Get course_id of the lesson
+  const { data: lesson, error: lessonError } = await supabase.from("lessons").select("course_id").eq("id", lessonId).single();
+  if (lessonError) throw new Error(lessonError.message);
+  if (!lesson) throw new Error("Không tìm thấy bài học");
+
+  // 2. Lấy danh sách học sinh enroll vào course này
+  const { data: enrollments, error: enrollError } = await supabase
+    .from("enrollments")
+    .select("student_id, users(id, full_name, email)")
+    .eq("course_id", lesson.course_id)
+    .eq("status", "active");
+
+  if (enrollError) throw new Error(enrollError.message);
+  
+  if (!enrollments || enrollments.length === 0) return [];
+
+  // 3. Lấy thông tin lesson_progress của các học sinh này trong lesson hiện tại
+  const { data: progresses, error: progressError } = await supabase
+    .from("lesson_progress")
+    .select("*")
+    .eq("lesson_id", lessonId);
+
+  if (progressError) throw new Error(progressError.message);
+
+  // 4. Map data lại
+  return enrollments.map(en => {
+    const student = Array.isArray(en.users) ? en.users[0] : en.users; // fallback for supabase array output
+    const progress = progresses?.find(p => p.student_id === en.student_id);
+    return {
+      student_id: en.student_id,
+      studentName: student?.full_name || student?.email?.split('@')[0] || "Unknown",
+      email: student?.email || "Unknown",
+      status: progress?.status || "chưa học",
+      fileName: progress?.submitted_file_url ? progress.submitted_file_url.split('/').pop() : null,
+      fileUrl: progress?.submitted_file_url || null,
+      score: progress?.score || null,
+      updated_at: progress?.updated_at || null,
+    };
+  });
+};
+
+// Học sinh nộp bài tập (cập nhật lesson_progress)
+export const submitLessonProgress = async (studentId: number, lessonId: number, fileUrl?: string) => {
+  // Check if progress already exists
+  const { data: existingProgress, error: fetchError } = await supabase
+    .from("lesson_progress")
+    .select("id")
+    .eq("student_id", studentId)
+    .eq("lesson_id", lessonId)
+    .maybeSingle();
+
+  if (fetchError) throw new Error(fetchError.message);
+
+  if (existingProgress) {
+    // Update
+    const { data: updatedProgress, error: updateError } = await supabase
+      .from("lesson_progress")
+      .update({
+        status: "đã nộp bài",
+        ...(fileUrl ? { submitted_file_url: fileUrl } : {}),
+        updated_at: new Date().toISOString()
+      })
+      .eq("id", existingProgress.id)
+      .select()
+      .single();
+
+    if (updateError) throw new Error(updateError.message);
+    return updatedProgress;
+  } else {
+    // Insert
+    const { data: newProgress, error: insertError } = await supabase
+      .from("lesson_progress")
+      .insert({
+        student_id: studentId,
+        lesson_id: lessonId,
+        status: "đã nộp bài",
+        submitted_file_url: fileUrl,
+        updated_at: new Date().toISOString()
+      })
+      .select()
+      .single();
+
+    if (insertError) throw new Error(insertError.message);
+    return newProgress;
+  }
+};
+
+// Lấy tiến độ của học sinh đối với 1 bài học
+export const getStudentLessonProgress = async (studentId: number, lessonId: number) => {
+  const { data, error } = await supabase
+    .from("lesson_progress")
+    .select("*")
+    .eq("student_id", studentId)
+    .eq("lesson_id", lessonId)
+    .maybeSingle();
+
+  if (error) throw new Error(error.message);
+  return data;
+};

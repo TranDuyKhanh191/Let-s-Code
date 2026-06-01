@@ -6,15 +6,14 @@ import { authRequired, requireRole } from "../middlewares/auth.middleware";
 
 const router = Router();
 
-// yêu cầu đăng nhập + admin cho mọi route media
+// yêu cầu đăng nhập
 router.use(authRequired);
-router.use(requireRole(["admin"]));
 
-// MEDIA
-router.post("/upload", upload.single("file"), MediaController.upload);
-router.delete("/:id", MediaController.remove);
+// MEDIA - Cho phép admin, teacher và student upload
+router.post("/upload", requireRole(["admin", "teacher", "student"]), upload.single("file"), MediaController.upload);
+router.delete("/:id", requireRole(["admin"]), MediaController.remove);
 
 // CONTENT-MEDIA MAPPING
-router.post("/content_media", ContentMediaController.attachMedia);
+router.post("/content_media", requireRole(["admin"]), ContentMediaController.attachMedia);
 
 export default router;

@@ -1,4 +1,5 @@
 import multer from "multer";
+import path from "path";
 
 const allowed = [
   "image/png",
@@ -14,6 +15,13 @@ export const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 30 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
+    const ext = path.extname(file.originalname).toLowerCase();
+    
+    // Cho phép upload file đặc thù của Lego (.llsp3)
+    if (ext === ".llsp3") {
+      return cb(null, true);
+    }
+
     if (
       file.mimetype.startsWith("image/") ||
       file.mimetype.startsWith("video/") ||
@@ -25,6 +33,6 @@ export const upload = multer({
     ) {
       return cb(null, true);
     }
-    return cb(new Error(`File type không được phép! (${file.mimetype})`));
+    return cb(new Error(`File type không được phép! (${file.mimetype}) - ${ext}`));
   }
 });

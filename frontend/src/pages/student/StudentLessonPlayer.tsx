@@ -434,13 +434,14 @@ const QuizSection = React.memo(({ quizzes, sectionRef }: { quizzes: Quiz[], sect
 });
 
 // --- MAIN COMPONENT ---
-const LessonDetailPlayer = () => {
+const StudentLessonPlayer = () => {
   const params = useParams();
   const lessonId = params.lessonId || params.id;
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [lessonInfo, setLessonInfo] = useState<LessonInfo | null>(null);
   const [objectives, setObjectives] = useState<Objective | null>(null);
   const [preparation, setPreparation] = useState<Preparation | null>(null);
@@ -561,7 +562,7 @@ const LessonDetailPlayer = () => {
 
         const [objData, lessonRes, prepData, buildData, quizData, chalData, mediaData, contentData] = await Promise.all([
           safeFetch(`${API_BASE}/lessons/objectives/${lessonId}/objectives`, 'object'),
-          fetch(`${API_BASE}/lessons/${lessonId}`, { headers }),
+          fetch(`${API_BASE}/lessons/student/${lessonId}`, { headers }),
           safeFetch(`${API_BASE}/lessons/preparations/${lessonId}`, 'object'),
           safeFetch(`${API_BASE}/lessons/builds/${lessonId}`, 'array'),
           safeFetch(`${API_BASE}/lessons/quizzes/${lessonId}`, 'array'),
@@ -581,6 +582,10 @@ const LessonDetailPlayer = () => {
           const lessonJson = await lessonRes.json();
           const lessonData = Array.isArray(lessonJson.data || lessonJson.lesson) ? (lessonJson.data || lessonJson.lesson)[0] : (lessonJson.data || lessonJson.lesson || lessonJson);
           setLessonInfo(lessonData);
+          
+          if (lessonJson.progress && lessonJson.progress.status && ['submitted', 'đã nộp bài', 'completed'].includes(lessonJson.progress.status.toLowerCase())) {
+            setIsSubmitted(true);
+          }
         }
 
         setPreparation((prepData as any)?.preparation || prepData);
@@ -684,14 +689,27 @@ const LessonDetailPlayer = () => {
                 </button>
 
                 {/* 2. Nút Danh sách */}
-                <button aria-label="Course List" title="Danh sách khóa học" onClick={() => navigate('/teacher/courses')} className="flex items-center gap-2 px-4 py-2 text-sm font-semibold transition-all rounded-full bg-white/5 hover:bg-[#ffe400] hover:text-black text-white/70 group border border-white/5">
+                <button aria-label="Course List" title="Danh sách khóa học" onClick={() => navigate('/student/my-courses')} className="flex items-center gap-2 px-4 py-2 text-sm font-semibold transition-all rounded-full bg-white/5 hover:bg-[#ffe400] hover:text-black text-white/70 group border border-white/5">
                   <CollectionIcon className="w-4 h-4" /> Danh sách
                 </button>
 
                 <div className="h-8 w-[1px] bg-white/10 hidden md:block ml-2"></div>
                 <div className="hidden md:block"><h1 className="text-xl font-black tracking-wide text-white drop-shadow-md">{lessonInfo?.title}</h1></div>
+                
+                {/* [NEW] BADGE SUBMISSION STATUS */}
+                <div className="hidden md:flex items-center ml-2">
+                  {isSubmitted ? (
+                    <span className="px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/50 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                      <CheckCircleIcon className="w-4 h-4" /> Đã nộp bài
+                    </span>
+                  ) : (
+                    <span className="px-3 py-1 bg-red-500/20 text-red-400 border border-red-500/50 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                      <XCircleIcon className="w-4 h-4" /> Chưa làm
+                    </span>
+                  )}
+                </div>
               </div>
-              <button aria-label="Home" title="Trang chủ" onClick={() => navigate('/teacher/home')} className="p-2.5 transition-all rounded-full bg-gradient-to-r from-[#9c00e5] to-[#443fff] shadow-lg hover:shadow-purple-500/50 text-white hover:scale-110"><HomeIcon className="w-5 h-5" /></button>
+              <button aria-label="Home" title="Trang chủ" onClick={() => navigate('/student/dashboard')} className="p-2.5 transition-all rounded-full bg-gradient-to-r from-[#9c00e5] to-[#443fff] shadow-lg hover:shadow-purple-500/50 text-white hover:scale-110"><HomeIcon className="w-5 h-5" /></button>
             </div>
           </div>
         </div>
@@ -924,7 +942,7 @@ const LessonDetailPlayer = () => {
                             <div className="mt-4 text-sm italic text-gray-400">Không có hình ảnh minh họa cho thử thách này.</div>
                           )}
                           
-                          <ChallengeSandbox challengeId={chal.id} lessonId={Number(lessonId)} role="teacher" />
+                          <ChallengeSandbox challengeId={chal.id} lessonId={Number(lessonId)} role="student" onUploadSuccess={() => setIsSubmitted(true)} />
                         </div>
                       )) : (<div className="py-10 text-center text-gray-400">Đang cập nhật thử thách...</div>)}
                     </div>
@@ -953,4 +971,4 @@ const LessonDetailPlayer = () => {
   );
 };
 
-export default LessonDetailPlayer;
+export default StudentLessonPlayer;

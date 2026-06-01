@@ -1,0 +1,2 @@
+"const ChallengeSandbox = ({ challengeId, role = 'teacher' }: { challengeId: number, role?: 'teacher' | 'student' }) => {\n  const [isModalOpen, setIsModalOpen] = useState(false);\n  const [isUploading, setIsUploading] = useState(false);\n  const [uploadPr
+<truncated 12529 bytes>

@@ -51,10 +51,10 @@ router.delete(
   CourseController.deleteCourse
 );
 
-// ===================== TEACHER ======================
+// ===================== TEACHER & STUDENT ======================
 router.get(
   "/me",
-  requireRole(["teacher"]),
+  requireRole(["teacher", "student"]),
   CourseController.getMyCourses
 );
 
