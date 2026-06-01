@@ -169,15 +169,23 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
                             <UserCircleIcon className="w-8 h-8" />
                           </div>
                           <div>
-                            <div className="font-bold text-white text-lg">{sub.student?.full_name || sub.student?.display_name || 'Học sinh'}</div>
-                            <div className="text-xs text-green-400 mt-1 flex items-center gap-1">
-                               <CheckCircleIcon className="w-4 h-4" /> Đã nộp lúc: {new Date(sub.updated_at).toLocaleString('vi-VN')}
+                            <div className="font-bold text-white text-lg">{sub.studentName || 'Học sinh'}</div>
+                            <div className={`text-xs mt-1 flex items-center gap-1 ${sub.status === 'đã nộp bài' ? 'text-green-400' : 'text-gray-400'}`}>
+                               {sub.status === 'đã nộp bài' ? (
+                                 <><CheckCircleIcon className="w-4 h-4" /> Đã nộp lúc: {new Date(sub.updated_at).toLocaleString('vi-VN')}</>
+                               ) : (
+                                 'Chưa nộp bài'
+                               )}
                             </div>
                           </div>
                         </div>
-                        <a href={sub.file_url} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white transition-all bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-500/30 hover:scale-105 active:scale-95">
-                          <DownloadIcon className="w-4 h-4" /> Tải về
-                        </a>
+                        {sub.fileUrl ? (
+                          <a href={sub.fileUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white transition-all bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-500/30 hover:scale-105 active:scale-95">
+                            <DownloadIcon className="w-4 h-4" /> Tải về
+                          </a>
+                        ) : (
+                          <span className="text-xs italic text-gray-500 px-5">Không có file</span>
+                        )}
                       </div>
                     ))
                   )}

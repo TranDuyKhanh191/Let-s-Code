@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 import HeaderAdmin from "../../components/layout/HeaderAdmin";
 
@@ -56,13 +56,13 @@ export default function CreateStudentPage() {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`
       };
-      
+
       const newStudentData = {
         username: formData.username,
         email: formData.email,
         full_name: formData.full_name,
         password: formData.password,
-        // Không gửi program_id nữa
+        role: "student",
       };
 
       const response = await fetch("http://localhost:3000/api/users", {
@@ -96,7 +96,7 @@ export default function CreateStudentPage() {
       <HeaderAdmin />
       <main className="flex-1 flex items-center justify-center p-6 md:p-10">
         <form onSubmit={handleSubmit} className="bg-gradient-to-br from-[#2a1b3d] to-[#1f1428] border border-[#9c00e5]/20 rounded-2xl max-w-xl w-full p-8 shadow-xl custom-scrollbar relative">
-          
+
           <button
             type="button"
             onClick={() => navigate(-1)}
@@ -107,7 +107,7 @@ export default function CreateStudentPage() {
           </button>
 
           <h2 className="text-2xl font-bold text-white mb-8 text-center">Thêm học sinh mới</h2>
-          
+
           <div className="mb-4">
             <label className="block text-sm font-bold text-gray-400 mb-2">Tên đầy đủ</label>
             <input
@@ -146,19 +146,19 @@ export default function CreateStudentPage() {
               />
             </div>
           </div>
-          
+
           {/* Đã xóa phần chọn Program, chỉ còn mật khẩu */}
           <div className="mb-4">
-              <label className="block text-sm font-bold text-gray-400 mb-2">Mật khẩu</label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#9c00e5] transition-colors"
-                placeholder="Nhập mật khẩu"
-                required
-              />
+            <label className="block text-sm font-bold text-gray-400 mb-2">Mật khẩu</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleInputChange}
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#9c00e5] transition-colors"
+              placeholder="Nhập mật khẩu"
+              required
+            />
           </div>
 
           <div className="flex gap-3 pt-6 border-t border-white/10">
