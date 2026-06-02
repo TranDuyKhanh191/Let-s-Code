@@ -5,6 +5,7 @@
     "dev": "tsx watch src/app.ts"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@supabase/supabase-js": "^2.87.0",
     "all": "^0.0.0",
     "axios": "^1.16.1",

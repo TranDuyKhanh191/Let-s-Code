@@ -23,8 +23,9 @@ import quizRoutes from "./routes/quiz.routes";
 import lessonContentRoutes from "./routes/lessonContent.routes";
 import lessonMediaRoutes from "./routes/lessonMedia.routes";
 
-// Media
+// Media & AI
 import mediaRoutes from "./routes/media.routes";
+import aiRoutes from "./routes/ai.routes";
 
 // Lesson Utilities
 import lessonOrderRoutes from "./routes/lessonOrder.routes";
@@ -64,8 +65,9 @@ app.use("/api/lessons/quizzes", quizRoutes);
 app.use("/api/lessons/lessonContents", lessonContentRoutes);
 app.use("/api/lessons/lessonMedia", lessonMediaRoutes);
 
-// ====================== MEDIA ======================
+// ====================== MEDIA & AI ======================
 app.use("/api/media", mediaRoutes);
+app.use("/api/ai", aiRoutes);
 
 // ====================== LESSON EXTRA ======================
 app.use("/api/lessonOrders", lessonOrderRoutes);

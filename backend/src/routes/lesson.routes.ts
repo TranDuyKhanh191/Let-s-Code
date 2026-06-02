@@ -92,11 +92,14 @@ router.get(
   LessonController.getLessonByIdForStudent
 );
 
+import { upload } from "../middlewares/upload.middleware";
+
 // Học sinh nộp bài giảng
 router.post(
   "/student/:id/submit",
   authRequired,
   requireRole(["student"]),
+  upload.single("file"),
   LessonController.submitLesson
 );
 
