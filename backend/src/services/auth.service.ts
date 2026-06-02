@@ -60,8 +60,8 @@ export const forgotPassword = async (email: string) => {
     .single();
 
   if (!user) throw new Error("Email không tồn tại");
-  if (user.role !== "admin")
-    throw new Error("Chức năng này chỉ dành cho admin");
+  if (user.role !== "admin" && user.role !== "teacher")
+    throw new Error("Chức năng này hiện chỉ dành cho quản trị viên và giáo viên");
 
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
   const expires = new Date(Date.now() + 10 * 60 * 1000); // 10 phút
@@ -93,7 +93,7 @@ await sendMail(
           Xin chào <strong>${displayName}</strong>,
         </p>
         <p style="margin: 0 0 20px; color: #555555; line-height: 1.6; font-size: 15px;">
-          Hệ thống đã nhận được yêu cầu đặt lại mật khẩu cho tài khoản quản trị của bạn. 
+          Hệ thống đã nhận được yêu cầu đặt lại mật khẩu cho tài khoản của bạn. 
           Để đảm bảo an toàn bảo mật, vui lòng sử dụng mã xác thực (OTP) dưới đây để hoàn tất quy trình:
         </p>
 
@@ -124,7 +124,7 @@ await sendMail(
   `
 );
 
-  return { message: "Đã gửi mã OTP về email admin" };
+  return { message: "Đã gửi mã OTP về email của bạn" };
 };
 
 export const resetPasswordWithOTP = async (
@@ -156,7 +156,7 @@ export const resetPasswordWithOTP = async (
     })
     .eq("id", user.id);
 
-  return { message: "Đổi mật khẩu admin thành công" };
+  return { message: "Đổi mật khẩu thành công" };
 };
 
 
