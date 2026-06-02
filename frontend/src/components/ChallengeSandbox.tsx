@@ -3,6 +3,7 @@ import { useDropzone } from 'react-dropzone';
 import { CloudUploadIcon, DocumentIcon, CheckCircleIcon, XIcon, UserCircleIcon, PlayIcon, DownloadIcon, ExternalLinkIcon, DesktopComputerIcon } from '@heroicons/react/solid';
 import confetti from 'canvas-confetti';
 import { useAuth } from '../context/AuthContext';
+import { AITutorChat } from './AITutorChat';
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
@@ -19,12 +20,12 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
       fetch(`${API_BASE}/lessons/${lessonId}/submissions`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       })
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          setSubmissions(data.data);
-        }
-      }).catch(console.error);
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            setSubmissions(data.data);
+          }
+        }).catch(console.error);
     }
   }, [isModalOpen, lessonId, role]);
 
@@ -46,32 +47,17 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
     if (lessonId) formData.append('lesson_id', lessonId.toString());
 
     try {
-      // 1. Upload file
-      const uploadRes = await fetch(`${API_BASE}/media/upload`, {
+      // 1. Submit lesson directly with file
+      const submitRes = await fetch(`${API_BASE}/lessons/student/${lessonId}/submit`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         body: formData
       });
-      const uploadData = await uploadRes.json();
-      
-      if (!uploadRes.ok || !uploadData.media) {
-        throw new Error(uploadData.error || uploadData.message || 'Lỗi khi upload file');
-      }
 
-      // 2. Submit lesson
-      const submitRes = await fetch(`${API_BASE}/lessons/student/${lessonId}/submit`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('token')}` 
-        },
-        body: JSON.stringify({ fileUrl: uploadData.media.url })
-      });
-      
       clearInterval(interval);
       setUploadProgress(100);
       const data = await submitRes.json();
-      
+
       if (data.success) {
         setUploadSuccess(true);
         confetti({
@@ -81,7 +67,7 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
         });
         if (onUploadSuccess) onUploadSuccess();
       } else {
-        alert(data.message || 'Lỗi khi nộp bài');
+        alert(data.message || data.error || 'Lỗi khi nộp bài');
       }
     } catch (error: any) {
       clearInterval(interval);
@@ -102,12 +88,30 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
     multiple: false
   });
 
+  const handleDownload = async (url: string, fileName: string) => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = fileName || 'submission';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(blobUrl);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error("Lỗi khi tải file:", error);
+      window.open(url, '_blank');
+    }
+  };
+
   return (
     <div className="mt-8 p-6 lg:p-8 bg-gradient-to-br from-[#1a0b2e] to-[#2a1b3d] rounded-3xl border border-[#ffe400]/30 shadow-2xl relative overflow-hidden group">
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-[#9c00e5]/20 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none group-hover:bg-[#9c00e5]/30 transition-colors duration-700"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#ffe400]/10 rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none group-hover:bg-[#ffe400]/20 transition-colors duration-700"></div>
-      
+
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1 text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-4 mb-3">
@@ -120,18 +124,18 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
             Kết nối với ứng dụng SPIKE Web App để viết code điều khiển robot. Sau khi hoàn thành thử thách, hãy xuất file dự án (.llsp3) hoặc hình ảnh để nộp bài nhé!
           </p>
         </div>
-        
+
         <div className="w-full md:w-auto flex flex-col gap-3 shrink-0">
-          <a 
-            href="https://spike.legoeducation.com/" 
-            target="_blank" 
+          <a
+            href="https://spike.legoeducation.com/"
+            target="_blank"
             rel="noreferrer"
             className="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#ffe400] to-[#ffbd3f] text-black font-black uppercase tracking-widest rounded-2xl shadow-[0_0_20px_rgba(255,228,0,0.3)] hover:shadow-[0_0_30px_rgba(255,228,0,0.5)] hover:scale-105 active:scale-95 transition-all group/btn"
           >
             Mở SPIKE App <ExternalLinkIcon className="w-5 h-5 group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1 transition-transform" />
           </a>
-          
-          <button 
+
+          <button
             onClick={() => setIsModalOpen(true)}
             className="flex items-center justify-center gap-2 px-8 py-3 bg-white/5 text-white font-bold border border-white/10 rounded-2xl hover:bg-white/10 hover:border-white/30 hover:shadow-lg transition-all"
           >
@@ -155,7 +159,7 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
                 <XIcon className="w-6 h-6" />
               </button>
             </div>
-            
+
             <div className="p-8">
               {role === 'teacher' ? (
                 <div className="space-y-4">
@@ -171,18 +175,18 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
                           <div>
                             <div className="font-bold text-white text-lg">{sub.studentName || 'Học sinh'}</div>
                             <div className={`text-xs mt-1 flex items-center gap-1 ${sub.status === 'đã nộp bài' ? 'text-green-400' : 'text-gray-400'}`}>
-                               {sub.status === 'đã nộp bài' ? (
-                                 <><CheckCircleIcon className="w-4 h-4" /> Đã nộp lúc: {new Date(sub.updated_at).toLocaleString('vi-VN')}</>
-                               ) : (
-                                 'Chưa nộp bài'
-                               )}
+                              {sub.status === 'đã nộp bài' ? (
+                                <><CheckCircleIcon className="w-4 h-4" /> Đã nộp lúc: {new Date(sub.updated_at).toLocaleString('vi-VN')}</>
+                              ) : (
+                                'Chưa nộp bài'
+                              )}
                             </div>
                           </div>
                         </div>
                         {sub.fileUrl ? (
-                          <a href={sub.fileUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white transition-all bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-500/30 hover:scale-105 active:scale-95">
+                          <button onClick={() => handleDownload(sub.fileUrl, sub.fileName || 'submission.llsp3')} className="flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white transition-all bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-blue-500/30 hover:scale-105 active:scale-95">
                             <DownloadIcon className="w-4 h-4" /> Tải về
-                          </a>
+                          </button>
                         ) : (
                           <span className="text-xs italic text-gray-500 px-5">Không có file</span>
                         )}
@@ -191,16 +195,15 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
                   )}
                 </div>
               ) : (
-                <div 
-                  {...getRootProps()} 
-                  className={`border-2 border-dashed rounded-2xl p-10 text-center transition-all duration-300 cursor-pointer ${
-                    isDragActive ? 'border-blue-500 bg-blue-500/10' : 
-                    uploadSuccess ? 'border-green-500 bg-green-500/10' : 
-                    'border-gray-600 hover:border-blue-400 hover:bg-white/5'
-                  }`}
+                <div
+                  {...getRootProps()}
+                  className={`border-2 border-dashed rounded-2xl p-10 text-center transition-all duration-300 cursor-pointer ${isDragActive ? 'border-blue-500 bg-blue-500/10' :
+                      uploadSuccess ? 'border-green-500 bg-green-500/10' :
+                        'border-gray-600 hover:border-blue-400 hover:bg-white/5'
+                    }`}
                 >
                   <input {...getInputProps()} />
-                  
+
                   {isUploading ? (
                     <div className="flex flex-col items-center justify-center space-y-4">
                       <div className="w-16 h-16 border-4 border-blue-500 rounded-full border-t-transparent animate-spin"></div>
@@ -232,7 +235,7 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
                 </div>
               )}
             </div>
-            
+
             {role === 'student' && !uploadSuccess && !isUploading && (
               <div className="p-4 border-t border-white/10 bg-black/40 text-center text-sm font-medium text-yellow-500 flex items-center justify-center gap-2">
                 <CheckCircleIcon className="w-5 h-5" /> Hãy lưu file dự án từ ứng dụng LEGO SPIKE trước khi nộp.
@@ -241,7 +244,11 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
           </div>
         </div>
       )}
+
+      {/* Tích hợp AI Tutor Chat nổi cho học sinh */}
+      {role === 'student' && <AITutorChat />}
     </div>
   );
 };
+
 

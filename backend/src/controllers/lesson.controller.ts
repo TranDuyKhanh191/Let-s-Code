@@ -165,12 +165,17 @@ export const submitLesson = async (req: any, res: Response) => {
         const studentId = req.user.id;
         const lessonId = Number(req.params.id);
         const { fileUrl } = req.body;
+        const file = req.file;
 
-        if (!fileUrl) {
-            return res.status(400).json({ error: "Missing fileUrl" });
+        let progress;
+        if (file) {
+            progress = await LessonService.submitLessonProgressWithFile(studentId, lessonId, file);
+        } else if (fileUrl) {
+            progress = await LessonService.submitLessonProgress(studentId, lessonId, fileUrl);
+        } else {
+            return res.status(400).json({ error: "Missing file or fileUrl" });
         }
 
-        const progress = await LessonService.submitLessonProgress(studentId, lessonId, fileUrl);
         res.json({ success: true, progress });
     } catch (err: any) {
         res.status(500).json({ error: err.message });

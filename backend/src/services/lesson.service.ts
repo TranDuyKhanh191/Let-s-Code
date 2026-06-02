@@ -298,6 +298,49 @@ export const submitLessonProgress = async (studentId: number, lessonId: number, 
   }
 };
 
+const SUBMISSION_BUCKET = "student-submissions";
+
+export const submitLessonProgressWithFile = async (studentId: number, lessonId: number, file: Express.Multer.File) => {
+  const ext = file.originalname.split(".").pop();
+  const random = Math.random().toString(36).substring(2, 10);
+  
+  let folder = "files";
+  if (file.mimetype.startsWith("image")) folder = "images";
+  else if (file.mimetype.startsWith("video")) folder = "videos";
+  else if (file.mimetype === "application/pdf") folder = "pdf";
+
+  const fileName = `${studentId}-${lessonId}-${Date.now()}-${random}.${ext}`;
+  const filePath = `${folder}/${fileName}`;
+
+  let { error: uploadErr } = await supabase.storage
+    .from(SUBMISSION_BUCKET)
+    .upload(filePath, file.buffer, {
+      contentType: file.mimetype,
+      upsert: false
+    });
+
+  if (uploadErr) {
+    if (uploadErr.message.toLowerCase().includes("bucket not found") || uploadErr.message.includes("The resource was not found")) {
+      await supabase.storage.createBucket(SUBMISSION_BUCKET, { public: true });
+      const { error: retryErr } = await supabase.storage
+        .from(SUBMISSION_BUCKET)
+        .upload(filePath, file.buffer, {
+          contentType: file.mimetype,
+          upsert: false
+        });
+      if (retryErr) throw new Error(`Lỗi upload sau khi tạo bucket: ${retryErr.message}`);
+    } else {
+      throw new Error(uploadErr.message);
+    }
+  }
+
+  const { data: urlData } = supabase.storage
+    .from(SUBMISSION_BUCKET)
+    .getPublicUrl(filePath);
+
+  return await submitLessonProgress(studentId, lessonId, urlData.publicUrl);
+};
+
 // Lấy tiến độ của học sinh đối với 1 bài học
 export const getStudentLessonProgress = async (studentId: number, lessonId: number) => {
   const { data, error } = await supabase
