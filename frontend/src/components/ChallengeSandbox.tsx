@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { CloudUploadIcon, DocumentIcon, CheckCircleIcon, XIcon, UserCircleIcon, PlayIcon, DownloadIcon, ExternalLinkIcon, DesktopComputerIcon } from '@heroicons/react/solid';
 import confetti from 'canvas-confetti';
+import { gsap } from 'gsap';
 import { useAuth } from '../context/AuthContext';
 import { AITutorChat } from './AITutorChat';
 
@@ -60,11 +61,58 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
 
       if (data.success) {
         setUploadSuccess(true);
+        
+        // 1. Confetti
         confetti({
-          particleCount: 100,
-          spread: 70,
+          particleCount: 150,
+          spread: 80,
           origin: { y: 0.6 }
         });
+        
+        // 2. Play Audio
+        const audio = new Audio('https://actions.google.com/sounds/v1/cartoon/magic_chime.ogg');
+        audio.volume = 0.5;
+        audio.play().catch(e => console.error('Audio play failed', e));
+
+        // 3. GSAP pop-in animation (we wait a short tick for React to render the success block)
+        setTimeout(() => {
+          gsap.fromTo('.success-animation', 
+            { scale: 0.2, opacity: 0, rotation: -10 },
+            { scale: 1, opacity: 1, rotation: 0, duration: 0.8, ease: "elastic.out(1, 0.4)" }
+          );
+        }, 10);
+
+        // 4. GSAP floating balloons
+        const createBalloon = (x: number) => {
+          const balloon = document.createElement('div');
+          balloon.className = 'fixed bottom-[-100px] z-[100] w-12 h-16 md:w-16 md:h-20 rounded-full shadow-2xl';
+          balloon.style.left = `${x}%`;
+          balloon.style.background = `radial-gradient(circle at 30% 30%, #fff, hsl(${Math.random() * 360}, 90%, 60%))`;
+          
+          // balloon string
+          const string = document.createElement('div');
+          string.className = 'absolute -bottom-10 left-1/2 w-[2px] h-10 bg-white/40 -translate-x-1/2 origin-top';
+          balloon.appendChild(string);
+          
+          document.body.appendChild(balloon);
+          
+          gsap.to(balloon, {
+            y: -window.innerHeight - 200,
+            x: `+=${(Math.random() - 0.5) * 300}`,
+            rotation: (Math.random() - 0.5) * 60,
+            duration: 3 + Math.random() * 3,
+            ease: 'power1.out',
+            onComplete: () => {
+              balloon.remove();
+            }
+          });
+        };
+        
+        // Spawn multiple balloons over a short period
+        for (let i = 0; i < 20; i++) {
+          setTimeout(() => createBalloon(10 + Math.random() * 80), Math.random() * 1000);
+        }
+
         if (onUploadSuccess) onUploadSuccess();
       } else {
         alert(data.message || data.error || 'Lỗi khi nộp bài');
@@ -210,9 +258,9 @@ export const ChallengeSandbox = ({ lessonId, challengeId, role = 'teacher', onUp
                       <div className="text-lg font-bold text-blue-400">Đang tải lên... {uploadProgress}%</div>
                     </div>
                   ) : uploadSuccess ? (
-                    <div className="flex flex-col items-center justify-center space-y-4 animate-bounce">
+                    <div className="flex flex-col items-center justify-center space-y-4 success-animation">
                       <div className="relative">
-                        <div className="absolute inset-0 bg-green-500 blur-xl opacity-30 rounded-full"></div>
+                        <div className="absolute inset-0 bg-green-500 blur-xl opacity-30 rounded-full animate-pulse"></div>
                         <CheckCircleIcon className="w-24 h-24 text-green-500 relative z-10" />
                       </div>
                       <div className="text-2xl font-black text-green-400">Nộp bài thành công!</div>
