@@ -139,6 +139,52 @@ export const updateAssignmentStatus = async (assignmentId: number, status: "acti
   return data;
 };
 
+export const updateAssignment = async (
+  assignmentId: number, 
+  updateData: { status?: "active"|"revoked"|"pending", start_at?: string | null, end_at?: string | null }, 
+  adminUserId: number
+) => {
+  const { data: before } = await supabase
+    .from("assignments")
+    .select("*")
+    .eq("id", assignmentId)
+    .single();
+
+  const { data, error } = await supabase
+    .from("assignments")
+    .update({ 
+        ...updateData, 
+        updated_at: new Date().toISOString() 
+    })
+    .eq("id", assignmentId)
+    .select()
+    .single();
+
+  if (error) throw new Error(error.message);
+
+  await supabase.from("assignment_logs").insert([{
+    assignment_id: assignmentId,
+    action_user_id: adminUserId,
+    action_type: "update",
+    change_details: JSON.stringify({ before, after: data })
+  }]);
+
+  return data;
+};
+
+export const deleteAssignment = async (assignmentId: number) => {
+  // Xóa các log liên quan trước để tránh lỗi khóa ngoại (foreign key constraint)
+  await supabase.from("assignment_logs").delete().eq("assignment_id", assignmentId);
+
+  const { error } = await supabase
+    .from("assignments")
+    .delete()
+    .eq("id", assignmentId);
+
+  if (error) throw new Error(error.message);
+  return true;
+};
+
 export const getActiveAssignmentsForTeacher = async (teacher_id: number) => {
   const { data, error } = await supabase
     .from("assignments")

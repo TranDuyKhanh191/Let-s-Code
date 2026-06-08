@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import Logo from "../../assets/logo/logo_fb.png"; 
+import Logo from "../../assets/logo/logo_fb.png";
 import "../../styles/admin.css";
-import { 
-  HomeIcon, 
-  BookOpenIcon, 
-  CalendarIcon, 
+import {
+  HomeIcon,
+  BookOpenIcon,
+  CalendarIcon,
   UserGroupIcon,
   LogoutIcon,
   BellIcon,
@@ -47,7 +47,7 @@ export default function HeaderAdmin() {
       if (activeElement && navRef.current) {
         const navRect = navRef.current.getBoundingClientRect();
         const itemRect = activeElement.getBoundingClientRect();
-        
+
         setIndicatorPos({
           left: itemRect.left - navRect.left,
           width: itemRect.width
@@ -61,7 +61,7 @@ export default function HeaderAdmin() {
     if (element && navRef.current) {
       const navRect = navRef.current.getBoundingClientRect();
       const itemRect = element.getBoundingClientRect();
-      
+
       setIndicatorPos({
         left: itemRect.left - navRect.left,
         width: itemRect.width
@@ -91,30 +91,30 @@ export default function HeaderAdmin() {
 
   // Danh sách menu Admin
   const menuItems = [
-    { 
-      name: "Dashboard", 
-      path: "/admin/dashboard", 
-      icon: <HomeIcon className="w-5 h-5" /> 
+    {
+      name: "Dashboard",
+      path: "/admin/dashboard",
+      icon: <HomeIcon className="w-5 h-5" />
     },
-    { 
-      name: "Khóa học", 
+    {
+      name: "Khóa học",
       path: "/admin/courses",
-      icon: <BookOpenIcon className="w-5 h-5" /> 
+      icon: <BookOpenIcon className="w-5 h-5" />
     },
-    { 
-      name: "Giáo viên", 
-      path: "/admin/manage-teachers", 
-      icon: <UserGroupIcon className="w-5 h-5" /> 
+    {
+      name: "Giáo viên",
+      path: "/admin/manage-teachers",
+      icon: <UserGroupIcon className="w-5 h-5" />
     },
-    { 
-      name: "Học sinh", 
-      path: "/admin/manage-students", 
-      icon: <UserGroupIcon className="w-5 h-5" /> 
+    {
+      name: "Học sinh",
+      path: "/admin/manage-students",
+      icon: <UserGroupIcon className="w-5 h-5" />
     },
-    { 
-      name: "Bài học", 
-      path: "/admin/lessons", 
-      icon: <CalendarIcon className="w-5 h-5" /> 
+    {
+      name: "Bài học",
+      path: "/admin/lessons",
+      icon: <CalendarIcon className="w-5 h-5" />
     },
   ];
 
@@ -122,22 +122,22 @@ export default function HeaderAdmin() {
     <header className="sticky top-0 z-50 font-sans border-b shadow-lg bg-gradient-to-r from-[#1a0b2e]/95 to-[#0f061a]/95 backdrop-blur-lg border-[#9c00e5]/20 header-morph">
       <div className="container px-4 mx-auto lg:px-8">
         <div className="flex items-center justify-between h-20">
-          
+
           {/* LEFT: LOGO */}
           <Link to="/admin/dashboard" className="flex items-center gap-3 group">
-             <div className="p-1 transition-all duration-300 rounded-lg bg-gradient-to-br from-[#9c00e5]/20 to-[#ff7c7c]/20 group-hover:from-[#9c00e5]/40 group-hover:to-[#ff7c7c]/40 icon-morph">
-                <img src={Logo} alt="LetsCode" className="object-cover w-10 h-10 rounded-md" />
-             </div>
-             <div>
-               <h1 className="text-xl font-black tracking-wide text-white">LETSCODE</h1>
-               <span className="text-[10px] font-bold text-[#9c00e5] uppercase tracking-widest">Admin Panel</span>
-             </div>
+            <div className="p-1 transition-all duration-300 rounded-lg bg-gradient-to-br from-[#9c00e5]/20 to-[#ff7c7c]/20 group-hover:from-[#9c00e5]/40 group-hover:to-[#ff7c7c]/40 icon-morph">
+              <img src={Logo} alt="LetsCode" className="object-cover w-10 h-10 rounded-md" />
+            </div>
+            <div>
+              <h1 className="text-xl font-black tracking-wide text-white">LETSCODE</h1>
+              <span className="text-[10px] font-bold text-[#9c00e5] uppercase tracking-widest">Admin Panel</span>
+            </div>
           </Link>
 
           {/* MIDDLE: MENU DESKTOP */}
           <nav ref={navRef} className="relative items-center hidden gap-1 p-1 border rounded-full md:flex bg-white/5 border-[#9c00e5]/20">
             {/* Animated Indicator Background */}
-            <div 
+            <div
               className="absolute top-1 bottom-1 rounded-full bg-gradient-to-r from-[#9c00e5]/40 to-[#ff7c7c]/40 blur-sm transition-all duration-500 ease-out pointer-events-none"
               style={{
                 left: `${indicatorPos.left}px`,
@@ -145,19 +145,19 @@ export default function HeaderAdmin() {
                 boxShadow: "0 0 20px rgba(156, 0, 229, 0.3)"
               }}
             />
-            
+
             {menuItems.map((item, index) => {
               const isActive = checkActive(item.path);
               return (
                 <Link
                   key={item.name}
-                  ref={(el) => {itemRefs.current[index] = el;}}
+                  ref={(el) => { itemRefs.current[index] = el; }}
                   to={item.path}
                   onMouseEnter={() => handleMenuHover(index)}
                   onMouseLeave={updateIndicatorPosition}
                   className={`relative flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 z-10
-                    ${isActive 
-                      ? "text-white" 
+                    ${isActive
+                      ? "text-white"
                       : "text-gray-400 hover:text-white"
                     }`}
                 >
@@ -177,25 +177,25 @@ export default function HeaderAdmin() {
                 <p className="text-sm font-bold text-white">{user?.full_name || "Admin"}</p>
                 <p className="text-[10px] font-bold tracking-wider uppercase text-[#9c00e5]">{user?.role || "Administrator"}</p>
               </div>
-              
+
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#9c00e5] to-[#ff7c7c] p-[2px] shadow-lg shadow-[#9c00e5]/40 header-morph-avatar">
-                 <div className="flex items-center justify-center w-full h-full overflow-hidden font-bold text-white rounded-lg bg-gradient-to-br from-[#9c00e5] to-[#ff7c7c]">
-                    {user?.full_name ? user.full_name.charAt(0).toUpperCase() : "A"}
-                 </div>
+                <div className="flex items-center justify-center w-full h-full overflow-hidden font-bold text-white rounded-lg bg-gradient-to-br from-[#9c00e5] to-[#ff7c7c]">
+                  {user?.full_name ? user.full_name.charAt(0).toUpperCase() : "A"}
+                </div>
               </div>
-              
+
               {/* Nút Logout Desktop */}
-              <button 
+              <button
                 onClick={handleLogout}
                 className="hidden p-2 text-gray-400 transition-colors lg:flex hover:text-red-400 hover:bg-red-400/10 rounded-lg"
-                title="Đăng xuất" 
+                title="Đăng xuất"
               >
                 <LogoutIcon className="w-6 h-6" />
               </button>
             </div>
 
             {/* Nút Menu Mobile */}
-            <button 
+            <button
               title={isMenuOpen ? "Đóng menu" : "Mở menu"}
               className="p-2 text-white md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -211,25 +211,25 @@ export default function HeaderAdmin() {
         <div className="absolute left-0 right-0 border-t shadow-2xl md:hidden bg-gradient-to-br from-[#1a0b2e] to-[#0f061a] border-[#9c00e5]/20 animate-fade-in-down z-40">
           <div className="flex flex-col p-4 space-y-2">
             {menuItems.map((item) => {
-               const isActive = checkActive(item.path);
-               return (
+              const isActive = checkActive(item.path);
+              return (
                 <Link
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsMenuOpen(false)}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all
-                    ${isActive 
-                      ? "bg-gradient-to-r from-[#9c00e5]/30 to-[#ff7c7c]/30 text-white border border-[#9c00e5]/50" 
+                    ${isActive
+                      ? "bg-gradient-to-r from-[#9c00e5]/30 to-[#ff7c7c]/30 text-white border border-[#9c00e5]/50"
                       : "text-gray-400 hover:text-white hover:bg-white/5"
                     }`}
                 >
                   {item.icon}
                   {item.name}
                 </Link>
-               )
+              )
             })}
             <div className="pt-4 mt-2 border-t border-[#9c00e5]/20">
-              <button 
+              <button
                 onClick={handleLogout}
                 className="flex items-center w-full gap-3 px-4 py-3 font-bold text-red-400 transition-colors rounded-xl hover:bg-red-500/10"
               >

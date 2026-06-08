@@ -135,18 +135,17 @@ export default function AssignStudentCoursesPage() {
       };
 
       if (data.isEditing) {
-        const enr = enrollments.find(e => e.id === data.id);
         const payload = { 
-            student_id: enr.student_id, 
-            course_id: enr.course_id 
+            status: data.status,
+            start_at: data.start_at || null,
+            end_at: data.end_at || null
         };
-        const endpoint = data.status === "revoked" ? "revoke" : "assign";
-        const response = await fetch(`${API_BASE}/api/enrollments/${endpoint}`, {
-          method: endpoint === "revoke" ? "PATCH" : "POST",
+        const response = await fetch(`${API_BASE}/api/enrollments/${data.id}`, {
+          method: "PATCH",
           headers,
           body: JSON.stringify(payload)
         });
-        if (response.ok) showToast("Cập nhật trạng thái thành công!", "success");
+        if (response.ok) showToast("Cập nhật quyền thành công!", "success");
         else showToast("Lỗi cập nhật", "error");
       } else {
         if (!data.student_id || data.selectedCourses.length === 0) {
@@ -161,7 +160,9 @@ export default function AssignStudentCoursesPage() {
             headers,
             body: JSON.stringify({
               student_id: Number(data.student_id),
-              course_id: Number(cid)
+              course_id: Number(cid),
+              start_at: data.start_at || null,
+              end_at: data.end_at || null
             })
           });
           if (response.ok) successCount++;
@@ -283,13 +284,14 @@ export default function AssignStudentCoursesPage() {
                   <th className="p-5 font-bold">Email</th>
                   <th className="p-5 font-bold">Khóa học được giao</th>
                   <th className="p-5 font-bold">Ngày giao</th>
+                  <th className="p-5 font-bold">Thời hạn</th>
                   <th className="p-5 font-bold text-center">Trạng thái</th>
                   <th className="p-5 font-bold text-center">Hành động</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5">
-                {loading ? <tr><td colSpan={6} className="p-12 text-center text-gray-400">Đang tải...</td></tr> : 
-                 currentEnrollments.length === 0 ? <tr><td colSpan={6} className="p-12 text-center text-gray-400">Không tìm thấy dữ liệu.</td></tr> :
+                {loading ? <tr><td colSpan={7} className="p-12 text-center text-gray-400">Đang tải...</td></tr> : 
+                 currentEnrollments.length === 0 ? <tr><td colSpan={7} className="p-12 text-center text-gray-400">Không tìm thấy dữ liệu.</td></tr> :
                  currentEnrollments.map((enr, idx) => {
                     const student = students.find(s => s.id === enr.student_id);
                     const course = courses.find(c => c.id === enr.course_id);
@@ -306,6 +308,12 @@ export default function AssignStudentCoursesPage() {
                       <td className="p-5 text-gray-300">{student?.email}</td>
                       <td className="p-5 font-bold text-white">{course?.name || `ID: ${enr.course_id}`}</td>
                       <td className="p-5 text-gray-300 font-mono text-sm">{formatDate(enr.created_at || enr.enrolled_at)}</td>
+                      <td className="p-5 text-gray-300 text-sm">
+                        <div className="flex flex-col gap-1">
+                          {enr.start_at ? <span className="text-green-400">Từ: {formatDate(enr.start_at)}</span> : <span className="text-gray-500">Từ: ---</span>}
+                          {enr.end_at ? <span className="text-red-400">Đến: {formatDate(enr.end_at)}</span> : <span className="text-gray-500">Đến: ---</span>}
+                        </div>
+                      </td>
                       <td className="p-5 text-center">
                         <span className={`px-3 py-1 rounded-lg text-xs font-bold border ${
                           enr.status === 'active' ? 'bg-[#4db933]/10 text-[#4db933] border-[#4db933]/20' :

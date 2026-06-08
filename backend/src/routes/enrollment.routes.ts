@@ -8,6 +8,7 @@ const enrollmentController = new EnrollmentController();
 // Admin routes for managing student enrollments
 router.post('/assign', authRequired, requireRole(['admin']), enrollmentController.assignCourse);
 router.patch('/revoke', authRequired, requireRole(['admin']), enrollmentController.revokeCourse);
+router.patch('/:id', authRequired, requireRole(['admin']), enrollmentController.updateEnrollment);
 router.get('/', authRequired, requireRole(['admin']), enrollmentController.getAllEnrollments);
 
 // Student routes

@@ -36,6 +36,9 @@ import lessonAggregatorRoutes from "./routes/lessonAggregator.routes";
 import dashboardRoutes from "./routes/dashboard.routes";
 import logsRoutes from "./routes/logs.routes";
 
+// ====================== CRON JOBS ======================
+import { startCronJobs } from "./cron/assignment.cron";
+
 const app = express();
 app.use(cors());
 
@@ -87,4 +90,7 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
   }
 });
 
-app.listen(3000, () => console.log("Server chạy port 3000"));
+app.listen(3000, () => {
+  console.log("Server chạy port 3000");
+  startCronJobs(); // Khởi động tiến trình quét tự động
+});

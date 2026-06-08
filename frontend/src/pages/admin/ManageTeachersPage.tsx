@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import {
   PlusIcon,
   SearchIcon,
@@ -41,7 +41,7 @@ interface FormData {
 }
 
 export default function ManageTeachersPage() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const [teachers, setTeachers] = useState<Teacher[]>([]);
   const [filteredTeachers, setFilteredTeachers] = useState<Teacher[]>([]);
@@ -49,7 +49,7 @@ export default function ManageTeachersPage() {
   const [searchTerm, setSearchTerm] = useState("");
   // Đã xóa filterProgram
   const [currentPage, setCurrentPage] = useState(1);
-  
+
   const [showModal, setShowModal] = useState(false);
   const [editingTeacher, setEditingTeacher] = useState<Teacher | null>(null);
   const [formData, setFormData] = useState<FormData>({
@@ -126,7 +126,7 @@ export default function ManageTeachersPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editingTeacher) return; 
+    if (!editingTeacher) return;
 
     try {
       const token = localStorage.getItem("token");
@@ -140,7 +140,7 @@ export default function ManageTeachersPage() {
         email: formData.email,
         full_name: formData.full_name,
         // Không gửi program_id
-        ...(formData.password && { password: formData.password }) 
+        ...(formData.password && { password: formData.password })
       };
 
       const response = await fetch(`${API_BASE}/api/users/${editingTeacher.id}`, {
@@ -151,7 +151,7 @@ export default function ManageTeachersPage() {
 
       if (response.ok) {
         alert("Cập nhật giáo viên thành công!");
-        fetchTeachers(); 
+        fetchTeachers();
         setShowModal(false);
         resetForm();
       } else {
@@ -169,7 +169,7 @@ export default function ManageTeachersPage() {
       username: teacher.username,
       email: teacher.email,
       full_name: teacher.full_name,
-      password: "", 
+      password: "",
     });
     setShowModal(true);
   };
@@ -233,12 +233,20 @@ export default function ManageTeachersPage() {
               <p className="text-gray-400 text-sm ml-12">Quản lý tất cả giáo viên trên nền tảng LETSCODE.</p>
             </div>
 
-            <button
-              onClick={() => navigate("/admin/create-teacher")}
-              className="px-6 py-2.5 text-sm font-bold text-white transition-all duration-200 shadow-lg bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] rounded-xl hover:shadow-[#9c00e5]/40 hover:from-[#ff7c7c] hover:to-[#9c00e5] hover:scale-105 active:scale-95 w-fit"
-            >
-              + Thêm giáo viên
-            </button>
+            <div className="flex gap-3">
+              <button
+                onClick={() => navigate("/admin/assign-courses")}
+                className="px-6 py-2.5 text-sm font-bold text-white transition-all duration-200 border border-[#9c00e5]/50 bg-white/5 rounded-xl hover:bg-white/10 w-fit"
+              >
+                Phân quyền khóa học
+              </button>
+              <button
+                onClick={() => navigate("/admin/create-teacher")}
+                className="px-6 py-2.5 text-sm font-bold text-white transition-all duration-200 shadow-lg bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] rounded-xl hover:shadow-[#9c00e5]/40 hover:from-[#ff7c7c] hover:to-[#9c00e5] hover:scale-105 active:scale-95 w-fit"
+              >
+                + Thêm giáo viên
+              </button>
+            </div>
           </div>
 
           <div className="mb-8">
@@ -330,8 +338,8 @@ export default function ManageTeachersPage() {
               <h2 className="text-2xl font-bold text-white">
                 {editingTeacher ? "Chỉnh sửa giáo viên" : "Thêm giáo viên"}
               </h2>
-              <button 
-                onClick={() => { setShowModal(false); resetForm(); }} 
+              <button
+                onClick={() => { setShowModal(false); resetForm(); }}
                 className="text-xl text-gray-400 transition-colors hover:text-white"
               >
                 ✕
@@ -357,8 +365,8 @@ export default function ManageTeachersPage() {
 
               {/* Đã xóa phần chọn Program trong Modal, chỉ còn Mật khẩu */}
               <div>
-                  <label className="block mb-2 text-sm font-bold text-gray-400">Mật khẩu {editingTeacher && "(Để trống nếu không đổi)"}</label>
-                  <input type="password" name="password" value={formData.password} onChange={handleInputChange} className="w-full px-4 py-3 text-white transition-colors border rounded-lg bg-white/5 border-white/10 focus:outline-none focus:border-[#9c00e5]" />
+                <label className="block mb-2 text-sm font-bold text-gray-400">Mật khẩu {editingTeacher && "(Để trống nếu không đổi)"}</label>
+                <input type="password" name="password" value={formData.password} onChange={handleInputChange} className="w-full px-4 py-3 text-white transition-colors border rounded-lg bg-white/5 border-white/10 focus:outline-none focus:border-[#9c00e5]" />
               </div>
 
               <div className="flex gap-3 pt-6 border-t border-white/10">

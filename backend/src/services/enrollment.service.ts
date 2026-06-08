@@ -4,7 +4,7 @@ export class EnrollmentService {
   /**
    * Enroll a student in a course
    */
-  async assignCourseToStudent(studentId: number, courseId: number) {
+  async assignCourseToStudent(studentId: number, courseId: number, startAt?: string | null, endAt?: string | null) {
     // Check if user is a student
     const { data: user, error: userError } = await supabase
       .from('users')
@@ -15,13 +15,19 @@ export class EnrollmentService {
     if (userError || !user) throw new Error('Student not found');
     if (user.role !== 'student') throw new Error('User is not a student');
 
+    const upsertData: any = { 
+      student_id: studentId, 
+      course_id: courseId, 
+      status: 'active', 
+      updated_at: new Date().toISOString() 
+    };
+    if (startAt !== undefined) upsertData.start_at = startAt;
+    if (endAt !== undefined) upsertData.end_at = endAt;
+
     // Insert or update enrollment
     const { data, error } = await supabase
       .from('enrollments')
-      .upsert(
-        { student_id: studentId, course_id: courseId, status: 'active', updated_at: new Date().toISOString() },
-        { onConflict: 'student_id, course_id' }
-      )
+      .upsert(upsertData, { onConflict: 'student_id, course_id' })
       .select()
       .single();
 
@@ -37,6 +43,21 @@ export class EnrollmentService {
       .from('enrollments')
       .update({ status: 'revoked', updated_at: new Date().toISOString() })
       .match({ student_id: studentId, course_id: courseId })
+      .select()
+      .single();
+
+    if (error) throw error;
+    return data;
+  }
+
+  /**
+   * Update enrollment (status, start_at, end_at)
+   */
+  async updateEnrollment(id: number, updateData: { status?: 'active' | 'revoked', start_at?: string | null, end_at?: string | null }) {
+    const { data, error } = await supabase
+      .from('enrollments')
+      .update({ ...updateData, updated_at: new Date().toISOString() })
+      .eq('id', id)
       .select()
       .single();
 
@@ -79,8 +100,14 @@ export class EnrollmentService {
 
     if (error) throw error;
     
+    const now = new Date().toISOString();
     return data
-      .filter((enr: any) => enr.courses && enr.courses.status === 'published')
+      .filter((enr: any) => {
+        if (!enr.courses || enr.courses.status !== 'published') return false;
+        if (enr.start_at && enr.start_at > now) return false;
+        if (enr.end_at && enr.end_at <= now) return false;
+        return true;
+      })
       .map((enr: any) => {
         const course = enr.courses;
         // Count only published lessons
