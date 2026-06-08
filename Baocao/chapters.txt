@@ -1,0 +1,57 @@
+76: Thiết kế giao diện và cài đặt chương trình
+216: Đề tài này không chỉ là một yêu cầu học thuật để hoàn thành chương trình học, mà còn là cơ hội quý báu để em hiện thực hóa những kiến thức đã tích lũy, đồng thời đóng góp một phần nhỏ vào việc thúc đẩy giáo dục công nghệ cho thế hệ trẻ. Quá trình nghiên cứu đã giúp em nhận thức sâu sắc hơn về tầm quan trọng của việc xây dựng các công cụ hỗ trợ giảng dạy hiện đại, giúp khơi gợi niềm đam mê sáng tạo cho trẻ em ngay từ lứa tuổi học đường.
+234: CHƯƠNG I. TỔNG QUAN VỀ VẤN ĐỀ NGHIÊN CỨU
+248: CHƯƠNG II. CƠ SỞ LÝ THUYẾT
+314: CHƯƠNG III. PHÂN TÍCH
+322: Nhóm chương trình – khóa học – bài học
+422: CHƯƠNG IV. QUY TRÌNH XỬ LÝ VÀ KẾT QUẢ
+512: CHƯƠNG V. KẾT LUẬN
+589: Hình 4.22. Trang phân loại hai chương trình
+754: Về mặt dữ liệu: Thiết kế và triển khai một cơ sở dữ liệu quan hệ chuẩn hóa (3NF) gồm 20 bảng trên nền tảng Supabase, đảm bảo tính toàn vẹn và liên kết chặt chẽ giữa chương trình, khóa học, bài học và tài nguyên đa phương tiện.
+772: Chương I. Tổng quan về vấn đề nghiên cứu
+774: Chương II. Cơ sở lý thuyết
+776: Chương III. Phân tích
+778: Chương I
+784: Chương V. Kết luận
+786: CHƯƠNG I. TỔNG QUAN VỀ VẤN ĐỀ NGHIÊN CỨU
+790: Trước khi thực hiện đề tài, công tác quản lý nội dung đào tạo tại Trung tâm Let’s Code chủ yếu dựa vào phương pháp thủ công qua các file Excel, Word và PowerPoint rời rạc. Giáo viên phải tự quản lý chương trình học, khóa học, bài giảng, tài liệu đa phương tiện, câu hỏi trắc nghiệm và thử thách. Việc phân công giảng dạy, cập nhật nội dung và theo dõi tiến độ cũng gặp nhiều khó khăn, dễ xảy ra sai sót và tốn nhiều thời gian.
+791: Đặc biệt với chương trình Robotics (SPIKE™ Essential và SPIKE™ Prime), mỗi bài giảng đòi hỏi quy trình sư phạm rõ ràng gồm 8 bước: Mục tiêu, Tổng quan, Giới thiệu, Chuẩn bị, Xây dựng (PDF hướng dẫn lắp ráp), Nội dung lý thuyết, Thử thách và Tổng kết (Quiz). Việc quản lý thủ công đã trở thành hạn chế lớn khi quy mô đào tạo ngày càng mở rộng.
+795: Tập trung hóa quản lý chương trình, khóa học và bài giảng.
+811: Xây dựng nền tảng website hỗ trợ giáo viên quản lý và giảng dạy các khóa học lập trình, tập trung vào chương trình Robotics tại Trung tâm Let’s Code.
+814: Thiết kế và triển khai cơ sở dữ liệu trên Supabase quản lý đầy đủ chương trình, khóa học, bài giảng và tài nguyên liên quan.
+826: Tập trung vào phân hệ hỗ trợ giáo viên (Teacher/Admin Portal), bao gồm quản lý chương trình, khóa học, bài giảng chi tiết, phân công giảng dạy và quiz. Không triển khai đầy đủ portal dành cho học viên trong khuôn khổ chuyên đề này.
+845: CHƯƠNG II. CƠ SỞ LÝ THUYẾT
+853: Bảo đảm sự liên kết giữa các đối tượng như chương trình học, khóa học, bài học, người dạy và tài nguyên giảng dạy
+860: Lưu trữ lịch sử giảng dạy phục vụ đánh giá và cải tiến chương trình
+865: Nhóm quản lý chương trình, khóa học và bài học
+891: Quản lý tập trung các chương trình đào tạo và khóa học
+941: Định nghĩa cấu trúc dữ liệu và các thao tác liên quan đến từng đối tượng trong hệ thống như chương trình học, khóa học, bài giảng và người dùng.
+988: Ngay từ sơ đồ cơ sở dữ liệu, hệ thống được thiết kế xoay quanh ba bảng chính gồm program, course và lesson. Bảng program quản lý chương trình đào tạo tổng thể, mỗi program bao gồm nhiều course, và mỗi course tiếp tục chứa nhiều lesson. Mối quan hệ phân cấp này giúp tổ chức nội dung học tập một cách logic, dễ mở rộng và thuận tiện cho việc truy vấn dữ liệu trong backend.
+1230: CHƯƠNG III. PHÂN TÍCH
+1243: Nhóm này quản lý cấu trúc nội dung đào tạo theo cấp bậc từ chương trình, khóa học đến từng bài học. Mỗi bảng đảm nhiệm một cấp quản lý riêng và có liên kết chặt chẽ với nhau nhằm đảm bảo tính nhất quán của hệ thống đào tạo.
+1246: Nhóm chương trình – khóa học – bài học
+1251: Nhóm này quản lý cấu trúc nội dung đào tạo theo cấp bậc từ chương trình, khóa học đến từng bài học. Mỗi bảng đảm nhiệm một cấp quản lý riêng và có liên kết chặt chẽ với nhau nhằm đảm bảo tính nhất quán của hệ thống đào tạo.
+1253: Chương trình → Khóa học → Bài học
+1280: Nhóm này quản lý các tài nguyên như hình ảnh, video và tài liệu minh họa được sử dụng trong chương trình đào tạo. Các tài nguyên được liên kết với bài học hoặc hoạt động cụ thể để đảm bảo khả năng tra cứu và sử dụng thuận tiện.
+1294: Quản lý chương trình học
+1350: Program Service được xây dựng để quản lý các chương trình đào tạo trong hệ
+1353: Tạo mới và cập nhật chương trình đào tạo
+1354: Truy vấn danh sách chương trình
+1355: Quản lý trạng thái chương trình
+1363: Course Service chịu trách nhiệm quản lý các khóa học thuộc từng chương trình đào tạo. Service này giúp liên kết chương trình đào tạo với nội dung bài giảng cụ thể.
+1366: Truy vấn khóa học theo chương trình
+1368: Service này giúp em hiểu rõ hơn mối quan hệ giữa chương trình đào tạo và khóa học.
+1486: Mô tả: Hệ thống Backend chia dữ liệu khóa học thành các endpoint riêng biệt dựa trên chương trình học (ví dụ: programs/1 cho Essential và programs/2 cho Prime). Việc này gây khó khăn khi Frontend cần hiển thị một danh sách tổng hợp gồm tất cả các khóa học để Admin quản lý chung.
+1580: Đảm nhiệm vai trò điều hướng và giúp giáo viên tiếp cận tài liệu giảng dạy thông qua lộ trình 3 bước: Trang chủ > Chọn chương trình > Danh sách khóa học.
+1600: CHƯƠNG I
+1643: Bước 1: Xác định khóa học và bài học cần nhập.Trước tiên, khóa học và chương trình mà bài học thuộc về được tạo trong bảng programs và courses.
+1669: Thứ nhất, khi phòng Giáo vụ xây dựng chương trình đào tạo mới, họ tạo bản ghi trong bảng programs. Sau đó, các khóa học thuộc chương trình đó được tạo trong bảng courses, và từng bài học cụ thể được tạo trong bảng lessons.
+1685: Thứ hai, việc phân tách rõ ràng giữa chương trình, khóa học và bài học giúp phòng Giáo vụ dễ dàng điều chỉnh cấu trúc đào tạo mà không ảnh hưởng đến dữ liệu cũ đã lưu
+1696: chương trình và giáo trình đào tạo
+1739: Thay vì tập trung vào giao diện hiển thị, chương này sẽ đi sâu vào luồng đi của dữ liệu (Data Flow), cách ứng dụng Client quản lý trạng thái và tương tác với cơ sở dữ liệu thông qua các phương thức RESTful API.
+1750: Khởi tạo các Promise gọi API đồng thời đến các endpoint chương trình (Program 1 và Program 2).
+2018: Dựa trên kiến trúc ReactJS đã phân tích ở Chương II, các giao diện chức năng phía Client dành cho giáo viên đã được hiện thực hóa với tiêu chí trực quan và hỗ trợ tối đa cho việc giảng dạy tại lớp.
+2022: Mô tả kết quả: Hệ thống hiển thị danh sách các chương trình Robotics (ví dụ: WEDO, EV3) dưới dạng lưới thẻ (Grid layout). Mỗi khóa học bao gồm ảnh minh họa, tên khóa học và cấp độ.
+2033: Hình 4.22. Trang phân loại hai chương trình
+2053: CHƯƠNG V. KẾT LUẬN
+2080: Tài liệu nội bộ chương trình đào tạo Robotics

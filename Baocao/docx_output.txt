@@ -1,0 +1,2269 @@
+BỘ GIÁO DỤC VÀ ĐÀO TẠO
+TRƯỜNG ĐẠI HỌC NHA TRANG 
+KHOA CÔNG NGHỆ THÔNG TIN 
+CHUYÊN ĐỀ TỐT NGHIỆP 
+1
+XÂY DỰNG NỀN TẢNG WEBSITE HỖ TRỢ GIÁO VIÊN DẠY LẬP TRÌNH CHO TRẺ EM
+Giảng viên hướng dẫn: 
+ThS
+.Lê Thị Bích Hằng
+Sinh viên
+ 
+thực
+ 
+hiện:
+       
+   Trần Duy Khánh
+Mã số sinh
+ 
+viên:
+                
+ 64130994
+Khánh Hòa – 2026 
+BỘ GIÁO DỤC VÀ ĐÀO TẠO
+TRƯỜNG ĐẠI HỌC NHA TRANG
+KHOA CÔNG NGHỆ THÔNG TIN 
+CHUYÊN ĐỀ TỐT NGHIỆP 
+1
+XÂY DỰNG NỀN TẢNG WEBSITE HỖ TRỢ GIÁO VIÊN DẠY LẬP TRÌNH CHO TRẺ EM
+Giảng viên hướng dẫn: 
+ThS
+.Lê Thị Bích Hằng
+Sinh viên
+ 
+thực
+ 
+hiện:          Trần Duy Khánh
+Mã số sinh
+ 
+viên:                 64130994
+Khánh Hòa – Tháng 5/2026 
+ 
+TRƯỜNG ĐẠI HỌC NHA TRANG
+Khoa
+ Công Nghệ Thông Tin
+PHIẾU THEO DÕI TIẾN ĐỘ VÀ ĐÁNH GIÁ
+ĐỒ ÁN/KHÓA LUẬN/CHUYÊN ĐỀ TỐT NGHIỆP
+(Dùng cho CBHD và nộp cùng báo cáo ĐA/KL/CĐTN của sinh viên)
+Tên đề tài:..............................................................................................................................
+...............................................................................................................................................
+Giảng viên hướng dẫn:...........................................................................................................
+Sinh viên được hướng dẫn:…………………………………….………MSSV:...................
+Khóa:
+ 
+…………
+…..
+…… Ngành: ..........................................................................................
+Lần KT
+Ngày
+Nội dung
+Nhận xét của GVHD
+1
+10-Feb
+Trao đổi thống nhất đề cương
+2
+02-Mar
+Lập bảng khảo sát, xây dựng bảng đặc tả yêu cầu phần mềm
+3
+16-Mar
+Thiết kế các mô h
+ình CSDL
+4
+27-Mar
+Hoàn thiện các mô h
+ình CSDL
+5
+06-Apr
+Thiết kế giao diện và cài đặt chương trình
+6
+04-May
+Viết báo cáo
+7
+11-May
+Hoàn thiện báo cáo
+Nhận xét chung
+ (sau khi sinh viên hoàn thành ĐA/KL/CĐTN):
+………………..…………………………………………………………………….………
+…………………………………………………………………..………….………………
+…………………………………………..………………………………………….………
+Điểm
+ 
+hình
+ 
+thức:…
+…/10        Điểm
+ 
+nội 
+dung:.......
+/10
+  
+Điểm
+ tổng 
+kết
+:…
+……/10 
+Đối với ĐA/KLTN: 
+Kết luận
+ 
+sinh
+ 
+viên:    Được bảo
+ 
+vệ:  
+
+Không được bảo vệ:
+  
+
+Khánh Hòa, ngày…
+….tháng
+…
+….năm
+………
+Cán bộ hướng dẫn
+(Ký và ghi rõ họ tên)
+TRƯỜNG ĐẠI HỌC NHA TRANG
+Khoa
+ Công Nghệ Thông Tin
+PHIẾU CHẤM ĐIỂM ĐỒ ÁN/KHÓA LUẬN/CHUYÊN ĐỀ TỐT NGHIỆP
+(Dành cho cán bộ chấm phản biện)
+1. Họ tên người 
+chấm
+:…
+………………………………………………….
+2. Sinh viên/ nhóm sinh viên thực hiện ĐA/KL/CĐTN
+ (sĩ số trong 
+nhóm:…
+…….) (1)…………………………………………………..MSSV:
+ 
+................................................
+(2)…………………………………………………..MSSV .................................................
+(3)…………………………………………………..MSSV:
+ 
+................................................
+(4)…………………………………………………..MSSV:
+ 
+................................................
+(5)…………………………………………………..MSSV:
+ 
+................................................ 
+Lớp:……………………….. 
+Ngành:..................................................................................
+3. Tên đề tài:
+ ........................................................................................................................
+...............................................................................................................................................
+4. Nhận xét
+- Hình thức: ...........................................................................................................................
+...............................................................................................................................................
+...............................................................................................................................................
+- Nội dung: ............................................................................................................................
+…………………………………..………………………………………………….………
+…………………………………………………………………………………….………..
+……………………………………………………………………………………………...
+…………………………………………………………………………………….……….
+……………………………………………………………………………………………..
+…………………………………………………………………………………….……….
+Điểm
+ 
+hình
+ 
+thức:…
+…/10         Điểm
+ 
+nội 
+dung:.......
+/10
+      
+Điểm tổng 
+kết
+:…
+……/10 
+Đối với ĐA/KLTN:
+ Kết luận cho
+ 
+sinh
+ 
+viên: Được bảo
+ 
+vệ:  
+
+Không được bảo vệ:
+  
+
+Khánh Hòa, ngày…
+….tháng
+…
+….năm
+………
+Cán bộ chấm phản biện
+(Ký và ghi rõ họ tên)
+LỜI CAM ĐOAN
+Em xin cam đoan rằng toàn bộ nội dung trong báo cáo Chuyên đề tốt nghiệp 1 với đề tài: “Xây dựng nền tảng website hỗ trợ giáo viên dạy lập trình cho trẻ em” là kết quả của quá trình học tập, nghiên cứu và thực hiện của bản thân em dưới sự hướng dẫn tận tình của giảng viên 
+ThS
+. Lê Thị Bích Hằng.
+Các kết quả, nội dung trình bày trong báo cáo là hoàn toàn trung thực, không sao chép từ bất kỳ nguồn tài liệu hay đề tài nào khác mà không có trích dẫn rõ ràng. Những tài liệu tham khảo được sử dụng trong báo cáo đều đã được ghi rõ nguồn gốc theo đúng quy định về liêm chính học thuật của Trường Đại học Nha Trang.
+Trong quá trình thực hiện đề tài, em đã nỗ lực tìm hiểu, phân tích và xây dựng hệ thống một cách nghiêm túc. Tuy nhiên, do hạn chế về kiến thức và kinh nghiệm thực tế, báo cáo chắc chắn không thể tránh khỏi những thiếu sót nhất định. Em rất mong nhận được sự quan tâm, đánh giá và góp ý của quý thầy cô để bài báo cáo cũng như kiến thức của em được hoàn thiện hơn.
+Nếu có bất kỳ sai phạm nào liên quan đến vấn đề bản quyền hoặc tính trung thực trong nội dung báo cáo, em xin hoàn toàn chịu trách nhiệm trước Hội đồng bảo vệ, Nhà trường và Giảng viên hướng dẫn.
+Khánh Hòa, ngày
+ 11 
+tháng
+ 5 
+nă
+m 2026
+Sinh viên thực thiện
+Trần Duy Khánh
+LỜI CẢM ƠN
+Trong quá trình học tập và thực hiện báo cáo chuyên đề với đề tài “Xây dựng nền tảng website hỗ trợ giáo viên dạy lập trình cho trẻ em”, em đã nhận được rất nhiều sự quan tâm, giúp đỡ, hỗ trợ và hướng dẫn tận tình từ quý thầy cô, cơ sở thực tập và bạn bè.
+ 
+Đề tài này không chỉ là một yêu cầu học thuật để hoàn thành chương trình học, mà còn là cơ hội quý báu để em hiện thực hóa những kiến thức đã tích lũy, đồng thời đóng góp một phần nhỏ vào việc thúc đẩy giáo dục công nghệ cho thế hệ trẻ. Quá trình nghiên cứu đã giúp em nhận thức sâu sắc hơn về tầm quan trọng của việc xây dựng các công cụ hỗ trợ giảng dạy hiện đại, giúp khơi gợi niềm đam mê sáng tạo cho trẻ em ngay từ lứa tuổi học đường.
+Trước hết, em xin gửi lời cảm ơn chân thành đến Ban Giám hiệu Trường Đại học Nha Trang cùng toàn thể quý thầy cô trong Khoa Công nghệ Thông tin đã tạo điều kiện thuận lợi về môi trường học tập cũng như truyền đạt cho em những kiến thức nền tảng quý báu trong suốt quá trình học tập tại trường.
+Đặc biệt, em xin bày tỏ lòng biết ơn sâu sắc đến cô 
+ThS
+. Lê Thị Bích Hằng – giảng viên hướng dẫn, người đã trực tiếp chỉ bảo, định hướng và tận tình hỗ trợ em trong suốt quá trình thực hiện đề tài. Những góp ý chuyên môn và sự tận tâm của cô là động lực to lớn giúp em vượt qua khó khăn và hoàn thiện báo cáo một cách tốt nhất.
+Bên cạnh đó, em xin gửi lời cảm ơn chân thành đến Ban Giám đốc và các anh/chị tại Công ty TNHH Doanh nghiệp Xã hội Thế Hệ Số (Trung tâm Let’s Code) đã tạo điều kiện cung cấp những dữ liệu
+ về bài học
+ quý giá để em xây dựng nền tảng website này.
+Em cũng xin cảm ơn bạn bè, những người đồng đội đã hỗ trợ, trao đổi kiến thức và đóng góp ý kiến trong quá trình nghiên cứu và phát triển hệ thống.
+ 
+Do thời gian thực hiện có hạn và kiến thức thực tế của bản thân còn hạn chế, báo cáo chắc chắn không thể tránh khỏi những thiếu sót. Em rất mong nhận được sự thông cảm và những ý kiến đóng góp quý báu từ quý thầy cô để đề tài cũng như kiến thức của bản thân em được hoàn thiện hơn trong tương lai.
+ 
+Cuối cùng, em xin kính chúc quý thầy cô, các anh chị tại công ty dồi dào sức khỏe, hạnh phúc và gặt hái được nhiều thành công trong công việc cũng như trong cuộc sống.
+Em xin chân thành cảm ơn!
+MỤC
+ LỤC
+PHẦN MỞ ĐẦU
+1
+CHƯƠNG I. TỔNG QUAN VỀ VẤN ĐỀ NGHIÊN CỨU
+4
+1.1 TÌNH HÌNH QUẢN LÝ VÀ GIẢNG DẠY HIỆN TẠI TẠI TRUNG TÂM LET’S CODE
+4
+1.2 TÍNH CẤP THIẾT CỦA ĐỀ TÀI
+4
+1.3 TỔNG QUAN CÁC GIẢI PHÁP LIÊN QUAN
+4
+1.4 MỤC TIÊU NGHIÊN CỨU
+5
+1.5 ĐỐI TƯỢNG, PHẠM VI VÀ PHƯƠNG PHÁP NGHIÊN CỨU
+5
+1.6 Ý NGHĨA CỦA ĐỀ TÀI
+5
+CHƯƠNG II. CƠ SỞ LÝ THUYẾT
+7
+2.1 PHÂN TÍCH VÀ THIẾT KẾ CƠ SỞ DỮ LIỆU
+7
+2.1.1 Mục tiêu thiết kế cơ sở dữ liệu
+7
+2.1.2 Tổng quan cấu trúc cơ sở dữ liệu
+7
+2.1.4. Nguyên tắc thiết kế và chuẩn hóa dữ liệu
+8
+2.2 PHÂN TÍCH YÊU CẦU VÀ PHẠM VI HỆ THỐNG
+9
+2.2.1 Mục tiêu của hệ thống web bài giảng
+9
+2.3 THIẾT KẾ KIẾN TRÚC BACKEND HỆ THỐNG
+9
+2.3.1 Lựa chọn công nghệ
+9
+2.3.2 Mô hình kiến trúc backend
+10
+2.4
+.
+QUÁ TRÌNH XÂY DỰNG BACKEND BẰNG NODE.JS VÀ TYESCRIPT
+12
+2.4.1 Xây dựng cấu trúc dự án
+12
+2.4.2 Triển khai các API nghiệp vụ
+13
+2.5 KẾT NỐI BACKEND VỚI CƠ SỞ DỮ LIỆU SUPABASE
+13
+2.7. KIẾN TRÚC HỆ THỐNG FRONTEND
+14
+2.7.1. Mô hình tổ chức mã nguồn (Project Structure)
+14
+2.7.2. Công nghệ và Thư viện sử dụng
+17
+2.9. THIẾT KẾ GIAO DIỆN VÀ TRẢI NGHIỆM NGƯỜI DÙNG
+18
+2.9.1. Phong cách thiết kế chủ đạo: Dark Mode & Glassmorphism
+18
+2
+.9.2 
+Hiệu ứng chuyển động và Vi tương tác (Micro-interactions)
+18
+2.9.3. Thiết kế bố cục và điều hướng
+19
+2.9.4. Cơ chế phản hồi và trạng thái hệ thống
+20
+2.9.5. Vai trò hỗ trợ ra quyết định quản trị
+20
+2.10. THIẾT KẾ DỮ LIỆU VÀ TƯƠNG TÁC API
+21
+2.10.1. Mô hình Dữ liệu
+21
+2.10.2. Cơ chế Tương tác API
+23
+2.10.3. Quản lý trạng thái và luồng dữ liệu
+24
+2.11. KIẾN TRÚC HỆ THỐNG FRONTEND
+25
+2.11.1. Mô hình tổ chức mã nguồn
+25
+2.11.2. Công nghệ và Thư viện sử dụng
+26
+2.13. PHƯƠNG PHÁP QUẢN LÝ TRẠNG THÁI VÀ LUỒNG DỮ LIỆU
+26
+CHƯƠNG III. PHÂN TÍCH
+28
+3.1 PHÂN TÍCH CHI TIẾT TỪNG NHÓM BẢNG
+28
+3.1.1. Nhóm quản lý người dùng và phân công giảng dạy
+28
+3
+.1.2
+ Nhóm chương trình – khóa học – bài học
+28
+3
+.1.3
+ Nhóm bảng mô tả nội dung chi tiết bài học
+28
+3
+.1.4 
+Nhóm câu hỏi và đáp án
+29
+3
+.1.5 
+Nhóm phương tiện đa phương tiện
+29
+3
+.1.6 
+Nhóm khối lệnh lập trình và thẻ phân loại nội dung
+29
+3.2 XÁC ĐỊNH CÁC CHỨC NĂNG CHÍNH CỦA BACKEND
+30
+3.3 MÔ TẢ CHI TIẾT CÁC SERVICE BACKEND ĐÃ XÂY DỰNG
+31
+3.3.1 User Service (user.service.ts)
+32
+3.3
+.2 
+Auth Service (auth.service.ts)
+32
+3.3
+.3 
+Permission Service (permission.service.ts)
+33
+3.3
+.4 
+Program Service (program.service.ts)
+33
+3.3
+.5 
+Course Service (course.service.ts)
+33
+3.3
+.6 
+Lesson Service (lesson.service.ts)
+34
+3.3
+.7 
+LessonContent Service (lessonContent.service.ts)
+34
+3.3
+.8 
+LessonMedia & Attachment Service (lessonMedia.service.ts, media.service.ts, attachment.service.ts)
+34
+3.3
+.9 
+LessonOrder & LessonStatus Service (lessonOrder.service.ts, lessonStatus.service.ts)
+35
+3.3
+.10 
+Objectives, Preparation, Model & Build Service
+35
+3.3
+.11 
+Quiz & Challenge Service (quiz.service.ts, challenge.service.ts)
+35
+3.3
+.12
+ Dashboard & Logs Service (dashboard.service.ts, logs.service.ts)
+36
+3.3
+.13 
+Mối quan hệ tổng thể giữa các service
+36
+3.4. PHÂN TÍCH CHI TIẾT CHỨC NĂNG VÀ THIẾT KẾ COMPONENT
+36
+3.4.1. Phân hệ Quản lý Khóa học (Course Management Module)
+37
+3.4.1.1. Trang điều phối: AdminCoursesPage.tsx
+37
+2.8.1.2. Component vệ tinh
+38
+3.4.2. Phân hệ hệ thống quản trị nội dung bài giảng
+38
+3.4.2.1. Trang điều phối: AdminLessonPage.tsx
+38
+3.4.2.2. Các Module Component chi tiết (trong thư mục admin/lesson/):
+39
+3.4.3. Phân hệ quản lý nhân sự và phân công
+40
+Tóm tắt kỹ thuật & Bài học kinh nghiệm:
+40
+3.4.4. Phân hệ Dashboard Tổng quan (Analytics Dashboard)
+41
+3.5. PHÂN TÍCH CHI TIẾT CHỨC NĂNG FRONTEND VÀ THIẾT KẾ COMPONENT
+42
+3.5.1. Phân hệ Xác thực và Bảo mật (Authentication Module)
+42
+3.5.2. Phân hệ Cổng thông tin Giáo viên (Teacher Portal)
+42
+3.5.3. Trình phát bài giảng tương tác (Interactive Lesson Player)
+42
+CHƯƠNG IV. QUY TRÌNH XỬ LÝ VÀ KẾT QUẢ
+44
+4.1. QUY TRÌNH XÂY DỰNG VÀ TRIỂN KHAI CƠ SỞ DỮ LIỆU TRÊN SUPABASE
+44
+4.1.1. Lý do lựa chọn nền tảng Supabase
+44
+4.1.2. Quy trình triển khai cơ sở dữ liệu
+45
+4.2. QUY TRÌNH NHẬP DỮ LIỆU THỬ NGHIỆM TỪ TÀI LIỆU BÀI HỌC
+46
+4.3. CÁCH THỨC HOẠT ĐỘNG CỦA CƠ SỞ DỮ LIỆU TRONG HỆ THỐNG
+46
+4.4. ĐÁNH GIÁ TÍNH PHÙ HỢP CỦA MÔ HÌNH CƠ SỞ DỮ LIỆU ĐỐI VỚI ĐÀO TẠO ROBOTICS
+47
+4.5. BẢO MẬT VÀ AN TOÀN DỮ LIỆU TRONG HỆ THỐNG CƠ SỞ DỮ LIỆU
+48
+4.5.1. Sự cần thiết của bảo mật dữ liệu
+48
+4.5.2. Nguyên tắc bảo mật được áp dụng
+49
+4.5.3. Cơ chế bảo mật triển khai trên Supabase
+49
+4.6. CƠ CHẾ ĐỒNG BỘ VÀ CHUẨN HÓA DỮ LIỆU
+50
+4.6.1. Kỹ thuật Fetching dữ liệu song song
+51
+4.6.2. Ánh xạ dữ liệu
+51
+4.7. QUY TRÌNH THÊM MỚI VÀ CẬP NHẬT DỮ LIỆU
+52
+4.7.1. Logic "Upsert" (Cập nhật hoặc Thêm mới)
+52
+4.7.2. Quy trình Upload và Liên kết File Đa phương tiện (Two-Step Media Upload)
+53
+4.8. QUY TRÌNH XỬ LÝ DỮ LIỆU HÀNG LOẠT
+54
+4.8.1. Cập nhật trạng thái hàng loạt (Bulk Status Update)
+54
+4.8.2. Sắp xếp lại thứ tự (Re-ordering Data)
+55
+4.9. XỬ LÝ LOGIC QUAN HỆ DỮ LIỆU PHỨC TẠP
+55
+4.9.1. Logic lọc quan hệ M-N (Many-to-Many Filtering)
+55
+4.9.2. Xóa dữ liệu liên hoàn (Cascade Delete Simulation)
+56
+4.10. QUY TRÌNH QUẢN LÝ NỘI DUNG ĐA PHƯƠNG TIỆN
+57
+4.10.1. Cơ chế Phân loại Media (Purpose-based Filtering)
+57
+4.10.2. Quy trình Upload và Liên kết (Atomic Upload Transaction)
+58
+4.10.3. Quy trình Xóa sạch (Deep Clean Delete)
+59
+4.11. XỬ LÝ DỮ LIỆU PHỨC TẠP VÀ LỒNG NHAU
+60
+4.11.1. Quản lý Dữ liệu Trắc nghiệm (Nested JSON Payload)
+60
+4.11.2. Quản lý Thử thách kèm Media (Conditional Media Attachment)
+61
+4.12. TỔNG KẾT CÁC API ENDPOINT TƯƠNG TÁC
+62
+4.13. TƯ DUY TƯƠNG TÁC BACKEND VÀ KIẾN TRÚC SERVICE LAYER
+63
+4.13.1. Chiến lược Tổ chức Service theo Modules (Modular Service Pattern)
+63
+4.13.2. Cơ chế Bảo mật và Quản lý Phiên làm việc (JWT Authentication)
+64
+4.13.3. Xử lý Đa dạng Định dạng Dữ liệu (Payload Handling)
+64
+4.14. KẾT QUẢ ĐẠT ĐƯỢC VÀ DEMO SẢN PHẨM
+65
+4.14.1. Giao diện Tổng quan (Dashboard)
+65
+4.14.2. Phân hệ Quản lý Khóa học (Course Management)
+66
+4.14.3. Phân hệ Quản trị Nội dung Bài giảng (Lesson CMS)
+67
+4.14.4. Phân hệ Quản lý Giáo viên (Teacher Management)
+68
+4.14.5. Phân hệ Phân công và Duyệt (Assignment System)
+69
+4.15. HIỆN THỰC HÓA GIAO DIỆN VÀ CHỨC NĂNG PHÍA CLIENT
+70
+4.15.1. Phân hệ Cổng thông tin và Lộ trình bài giảng
+70
+4.15.2. Trình phát bài giảng tương tác (Interactive Lesson Player)
+72
+4.15.3. Hệ thống kiểm tra kiến thức (Quiz System)
+77
+CHƯƠNG V. KẾT LUẬN
+79
+5.1. KẾT LUẬN
+79
+5.1.1. Kết quả về mặt kỹ thuật và công nghệ
+79
+5.1.2. Kết quả về mặt nghiệp vụ và quản lý
+79
+TÀI LIỆU THAM KHẢO
+80
+DANH MỤC HÌNH ẢNH
+Hình 2.1
+ 
+Cấu trúc thư mục backend của hệ thống
+12
+Hình 2.2 Sơ đồ cơ sở dữ liệu (Schema) của hệ thống trên Supabase
+14
+Hình 2.3. CSS Animations
+19
+Hình 2.4. Interface Teacher
+22
+Hình 2.5. Interface Course
+22
+Hình 2.6. Interface FormData
+22
+Hình 2.7. Lấy dữ liệu Teacher
+23
+Hình 2.8 Gửi dữ liệu trong Phân công
+24
+Hình 2.9 Cập nhật UI thời gian
+25
+Hình 3.1 Danh sách các API backend được đăng ký trong file app.ts
+31
+Hình 3.4. Minh họa bài toàn xử lý Nhiều – Nhều
+41
+Hình 4.1 Kỹ thuật Fetching dữ liệu song song
+51
+Hình 4.2 Logic "Upsert" (Cập nhật hoặc Thêm mới)
+53
+Hình 4.3. Quy trình Upload và Liên kết File Đa phương tiện (Two-Step Media Upload)
+54
+Hình 4.4 Cập nhật trạng thái hàng loạt (Bulk Status Update)
+55
+Hình 4.5 Logic lọc quan hệ M-N (Many-to-Many Filtering)
+56
+Hình 4.6 Cơ chế Phân loại Media (Purpose-based Filtering)
+58
+Hình 4.7 Quy trình Upload và Liên kết (Atomic Upload Transaction)
+59
+Hình 4.8 Cấu trúc Payload
+60
+Hình 4.9 Logic tính toán thứ tự
+61
+Hình 4.10 Quản lý Thử thách kèm Media (Conditional Media Attachment)
+62
+Hình 4.11 Giao diện Tổng quan (Dashboard)
+65
+Hình 4.12 Phân hệ Quản lý Khóa học (Course Management)
+66
+Hình 4.13 Thêm khóa học mới
+67
+Hình 4.14 Giao diện quản lý danh sách bài học
+67
+Hình 4.15 Giao diện soạn thảo chi tiết
+68
+Hình 4.16 Phân hệ Quản lý Giáo viên (Teacher Management)
+68
+Hình 4.17 Modal phân công khóa học
+69
+Hình 4.18 Màn hình duyệt yêu cầu chờ (Pending)
+70
+Hình 4.19 Hình ảnh đăng nhập thất bại
+71
+Hình 4.20 Trang quên mật khẩu
+71
+Hình 4.21 sau khi đăng nhập thành công
+72
+Hình 4.22. Trang phân loại hai chương trình
+73
+Hình 4.23 Danh sách khóa học với bộ lọc tìm kiếm thời gian thực
+73
+Hình 4.24 Giao diện Danh sách các bài học trong khóa
+74
+Hình 4.25 Mục tiêu bài học
+74
+Hình 4.26 Tổng quan bài học
+75
+Hình 4.27 Giới thiệu về bài học
+75
+Hình 4.28 Chuẩn bị dụng cụ của bài học
+76
+Hình 4.29 Xây dựng trong mỗi bài học
+76
+Hình 4.30 Nội dung lý thuyết của bài học
+77
+Hình 4.31 Thử Thách cho từng bài học
+78
+Hình 4.32 Các câu hỏi tổng kết sau khi hoàn thiện bài học
+78
+DANH MỤC BẢNG BIỂU
+Bản
+g
+ 2.1. Mô tả cấu trúc thư mục và chứ
+c
+ năng cá
+c
+ thành phần backend
+10
+Bảng 2.2. Phân công và T
+r
+ách nhiệm thực hiện mã nguồn (Source Code)
+1
+6
+Bảng 
+4
+.1 Bảng tổng hợp các luồng dữ liệu chính
+6
+3
+DANH MỤC KÝ HIỆU, CHỮ VIẾT TẮT
+STT
+Ký hiệu/Viết tắt
+Diễn giải (Tiếng Anh)
+Diễn giải (Tiếng Việt)
+1
+AI
+Artificial Intelligence
+Trí tuệ nhân tạo
+2
+API
+Application Programming Interface
+Giao diện lập trình ứng dụng
+3
+BaaS
+Backend as a Service
+Dịch vụ hỗ trợ hạ tầng backend
+4
+CI/CD
+Continuous Integration / Continuous Deployment
+Tích hợp liên tục / Triển khai liên tục
+5
+CSS
+Cascading Style Sheets
+Ngôn ngữ định dạng kiểu trang web
+6
+DOM
+Document Object Model
+Mô hình đối tượng tài liệu
+7
+EdTech
+Educational Technology
+Công nghệ giáo dục
+8
+ESM
+ECMAScript Modules
+Tiêu chuẩn module trong JavaScript
+9
+FPS
+Frames Per Second
+Số khung hình trên giây
+10
+GUI
+Graphical User Interface
+Giao diện đồ họa người dùng
+11
+HD
+High Definition
+Độ nét cao
+12
+HMR
+Hot Module Replacement
+Thay thế module nóng (cập nhật không cần tải lại trang)
+13
+HTML
+HyperText Markup Language
+Ngôn ngữ đánh dấu siêu văn bản
+14
+IDE
+Integrated Development Environment
+Môi trường phát triển tích hợp
+15
+IoT
+Internet of Things
+Internet vạn vật
+16
+JSON
+JavaScript Object Notation
+Định dạng dữ liệu đối tượng JavaScript
+17
+MBO
+Management by Objectives
+Quản trị theo mục tiêu
+18
+MVP
+Minimum Viable Product
+Sản phẩm khả dụng tối thiểu
+19
+NoSQL
+Not Only SQL
+Cơ sở dữ liệu phi quan hệ
+20
+PWA
+Progressive Web App
+Ứng dụng web lũy tiến
+21
+PvP
+Player versus Player
+Chế độ người chơi đấu với người chơi
+22
+QA
+Quality Assurance
+Đảm bảo chất lượng
+23
+QR
+Quick Response (Code)
+Mã phản hồi nhanh
+24
+SDLC
+Software Development Life Cycle
+Vòng đời phát triển phần mềm
+25
+SPA
+Single Page Application
+Ứng dụng trang đơn
+26
+UI
+User Interface
+Giao diện người dùng
+27
+UX
+User Experience
+Trải nghiệm người dùng
+28
+WRO
+World Robot Olympiad
+Cuộc thi Robot thế giới
+PHẦN MỞ ĐẦU
+1. Lý do chọn đề tài
+Trong những năm gần đây, sự phát triển mạnh mẽ của công nghệ thông tin và Internet đã làm thay đổi sâu sắc phương thức giáo dục truyền thống. Chuyển đổi số trong giáo dục (EdTech) không còn là xu hướng mà đã trở thành yêu cầu tất yếu để nâng cao chất lượng đào tạo, đặc biệt là trong các lĩnh vực công nghệ cao như lập trình và Robotics dành cho trẻ em. 
+Tại Trung tâm Let's Code, việc quản lý và tổ chức nội dung giảng dạy hiện nay vẫn còn gặp nhiều khó khăn do tài liệu (giáo án, hình ảnh, video minh họa) phần lớn được lưu trữ rời rạc dưới dạng các tệp văn bản độc lập. Điều này dẫn đến những hạn chế như: khó kiểm soát và đồng bộ phiên bản tài liệu, giáo viên phải thao tác thủ công khi phân công giảng dạy, và đặc biệt là sự gián đoạn mạch truyền tải kiến thức khi phải chuyển đổi liên tục giữa nhiều công cụ trình chiếu rời rạc trên lớp. 
+Do đó, việc phân tích và xây dựng một nền tảng website chuyên biệt hỗ trợ giáo viên dạy lập trình cho trẻ em là hết sức cần thiết. Hệ thống này không chỉ đóng vai trò là một kho lưu trữ dữ liệu tập trung, chuẩn hóa mà còn cung cấp một công cụ trình chiếu tương tác hiện đại, giúp nâng cao hiệu quả sư phạm và tối ưu hóa quy trình vận hành đào tạo của đơn vị. Từ những lý do thực tiễn đó, đề tài "Xây dựng nền tảng website hỗ trợ giáo viên dạy lập trình cho trẻ em" đã được lựa chọn để thực hiện. 
+2. Mục tiêu đề tài
+Mục tiêu chính của đề tài là phân tích, thiết kế và xây dựng một hệ sinh thái website hỗ trợ giảng dạy hoàn chỉnh, đáp ứng chính xác các yêu cầu nghiệp vụ thực tế của Trung tâm Let's Code. Cụ thể, đề tài hướng đến các mục tiêu sau: 
+Về mặt dữ liệu: Thiết kế và triển khai một cơ sở dữ liệu quan hệ chuẩn hóa (3NF) gồm 20 bảng trên nền tảng Supabase, đảm bảo tính toàn vẹn và liên kết chặt chẽ giữa chương trình, khóa học, bài học và tài nguyên đa phương tiện. 
+Về mặt quản lý: Xây dựng phân hệ Quản trị (Admin Portal) giúp tự động hóa quy trình phân công giảng dạy, quản lý người dùng và soạn thảo nội dung bài học theo cấu trúc phức tạp (CMS). 
+Về mặt sư phạm: Phát triển Cổng thông tin Giáo viên (Teacher Portal) tích hợp trình phát bài giảng tương tác (Interactive Lesson Player), cho phép trình chiếu slide, phát video hướng dẫn và hiển thị mô hình Robotics trong cùng một luồng bài học duy nhất. 
+3. Phương pháp nghiên cứu
+Để thực hiện đề tài, các phương pháp nghiên cứu và quy trình kỹ thuật chuyên nghiệp đã được áp dụng xuyên suốt:
+Khảo sát thực tế: Tìm hiểu quy trình quản lý đào tạo trực tiếp tại phòng Giáo vụ của Let's Code để xác định các loại dữ liệu cần số hóa và luồng công việc của giáo viên trên lớp. 
+Phân tích hệ thống: Xác định các yêu cầu chức năng (xác thực, quản lý bài giảng, trình chiếu) và phi chức năng (bảo mật RLS, hiệu năng SPA) dựa trên kiến trúc Node.js và ReactJS. 
+Thiết kế hệ thống: Xây dựng mô hình thực thể kết hợp (ERD), thiết kế kiến trúc phân tầng Service Layer phía Backend và kiến trúc Component-Based phía Frontend. 
+Thực nghiệm và Kiểm thử: Triển khai mã nguồn bằng TypeScript để đảm bảo an toàn kiểu dữ liệu, sử dụng Postman để kiểm thử API và thực hiện các kịch bản chơi thử (Playtest) để đánh giá trải nghiệm người dùng (UX). 
+4. Phạm vi nghiên cứu
+Đề tài tập trung chuyên sâu vào việc xây dựng nền tảng web phục vụ cho hai đối tượng người dùng chính tại Let's Code:
+Phân hệ Quản trị (Admin): Tập trung vào logic quản lý danh sách giáo viên, quy trình phê duyệt phân công giảng dạy và hệ thống quản trị nội dung (CMS) bài giảng đa phương tiện. 
+Phân hệ Giáo viên (Teacher): Tập trung vào hệ thống xác thực bảo mật OTP và trình phát bài giảng tương tác tích hợp Slide, Video, Quiz phục vụ trực tiếp việc dạy học trên lớp. 
+Cơ sở dữ liệu: Thiết kế và chuẩn hóa 20 bảng dữ liệu vận hành trên Supabase Cloud. 
+Trong khuôn khổ của Chuyên đề 1, đề tài tập trung hoàn thiện các bước phân tích, thiết kế cấu trúc dữ liệu và xây dựng các module giao diện cốt lõi của website, đảm bảo hệ thống vận hành ổn định và sẵn sàng cho các bước tích hợp nâng cao trong tương lai.
+5. Bố cục báo cáo
+Để làm rõ các mục tiêu nghiên cứu và quá trình xây dựng hệ thống website, nội dung báo cáo được trình bày theo cấu trúc gồm:
+- 
+Chương I. Tổng quan về vấn đề nghiên cứu
+- 
+Chương II. Cơ sở lý thuyết
+- 
+Chương III. Phân tích
+- 
+Chương I
+V
+. Kết quả nghiên cứu 
+và
+ thảo luận 
+- 
+Chương V. Kết luận
+ và hướng phát triển
+CHƯƠNG I. TỔNG QUAN VỀ VẤN ĐỀ NGHIÊN CỨU
+1.1 
+TÌNH HÌNH QUẢN LÝ VÀ GIẢNG DẠY HIỆN TẠI TẠI TRUNG TÂM LET’S CODE
+ 
+Trước khi thực hiện đề tài, công tác quản lý nội dung đào tạo tại Trung tâm Let’s Code chủ yếu dựa vào phương pháp thủ công qua các file Excel, Word và PowerPoint rời rạc. Giáo viên phải tự quản lý chương trình học, khóa học, bài giảng, tài liệu đa phương tiện, câu hỏi trắc nghiệm và thử thách. Việc phân công giảng dạy, cập nhật nội dung và theo dõi tiến độ cũng gặp nhiều khó khăn, dễ xảy ra sai sót và tốn nhiều thời gian.
+Đặc biệt với chương trình Robotics (SPIKE™ Essential và SPIKE™ Prime), mỗi bài giảng đòi hỏi quy trình sư phạm rõ ràng gồm 8 bước: Mục tiêu, Tổng quan, Giới thiệu, Chuẩn bị, Xây dựng (PDF hướng dẫn lắp ráp), Nội dung lý thuyết, Thử thách và Tổng kết (Quiz). Việc quản lý thủ công đã trở thành hạn chế lớn khi quy mô đào tạo ngày càng mở rộng.
+1.2
+ TÍNH CẤP THIẾT CỦA ĐỀ TÀI
+Trong bối cảnh chuyển đổi số giáo dục và nhu cầu nâng cao chất lượng giảng dạy Robotics tại trung tâm, việc xây dựng một nền tảng website hỗ trợ giáo viên là rất cần thiết. Hệ thống sẽ giúp:
+Tập trung hóa quản lý chương trình, khóa học và bài giảng.
+Chuẩn hóa quy trình soạn thảo và trình bày bài giảng theo 8 bước sư phạm.
+Hỗ trợ giáo viên dễ dàng phân công, chỉnh sửa, quản lý tài nguyên đa phương tiện và trình chiếu trong giờ dạy.
+Giảm thiểu sai sót, tiết kiệm thời gian chuẩn bị bài giảng.
+Làm nền tảng cho việc số hóa toàn bộ hoạt động đào tạo trong tương lai.
+1.3 
+TỔNG QUAN CÁC GIẢI PHÁP LIÊN QUAN
+ 
+Hiện nay có một số nền tảng LMS như Moodle, Canvas hay Google Classroom. Tuy nhiên, các hệ thống này thường phức tạp, chi phí cao hoặc chưa tối ưu cho đặc thù giảng dạy Robotics tại trung tâm (tích hợp mạnh PDF viewer, quản lý media, quiz tương tác). Do đó, việc xây dựng một giải pháp nhẹ, chuyên biệt, phù hợp với quy mô và nhu cầu thực tế của Let’s Code là cần thiết.
+1.4
+ 
+MỤC
+ TIÊU NGHIÊN CỨU
+- 
+Mục tiêu tổng quát:
+ 
+Xây dựng nền tảng website hỗ trợ giáo viên quản lý và giảng dạy các khóa học lập trình, tập trung vào chương trình Robotics tại Trung tâm Let’s Code.
+- 
+Mục tiêu cụ thể:
+Thiết kế và triển khai cơ sở dữ liệu trên Supabase quản lý đầy đủ chương trình, khóa học, bài giảng và tài nguyên liên quan.
+Xây dựng backend API xử lý logic nghiệp vụ (xác thực, phân quyền, quản lý khóa học, bài giảng, quiz, thử thách).
+Phát triển frontend với giao diện thân thiện, hỗ trợ giáo viên soạn thảo và trình bày bài giảng (Program Selection, Course Management, Lesson Player với 8 bước sư phạm, Assignment).
+Đảm bảo hệ thống có tính bảo mật, dễ sử dụng và khả năng mở rộng sau này.
+1.5 
+ĐỐI
+ TƯỢNG, PHẠM VI VÀ PHƯƠNG PHÁP NGHIÊN CỨU
+- 
+Đối tượng nghiên cứu: Quy trình quản lý và giảng dạy bài giảng Robotics cho giáo viên tại trung tâm.
+- 
+Phạm vi nghiên cứu:
+ 
+Tập trung vào phân hệ hỗ trợ giáo viên (Teacher/Admin Portal), bao gồm quản lý chương trình, khóa học, bài giảng chi tiết, phân công giảng dạy và quiz. Không triển khai đầy đủ portal dành cho học viên trong khuôn khổ chuyên đề này.
+- 
+Phương pháp nghiên cứu:
+Khảo sát và phân tích yêu cầu từ phòng Giáo vụ.
+Thiết kế cơ sở dữ liệu và kiến trúc hệ thống theo mô hình layered.
+Triển khai backend (Node.js + TypeScript + Supabase) và frontend (React
+ + TypeScript + Tailwind).
+Kiểm thử API bằng Postman và kiểm thử giao diện người dùng.
+Quản lý mã nguồn bằng Git.
+1.6 Ý 
+NGHĨA
+ CỦA ĐỀ TÀI
+- 
+Thực tiễn:
+Giúp Trung tâm Let’s Code số hóa quy trình quản lý và giảng dạy, nâng cao hiệu quả công việc của giáo viên.
+- 
+Giáo dục: Áp dụng kiến thức full-stack (React, Node.js, TypeScript, Supabase) vào giải quyết vấn đề thực tế trong lĩnh vực EdTech.
+- 
+Cá nhân: Rèn luyện khả năng phân tích yêu cầu, thiết kế hệ thống và làm việc với công nghệ hiện đại.
+CHƯƠNG II. CƠ SỞ LÝ THUYẾT
+2.1 
+PHÂN TÍCH VÀ THIẾT KẾ CƠ SỞ DỮ LIỆU
+2.1.1 Mục tiêu thiết kế cơ sở dữ liệu
+Cơ sở dữ liệu được xây dựng nhằm phục vụ hệ thống giảng dạy Robotics tại Công ty Let’s Code. Đây là hệ thống đào tạo dành cho trẻ em, trong đó nội dung học tập không chỉ bao gồm lý thuyết mà còn bao gồm hướng dẫn lắp ráp mô hình, khối lệnh lập trình, tài liệu minh họa và các bài kiểm tra đánh giá.
+Vì vậy, mục tiêu của việc thiết kế cơ sở dữ liệu bao gồm:
+Lưu trữ có hệ thống toàn bộ nội dung giảng dạy Robotics
+Chuẩn hóa dữ liệu để tránh trùng lặp, sai lệch hoặc thất lạc
+Bảo đảm sự liên kết giữa các đối tượng như chương trình học, khóa học, bài học, người dạy và tài nguyên giảng dạy
+Hỗ trợ công tác quản lý và vận hành giảng dạy của phòng Giáo vụ
+Tạo nền tảng kỹ thuật để hệ thống có thể mở rộng trong tương lai
+Việc thiết kế cơ sở dữ liệu đúng ngay từ đầu giúp phòng Giáo vụ:
+Dễ dàng cập nhật, sửa đổi nội dung đào tạo
+Đảm bảo thống nhất giữa các khóa học
+Kiểm soát chất lượng dạy và học
+Lưu trữ lịch sử giảng dạy phục vụ đánh giá và cải tiến chương trình
+Do đó, công tác phân tích và thiết kế cơ sở dữ liệu được xem là một nhiệm vụ mang tính nền tảng trong quá trình phát triển hệ thống.
+2.1.2 Tổng quan cấu trúc cơ sở dữ liệu
+Cơ sở dữ liệu được xây dựng theo mô hình cơ sở dữ liệu quan hệ, với tổng số 20 bảng. Các bảng được chia thành các nhóm chức năng như sau:
+Nhóm quản lý người dùng và phân công giảng dạy
+Nhóm quản lý chương trình, khóa học và bài học
+Nhóm quản lý nội dung chi tiết của bài học
+Nhóm quản lý câu hỏi và đáp án trắc nghiệm
+Nhóm quản lý tài nguyên đa phương tiện
+Nhóm quản lý khối lệnh lập trình
+Nhóm quản lý thẻ phân loại nội dung
+Việc phân nhóm này nhằm phản ánh rõ ràng các khối nghiệp vụ khác nhau trong hệ thống đào tạo, đồng thời giúp cơ sở dữ liệu giữ được cấu trúc dễ hiểu, dễ bảo trì và dễ mở rộng.
+2.1.4. Nguyên tắc thiết kế và chuẩn hóa dữ liệu
+Cơ sở dữ liệu được thiết kế theo nguyên tắc chuẩn hóa đến dạng chuẩn ba (Third Normal Form – 3NF). 
+Điều này có nghĩa là:
+Không có trùng lặp dữ liệu không cần thiết
+Mỗi bảng chỉ lưu một loại thông tin
+Mọi thuộc tính phụ thuộc khóa chính
+Dữ liệu nhất quán và dễ bảo trì
+Ví dụ:
+Nếu lưu tên giáo viên trực tiếp trong bảng khóa học thì khi giáo viên đổi tên, toàn bộ bảng phải cập nhật. Điều này có thể gây lỗi dữ liệu. Do đó, giáo viên được lưu riêng, và quan hệ chỉ liên kết theo khóa ngoại.
+Trong quá trình thiết kế cơ sở dữ liệu, em tuân theo nguyên tắc chuẩn hóa đến dạng chuẩn 3 (Third Normal Form – 3NF) nhằm loại bỏ dư thừa dữ liệu và đảm bảo mỗi bảng chỉ lưu trữ một loại thông tin độc lập.
+Trong giai đoạn đầu, em từng thiết kế bảng Khóa học vừa lưu thông tin khóa học, vừa lưu cả tên giáo viên phụ trách chính. Tuy nhiên, điều này dẫn đến việc cùng một giáo viên xuất hiện lặp lại ở nhiều dòng khác nhau, gây dư thừa dữ liệu và khó cập nhật khi có thay đổi. Sau khi rà soát lại theo nguyên tắc 3NF, em tách thông tin giáo viên sang bảng riêng và sử dụng khóa ngoại để liên kết giữa hai bảng. Nhờ vậy, cấu trúc dữ liệu trở nên gọn hơn và dễ bảo trì hơn.
+2
+.
+2
+ 
+PHÂN TÍCH YÊU CẦU VÀ PHẠM VI HỆ THỐNG
+2.2.1 
+Mục tiêu của hệ thống web bài giảng
+Hệ thống web bài giảng LETSCODE được xây dựng nhằm đáp ứng các mục tiêu sau:
+Quản lý tập trung các chương trình đào tạo và khóa học
+Quản lý bài giảng và nội dung học tập một cách có hệ thống
+Hỗ trợ giáo viên trong việc xây dựng và phân phối nội dung giảng dạy
+Tạo nền tảng kết nối giữa backend và frontend thông qua API
+Để đạt được các mục tiêu trên, hệ thống backend đóng vai trò then chốt trong việc xử lý nghiệp vụ, lưu trữ dữ liệu và cung cấp dữ liệu cho frontend.
+Qua việc xây dựng hệ thống này, backend đóng vai trò trung tâm trong việc tổ chức và quản lý nội dung học tập, đồng thời đảm nhiệm chức năng xử lý nghiệp vụ và lưu trữ dữ liệu. Backend cũng là cầu nối quan trọng giúp frontend có thể truy xuất và hiển thị dữ liệu một cách nhất quán, phục vụ cho hoạt động giảng dạy của giáo viên.
+Để đạt được các mục tiêu trên, hệ thống backend đóng vai trò then chốt trong việc xử lý nghiệp vụ, lưu trữ dữ liệu và cung cấp dữ liệu cho frontend.
+2.3 
+THIẾT
+ KẾ KIẾN TRÚC BACKEND HỆ THỐNG
+2.3.1 
+Lựa chọn công nghệ
+Trong quá trình thiết kế backend, 
+em
+ lựa chọn các công nghệ sau:
+Node.js:
+ làm nền tảng chạy server, phù hợp cho việc xây dựng API nhẹ, xử lý bất đồng bộ tốt và dễ mở rộng hệ thống.
+TypeScript:
+ giúp kiểm soát kiểu dữ liệu chặt chẽ, giảm lỗi trong quá trình phát triển và thuận lợi khi làm việc nhóm.
+Supabase:
+ được sử dụng để quản lý cơ sở dữ liệu, hỗ trợ truy vấn nhanh và tích hợp thuận tiện với backend.
+Postman:
+ phục vụ kiểm thử API trong quá trình phát triển, giúp kiểm tra luồng dữ liệu và phát hiện lỗi sớm.
+Git:
+ dùng để quản lý mã nguồn, theo dõi lịch sử thay đổi và hỗ trợ làm việc nhóm hiệu quả.
+Việc lựa chọn các công nghệ trên giúp hệ thống backend đảm bảo tính hiện đại, linh hoạt và phù hợp với yêu cầu thực tế của dự án.
+2.3.2 
+Mô hình kiến trúc backend
+Backend được thiết kế theo mô hình phân tầng, bao gồm các thành phần sau:
+Routes: Định nghĩa đường dẫn API
+Controllers: Tiếp nhận và xử lý request
+Services: Xử lý logic nghiệp vụ
+Models: Tương tác với cơ sở dữ liệu
+Middlewares: Xử lý xác thực và phân quyền
+Validators: Kiểm tra dữ liệu đầu vào
+Mô hình này giúp mã nguồn dễ đọc, dễ bảo trì và thuận tiện cho làm việc nhóm. Ban đầu 
+em
+ gặp khó khăn trong việc phân tách vai trò giữa controller và service, đặc biệt khi xử lý các nghiệp vụ phức tạp. Tuy nhiên, sau khi triển khai và điều chỉnh trong quá trình phát triển thực tế, 
+em
+ nhận thấy mô hình phân tầng giúp mã nguồn dễ quản lý hơn, giảm sự phụ thuộc giữa các thành phần và thuận lợi cho việc mở rộng hệ thống.
+Bảng 2.1. Mô tả cấu trúc thư mục và chức năng các thành phần backend
+app.ts
+Tập tin khởi tạo ứng dụng, cấu hình middleware, routes và kết nối các thành phần chính của hệ thống.
+config
+Chứa các cấu hình dùng chung cho hệ thống, bao gồm cấu hình kết nối Supabase và cấu hình gửi email.
+Controllers
+Đảm nhiệm việc tiếp nhận request từ client, xử lý luồng dữ liệu và gọi các service tương ứng để thực hiện nghiệp vụ.
+services
+Chứa logic nghiệp vụ chính của hệ thống, thực hiện các thao tác xử lý dữ liệu, truy vấn cơ sở dữ liệu và trả kết quả cho controller.
+models
+Định nghĩa cấu trúc dữ liệu và các thao tác liên quan đến từng đối tượng trong hệ thống như chương trình học, khóa học, bài giảng và người dùng.
+routes
+Khai báo các API endpoint, ánh xạ đường dẫn HTTP đến các controller tương ứng.
+middlewares
+Cung cấp các middleware phục vụ xác thực, phân quyền, kiểm tra dữ liệu đầu vào, giới hạn truy cập và xử lý upload.
+validators
+Thực hiện kiểm tra và xác thực dữ liệu đầu vào nhằm đảm bảo tính hợp lệ trước khi xử lý nghiệp vụ.
+utils
+Chứa các hàm tiện ích dùng chung như xử lý slug và tạo slug duy nhất.
+types
+Khai báo mở rộng kiểu dữ liệu cho Express nhằm hỗ trợ TypeScript trong quá trình phát triển.
+Hình 2.1 Cấu trúc thư mục backend của hệ thống
+QUÁ TRÌNH XÂY DỰNG BACKEND BẰNG NODE.JS VÀ TYESCRIPT
+2.4.1 
+Xây dựng cấu trúc dự án
+Ngay từ đầu, 
+em
+ tiến hành xây dựng cấu trúc thư mục backend một cách rõ ràng và khoa học. 
+Mỗi module chức năng được tách riêng thành các file controller, service và route tương ứng.
+Việc tổ chức cấu trúc dự án hợp lý giúp:
+Dễ dàng mở rộng chức năng
+Giảm sự phụ thuộc giữa các thành phần
+Tăng hiệu quả làm việc nhóm
+Nếu không tách module và cấu trúc thư mục rõ ràng ngay từ đầu, việc mở rộng thêm các chức năng như bài giảng hoặc nội dung học tập sẽ gặp nhiều khó khăn và dễ phát sinh lỗi trong quá trình bảo trì hệ thống.
+2.4.2 
+Triển khai các API nghiệp vụ
+Sau khi hoàn thiện cấu trúc dự án, 
+em
+ tiến hành xây dựng các API nghiệp vụ cho hệ thống. Các API được thiết kế theo chuẩn RESTful, đảm bảo:
+Dễ sử dụng cho frontend
+Dữ liệu trả về rõ ràng
+Dễ kiểm thử và bảo trì
+Mỗi API đều được xây dựng với đầy đủ các thao tác thêm, sửa, xóa và truy vấn
+ dữ liệu.
+Ví dụ, API tạo bài giảng được triển khai theo các bước: kiểm tra quyền truy cập của người dùng, lưu thông tin bài giảng vào cơ sở dữ liệu và trả kết quả xử lý cho frontend để hiển thị.
+2.5 KẾT NỐI BACKEND VỚI CƠ SỞ DỮ LIỆU SUPABASE
+Backend được kết nối với Supabase để quản lý dữ liệu. Supabase đóng vai trò là hệ quản trị cơ sở dữ liệu, cho phép:
+Lưu trữ thông tin khóa học, bài giảng
+Quản lý người dùng
+Truy xuất dữ liệu nhanh chóng
+Trong quá trình thực tập, 
+em
+ chịu trách nhiệm:
+Thiết kế cấu trúc dữ liệu
+Viết các truy vấn tương tác với Supabase
+Đảm bảo dữ liệu nhất quán và chính xác
+Hình 2.2 Sơ đồ cơ sở dữ liệu (Schema) của hệ thống trên Supabase
+Ngay từ sơ đồ cơ sở dữ liệu, hệ thống được thiết kế xoay quanh ba bảng chính gồm program, course và lesson. Bảng program quản lý chương trình đào tạo tổng thể, mỗi program bao gồm nhiều course, và mỗi course tiếp tục chứa nhiều lesson. Mối quan hệ phân cấp này giúp tổ chức nội dung học tập một cách logic, dễ mở rộng và thuận tiện cho việc truy vấn dữ liệu trong backend.
+2.7. 
+KIẾN
+ TRÚC HỆ THỐNG FRONTEND
+2.7.1. Mô hình tổ chức mã nguồn (Project Structure)
+Dự án được xây dựng trên nền tảng thư viện ReactJS kết hợp với TypeScript, tuân thủ nghiêm ngặt nguyên tắc "Separation of Concerns" (Phân tách mối quan tâm). Mã nguồn được chia thành hai tầng chính: tầng hiển thị (Pages) và tầng xử lý/tái sử dụng (Components).
+Sơ đồ cây thư mục thực tế của phân hệ Admin:
+src/
+├── pages/admin/               # [Container Layer] Các trang chính
+│   ├── AdminDashboardPage.tsx # Bảng điều khiển trung tâm
+│   ├── AdminCoursesPage.tsx   # Quản lý danh sách khóa học
+│   ├── AdminLessonPage.tsx    # Trang chi tiết bài giảng (Main Hub)
+│   ├── ManageTeachersPage.tsx # Quản lý danh sách giáo viên
+│   ├── 
+CreateTeacherPage.tsx  #
+ Trang thêm mới giáo viên
+│   └── 
+AssignCoursesPage.tsx  #
+ Trang phân công giảng dạy
+│
+└── components/admin/          # [Presentation Layer] Các thành phần UI/Logic
+    ├── CourseModal.tsx        # Modal chỉnh sửa thông tin khóa học
+    ├── 
+CreateCourseModal.tsx  #
+ Modal tạo mới khóa học
+    ├── AssignmentModal.tsx    # Modal xử lý logic phân công
+    ├── CoursePermissionSelector.tsx # Component chọn quyền truy cập khóa học
+    │
+    └── lesson/                # [Module Bài giảng] Hệ thống CMS bài học
+        ├── LessonContent.tsx      # Soạn thảo nội dung văn bản
+        ├── LessonObjectives.tsx   # Quản lý mục tiêu học tập
+        ├── LessonSlides.tsx       # Quản lý slide bài giảng
+        ├── LessonVideo.tsx        # Quản lý video bài học
+        ├── LessonProductVideo.tsx # Quản lý video demo sản phẩm
+        ├── LessonQuiz.tsx         # Hệ thống soạn câu hỏi trắc nghiệm
+        ├── LessonChallenge.tsx    # Quản lý bài tập thử thách
+        └── LessonPresentation.tsx # Quản lý tài liệu thuyết trình
+Bảng 2.2. Phân công và Trách nhiệm thực hiện mã nguồn (Source Code)
+Thư mục / File
+Vai trò và Chức năng chính
+SV trực tiếp code
+src/pages/admin/
+Container Pages (Trang chính): Chịu trách nhiệm bố cục giao diện, gọi API lấy dữ liệu ban đầu và điều phối logic của toàn bộ phân hệ quản trị.
+100%
+AdminDashboardPage.tsx
+Trang tổng quan: Hiển thị biểu đồ thống kê, lịch hoạt động và nhật ký hệ thống.
+Có
+AdminCoursesPage.tsx
+Trang quản lý khóa học: Danh sách, tìm kiếm, lọc và phân trang khóa học.
+Có
+AdminLessonPage.tsx
+Trang chi tiết bài giảng: Điều hướng các tab nội dung (Quiz, Video, Slide).
+Có
+AssignCoursesPage.tsx
+Trang phân công: Xử lý logic gán giáo viên vào lớp học, duyệt yêu cầu.
+Có
+ManageTeachersPage.tsx
+Trang quản lý giáo viên: Danh sách nhân sự, reset mật khẩu, xóa tài khoản.
+Có
+src/components/admin/
+Shared Components (Thành phần dùng chung): Các Modal và Form nhập liệu được tái sử dụng ở nhiều trang khác nhau.
+100%
+CourseModal.tsx
+Form Popup chỉnh sửa thông tin khóa học và cài đặt ẩn/hiện.
+Có
+CreateCourseModal.tsx
+Form Popup tạo mới khóa học (xử lý logic validate đầu vào).
+Có
+AssignmentModal.tsx
+Modal phân công giảng dạy (xử lý logic check trùng lặp giáo viên).
+Có
+src/components/admin/lesson/
+Lesson Modules (Module bài giảng): Hệ thống CMS xử lý các loại nội dung đa phương tiện phức tạp.
+100%
+LessonQuiz.tsx
+Module soạn thảo trắc nghiệm: Thêm câu hỏi, chọn đáp án đúng (Nested Data).
+Có
+2.7.2. Công nghệ và Thư viện sử dụng
+Core:
+ React 18 (Functional Components & Hooks).
+Language:
+ TypeScript (Đảm bảo tính chặt chẽ về kiểu dữ liệu cho Props và State).
+Styling:
+ Tailwind CSS (Sử dụng utility-first class để xây dựng giao diện Dark Mode/Glassmorphism).
+Routing:
+ React Router DOM (Điều hướng giữa các trang Dashboard, Courses, Lessons).
+Icons:
+ Heroicons (Hệ thống icon đồng bộ).
+Lý do lựa chọn công nghệ (React + TypeScript + Tailwind CSS) là việc kết hợp bộ ba công nghệ này mang lại giải pháp toàn diện cho hệ thống quản trị:
+Về 
+g
+iao diện & 
+t
+rải nghiệm: ReactJS giúp tối ưu hóa hiệu năng thông qua cơ chế Virtual DOM và khả năng tái sử dụng mã nguồn (Component), trong khi Tailwind CSS đẩy nhanh tốc độ thiết kế giao diện hiện đại (Dark Mode, Glassmorphism) mà không tốn nhiều công sức tùy biến.
+Về 
+đ
+ộ tin cậy & 
+b
+ảo trì: TypeScript đóng vai trò "xương sống" bảo vệ hệ thống, giúp định nghĩa tường minh cấu trúc dữ liệu và phát hiện lỗi ngay trong quá trình viết code, đảm bảo tính chính xác cho các nghiệp vụ xử lý dữ liệu phức tạp của Admin.
+2.9. 
+THIẾT
+ KẾ GIAO DIỆN VÀ TRẢI NGHIỆM NGƯỜI DÙNG
+Với mục tiêu xây dựng một trang quản trị không chỉ mạnh về chức năng mà còn đẹp về hình thức, dự án đã áp dụng các xu hướng thiết kế web hiện đại nhất năm 2024. Giao diện được xây dựng hoàn toàn bằng Tailwind CSS, cho phép tùy biến sâu (customization) từng chi tiết nhỏ.
+2.9.1. Phong cách thiết kế chủ đạo: Dark Mode & Glassmorphism
+Dựa trên đặc thù là website về công nghệ (Robotics), giao diện Admin được thiết kế theo tông màu tối (Dark Theme) kết hợp với hiệu ứng kính mờ (Glassmorphism).
+Bảng màu (Color Palette):
+Nền (Background): Sử dụng màu đen sâu hoặc xám than (bg-black hoặc bg-[#1a1a1a]) giúp giảm mỏi mắt khi Admin phải làm việc thời gian dài.
+Điểm nhấn (Accent Colors): Sử dụng dải màu Gradient chuyển từ Tím sang Xanh dương (from-[#9c00e5] to-[#3c90ff]) hoặc Tím sang Đỏ (to-[#ff7c7c]). Dải màu này xuất hiện xuyên suốt trên các nút bấm (Buttons), thanh tiêu đề và các biểu đồ, tạo nên bộ nhận diện thương hiệu mạnh mẽ.
+Văn bản (Typography): Sử dụng màu trắng (text-white) cho tiêu đề và xám nhạt (text-gray-300, text-gray-400) cho nội dung phụ để tạo độ tương phản tốt.
+Hiệu ứng Kính mờ (Glassmorphism):
+Thay vì sử dụng các khối màu đặc (Solid colors), các thành phần như Card thống kê, Modal, Sidebar sử dụng lớp nền bán trong suốt.
+Kỹ thuật: Sử dụng class bg-white/5 (trắng đục 5%) hoặc bg-black/20 kết hợp với backdrop-blur-xl (làm mờ hậu cảnh).
+Đường viền: Các khối được bao quanh bởi đường viền siêu mảnh border border-white/10, tạo cảm giác nổi khối 3D tinh tế.
+2
+.9.2 
+Hiệu ứng chuyển động và Vi tương tác (Micro-interactions)
+Trải nghiệm người dùng được nâng cao thông qua các chuyển động mượt mà, giúp giao diện trở nên "sống động" và phản hồi tức thì với thao tác của người dùng.
+Animation tùy chỉnh (Custom Keyframes):
+Trong các file như AdminDashboardPage.tsx hay AdminCoursesPage.tsx, mã nguồn định nghĩa trực tiếp các keyframes animation:
+Ứng dụng: Khi tải trang, các bảng dữ liệu và thẻ thống kê không hiện ra đột ngột mà trượt nhẹ từ dưới lên (animate-slide-in), tạo cảm giác mượt mà.
+   
+Hình 2.3. CSS Animations
+Hiệu ứng Hover (Rê chuột):
+Nút bấm:
+ Khi di chuột vào nút, nút sẽ đổi màu nền (hover:bg-white/10) hoặc đổ bóng phát sáng (shadow-lg shadow-[#9c00e5]/30), báo hiệu cho người dùng biết đây là phần tử có thể tương tác.
+Scrollbar tùy chỉnh:
+ Thanh cuộn mặc định của trình duyệt được thay thế bằng thanh cuộn nhỏ gọn, có màu tím thương hiệu (custom-scrollbar), đồng bộ với tổng thể giao diện.
+2.9.3. Thiết kế 
+b
+ố cục và 
+đ
+iều hướng
+Hệ thống sử dụng bố cục Dashboard Layout kinh điển nhưng được tối ưu hóa bằng Flexbox và Grid System.
+Cấu trúc lưới (Grid System):
+Tại trang AdminDashboardPage.tsx, sử dụng grid-cols-1 
+md:grid
+-cols-2 
+lg:grid
+-cols-4. Điều này giúp giao diện tự động thích ứng (Responsive): hiển thị 4 cột trên máy tính, 2 cột trên máy tính bảng và 1 cột trên điện thoại.
+Điều hướng theo Tab (Tabbed Interface):
+Tại trang chi tiết bài giảng (AdminLessonPage.tsx), thay vì bắt người dùng cuộn một trang rất dài, nội dung được chia thành các Tab ngang:
+ Mục tiêu/ Video thành phẩm/ Vật liệu/ Slide ráp ráp/ Lý thuyết/ Thử thách/ Tổng kết
+.
+Logic:
+ Sử dụng State activeTab để render có điều kiện phần nội dung tương ứng, giúp giao diện gọn gàng và tập trung.
+2.9.4. Cơ chế 
+p
+hản hồi và 
+t
+rạng thái hệ thống
+Giao diện luôn thông báo rõ ràng cho người dùng về trạng thái hiện tại của hệ thống, tránh việc người dùng hoang mang không biết thao tác đã thành công hay chưa.
+Trạng thái Tải (Loading State):
+Trong AdminCoursesPage.tsx hay ManageTeachersPage.tsx, khi dữ liệu đang được lấy từ API, hệ thống hiển thị hiệu ứng xoay (Spinner) hoặc Skeleton Loading.
+Trên các nút bấm như "Lưu" hay "Xóa", khi đang xử lý (isLoading = true), nút sẽ bị vô hiệu hóa (disabled), giảm độ mờ (opacity-50) và đổi nhãn thành "Đang lưu..." để ngăn người dùng click nhiều lần (Double-submit prevention).
+Thông báo nổi (Toast Notifications):
+Được cài đặt trong AssignCoursesPage.tsx. Khi Admin phân công thành công hoặc gặp lỗi, một thẻ thông báo nhỏ sẽ trượt ra từ góc màn hình (xanh lá cho thành công, đỏ cho lỗi) và tự động biến mất sau 3 giây.
+Modal xác nhận (Confirmation Dialogs):
+Các thao tác quan trọng như Xóa khóa học hay Phân công giáo viên đều được thực hiện qua các cửa sổ bật lên (AssignmentModal, CourseModal). Nền phía sau được làm tối (bg-black/80), buộc người dùng phải tập trung vào tác vụ hiện tại trước khi quay lại màn hình chính.
+2.9.5. Vai trò hỗ trợ ra quyết định quản trị
+ 
+Ngoài yếu tố thẩm mỹ, giao diện Dashboard được thiết kế để giải quyết bài toán "Quản trị dựa trên dữ liệu" (Data-driven Management), giúp Ban lãnh đạo đưa ra quyết định chính xác thông qua các thành phần trực quan:
+Đánh giá năng lực đào tạo tức thì:
+Thông qua các Thẻ thống kê (Stats Cards) hiển thị số lượng 
+Giáo viên
+ và 
+Khóa học
+ theo thời gian thực, nhà quản lý có thể đánh giá ngay lập tức quy mô hiện tại của trung tâm. Nếu tỉ lệ Khóa học/Giáo viên quá cao, hệ thống ngầm cảnh báo cần tuyển dụng thêm nhân sự để đảm bảo chất lượng đào tạo.
+Tối ưu hóa điều phối lịch trình:
+Widget Lịch biểu (Calendar) không chỉ hiển thị ngày tháng mà còn trực quan hóa mật độ lớp học bằng các điểm đánh dấu (Dots). Nhìn vào lịch, Admin có thể quyết định thời điểm thích hợp để mở lớp mới tránh các ngày cao điểm, hoặc điều chuyển lịch dạy để cân bằng tải công việc cho đội ngũ giáo viên.
+Kiểm soát rủi ro vận hành:
+Khu vực "Hoạt động gần đây" (Recent Activities) đóng vai trò như một nhật ký kiểm toán (Audit Log). Nhà quản lý có thể giám sát ai vừa được phân công vào khóa học nào theo thời gian thực. Điều này hỗ trợ ra quyết định can thiệp ngay lập tức nếu phát hiện sự cố phân quyền sai hoặc thao tác trái phép, đảm bảo tính an toàn cho hệ thống.
+2.10. 
+THIẾT KẾ DỮ LIỆU VÀ TƯƠNG TÁC API
+Để đảm bảo tính nhất quán và giảm thiểu lỗi trong quá trình chạy (Runtime Errors), hệ thống Frontend sử dụng TypeScript để định nghĩa chặt chẽ các kiểu dữ liệu (Interfaces) và tuân thủ chuẩn RESTful API trong giao tiếp với Server.
+2.10.1. Mô hình Dữ liệu
+Toàn bộ các đối tượng dữ liệu trả về từ API đều được mô hình hóa thành các interface. Điều này giúp IDE (VS Code) gợi ý code thông minh và báo lỗi ngay khi lập trình viên truy cập sai thuộc tính.
+Mô hình Giáo viên (Teacher Interface):
+ 
+Được sử dụng trong
+ 
+ManageTeachersPage.tsx để hiển thị danh sách nhân sự.
+Hình 2.4. Interface Teacher
+Mô hình Khóa học và Bài giảng (Course & Lesson Model): Dữ liệu khóa học có cấu trúc phân cấp: Một khóa học chứa nhiều bài giảng, mỗi bài giảng chứa nhiều thành phần (Slide, Quiz, Video).
+Hình 2.5. Interface Course
+Mô hình Dữ liệu Form (Form Data Interface):
+ Được sử dụng trong CreateTeacherPage.tsx để quản lý dữ liệu đầu vào trước khi gửi đi.
+Hình 2.6. Interface FormData
+2.10.2. Cơ chế Tương tác API
+Hệ thống sử dụng cơ chế HTTP Request tiêu chuẩn (GET, POST, PUT, DELETE) để giao tiếp với Backend thông qua fetch API kết hợp với async/await để xử lý bất đồng bộ.
+Phương thức GET (Lấy dữ liệu): Sử dụng để tải danh sách giáo viên hoặc khóa học khi trang vừa được tải (Component Mount). 
+Minh họa từ trang Quản lý Giáo viên:
+Hình 2.7. Lấy dữ liệu Teacher
+Phương thức POST (Gửi dữ liệu): Sử dụng trong chức năng Phân công giảng dạy (AssignCoursesPage.tsx). Dữ liệu được đóng gói thành JSON body trước khi gửi. 
+Minh họa logic Phân công:
+Hình 2.8 Gửi dữ liệu trong Phân công
+2.10.3. Quản lý 
+t
+rạng thái và 
+l
+uồng dữ liệu
+ 
+Dự án áp dụng mô hình Local State Management bằng React Hooks để quản lý vòng đời của dữ liệu trên giao diện.
+Khởi tạo State:
+ Mỗi trang quản lý các biến trạng thái riêng biệt cho dữ liệu (data), trạng thái tải (loading) và lỗi (error).
+Đồng bộ hóa với useEffect:
+ Sử dụng useEffect để kích hoạt việc gọi API ngay khi component được render lần đầu tiên.
+Cập nhật UI thời gian thực (Optimistic UI Update):
+ Trong chức năng Xóa (handleDelete), thay vì tải lại toàn bộ trang, hệ thống thực hiện lọc bỏ phần tử khỏi State ngay lập tức để giao diện phản hồi nhanh hơn.
+Mô tả logic (Bổ sung vào báo cáo):
+ Thay vì tải lại toàn bộ trang sau khi xóa, hệ thống sử dụng phương pháp cập nhật giao diện lạc quan (Optimistic UI). Ngay khi nhận phản hồi thành công từ Server, Client sẽ chủ động lọc bỏ giáo viên đó khỏi mảng teachers trong State, giúp giao diện phản hồi tức thì.
+Hình 2.9 Cập nhật UI thời gian
+2.11. 
+KIẾN
+ TRÚC HỆ THỐNG FRONTEND
+2.11.1. Mô hình tổ chức mã nguồn
+Dự án được xây dựng trên nền tảng thư viện ReactJS kết hợp với TypeScript, tuân thủ nghiêm ngặt nguyên tắc Separation of Concerns (Phân tách mối quan tâm). Mã nguồn được chia thành hai tầng chính: tầng hiển thị (Pages) và tầng xử lý/tái sử dụng (Components). 
+Cấu trúc thư mục được quy hoạch theo tư duy phân tầng chức năng để quản lý độ phức tạp khi dự án mở rộng: 
+src/pages/: Đóng vai trò là các Container Components, chịu trách nhiệm xử lý logic nghiệp vụ, gọi API và điều phối dữ liệu cho từng màn hình cụ thể. 
+src/components/ui/: Chứa các "nguyên tử" giao diện (Atoms) theo tư duy Atomic Design như Button, Card, Input. Các thành phần này hoàn toàn không chứa logic nghiệp vụ để tối đa hóa khả năng tái sử dụng. 
+src/services/: Tầng dịch vụ tập trung hóa mọi giao tiếp với Backend thông qua file api.ts, giúp tách biệt logic giao diện khỏi logic dữ liệu. 
+src/context/: Sử dụng React Context API để quản lý trạng thái toàn cục (Global State), đặc biệt là thông tin xác thực người dùng, giúp giải quyết vấn đề Prop Drilling. 
+2.11.2. Công nghệ và Thư viện sử dụng
+Hệ thống Frontend sử dụng bộ ba công nghệ hiện đại nhằm đảm bảo hiệu năng và độ tin cậy: 
+React 18
+: Sử dụng cơ chế Virtual DOM giúp tối ưu hóa hiệu năng hiển thị và khả năng tái sử dụng mã nguồn thông qua kiến trúc Component-Based. 
+TypeScript
+: Đóng vai trò kiểm soát kiểu dữ liệu chặt chẽ (Type Safety), phát hiện lỗi ngay trong quá trình phát triển và đảm bảo tính chính xác cho các nghiệp vụ xử lý dữ liệu phức tạp. 
+Tailwind CSS
+: Thư viện utility-first CSS giúp đẩy nhanh tốc độ thiết kế giao diện hiện đại (Dark Mode, Glassmorphism) và đảm bảo tính nhất quán thẩm mỹ toàn hệ thống. 
+2.13. 
+PHƯƠNG
+ PHÁP QUẢN LÝ TRẠNG THÁI VÀ LUỒNG DỮ LIỆU
+Hệ thống áp dụng kiến trúc quản lý trạng thái đa tầng nhằm tối ưu hóa hiệu năng và tính dễ đoán của dữ liệu: 
+Luồng dữ liệu một chiều (Unidirectional Data Flow)
+: Tuân thủ nghiêm ngặt nguyên tắc 
+Data Down, Action Up
+. Dữ liệu từ Container Component truyền 
+xuống Component con qua Props, trong khi các tương tác từ con được gửi ngược lại cha qua Callback functions. 
+Xử lý bất đồng bộ (Async State Management)
+: Mọi yêu cầu mạng đều được quản lý qua bộ 3 trạng thái: Loading (hiển thị Skeleton UI), Success (cập nhật dữ liệu), và Error (hiển thị thông báo lỗi thân thiện). 
+Ngăn chặn Race Conditions
+: Sử dụng Cleanup Function trong useEffect kết hợp AbortController để hủy bỏ các yêu cầu API cũ khi người dùng thao tác chuyển bài học liên tục, đảm bảo tính chính xác của dữ liệu hiển thị. 
+CHƯƠNG III. PHÂN TÍCH
+ 
+3.1
+ 
+PHÂN TÍCH CHI TIẾT TỪNG NHÓM BẢNG
+3
+.1.
+1
+. Nhóm quản lý người dùng và phân công giảng dạy
+Nhóm này bao gồm ba bảng:
+users
+assignments
+assignment_logs
+Nhóm này quản lý cấu trúc nội dung đào tạo theo cấp bậc từ chương trình, khóa học đến từng bài học. Mỗi bảng đảm nhiệm một cấp quản lý riêng và có liên kết chặt chẽ với nhau nhằm đảm bảo tính nhất quán của hệ thống đào tạo.
+3
+.1.2
+ Nhóm chương trình – khóa học – bài học
+Gồm ba bảng:
+programs
+courses
+lessons
+Nhóm này quản lý cấu trúc nội dung đào tạo theo cấp bậc từ chương trình, khóa học đến từng bài học. Mỗi bảng đảm nhiệm một cấp quản lý riêng và có liên kết chặt chẽ với nhau nhằm đảm bảo tính nhất quán của hệ thống đào tạo.
+Việc tổ chức theo thứ bậc:
+Chương trình → Khóa học → Bài học
+giúp nội dung đào tạo có cấu trúc rõ ràng và logic.
+3
+.1.3
+ Nhóm bảng mô tả nội dung chi tiết bài học
+Nhóm này gồm:
+lesson_objectives
+lesson_preparation
+lesson_contents
+lesson_challenges
+lesson_models
+lesson_builds
+Mỗi bảng đảm nhiệm một loại nội dung riêng nhưng đều liên kết với bảng lessons.
+Nhóm này bao gồm các bảng quản lý mục tiêu đào tạo, nội dung lý thuyết, hoạt động thực hành và các thành phần chi tiết khác của bài học. Dữ liệu trong nhóm giúp mô tả đầy đủ nội dung giảng dạy của từng bài học.
+3
+.1.4 
+Nhóm câu hỏi và đáp án
+Gồm hai bảng:
+lesson_quizzes
+quiz_answers
+Nhóm này lưu trữ câu hỏi, đáp án và mối quan hệ giữa chúng với từng bài học. Cấu trúc dữ liệu cho phép một câu hỏi có thể có nhiều đáp án và hỗ trợ việc đánh giá kết quả học tập.
+3
+.1.5 
+Nhóm phương tiện đa phương tiện
+Gồm:
+media
+content_media
+Nhóm này quản lý các tài nguyên như hình ảnh, video và tài liệu minh họa được sử dụng trong chương trình đào tạo. Các tài nguyên được liên kết với bài học hoặc hoạt động cụ thể để đảm bảo khả năng tra cứu và sử dụng thuận tiện.
+3
+.1.6 
+Nhóm khối lệnh lập trình và thẻ phân loại nội dung
+Gồm:
+code_blocks
+content_code_blocks
+tags
+tag_map
+Nhóm này dùng để lưu trữ thông tin về các khối lệnh lập trình và hệ thống thẻ phân loại, giúp phân loại và tổ chức nội dung đào tạo theo từng chủ đề, loại hoạt động hoặc mức độ.
+3
+.2 
+XÁC ĐỊNH CÁC CHỨC NĂNG CHÍNH CỦA BACKEND
+Thông qua quá trình phân tích yêu cầu, backend của hệ thống cần đảm nhiệm các chức năng chính sau:
+Quản lý chương trình học
+Quản lý khóa học
+Quản lý bài giảng
+Quản lý nội dung bài học
+Quản lý tài nguyên đính kèm
+Quản lý người dùng và phân quyền
+Mỗi chức năng được xây dựng thành các API riêng biệt, đảm bảo tính rõ ràng và dễ mở rộng.
+Trong các chức năng trên, em trực tiếp xây dựng đầy đủ API cho quản lý khóa học, bài giảng và nội dung bài học.
+Hình 3.1 Danh sách các API backend được đăng ký trong file app.ts
+Cách tổ chức này giúp hệ thống backend có cấu trúc rõ ràng, dễ theo dõi luồng xử lý và thuận lợi cho việc phân công, phát triển.
+3.3
+ 
+MÔ
+ TẢ CHI TIẾT CÁC SERVICE BACKEND ĐÃ XÂY DỰNG
+Trong quá trình nghiên cứu cơ sở lý thuyết, em trực tiếp thiết kế và triển khai hệ thống backend theo mô hình phân tầng, trong đó tầng Service đóng vai trò trung tâm trong việc xử lý toàn bộ logic nghiệp vụ của hệ thống. Mỗi service được xây dựng tương ứng với một nhóm chức năng cụ thể, giúp mã nguồn có cấu trúc rõ ràng, dễ bảo trì và thuận tiện cho việc mở rộng trong tương lai.
+Các service được tổ chức trong thư mục services, mỗi file đảm nhiệm một chức năng nghiệp vụ độc lập và được controller gọi đến khi xử lý request từ frontend.
+3.
+3
+.1 User Service (user.service.ts)
+User Service chịu trách nhiệm xử lý toàn bộ các nghiệp vụ liên quan đến người dùng trong hệ thống. Service này làm việc trực tiếp với cơ sở dữ liệu thông qua Supabase để quản lý thông tin tài khoản và quyền truy cập.
+Các chức năng chính bao gồm:
+Tạo và quản lý tài khoản người dùng
+Truy vấn danh sách người dùng
+Cập nhật thông tin người dùng
+Hỗ trợ phân quyền theo vai trò
+Service này đóng vai trò nền tảng cho toàn bộ hệ thống, vì hầu hết các chức năng khác đều phụ thuộc vào thông tin người dùng.
+Service này giúp em hiểu rõ hơn cách tách logic nghiệp vụ liên quan đến quản lý người dùng trong backend.
+3.3
+.2 
+Auth Service (
+auth.service
+.ts)
+Auth Service được xây dựng để xử lý các nghiệp vụ liên quan đến xác thực và đăng nhập hệ thống. Service này đảm bảo chỉ những người dùng hợp lệ mới có thể truy cập vào các chức năng backend.
+Các chức năng chính:
+Xác thực người dùng khi đăng nhập
+Kiểm tra thông tin đăng nhập
+Hỗ trợ tạo và xác minh token
+Kết hợp với middleware để bảo vệ API
+Auth Service góp phần đảm bảo tính bảo mật cho toàn bộ hệ thống backend.
+Service này giúp em hiểu rõ hơn cách tách logic nghiệp vụ liên quan đến xác thực và bảo mật API.
+3.3
+.3 
+Permission Service (
+permission.service
+.ts)
+Permission Service chịu trách nhiệm kiểm soát quyền truy cập của người dùng đối với từng chức năng trong hệ thống. Service này được sử dụng kết hợp với middleware để thực hiện phân quyền.
+Các chức năng chính:
+Xác định quyền truy cập của người dùng
+Kiểm tra vai trò trước khi cho phép truy cập API
+Hỗ trợ phân quyền động theo chức năng
+Service này giúp hệ thống đảm bảo tính nhất quán và an toàn trong việc phân quyền và giúp em hiểu rõ hơn cách triển khai phân quyền linh hoạt trong backend.
+3.3
+.4 
+Program Service (
+program.service
+.ts)
+Program Service được xây dựng để quản lý các chương trình đào tạo trong hệ
+ thống. Đây là tầng cao nhất trong cấu trúc nội dung đào tạo.
+Các chức năng chính:
+Tạo mới và cập nhật chương trình đào tạo
+Truy vấn danh sách chương trình
+Quản lý trạng thái chương trình
+Program Service đóng vai trò định hướng cấu trúc đào tạo tổng thể cho toàn bộ hệ thống.
+Service này giúp em hiểu rõ hơn cách tổ chức dữ liệu theo cấu trúc phân cấp.
+3.3
+.5 
+Course Service (
+course.service
+.ts)
+Course Service chịu trách nhiệm quản lý các khóa học thuộc từng chương trình đào tạo. Service này giúp liên kết chương trình đào tạo với nội dung bài giảng cụ thể.
+Các chức năng chính:
+Tạo, cập nhật và xóa khóa học
+Truy vấn khóa học theo chương trình
+Cung cấp dữ liệu khóa học cho frontend
+Service này giúp em hiểu rõ hơn mối quan hệ giữa chương trình đào tạo và khóa học.
+3.3
+.6 
+Lesson Service (
+lesson.service
+.ts)
+Lesson Service quản lý thông tin bài giảng trong từng khóa học, bao gồm tiêu đề, mô tả và thứ tự hiển thị.
+Các chức năng chính:
+Tạo và cập nhật bài giảng
+Truy vấn danh sách bài giảng
+Quản lý mối quan hệ giữa bài giảng và khóa học
+Service này giúp em hiểu rõ hơn cách liên kết dữ liệu giữa bài giảng và khóa học.
+3.3
+.7 
+LessonContent Service (lessonContent.service.ts)
+LessonContent Service chịu trách nhiệm quản lý nội dung chi tiết của từng bài giảng.
+Các chức năng chính:
+Quản lý nội dung văn bản của bài giảng
+Cập nhật nội dung học tập
+Truy vấn nội dung theo bài giảng
+Service này cho phép mở rộng hệ thống với nhiều loại nội dung khác nhau trong tương lai.
+Service này giúp em hiểu rõ hơn cách tách riêng nội dung học tập khỏi thông tin bài giảng.
+3.3
+.8 
+LessonMedia & Attachment Service (lessonMedia.service.ts, 
+media.service
+.ts, 
+attachment.service
+.ts)
+Nhóm service này được xây dựng để quản lý tài nguyên media và các file đính kèm trong bài giảng.
+Các chức năng chính:
+Quản lý file media và tài nguyên đính kèm
+Liên kết tài nguyên với bài giảng
+Lưu trữ metadata của file
+Việc tách riêng các service này giúp hệ thống xử lý tài nguyên một cách nhất quán và hiệu quả.
+Service này giúp em hiểu rõ hơn cách xử lý và tổ chức tài nguyên trong backend.
+3.3
+.9 
+LessonOrder & LessonStatus Service (lessonOrder.service.ts, lessonStatus.service.ts)
+Hai service này hỗ trợ việc quản lý thứ tự hiển thị và trạng thái bài học trong hệ thống.
+Các chức năng chính:
+Quản lý thứ tự bài giảng
+Theo dõi trạng thái hoàn thành bài học
+Hỗ trợ frontend hiển thị tiến trình học tập
+Service này giúp em hiểu rõ hơn cách hỗ trợ frontend hiển thị tiến trình học tập.
+3.3
+.10 
+Objectives, Preparation, Model & Build Service
+Các service này hỗ trợ việc xây dựng nội dung học tập chi tiết cho từng bài giảng:
+Objectives Service
+: Quản lý mục tiêu học tập
+Preparation Service
+: Quản lý nội dung chuẩn bị bài học
+Model Service
+: Quản lý mô hình hoặc nội dung lý thuyết
+Build Service
+: Quản lý nội dung thực hành
+Nhóm service này giúp bài giảng có cấu trúc rõ ràng và logic.
+Service này giúp em hiểu rõ hơn cách xây dựng bài giảng có cấu trúc logic.
+3.3
+.11 
+Quiz & Challenge Service (
+quiz.service
+.ts, 
+challenge.service
+.ts)
+Quiz Service và Challenge Service hỗ trợ việc đánh giá và kiểm tra kiến thức người học.
+Các chức năng chính:
+Quản lý câu hỏi trắc nghiệm
+Quản lý thử thách học tập
+Hỗ trợ đánh giá kết quả học tập
+Service này giúp em hiểu rõ hơn cách triển khai chức năng đánh giá trong hệ thống học tập.
+3.3
+.12
+ Dashboard & Logs Service (
+dashboard.service
+.ts, 
+logs.service
+.ts)
+Dashboard Service cung cấp dữ liệu tổng hợp phục vụ việc hiển thị thống kê cho hệ thống quản trị. Logs Service hỗ trợ ghi nhận và theo dõi các hoạt động trong hệ thống.
+Các
+ chức năng chính:
+Tổng hợp dữ liệu thống kê
+Theo dõi hoạt động hệ thống
+Hỗ trợ kiểm tra và xử lý lỗi
+Service
+ này giúp em hiểu rõ hơn cách thu thập và phân tích dữ liệu hệ thống.
+3.3
+.13 
+Mối quan hệ tổng thể giữa các service
+Tất
+ cả các service trong hệ thống backend được thiết kế để hoạt động độc lập nhưng liên kết chặt chẽ với nhau thông qua controller và cơ sở dữ liệu. Cách tổ chức này giúp backend đảm bảo tính mở rộng, ổn định và dễ bảo trì.
+Toàn bộ hệ thống service được chia thành ba nhóm chính gồm: nhóm quản lý người dùng và phân quyền, nhóm quản lý nội dung đào tạo và nhóm đánh giá – theo dõi học tập. Việc phân nhóm này giúp backend có cấu trúc rõ ràng, dễ phát triển và dễ bảo trì trong dài hạn.
+3.4
+. PHÂN TÍCH CHI TIẾT CHỨC NĂNG VÀ THIẾT KẾ COMPONENT
+Hệ 
+thống
+ Admin được xây dựng dựa trên kiến trúc Component-Based, trong đó mỗi phân hệ chức năng (Module) được cấu thành từ một Trang chính (Container Page) và nhiều Thành phần con (Presentational Components) đảm nhiệm các tác vụ cụ thể.
+3.4
+.1. Phân hệ Quản lý Khóa học (Course Management Module)
+Đây là phân hệ nền tảng, cho phép Admin thiết lập và quản lý danh mục sản phẩm giáo dục của trung tâm.
+3.4
+.1.1. Trang điều phối: AdminCoursesPage.tsx
+Chức năng: Hiển thị toàn bộ danh sách khóa học dưới dạng lưới (Grid) hoặc danh sách (List).
+Logic xử lý Phân trang (Client-side Pagination): Thay vì tải lại trang, hệ thống tải toàn bộ danh sách về và chia nhỏ mảng dữ liệu (
+array.slice
+) dựa trên biến currentPage và itemsPerPage. Điều này giúp trải nghiệm chuyển trang diễn ra tức thì.
+Logic 
+Tìm
+ kiếm & Lọc: Sử dụng hook useEffect để lắng nghe thay đổi từ ô input tìm kiếm, thực hiện lọc mảng (filter) theo tên khóa học hoặc trạng thái (Archive/Publish) theo thời gian thực.
+Khó khăn và giải pháp xử lý kỹ thuật (Điều chỉnh theo code thực tế)
+a) 
+Xung đột trạng thái giữa Tìm kiếm và Phân trang
+Vấn 
+đề
+: Khi người dùng đang ở trang xa và thực hiện tìm kiếm, nếu kết quả trả về ít hơn 5 trang, giao diện sẽ bị trắng do chỉ số currentPage vẫn giữ giá trị cũ trong khi dữ liệu mới không đủ số trang đó.
+Giải pháp trong code: Em đã xử lý việc này ngay trong Hook Lọc dữ liệu (useEffect). Mỗi khi biến searchTerm hoặc filterCode thay đổi, hệ thống không chỉ tính toán lại danh sách filteredCourses mà còn ép buộc setCurrentPage(1) ngay lập tức. Cách làm này đảm bảo tính nhất quán dữ liệu trong một lần render duy nhất.
+b) Đồng bộ dữ liệu
+Mô tả: Hệ thống Backend chia dữ liệu khóa học thành các endpoint riêng biệt dựa trên chương trình học (ví dụ: programs/1 cho Essential và programs/2 cho Prime). Việc này gây khó khăn khi Frontend cần hiển thị một danh sách tổng hợp gồm tất cả các khóa học để Admin quản lý chung.
+Giải 
+pháp
+: Em sử dụng kỹ thuật Data Aggregation (Tổng hợp dữ liệu) tại phía Client. Thay vì gọi API tuần tự (cách làm truyền thống gây chậm), em sử dụng Promise.all để kích hoạt các request song song. Sau khi nhận phản hồi, em sử dụng toán tử Spread (...) để gộp các mảng con thành một mảng duy nhất và tiến hành chuẩn hóa (Mapping) về cùng một cấu trúc Interface.
+c) Trải nghiệm người dùng khi tải dữ liệu
+Mô tả: Khi thực hiện gộp dữ liệu từ nhiều nguồn, thời gian phản hồi có thể lâu hơn bình thường. Nếu để màn hình trắng, người dùng sẽ tưởng hệ thống bị treo.
+Giải 
+pháp
+: Em thiết lập biến trạng thái loading. Trong lúc Promise.all đang chạy, giao diện sẽ hiển thị trạng thái "Đang tải dữ liệu..." hoặc Skeleton Loading. Ngay sau khi quá trình gộp dữ liệu hoàn tất (finally), loading được set về false để hiển thị bảng dữ liệu.
+2.8.1.2. Component vệ tinh
+CreateCourseModal
+.tsx: Form chuyên biệt để khởi tạo khóa học. Component này tách biệt logic validate dữ liệu đầu vào (Tên khóa học không được để trống, Mô tả phải có độ dài tối thiểu) trước khi gửi request POST về Server.
+CourseModal
+.tsx (Edit Mode): Modal này nhận props là object course hiện tại. Nó sử dụng kỹ thuật Controlled Component để điền sẵn dữ liệu vào các ô input, cho phép Admin sửa đổi thông tin hoặc cập nhật trạng thái hiển thị.
+CoursePermissionSelector
+.tsx: Một component tái sử dụng giúp Admin phân quyền truy cập cho khóa học (Ví dụ: "draft" | "published" | "archived"). Việc tách riêng logic này giúp dễ dàng nhúng vào bất kỳ form nào cần chọn quyền hạn.
+3.4
+.2. Phân hệ hệ thống quản trị nội dung bài giảng
+Đây là 
+phân
+ hệ phức tạp nhất về mặt kỹ thuật, biến website thành một công cụ soạn thảo nội dung đa phương tiện mạnh mẽ.
+3.4
+.2.1. Trang điều phối: AdminLessonPage.tsx
+Vai trò Container: Trang này không hiển thị trực tiếp nội dung mà đóng vai trò là một "bộ khung" (Hub). Nó quản lý một biến trạng thái activeTab để điều hướng người dùng giữa các module nội dung khác nhau (Nội dung, Slide, Video, Quiz...).
+Quản lý State tập trung: Dữ liệu bài giảng được gọi API một lần tại đây và truyền xuống các component con thông qua props, đảm bảo tính đồng nhất dữ liệu.
+3.4
+.2.2. Các Module Component chi tiết (trong thư mục admin/lesson/):
+Module Đa phương tiện (LessonSlides.tsx & LessonVideo.tsx):
+LessonSlides.tsx: Cho phép upload hàng loạt ảnh slide. Logic xử lý mảng cho phép Admin sắp xếp lại thứ tự (re-order) hoặc xóa từng slide cụ thể mà không ảnh hưởng đến các slide khác. Module này hỗ trợ cho việc quản lý slide bài giảng cho bài học đang trỏ tới.
+LessonProductVideo.tsx: Tương tự như LessonSlides, module này cho phép upload video
+ 
+(nhưng khác với LessonSlide chỉ có thể up 1 video giới thiệu bài giảng) giúp quản lý tài nguyên video rõ ràng. 
+Module Nội dung & Mục tiêu (LessonContent.tsx & LessonObjectives.tsx):
+LessonObjectives.tsx:
+ Quản lý danh sách các gạch đầu dòng "Mục tiêu bài học". Logic sử dụng mảng dynamic, cho phép thêm/xóa dòng mục tiêu linh hoạt bằng các nút + và x.
+Module Đánh giá & Tương tác (LessonQuiz.tsx & LessonChallenge.tsx):
+LessonQuiz.tsx:
+ Hệ thống soạn thảo câu hỏi trắc nghiệm phức tạp.
+Cấu trúc dữ liệu:
+ Mỗi câu hỏi là một object chứa question_text, mảng options (các phương án) và correct_index (chỉ số đáp án đúng).
+Logic:
+ Admin có thể thêm vô số câu hỏi. Giao diện cho phép tích chọn (Radio button) để xác định đáp án đúng ngay trên màn hình soạn thảo.
+LessonChallenge.tsx:
+ Quản lý các bài tập thử thách nâng cao, khuyến khích học viên thực hành sau giờ học.
+Tóm tắt kỹ thuật: Phân hệ này áp dụng triệt để kiến trúc Component Composition (Tổ hợp Component), tách biệt các logic nghiệp vụ phức tạp (như xử lý mảng Slide, cấu trúc JSON lồng nhau của Quiz) thành các module độc lập để dễ bảo trì. Luồng dữ liệu tuân thủ nguyên tắc One-way Data Flow (Dữ liệu một chiều): Container AdminLessonPage chịu trách nhiệm gọi API và quản lý State tập trung, sau đó truyền xuống các Component con thông qua Props, đảm bảo tính nhất quán và giảm thiểu việc render thừa trong quá trình thao tác dữ liệu.
+3.4
+.3. Phân hệ quản lý nhân sự và phân công
+ 
+Phân hệ này giải quyết bài toán nghiệp vụ cốt lõi: Phân phối nguồn lực giảng dạy.
+Quản lý Giáo viên (ManageTeachersPage.tsx & CreateTeacherPage.tsx):
+Danh sách nhân sự:
+ Hiển thị bảng thông tin giáo viên với các cột: Avatar, Tên đăng nhập, Email, Họ tên.
+Chức năng Reset Password:
+ Tích hợp logic cho phép Admin đặt lại mật khẩu cho giáo viên ngay tại danh sách, giúp xử lý nhanh các trường hợp quên mật khẩu.
+Form thêm mới (CreateTeacherPage):
+ Sử dụng các input type password và email kết hợp với validate HTML5 để đảm bảo tính chính xác của dữ liệu tài khoản.
+Hệ thống Phân công (AssignCoursesPage.tsx):
+Mô hình quan hệ:
+ Xử lý mối quan hệ "Nhiều - Nhiều" (Many-to-Many) giữa bảng Users (Giáo viên) và bảng Courses.
+Component AssignmentModal.tsx:
+ Đây là trái tim của phân hệ này.
+Dropdown thông minh:
+ Load danh sách toàn bộ Giáo viên và Khóa học vào 2 menu thả xuống.
+Validation Logic:
+ Khi Admin chọn 1 Giáo viên và 1 Khóa học, hệ thống sẽ kiểm tra xem cặp đôi này đã tồn tại trong cơ sở dữ liệu chưa để ngăn chặn việc phân công trùng lặp (Duplicate Entry).
+Quy trình Duyệt (Approval Workflow):
+ Trang danh sách phân công có các tab trạng thái (Active/Pending). Các yêu cầu phân công mới sẽ nằm ở trạng thái chờ, Admin cần xác nhận để kích hoạt quyền truy cập cho giáo viên.
+Tóm tắt kỹ thuật & Bài học kinh nghiệm:
+Thông qua việc phát triển phân hệ này, sinh viên đã giải quyết thành công bài toán xử lý Quan hệ Nhiều - Nhiều (Many-to-Many) giữa thực thể Giáo viên và Khóa học. Điểm nhấn kỹ thuật nằm ở cơ chế Ngăn chặn trùng lặp dữ liệu (Duplicate Prevention) ngay tại phía Client:
+Logic xử lý: Trong AssignmentModal, hệ thống sử dụng thuật toán lọc mảng (filter kết hợp includes) để so sánh danh sách khóa học đang chọn với danh sách phân công hiện có trong lịch sử.
+Kết quả: Các khóa học đã được gán cho giáo viên đó sẽ tự động bị vô hiệu hóa (Disabled) trên giao diện chọn, giúp ngăn chặn triệt để lỗi vi phạm ràng buộc duy 
+nhất (Unique Constraint) trước khi gửi dữ liệu về Server, đảm bảo tính toàn vẹn của cơ sở dữ liệu.
+Hình 3.4. Minh họa bài toàn xử lý Nhiều – Nhều
+3.4
+.4. Phân hệ Dashboard Tổng quan (Analytics Dashboard)
+Trang hiển thị: AdminDashboardPage.tsx
+Trực quan hóa dữ liệu:
+ Tổng hợp các chỉ số quan trọng (KPIs) như Tổng số giáo viên, Tổng số khóa học đang hoạt động.
+Nhật ký hoạt động (Activity Logs):
+ Component này hiển thị dòng thời gian (Timeline) các thao tác gần nhất trên hệ thống (Ví dụ: "Giáo viên A vừa cập nhật bài giảng B"). Điều này giúp Admin giám sát chặt chẽ mọi thay đổi dữ liệu.
+3.5
+. PHÂN
+ TÍCH CHI TIẾT CHỨC NĂNG FRONTEND VÀ THIẾT KẾ COMPONENT
+3.5
+.1. Phân hệ Xác thực và Bảo mật (Authentication Module)
+Phân hệ này được thiết kế như một hệ thống kiểm soát truy cập toàn diện, sử dụng kiến trúc tập trung dựa trên AuthContext. 
+Quản lý trạng thái
+: Lưu trữ các thông tin cốt lõi gồm đối tượng người dùng, trạng thái isAuthenticated và trạng thái isLoading để ngăn chặn hiện tượng nháy trang khi chưa khởi tạo xong phiên làm việc. 
+Đồng bộ phiên (Hydration)
+: Khi người dùng tải lại trang (F5), hệ thống tự động truy xuất accessToken từ LocalStorage để khôi phục trạng thái đăng nhập, đảm bảo trải nghiệm không bị gián đoạn. 
+Bảo vệ luồng truy cập (Route Guarding)
+: Sử dụng cơ chế Private Route Wrapper để bọc các trang dành riêng cho giáo viên. Nếu người dùng chưa xác thực, hệ thống sẽ cưỡng chế điều hướng về trang đăng nhập. 
+3.5
+.2. Phân hệ Cổng thông tin Giáo viên (Teacher Portal)
+Đảm nhiệm vai trò điều hướng và giúp giáo viên tiếp cận tài liệu giảng dạy thông qua lộ trình 3 bước: Trang chủ > Chọn chương trình > Danh sách khóa học. 
+Thiết kế đáp ứng (Responsive Grid)
+: Sử dụng CSS Grid với hàm repeat
+ 
+(auto-fill, minmax
+ 
+(300px, 1fr)) giúp giao diện tự động thích ứng với nhiều kích thước màn hình từ máy chiếu đến máy tính bảng. 
+Lọc dữ liệu phía Client
+: Tích hợp tính năng tìm kiếm và lọc theo cấp độ ngay tại trình duyệt thông qua useMemo, giúp loại bỏ độ trễ mạng và mang lại phản hồi tức thì cho người dùng. 
+3.5
+.3. Trình phát bài giảng tương tác (Interactive Lesson Player)
+Đây là tính năng cốt lõi, thay thế các công cụ trình chiếu truyền thống bằng một môi trường thực thi bài giảng trực tiếp trên trình duyệt. 
+Kiến trúc chuyển đổi nội dung
+: Áp dụng mô hình StageRenderer để hiển thị nội dung dựa trên 8 bước sư phạm chuẩn (Mục tiêu, Tổng quan, Lắp ráp PDF, Video, Quiz...) mà không cần tải lại trang. 
+Tối ưu hóa trình chiếu Slide
+: Sử dụng kỹ thuật 
+Smart Pre-fetching
+ (tải trước ảnh slide tiếp theo vào bộ nhớ đệm) để đảm bảo độ trễ bằng không khi giáo viên chuyển trang. 
+Quản lý Video thông minh
+: Trình phát video tùy chỉnh có khả năng ghi nhớ mốc thời gian (savedVideoTime) khi người dùng chuyển đổi giữa các tab nội dung, cho phép tiếp tục xem video tại đúng vị trí cũ khi quay lại. 
+CHƯƠNG I
+V
+. 
+QUY TRÌNH XỬ LÝ VÀ 
+KẾ
+T QUẢ
+Qua quá trình phân tích và thiết kế, cơ sở dữ liệu đã đáp ứng:
+Đầy đủ yêu cầu nghiệp vụ đào tạo Robotics
+Hỗ trợ tốt cho phòng Giáo vụ
+Có khả năng mở rộng trong tương lai
+Giữ được tính ổn định, minh bạch và khoa học
+4
+.1. 
+QUY
+ TRÌNH XÂY DỰNG VÀ TRIỂN KHAI CƠ SỞ DỮ LIỆU TRÊN SUPABASE
+4
+.1.1. Lý do lựa chọn nền tảng Supabase
+Trong quá trình triển khai hệ thống, nhóm dự án đã nghiên cứu nhiều giải pháp cơ sở dữ liệu khác nhau như MySQL, Firebase, MongoDB, PostgreSQL thuần và Supabase. Sau khi phân tích, Supabase được lựa chọn vì các lý do chính sau:
+Thứ nhất, Supabase được xây dựng trên nền tảng PostgreSQL. Đây là hệ quản trị cơ sở dữ liệu quan hệ mạnh mẽ, ổn định, bảo mật cao và phù hợp với các hệ thống quản lý nghiệp vụ có cấu trúc dữ liệu rõ ràng. Điều này giúp hệ thống đảm bảo tính toàn vẹn dữ liệu, đặc biệt quan trọng đối với thông tin đào tạo.
+Thứ hai, Supabase cung cấp giao diện quản trị trực quan, giúp nhóm dự án dễ dàng tạo bảng, cấu hình khóa ngoại, xem dữ liệu và ghi nhận lịch sử thay đổi. Điều này hỗ trợ đáng kể trong giai đoạn triển khai thử nghiệm khi đội ngũ phát triển bao gồm sinh viên và thực tập sinh.
+Thứ ba, Supabase tự động sinh ra các API truy xuất dữ liệu theo chuẩn REST. Nhờ đó, hệ thống website có thể kết nối trực tiếp với cơ sở dữ liệu mà không cần xây dựng tầng API thủ công ngay từ đầu, giúp tiết kiệm chi phí và thời gian phát triển.
+Thứ tư, Supabase hỗ trợ bảo mật theo mô hình Row Level Security, cho phép kiểm soát từng dòng dữ liệu dựa trên vai trò người dùng. Điều này phù hợp với môi trường giáo dục, nơi dữ liệu có mức độ nhạy cảm nhất định và không phải người dùng nào cũng có thể truy cập toàn bộ.
+Trong quá trình sử dụng Supabase, em nhận thấy đây là nền tảng khá phù hợp với sinh viên công nghệ thông tin. Supabase cung cấp sẵn giao diện trực quan để quản lý cơ 
+sở dữ liệu, tự động sinh API và hỗ trợ các tính năng như xác thực người dùng, phân quyền và lưu trữ tệp mà không cần thiết lập máy chủ phức tạp. Nhờ đó, sinh viên có thể tập trung nhiều hơn vào việc thiết kế mô hình dữ liệu và xử lý nghiệp vụ thay vì phải tốn thời gian cấu hình hệ thống. Ngoài ra, Supabase còn cho phép sử dụng miễn phí ở mức cơ bản, rất thuận tiện cho việc học tập và thực hiện các dự án nhỏ.
+Từ các phân tích trên có thể khẳng định rằng việc lựa chọn Supabase không chỉ vì lý do kỹ thuật mà còn dựa trên khả năng vận hành thực tế trong bối cảnh hệ thống giáo dục Robotics.
+4
+.1.2. Quy trình triển khai cơ sở dữ liệu
+Quá trình xây dựng cơ sở dữ liệu được triển khai theo các bước sau:
+Bước 1: Phân tích yêu cầu nghiệp vụ từ phòng Giáo vụ.Ở bước này, nhóm dự án làm việc trực tiếp với bộ phận vận hành đào tạo để xác định rõ những thông tin nào cần lưu trữ, cách thức sử dụng, đối tượng sử dụng và yêu cầu trong tương lai.
+Bước 2: Xây dựng mô hình dữ liệu logic.Từ yêu cầu nghiệp vụ, các thực thể dữ liệu được xác định, sau đó thiết lập mối quan hệ giữa chúng. Bước này giúp hình thành hệ thống bảng và khóa ngoại ban đầu.
+Bước 3: Thiết kế mô hình dữ liệu vật lý.Các bảng, trường dữ liệu, kiểu dữ liệu và ràng buộc được tối ưu hóa để phù hợp với PostgreSQL. Các khóa chính, khóa ngoại, ràng buộc toàn vẹn, chỉ mục được thiết lập nhằm đảm bảo tính chính xác và hiệu năng.
+Bước 4: Triển khai cơ sở dữ liệu trên Supabase.Nhóm tiến hành tạo project Supabase, sau đó thực thi các lệnh SQL để tạo toàn bộ 20 bảng dữ liệu. Toàn bộ lược đồ được kiểm tra lại để tránh trùng lặp và sai ràng buộc.
+Bước 5: Kiểm thử dữ liệu bằng cách nhập dữ liệu thật.Một số bài học Robotics, bao gồm cả nội dung, mục tiêu và câu hỏi đánh giá, được nhập vào hệ thống để kiểm nghiệm tính đúng đắn của thiết kế.
+Bước 6: Đánh giá, tối ưu và hoàn thiện.Nhóm thực hiện rà soát, phát hiện các điểm chưa hợp lý và điều chỉnh thiết kế cho phù hợp hơn với nghiệp vụ thực tế.
+Việc tuân thủ quy trình chặt chẽ giúp cơ sở dữ liệu vừa đảm bảo tính khoa học, vừa phù hợp với triển khai thực tế.
+4
+.2. 
+QUY
+ TRÌNH NHẬP DỮ LIỆU THỬ NGHIỆM TỪ TÀI LIỆU BÀI HỌC
+Trong giai đoạn thử nghiệm, dữ liệu được lấy từ tài liệu bài học Robotics thực tế, tiêu biểu như bài học “Làm quen với Sound Blocks – Mô hình Nữ Vũ Công” trong file 
+dữ liệu bài học của công ty Let’s Code
+.
+Quy trình nhập liệu bao gồm các bước sau:
+Bước 1: Xác định khóa học và bài học cần nhập.Trước tiên, khóa học và chương trình mà bài học thuộc về được tạo trong bảng programs và courses. 
+Sau đó, bài học được tạo mới trong bảng lessons.
+Bước 2: Nhập mục tiêu bài học.
+ 
+Các mục tiêu thuộc bốn nhóm: kiến thức, kỹ năng, tư duy, thái độ được nhập vào bảng lesson_objectives. Việc nhập tách riêng giúp thuận tiện cho đánh giá chuẩn đầu ra.
+Bước 3: Nhập nội dung lý thuyết.
+ 
+Các phần như giới thiệu mô hình, nội dung dạy học, hướng dẫn thao tác được tách nhỏ và nhập vào bảng lesson_contents. Điều này giúp hệ thống hiển thị bài học dễ đọc và có cấu trúc rõ ràng.
+Bước 4: Nhập hoạt động thử thách hoặc bài tập.
+ 
+Thông tin về hoạt động thực hành của học sinh được lưu vào bảng lesson_challenges. Đây là nội dung quan trọng của môn Robotics, vì học sinh chỉ thực sự hiểu khi áp dụng vào thực tế.
+Bước 5: Nhập câu hỏi trắc nghiệm và đáp án.
+ 
+Các câu hỏi cuối bài được lưu vào lesson_quizzes, còn đáp án được lưu vào quiz_answers. Nhờ đó, hệ thống có thể phát triển chức năng kiểm tra tự động trong tương lai.
+Bước 6: Gắn tài nguyên đa phương tiện.
+ 
+Hình ảnh và video minh họa được lưu đường dẫn trong bảng media và liên kết với nội dung tại content_media. Điều này đảm bảo mỗi tài nguyên chỉ lưu một lần nhưng có thể sử dụng lại nhiều nơi.
+Việc nhập liệu thử nghiệm giúp kiểm tra:
+cấu trúc cơ sở dữ liệu
+tính hợp lý của quan hệ bảng
+khả năng đáp ứng nhu cầu triển khai thực tế
+4
+.3. 
+CÁCH
+ THỨC HOẠT ĐỘNG CỦA CƠ SỞ DỮ LIỆU TRONG HỆ THỐNG
+Khi hệ thống vận hành, luồng hoạt động của dữ liệu diễn ra như sau:
+Thứ nhất, khi phòng Giáo vụ xây dựng chương trình đào tạo mới, họ tạo bản ghi trong bảng programs. Sau đó, các khóa học thuộc chương trình đó được tạo trong bảng courses, và từng bài học cụ thể được tạo trong bảng lessons.
+Thứ hai, giáo viên phụ trách được phân công thông qua bảng assignments. Nhờ cơ chế khóa ngoại, hệ thống luôn xác định rõ một bài học thuộc khóa nào và giáo viên nào đảm nhiệm.
+Thứ ba, khi học sinh truy cập hệ thống học tập, nội dung của bài học được lấy ra từ các bảng:
+lesson_contents để hiển thị phần lý thuyết
+lesson_models và lesson_builds để cung cấp hướng dẫn lắp ráp
+content_media để hiển thị hình ảnh và video minh họa
+Nhờ thiết kế bảng riêng biệt, giao diện có thể tải dữ liệu theo từng phần mà không gây quá tải.
+Thứ tư, khi học sinh làm bài kiểm tra, hệ thống truy vấn bảng lesson_quizzes và quiz_answers để hiển thị câu hỏi và lựa chọn. Trong tương lai, hệ thống có thể ghi nhận kết quả làm bài để phục vụ đánh giá quá trình.
+Cuối cùng, mọi thay đổi liên quan đến phân công giảng dạy đều được ghi vào bảng assignment_logs, phục vụ công tác kiểm toán nội bộ, đảm bảo tính minh bạch trong quản lý đào tạo.
+Như vậy, cơ sở dữ liệu đóng vai trò trung tâm trong hệ thống, bảo đảm sự vận hành ổn định, nhất quán và khoa học.
+4
+.4. 
+ĐÁNH
+ GIÁ TÍNH PHÙ HỢP CỦA MÔ HÌNH CƠ SỞ DỮ LIỆU ĐỐI VỚI ĐÀO TẠO ROBOTICS
+Mô hình cơ sở dữ liệu đã xây dựng được đánh giá là phù hợp với đặc thù của đào tạo Robotics vì các lý do sau:
+Thứ nhất, nội dung môn Robotics mang tính tích hợp giữa lý thuyết và thực hành. Cơ sở dữ liệu đã tách riêng mô hình lắp ráp, khối lệnh lập trình, hoạt động thử thách và tài nguyên minh họa. Điều này bảo đảm rằng toàn bộ nội dung học tập được quản lý đầy đủ, có hệ thống.
+Thứ hai, việc phân tách rõ ràng giữa chương trình, khóa học và bài học giúp phòng Giáo vụ dễ dàng điều chỉnh cấu trúc đào tạo mà không ảnh hưởng đến dữ liệu cũ đã lưu 
+trữ.
+Thứ ba, hệ thống câu hỏi và đáp án được tổ chức khoa học, tạo tiền đề để triển khai đánh giá năng lực học sinh theo hướng tự động hóa.
+Thứ tư, cơ chế lưu trữ và liên kết tài nguyên đa phương tiện hỗ trợ mạnh mẽ hình thức dạy học trực quan. Đây là yếu tố rất quan trọng với học sinh nhỏ tuổi.
+Từ các yếu tố trên có thể khẳng định rằng mô hình cơ sở dữ liệu đã thiết kế không chỉ đáp ứng nhu cầu hiện tại mà còn có khả năng phát triển lên các hệ thống học tập điện tử quy mô lớn hơn trong tương lai.
+4
+.5. 
+BẢO MẬT VÀ AN TOÀN DỮ LIỆU TRONG HỆ THỐNG CƠ SỞ DỮ LIỆU
+4
+.5.1. Sự cần thiết của bảo mật dữ liệu
+Cơ sở dữ liệu của hệ thống đào tạo Robotics lưu trữ toàn bộ nội dung liên quan đến:
+chương trình và giáo trình đào tạo
+nội dung bài học chi tiết
+tài nguyên học liệu
+ngân hàng câu hỏi và đáp án kiểm tra
+phân công giảng dạy
+Đây đều là những tài sản tri thức quan trọng. Nếu dữ liệu bị truy cập trái phép, sao chép hoặc chỉnh sửa không kiểm soát, hậu quả có thể xảy ra gồm:
+thất thoát tài liệu độc quyền
+sai lệch nội dung giảng dạy
+gián đoạn hoạt động đào tạo
+ảnh hưởng uy tín đơn vị
+Do đó, bảo mật dữ liệu không chỉ là yêu cầu kỹ thuật mà còn là 
+biện pháp bảo vệ tài sản học thuật và hoạt động tổ chức đào tạo
+.
+4
+.5.2. Nguyên tắc bảo mật được áp dụng
+Trong quá trình thiết kế hệ thống cơ sở dữ liệu, các nguyên tắc bảo mật sau được áp dụng:
+a) 
+Nguyên tắc phân quyền truy cập theo vai trò
+Không phải mọi người dùng đều được truy cập toàn bộ dữ liệu. Quyền truy cập phụ thuộc vào vai trò, như:
+quản trị hệ thống
+giáo viên
+nhân sự giáo vụ
+Việc phân quyền này giúp giới hạn phạm vi truy cập và tránh tác động sai phạm.
+b) 
+Nguyên tắc tối thiểu hóa quyền hạn
+Mỗi tài khoản chỉ được cấp đúng quyền cần thiết để thực hiện nhiệm vụ, tránh việc người dùng có thể truy cập sâu hơn nhu cầu công việc.
+c) 
+Nguyên tắc đảm bảo toàn vẹn dữ liệu
+Mọi thao tác ghi dữ liệu phải tuân thủ chặt chẽ các ràng buộc khóa chính, khóa ngoại, kiểu dữ liệu… nhằm ngăn ngừa lỗi logic.
+d) 
+Nguyên tắc truy vết và kiểm soát thay đổi
+Các thay đổi quan trọng phải có khả năng ghi nhận và truy nguyên khi cần.
+4
+.5.3. Cơ chế bảo mật triển khai trên Supabase
+Trong hệ thống cơ sở dữ liệu triển khai trên nền tảng Supabase, nhiều lớp bảo mật được áp dụng đồng thời nhằm đảm bảo tính an toàn của dữ liệu.
+Thứ nhất, hệ thống triển khai cơ chế xác thực người dùng thông qua tài khoản đăng nhập. Người dùng phải sử dụng email và mật khẩu đã đăng ký để truy cập hệ thống. Trong một số trường hợp, cơ chế xác thực hai lớp bằng mã OTP được áp dụng để tăng cường mức độ an toàn. Nhờ đó, chỉ những cá nhân được cấp quyền mới có thể truy cập vào hệ thống cơ sở dữ liệu.
+Thứ hai, quyền truy cập được phân chia theo vai trò người dùng. Vai trò của từng tài khoản được định nghĩa rõ ràng ngay từ khi khởi tạo, ví dụ như giáo viên, nhân sự giáo vụ hoặc quản trị hệ thống. Mỗi nhóm người dùng chỉ được phép truy cập vào những dữ liệu phù hợp với chức năng công việc của mình. Điều này giúp hạn chế tối đa khả năng truy cập nhầm hoặc truy cập vượt quyền, từ đó bảo vệ tính an toàn của dữ liệu.
+Thứ ba, hệ thống sử dụng cơ chế kiểm soát truy cập ở cấp độ từng dòng dữ liệu (Row Level Security – RLS). Nhờ đó, ngay cả khi người dùng có quyền truy cập vào một bảng dữ liệu, họ cũng chỉ có thể xem và sử dụng những dòng dữ liệu liên quan đến phạm vi công việc của mình. Cơ chế này đặc biệt hữu ích đối với dữ liệu phân công giảng dạy và các thông tin quản trị nội bộ.
+Thứ tư, Supabase cho phép thiết lập đầy đủ các ràng buộc toàn vẹn dữ liệu. Các khóa chính, khóa ngoại, ràng buộc kiểu dữ liệu và quy tắc bắt buộc nhập liệu được cấu hình chặt chẽ. Nhờ vậy, hệ thống tránh được tình trạng dữ liệu không hợp lệ, dữ liệu trùng lặp hoặc xuất hiện những bản ghi không có liên kết hợp lệ. Điều này không chỉ giúp duy trì an toàn cho dữ liệu mà còn nâng cao độ tin cậy của hệ thống.
+Cuối cùng, hệ thống triển khai cơ chế ghi nhận lịch sử thay đổi đối với các hoạt động liên quan đến phân công giảng dạy. Thông tin về thời điểm thay đổi, người thực hiện và nội dung thay đổi được lưu lại trong bảng assignment_logs. Việc truy vết lịch sử giúp đảm bảo tính minh bạch trong quản lý, đồng thời hỗ trợ quá trình kiểm tra và khắc phục khi xảy ra sai sót.
+Tổng thể các cơ chế trên kết hợp với nhau tạo thành một hệ thống bảo mật đa lớp, giúp cơ sở dữ liệu vận hành ổn định, 
+an
+ toàn và phù hợp với yêu cầu của môi trường đào tạo.
+Thay vì tập trung vào giao diện hiển thị, chương này sẽ đi sâu vào luồng đi của dữ liệu (Data Flow), cách ứng dụng Client quản lý trạng thái và tương tác với cơ sở dữ liệu thông qua các phương thức RESTful API.
+4
+.6. 
+CƠ
+ CHẾ ĐỒNG BỘ VÀ CHUẨN HÓA DỮ LIỆU
+ 
+Hệ thống không nhận dữ liệu thô và hiển thị ngay lập tức, mà trải qua quy trình Tổng hợp (Aggregation) và Chuẩn hóa (Normalization) để đảm bảo tính nhất quán trước khi đưa vào sử dụng.
+4
+.6.1. Kỹ thuật Fetching dữ liệu song song
+Trong module quản lý khóa học (AdminCoursesPage), dữ liệu được phân tán ở các endpoint khác nhau dựa trên program_id. Để tối ưu hóa thời gian tải, em sử dụng Promise.all để thực hiện các tác vụ gọi API song song thay vì tuần tự.
+Quy trình xử lý:
+Khởi tạo các Promise gọi API đồng thời đến các endpoint chương trình (Program 1 và Program 2).
+Sử dụng await Promise.all
+ 
+([...]) để đợi tất cả các request hoàn tất.
+Gộp (Merge) các mảng dữ liệu trả về thành một danh sách duy nhất.
+Sắp xếp (Sorting): Xử lý sắp xếp dữ liệu theo thời gian tạo (created_at) ngay tại Client để đảm bảo dữ liệu mới nhất luôn hiển thị đầu tiên.
+Hình 4.1 Kỹ thuật Fetching dữ liệu song song
+4
+.6.2. Ánh xạ dữ liệu
+ 
+Dữ liệu từ Database (Supabase) thường chứa các trường kỹ thuật không cần thiết hoặc tên trường không thân thiện với Frontend. 
+Em thực hiện bước Mapping để chuyển đổi dữ liệu thô sang Interface chuẩn (Course, Teacher, Lesson).
+Logic xử lý: Chuyển đổi các trạng thái thô (status: 'archived') sang các biến trạng thái hiển thị, và tính toán các trường phái sinh (derived fields) như categoryGroup dựa trên program_id.
+4
+.7. 
+QUY
+ TRÌNH THÊM MỚI VÀ CẬP NHẬT DỮ LIỆU
+Hệ thống xử lý việc ghi dữ liệu xuống Supabase thông qua các quy trình kiểm tra logic chặt chẽ (Business Logic Validation) trước khi gửi Request.
+4
+.7.1. Logic "Upsert" (Cập nhật hoặc Thêm mới)
+Tại các module chi tiết bài học như LessonObjectives.tsx hay LessonContent.tsx, hệ thống sử dụng cơ chế thông minh để quyết định gọi API POST hay PATCH.
+Quy trình:
+Hệ thống kiểm tra biến trạng thái id (hoặc objId).
+Nếu ID tồn tại: Dữ liệu đang được chỉnh sửa → Gửi Request PATCH để cập nhật bản ghi cụ thể.
+Nếu ID null: Dữ liệu mới → Gửi Request POST để tạo bản ghi mới.
+Phản hồi: Sau khi POST thành công, hệ thống tự động cập nhật lại id trả về từ Server vào State để các lần lưu sau sẽ chuyển thành PATCH.
+Hình 4.2 Logic "Upsert" (Cập nhật hoặc Thêm mới)
+4
+.7.2. Quy trình Upload và Liên kết File Đa phương tiện (Two-Step Media Upload)
+Việc xử lý dữ liệu File (Ảnh, Video, Slide) phức tạp hơn dữ liệu văn bản vì liên quan đến lưu trữ vật lý và liên kết quan hệ (Relation). Em áp dụng quy trình 2 bước để đảm bảo tính toàn vẹn dữ liệu.
+Bước 1: Upload nhị phân (Binary Upload):
+Sử dụng FormData để đóng gói file nhị phân.
+Gửi request POST đến endpoint /api/media/upload. Server (xử lý với Supabase Storage) sẽ trả về thông tin file và quan trọng nhất là mediaId.
+Bước 2: Tạo liên kết quan hệ (Relationship Linking):
+Sử dụng mediaId nhận được, gửi tiếp request POST đến bảng trung gian (ví dụ: lesson_media hoặc content_media).
+Dữ liệu gửi đi bao gồm: mediaId, purpose (mục đích sử dụng: 'gallery', 'main', 'doc'), và sortOrder.
+Hình 4.3. Quy trình Upload và Liên kết File Đa phương tiện (Two-Step Media Upload)
+4
+.8. 
+QUY TRÌNH XỬ LÝ DỮ LIỆU HÀNG LOẠT
+Để tối ưu hiệu năng khi thao tác với nhiều bản ghi cùng lúc (ví dụ: Duyệt nhiều yêu cầu, Sắp xếp lại thứ tự bài học), hệ thống sử dụng kỹ thuật xử lý bất đồng bộ song song.
+4
+.8.1. Cập nhật trạng thái hàng loạt (Bulk Status Update)
+Trong module Phân quyền (AssignCoursesPage.tsx), chức năng "Duyệt nhanh tất cả" yêu cầu cập nhật trạng thái của hàng chục bản ghi cùng lúc.
+Giải thuật:
+Duyệt qua danh sách các items đang chờ (pendingAssignments).
+Tạo ra một mảng các Promise, mỗi Promise tương ứng với một request fetch riêng biệt đến API.
+Sử dụng Promise.all(promises) để gửi tất cả request đi cùng lúc mà không cần chờ request trước đó hoàn tất (
+Non-blocking
+).
+Cập nhật lại giao diện sau khi tất cả đã hoàn thành.
+Hình 4.4 Cập nhật trạng thái hàng loạt (Bulk Status Update)
+4
+.8.2. Sắp xếp lại thứ tự (Re-ordering Data)
+Tại trang AdminLessonPage.tsx, khi người dùng thay đổi thứ tự các bài học, hệ thống không cập nhật từng dòng một mà thu thập toàn bộ thay đổi và gửi đi trong một tác vụ handleBulkSort. Điều này giảm thiểu số lần render lại giao diện và đảm bảo tính nhất quán của dữ liệu thứ tự (sort_order).
+4
+.9. 
+XỬ
+ LÝ LOGIC QUAN HỆ DỮ LIỆU PHỨC TẠP
+4
+.9.1. Logic lọc quan hệ M-N (Many-to-Many Filtering)
+Trong chức năng phân công giảng dạy (AssignmentModal.tsx), hệ thống phải xử lý logic để tránh việc gán trùng lặp một khóa học cho cùng một giáo viên.
+Logic xử lý:
+Lắng nghe sự thay đổi của teacherId.
+Duyệt qua toàn bộ danh sách phân công hiện có (existingAssignments).
+Lọc ra các khóa học mà giáo viên này 
+đã
+ được gán (có trạng thái active hoặc pending).
+Tạo mảng disabledCourseIds và truyền vào component chọn khóa học để vô hiệu hóa (disable) các lựa chọn trùng lặp, ngăn chặn lỗi ràng buộc duy nhất (Unique Constraint) từ phía Database.
+Hình 4.5 Logic lọc quan hệ M-N (Many-to-Many Filtering)
+4
+.9.2. Xóa dữ liệu liên hoàn (Cascade Delete Simulation)
+Do Frontend không thể can thiệp trực tiếp vào Trigger của Database, logic xóa dữ liệu ràng buộc được giả lập tại tầng ứng dụng để đảm bảo sạch rác dữ liệu.
+Quy trình (Ví dụ xóa Thử thách trong LessonChallenge.tsx):
+Hệ thống duyệt qua danh sách các file media đính kèm trong thử thách.
+Gửi request xóa liên kết (lessonMedia) trước.
+Gửi request xóa file vật lý (media) sau.
+Cuối cùng mới gửi request xóa bản ghi Thử thách (challenges). Quy trình này đảm bảo không để lại các file rác (Orphan files) trong Storage sau khi bản ghi cha bị xóa.
+4
+.10. 
+QUY
+ TRÌNH QUẢN LÝ NỘI DUNG ĐA PHƯƠNG TIỆN
+Tại các module chi tiết bài học (LessonProductVideo.tsx, LessonSlides.tsx, LessonPresentation.tsx), hệ thống áp dụng một quy trình chuẩn hóa để xử lý các tệp tin media (Video, Ảnh, PDF), đảm bảo tính toàn vẹn giữa dữ liệu vật lý (File) và dữ liệu logic (Database).
+4
+.10.1. Cơ chế Phân loại Media (Purpose-based Filtering)
+Thay vì tạo nhiều bảng dữ liệu cho từng loại media, hệ thống sử dụng một bảng lesson_media duy nhất và phân loại dựa trên trường purpose.
+Logic xử lý: Khi tải dữ liệu (fetchData), Frontend sẽ gọi API lấy toàn bộ media của bài học, sau đó lọc (filter) tại phía Client để phân phối vào các component tương ứng.
+LessonProductVideo: Lọc purpose === 'intro'.
+LessonSlides: Lọc purpose === 'gallery' hoặc file PDF.
+LessonPresentation: Lọc purpose === 'attachment'.
+LessonContent: Lọc purpose ==
+=  '
+main'.
+LessonChallenge: Lọc purpose ==
+=  '
+other'.
+Hình 4.6 Cơ chế Phân loại Media (Purpose-based Filtering)
+4
+.10.2. Quy trình Upload và Liên kết (Atomic Upload Transaction)
+Để gắn một file vào bài học, hệ thống thực hiện chuỗi tác vụ tuần tự bất đồng bộ:
+Upload vật lý: Gửi file nhị phân lên Server (/api/media/upload). Server trả về mediaId.
+Tạo liên kết: Sử dụng mediaId để tạo bản ghi trong bảng trung gian lesson_media kèm theo metadata (sortOrder, purpose).
+Hình 4.7 Quy trình Upload và Liên kết (Atomic Upload Transaction)
+4
+.10.3. Quy trình Xóa sạch (Deep Clean Delete)
+Khi xóa một file khỏi giao diện, hệ thống phải đảm bảo xóa sạch dấu vết để tránh rác dữ liệu (Orphan Files).
+Quy trình:
+Xóa bản ghi liên kết trong lesson_media (Gỡ file khỏi bài học).
+Xóa bản ghi file gốc trong bảng media (Kích hoạt xóa file vật lý trên ổ cứng/Storage).
+4
+.11. 
+XỬ
+ LÝ DỮ LIỆU PHỨC TẠP VÀ LỒNG NHAU
+Đối với các chức năng tương tác cao như Trắc nghiệm (LessonQuiz) và Thử thách (LessonChallenge), dữ liệu không chỉ là các trường đơn giản mà là các cấu trúc JSON phức tạp.
+4
+.11.1. Quản lý Dữ liệu Trắc nghiệm (Nested JSON Payload)
+Trong LessonQuiz.tsx, một câu hỏi trắc nghiệm bao gồm nội dung câu hỏi và danh sách các đáp án. Thay vì gửi nhiều request lẻ tẻ, Frontend đóng gói toàn bộ cấu trúc này vào một Payload duy nhất.
+Cấu trúc Payload
+Hình 4.8 Cấu trúc Payload
+Logic tính toán thứ tự: Hệ thống tự động tính toán sort_order cho câu hỏi mới bằng cách tìm giá trị lớn nhất hiện có và cộng thêm 1 (
+Math.max(
+...orders) + 1), đảm bảo câu hỏi mới luôn nằm cuối danh sách.
+Hình 4.9 Logic tính toán thứ tự
+4
+.11.2. Quản lý Thử thách kèm Media (Conditional Media Attachment)
+Module LessonChallenge.tsx xử lý một nghiệp vụ phức tạp: Một thử thách có thể có hoặc không có video hướng dẫn đi kèm.
+Logic Form:
+Nếu là Thêm mới (Create): Tạo thử thách trước -> Lấy ID -> Upload Media và gắn vào thử thách đó.
+Nếu là Cập nhật (Update): Chỉ cập nhật thông tin văn bản. Nếu người dùng chọn file mới, thực hiện quy trình upload và thay thế file cũ.
+Xóa Media lẻ: Hệ thống cung cấp chức năng handleRemoveMediaOnly cho phép chỉ gỡ bỏ video đính kèm mà không xóa bản ghi thử thách, giúp Admin linh hoạt trong việc chỉnh sửa nội dung.
+Hình 4.10 Quản lý Thử thách kèm Media (Conditional Media Attachment)
+4
+.12. 
+TỔNG
+ KẾT CÁC API ENDPOINT TƯƠNG TÁC
+Hệ thống Frontend đã xây dựng một lớp giao tiếp API (Service Layer) hoàn chỉnh để tương tác với Backend/Supabase. Dưới đây là bảng tổng hợp các luồng dữ liệu chính:
+Bảng 4.1 Bảng tổng hợp các luồng dữ liệu chính
+Phân hệ
+Phương thức
+Endpoint (Mẫu)
+Mục đích xử lý dữ liệu
+Khóa học
+GET / POST
+/api/courses
+Lấy danh sách, tạo khóa học mới với program_id tự động.
+Nội dung
+PATCH
+/
+lessons
+/lessonContents/:id
+Cập nhật nội dung bài học (Upsert Logic).
+Media
+POST
+/media/upload
+Upload file nhị phân (Binary) lên Storage.
+Media
+DELETE
+/
+lessons
+/lessonMedia/:id
+Gỡ bỏ liên kết file khỏi bài học.
+Quiz
+POST
+/
+lessons
+/quizzes/:id
+Gửi cấu trúc dữ liệu JSON lồng nhau (Câu hỏi + Đáp án).
+Phân quyền
+PATCH
+/api/permissions/status/:id
+Cập nhật trạng thái Active/Revoked cho giáo viên.
+4
+.13. 
+TƯ
+ DUY TƯƠNG TÁC BACKEND VÀ KIẾN TRÚC SERVICE LAYER
+Mặc dù không trực tiếp xây dựng mã nguồn Server (Backend), nhưng để hệ thống Frontend vận hành trơn tru và bảo mật, em đã xây dựng lớp trung gian Service Layer để quản lý toàn bộ việc giao tiếp dữ liệu. Điều này giúp tách biệt hoàn toàn logic gọi API khỏi giao diện người dùng (UI), giúp code dễ bảo trì và nâng cấp.
+4
+.13.1. Chiến lược Tổ chức Service theo Modules (Modular Service Pattern)
+Thay vì viết các hàm gọi API rải rác trong từng trang giao diện (gây khó kiểm soát), em đã quy hoạch và phân tách hệ thống thành các modules dịch vụ độc lập, tương ứng với các thực thể nghiệp vụ:
+Auth Service: Chuyên trách xử lý các tác vụ liên quan đến xác thực, đăng nhập và phân quyền.
+Course & Lesson Services: Quản lý các thao tác CRUD (Thêm, Xóa, Sửa, Lấy dữ liệu) cho khóa học và bài giảng.
+Media Service: Module riêng biệt để xử lý các tác vụ upload và quản lý tài nguyên đa phương tiện.
+Cách tổ chức này giúp hệ thống Frontend tuân thủ nguyên tắc "Separation of Concerns" (Phân tách mối quan tâm), đảm bảo khi Backend thay đổi đường dẫn API, em chỉ cần cập nhật tại một file service duy nhất mà không ảnh hưởng đến toàn bộ dự án.
+4
+.13.2. Cơ chế Bảo mật và Quản lý Phiên làm việc (JWT Authentication)
+Em đã thiết lập quy trình xác thực chặt chẽ dựa trên chuẩn JSON Web Token (JWT). Quy trình này được tự động hóa hoàn toàn trong lớp Service:
+Lưu trữ Token: Khi người dùng đăng nhập thành công, Token định danh trả về từ Server sẽ được Service lưu trữ an toàn vào LocalStorage của trình duyệt.
+Tự động đính kèm (Request Interceptor): Với mọi yêu cầu gửi đi sau đó (như lấy danh sách khóa học hay upload ảnh), Service sẽ tự động lấy Token từ kho lưu trữ và đính kèm vào Header Authorization của gói tin HTTP.
+Cơ chế này đảm bảo: Người dùng không cần đăng nhập lại liên tục, đồng thời hệ thống Backend luôn xác định được "ai đang gửi yêu cầu" để cấp quyền truy cập dữ liệu chính xác.
+4
+.13.3. Xử lý Đa dạng Định dạng Dữ liệu (Payload Handling)
+Một trong những điểm mạnh kỹ thuật của lớp Service này là khả năng phân loại và xử lý linh hoạt các định dạng dữ liệu đầu vào:
+Dữ liệu văn bản (JSON): Đối với các tác vụ như tạo mới khóa học hay cập nhật thông tin giáo viên, Service sẽ tự động đóng gói dữ liệu thành chuẩn JSON và thiết lập header Content-Type: application/json.
+Dữ liệu tệp tin (Multipart/Form-data): Đối với chức năng Upload (ảnh, video, tài liệu), Service sử dụng đối tượng FormData để đóng gói file vật lý. Hệ thống được lập trình để hiểu rằng khi gửi FormData, trình duyệt cần tự động xử lý boundary (ranh giới dữ liệu) thay vì ép kiểu về JSON, đảm bảo file được gửi đi nguyên vẹn.
+4
+.14. 
+KẾT
+ QUẢ ĐẠT ĐƯỢC VÀ DEMO SẢN PHẨM
+P
+hân tích, thiết kế và lập trình, phân hệ Quản trị (Admin Portal) của website đã được hoàn thiện với đầy đủ các chức năng theo yêu cầu. Giao diện được xây dựng theo phong cách hiện đại (Dark Mode & Glassmorphism), đảm bảo tính thẩm mỹ và trải nghiệm người dùng tối ưu.
+4
+.14.1. Giao diện Tổng quan (Dashboard)
+Đây là màn hình trung tâm, cung cấp cái nhìn toàn cảnh về tình hình hoạt động của hệ thống đào tạo.
+Hình 4.11 Giao diện Tổng quan (Dashboard)
+Hình 4.11 Giao diện Tổng quan (Dashboard)
+Mô tả kết quả:
+Thống kê số liệu (Stats Cards): Hiển thị trực quan 3 chỉ số quan trọng: Tổng số Giáo viên, Tổng số Khóa học/Bài giảng và Trạng thái hệ thống. Các thẻ sử dụng hiệu ứng màu gradient phân biệt (Xanh dương, Tím, Xanh lá).
+Lịch trình giảng dạy (Calendar Widget): Một module lịch tương tác chiếm 2/3 màn hình, cho phép Admin xem nhanh các lớp học đang diễn ra trong ngày. Các chấm tròn màu xanh/đỏ biểu thị thời gian bắt đầu và kết thúc của lớp học.
+Hoạt động gần đây (Recent Activities): Bên phải màn hình hiển thị log hoạt động thời gian thực (Real-time logs), ví dụ: 
+"Nguyễn Văn A vừa được phân công khóa Robotic Essential"
+.
+Đánh giá mức độ đáp ứng: Giao diện Dashboard đã đáp ứng tốt yêu cầu "Xây dựng hệ thống báo cáo quản trị trực quan" đặt ra ở đầu dự án. Thay vì phải tổng hợp số liệu thủ công, hệ thống hiện tại cung cấp cho nhà quản lý cái nhìn toàn cảnh về quy mô nhân sự và lớp học theo thời gian thực (Real-time), hỗ trợ ra quyết định nhanh chóng.
+4
+.14.2. Phân hệ Quản lý Khóa học (Course Management)
+Giao diện cho phép Admin quản lý danh mục sản phẩm giáo dục của trung tâm.
+Hình 4.12 Phân hệ Quản lý Khóa học (Course Management)
+Hình 4.12 Phân hệ Quản lý Khóa học (Course Management)
+Mô tả kết quả:
+Danh sách dữ liệu: Hiển thị khóa học dưới dạng bảng với các cột thông tin chi tiết: Tên, Mã (REA/RPA), Cấp độ, Trạng thái (Ẩn/Hiện).
+Công cụ lọc (Filter Tool): Hệ thống tích hợp bộ lọc đa tầng: Tìm kiếm theo tên, Lọc theo Mã khóa học. Kết quả được cập nhật tức thì (Real-time filtering) mà không cần tải lại trang.
+Chức năng Phân trang: Thanh phân trang nằm ở cuối bảng giúp chia nhỏ danh sách dữ liệu lớn, đảm bảo giao diện gọn gàng.
+Hình 4.13 Thêm khóa học mới
+Hình 4.13 Thêm khóa học mới
+Đánh giá mức độ đáp ứng: Phân hệ này đã giải quyết triệt để bài toán "Số hóa và Tập trung dữ liệu đào tạo".
+Về mặt lưu trữ: Thay thế hoàn toàn việc quản lý manh mún qua Excel bằng cơ sở dữ liệu tập trung.
+Về mặt nghiệp vụ: Đáp ứng yêu cầu 
+"Quản lý nội dung đa phương tiện"
+ thông qua khả năng upload và tổ chức Slide, Video, Quiz một cách khoa học, điều mà các công cụ văn phòng cũ không làm được.
+4
+.14.3. Phân hệ Quản trị Nội dung Bài giảng (Lesson CMS)
+Đây là phân hệ phức tạp nhất, nơi Admin biên soạn nội dung chi tiết cho từng buổi học.
+Hình 4.14 Giao diện quản lý danh sách bài học
+Hình 4.14 Giao diện quản lý danh sách bài học
+Mô tả: Giao diện hiển thị danh sách bài học dưới dạng các thẻ (Card) với đầy đủ các nút chức năng: Ẩn/Hiện, Chỉnh sửa, Xóa và Sắp xếp thứ tự.
+Hình 4.15 Giao diện soạn thảo chi tiết
+Hình 4.15 Giao diện soạn thảo chi tiết
+Mô tả: Màn hình chi tiết chia nội dung thành các Tab chuyên biệt để dễ quản lý:
+Mục tiêu (Objectives): Soạn thảo kiến thức, kỹ năng đạt được.
+Video & Slide: Khu vực upload video bài giảng và tài liệu PDF hướng dẫn lắp ráp,.
+Lý thuyết (Content): Trình soạn thảo văn bản cho nội dung bài học.
+Trắc nghiệm (Quiz): Giao diện soạn câu hỏi và chọn đáp án đúng trực tiếp.
+Hình 4.16 Phân hệ Quản lý Giáo viên (Teacher Management)
+Hình 4.16 Phân hệ Quản lý Giáo viên (Teacher Management)
+4
+.14.4. Phân hệ Quản lý Giáo viên (Teacher Management)
+Mô tả kết quả:
+Hiển thị danh sách nhân sự giảng dạy với Avatar (tạo tự động từ tên), Email và Username.
+Cung cấp các thao tác quản trị nhanh: Đặt lại mật khẩu, Chỉnh sửa thông tin cá nhân và Xóa tài khoản khỏi hệ thống.
+Đánh giá mức độ đáp ứng: Đây là tính năng hoàn thành xuất sắc yêu cầu cốt lõi: "Tối ưu hóa quy trình điều phối nguồn lực".
+So với quy trình cũ: Hệ thống tự động kiểm tra logic (tránh trùng lặp), giúp bộ phận Giáo vụ loại bỏ sai sót và tiết kiệm đáng kể thời gian xếp lớp.
+Kết quả: Đáp ứng đúng mục tiêu chuyển đổi số quy trình vận hành của doanh nghiệp.
+4
+.14.5. Phân hệ Phân công và Duyệt (Assignment System)
+Chức năng này giúp Admin điều phối nhân sự cho các lớp học.
+Hình 4.17 Modal phân công khóa học
+Hình 4.17 Modal phân công khóa học
+Mô tả:
+Giao diện AssignmentModal cho phép chọn một Giáo viên và tích chọn nhiều Khóa học cùng lúc.
+Hệ thống tự động làm mờ (Disable) các khóa học mà giáo viên này đã được phân công trước đó để tránh trùng lặp dữ liệu.
+Hình 4.18 Màn hình duyệt yêu cầu chờ (Pending)
+Hình 4.18 Màn hình duyệt yêu cầu chờ (Pending)
+Mô tả:
+Danh sách các yêu cầu phân công đang ở trạng thái Pending (Chờ duyệt).
+Tính năng "Duyệt nhanh tất cả" và "Từ chối tất cả" giúp Admin xử lý hàng loạt yêu cầu chỉ với một cú click chuột, tiết kiệm thời gian vận hành.
+4
+.15. 
+HIỆN
+ THỰC HÓA GIAO DIỆN VÀ CHỨC NĂNG PHÍA CLIENT
+Dựa trên kiến trúc ReactJS đã phân tích ở Chương II, các giao diện chức năng phía Client dành cho giáo viên đã được hiện thực hóa với tiêu chí trực quan và hỗ trợ tối đa cho việc giảng dạy tại lớp.
+4
+.15.1. Phân hệ Cổng thông tin và Lộ trình bài giảng
+Giao diện này đóng vai trò là điểm chạm đầu tiên của giáo viên khi tiếp cận hệ thống bài giảng.
+Mô tả kết quả: Hệ thống hiển thị danh sách các chương trình Robotics (ví dụ: WEDO, EV3) dưới dạng lưới thẻ (Grid layout). Mỗi khóa học bao gồm ảnh minh họa, tên khóa học và cấp độ.
+Đánh giá: Sử dụng cơ chế lọc nhanh (Search filter) giúp giáo viên tìm thấy bài giảng mục tiêu chỉ trong vài giây.
+Hình 4.19 Hình ảnh đăng nhập thất bại
+Hình 4.20 Trang quên mật khẩu
+Hình 4.20 Trang quên mật khẩu
+Hình 4.21 sau khi đăng nhập thành công
+4
+.15.2. Trình phát bài giảng tương tác (Interactive Lesson Player)
+Đây là tính năng cốt lõi giúp chuyển đổi các bước sư phạm truyền thống sang môi trường kỹ thuật số.
+Cơ chế hoạt động: Hệ thống sử dụng logic StageRenderer để điều phối nội dung mà không cần tải lại trang.
+Chức năng Video & PDF: Tích hợp trình phát Video chuẩn HD và bộ xem PDF trực tuyến hỗ trợ các thao tác phóng to/thu nhỏ tài liệu lắp ráp Robot.
+Hình 4.22. Trang phân loại hai chương trình
+Hình 4.23 Danh sách khóa học với bộ lọc tìm kiếm thời gian thực
+Hình 4.24 Giao diện Danh sách các bài học trong khóa
+Hình 4.25 Mục tiêu bài học
+ 
+Hình 4.26 Tổng quan bài học
+Hình 4.27 Giới thiệu về bài học
+Hình 4.28 Chuẩn bị dụng cụ của bài học
+Hình 4.29 Xây dựng trong mỗi bài học
+Hình 4.29 Xây dựng trong mỗi bài học
+Hình 4.30 Nội dung lý thuyết của bài học
+Hình 4.30 Nội dung lý thuyết của bài học
+4
+.15.3. Hệ thống kiểm tra kiến thức (Quiz System)
+Phân hệ này giúp giáo viên tương tác trực tiếp với học sinh thông qua các câu hỏi củng cố kiến thức.
+Mô tả: Câu hỏi được thiết kế sinh động với hình ảnh minh họa. Khi giáo viên hoặc học sinh chọn đáp án, hệ thống sẽ phản hồi ngay lập tức bằng hiệu ứng thị giác (Xanh/Đỏ) kèm âm thanh thông báo.
+Ý nghĩa: Giúp lớp học trở nên sôi nổi và giáo viên nắm bắt được mức độ hiểu bài của học sinh ngay tại lớp.
+Hình 4.32 Các câu hỏi tổng kết sau khi hoàn thiện bài học
+Hình 4.32 Các câu hỏi tổng kết sau khi hoàn thiện bài học
+Hình 4.31 Thử Thách cho từng bài học
+CHƯƠNG V. KẾT LUẬN
+5
+.1. 
+KẾT LUẬN
+Sau quá trình nghiên cứu, thiết kế và thực hiện đề tài “Xây dựng nền tảng website hỗ trợ giáo viên dạy lập trình cho trẻ em”, dự án đã hoàn thành các mục tiêu cụ thể sau:
+5
+.1.1. Kết quả về mặt kỹ thuật và công nghệ
+Hệ thống Cơ sở dữ liệu (Database):
+ Thiết kế và triển khai thành công lược đồ cơ sở dữ liệu quan hệ trên PostgreSQL thông qua nền tảng Supabase. 
+Các bảng dữ liệu (profiles, courses, lessons, steps, assignments) được chuẩn hóa, thiết lập ràng buộc khóa ngoại chặt chẽ. Đặc biệt, đã áp dụng chính sách bảo mật hàng (Row Level Security - RLS) để phân quyền truy cập dữ liệu giữa các vai trò Admin, Staff và Teacher.
+Hệ thống Backend & API:
+ Tối ưu hóa việc xử lý dữ liệu thông qua các hàm (Functions) và Trigger tự động hóa trên Supabase. Hệ thống API đảm bảo khả năng đồng bộ dữ liệu theo thời gian thực, xử lý các tác vụ từ đăng ký, đăng nhập đến quản lý trạng thái bài giảng một cách ổn định.
+Giao diện người dùng (Frontend):
+ * Sử dụng bộ công nghệ 
+ReactJS, TypeScript và Tailwind CSS
+ để xây dựng giao diện hiện đại, đáp ứng tốt trên các trình duyệt phổ biến.
+Qua đó h
+oàn thiện trình phát bài giảng (Lesson Player), cho phép tích hợp đa phương tiện (Video HD, tài liệu PDF hướng dẫn lắp ráp) và hệ thống Quiz tương tác.
+5
+.1.2. Kết quả về mặt nghiệp vụ và quản lý
+Số hóa quy trình quản trị: Triển khai phân hệ Admin và Staff cho phép quản lý tập trung danh sách giáo viên, cơ sở đào tạo và danh mục bài giảng. Thay thế hoàn toàn việc quản lý bằng tệp tin rời rạc.
+Quy trình phê duyệt (Duyệt): Xây dựng thành công luồng nghiệp vụ kiểm soát nội dung. Dữ liệu bài giảng và phân công giáo viên phải trải qua bước phê duyệt từ cấp quản lý trước khi hiển thị trên hệ thống, đảm bảo tính chính xác và đồng bộ.
+Hỗ trợ giảng dạy: Giải quyết được khó khăn của giáo viên trong việc chuẩn bị giáo án. Hệ thống cung cấp lộ trình bài dạy chuẩn hóa, giúp giáo viên tập trung vào việc tương tác và hướng dẫn học sinh lắp ráp, lập trình Robot.
+TÀI LIỆU THAM KHẢO
+[1] 
+Cơ sở thực tập Let's Code
+, 
+Tài liệu nội bộ chương trình đào tạo Robotics
+, 2026.
+[2] 
+ByteGrad
+ (2024), 
+TypeScript in React - COMPLETE Tutorial (Crash Course)
+, YouTube. Available: 
+https://youtu.be/TPACABQTHvM
+ 
+[3] 
+Clear Code
+ (2022), 
+The ultimate introduction to Pygame
+, YouTube. Available: 
+https://youtu.be/AY9MnQ4x3zk
+[4] 
+Clear Code
+ (2025), 
+Master Python by making 5 games [the new ultimate introduction to pygame]
+, YouTube. Available: 
+https://youtu.be/8OMghdHP-zs
+ 
+[5] 
+Connolly, T. & Begg, C.,
+ 
+Database Systems: A Practical Approach to Design, Implementation and Management
+, Pearson Education. 
+[6] 
+FreeCodeCamp,
+ 
+React TypeScripts Tutorials for Beginners
+. Available: 
+https://www.freecodecamp.org/news/use-typescript-with-react/
+ 
+[7] 
+GIMP,
+ 
+Tutorials
+. Available: 
+https://gimp.cc/tutorials.html
+ 
+[8] 
+Google,
+ 
+Material Design 3 Guidelines
+, Material Design. Available: 
+https://m3.material.io/
+ 
+[9] 
+Hoffer, J. A., Ramesh, V. & Topi, H.,
+ 
+Modern Database Management
+, Pearson Education. 
+[10] 
+IEEE Computer Society
+, 
+Software Engineering Body of Knowledge (SWEBOK)
+. Available: 
+https://www.computer.org/education/bodies-of-knowledge/software-engineering
+ 
+[11] 
+LEGO Education,
+ 
+LEGO Education Science
+. Available: 
+https://education.lego.com/en-us/lego-education-science/
+ 
+[12] 
+LETSCODE,
+ 
+LETSCODE Robotic Spike
+. Available: 
+https://letscode-roboticsspike.netlify.app/
+ 
+[13] 
+Meta Open Source
+, 
+React reference overview
+. Available: 
+https://react.dev/reference/react
+ 
+[14] 
+Microsoft,
+ 
+The TypeScript handbook
+. Available: 
+https://www.typescriptlang.org/docs/
+[15] 
+Mozilla,
+ 
+MDN web docs
+, Mozilla Developer Network. Available: 
+https://developer.mozilla.org/en-US/
+ 
+[16] Node.js, 
+Node.js Documentation
+. 
+Available: 
+https://nodejs.org/en/docs/
+ 
+[17] 
+PostgreSQL Global Development Group
+, 
+PostgreSQL 14 Documentation
+. Available: 
+https://www.postgresql.org/docs/
+ 
+[1
+8
+] 
+Remix Software,
+ 
+React Router documentation
+. Available: 
+https://reactrouter.com/en/main
+ 
+[
+19
+] 
+Robomind Academy
+, 
+Educational Robotics Curriculum Overview
+. Available: 
+https://www.robomindacademy.com/
+ 
+[2
+0
+] 
+Robots Got Talents,
+ 
+RoboArt Sign-Up
+. Available: 
+https://www.robotsgottalents.com/sign-up-roboart
+ 
+[2
+1
+] 
+Samir Kharel
+ (2025), 
+Build a CRUD app with Supabase & React in 25 Minutes (Supabase Tutorial)
+, YouTube. Available: 
+https://youtu.be/3XirDIc7G7s
+ 
+[2
+2
+] 
+Skills Factory
+ (2025), 
+GIMP - Tutorial for Beginners in 13 
+MINUTES!
+,
+ YouTube. Available: 
+https://youtu.be/OsMJ6uzELJo
+ 
+[2
+3
+] 
+Supabase Team,
+ 
+Supabase Documentation – Build in a Weekend
+. Available: 
+https://supabase.com/docs
+ 
+[2
+4
+] 
+Tailwind CSS
+, 
+Official Documentations
+. Available: 
+https://tailwindcss.com/docs/
+ 
+[2
+5
+] W3C,
+ 
+Architecture of the World Wide Web, Volume One
+. Available: 
+https://www.w3.org/TR/webarch/
+ 
+[2
+6
+] 
+W3Schools.com,
+ 
+Node.js Tutorial
+. Available
+: 
+https://www.w3schools.com/nodejs/

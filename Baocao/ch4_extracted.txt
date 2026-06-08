@@ -1,0 +1,90 @@
+CHƯƠNG IV. QUY TRÌNH XỬ LÝ VÀ KẾT QUẢ
+44
+4.1. QUY TRÌNH XÂY DỰNG VÀ TRIỂN KHAI CƠ SỞ DỮ LIỆU TRÊN SUPABASE
+44
+4.1.1. Lý do lựa chọn nền tảng Supabase
+44
+4.1.2. Quy trình triển khai cơ sở dữ liệu
+45
+4.2. QUY TRÌNH NHẬP DỮ LIỆU THỬ NGHIỆM TỪ TÀI LIỆU BÀI HỌC
+46
+4.3. CÁCH THỨC HOẠT ĐỘNG CỦA CƠ SỞ DỮ LIỆU TRONG HỆ THỐNG
+46
+4.4. ĐÁNH GIÁ TÍNH PHÙ HỢP CỦA MÔ HÌNH CƠ SỞ DỮ LIỆU ĐỐI VỚI ĐÀO TẠO ROBOTICS
+47
+4.5. BẢO MẬT VÀ AN TOÀN DỮ LIỆU TRONG HỆ THỐNG CƠ SỞ DỮ LIỆU
+48
+4.5.1. Sự cần thiết của bảo mật dữ liệu
+48
+4.5.2. Nguyên tắc bảo mật được áp dụng
+49
+4.5.3. Cơ chế bảo mật triển khai trên Supabase
+49
+4.6. CƠ CHẾ ĐỒNG BỘ VÀ CHUẨN HÓA DỮ LIỆU
+50
+4.6.1. Kỹ thuật Fetching dữ liệu song song
+51
+4.6.2. Ánh xạ dữ liệu
+51
+4.7. QUY TRÌNH THÊM MỚI VÀ CẬP NHẬT DỮ LIỆU
+52
+4.7.1. Logic "Upsert" (Cập nhật hoặc Thêm mới)
+52
+4.7.2. Quy trình Upload và Liên kết File Đa phương tiện (Two-Step Media Upload)
+53
+4.8. QUY TRÌNH XỬ LÝ DỮ LIỆU HÀNG LOẠT
+54
+4.8.1. Cập nhật trạng thái hàng loạt (Bulk Status Update)
+54
+4.8.2. Sắp xếp lại thứ tự (Re-ordering Data)
+55
+4.9. XỬ LÝ LOGIC QUAN HỆ DỮ LIỆU PHỨC TẠP
+55
+4.9.1. Logic lọc quan hệ M-N (Many-to-Many Filtering)
+55
+4.9.2. Xóa dữ liệu liên hoàn (Cascade Delete Simulation)
+56
+4.10. QUY TRÌNH QUẢN LÝ NỘI DUNG ĐA PHƯƠNG TIỆN
+57
+4.10.1. Cơ chế Phân loại Media (Purpose-based Filtering)
+57
+4.10.2. Quy trình Upload và Liên kết (Atomic Upload Transaction)
+58
+4.10.3. Quy trình Xóa sạch (Deep Clean Delete)
+59
+4.11. XỬ LÝ DỮ LIỆU PHỨC TẠP VÀ LỒNG NHAU
+60
+4.11.1. Quản lý Dữ liệu Trắc nghiệm (Nested JSON Payload)
+60
+4.11.2. Quản lý Thử thách kèm Media (Conditional Media Attachment)
+61
+4.12. TỔNG KẾT CÁC API ENDPOINT TƯƠNG TÁC
+62
+4.13. TƯ DUY TƯƠNG TÁC BACKEND VÀ KIẾN TRÚC SERVICE LAYER
+63
+4.13.1. Chiến lược Tổ chức Service theo Modules (Modular Service Pattern)
+63
+4.13.2. Cơ chế Bảo mật và Quản lý Phiên làm việc (JWT Authentication)
+64
+4.13.3. Xử lý Đa dạng Định dạng Dữ liệu (Payload Handling)
+64
+4.14. KẾT QUẢ ĐẠT ĐƯỢC VÀ DEMO SẢN PHẨM
+65
+4.14.1. Giao diện Tổng quan (Dashboard)
+65
+4.14.2. Phân hệ Quản lý Khóa học (Course Management)
+66
+4.14.3. Phân hệ Quản trị Nội dung Bài giảng (Lesson CMS)
+67
+4.14.4. Phân hệ Quản lý Giáo viên (Teacher Management)
+68
+4.14.5. Phân hệ Phân công và Duyệt (Assignment System)
+69
+4.15. HIỆN THỰC HÓA GIAO DIỆN VÀ CHỨC NĂNG PHÍA CLIENT
+70
+4.15.1. Phân hệ Cổng thông tin và Lộ trình bài giảng
+70
+4.15.2. Trình phát bài giảng tương tác (Interactive Lesson Player)
+72
+4.15.3. Hệ thống kiểm tra kiến thức (Quiz System)
+77

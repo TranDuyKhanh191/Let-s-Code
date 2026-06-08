@@ -79,6 +79,38 @@ export const changeStatus = async (req: Request, res: Response) => {
     }
 };
 
+export const updateAssignment = async (req: Request, res: Response) => {
+    try {
+        const adminId = req.user!.id;
+        const assignmentId = Number(req.params.id);
+        const { status, start_at, end_at } = req.body;
+
+        const updated = await permissionService.updateAssignment(
+            assignmentId,
+            { 
+                status, 
+                start_at: start_at ? new Date(start_at).toISOString() : null, 
+                end_at: end_at ? new Date(end_at).toISOString() : null 
+            },
+            adminId
+        );
+
+        res.json({ success: true, updated });
+    } catch (err) {
+        res.status(500).json({ error: (err as Error).message });
+    }
+};
+
+export const deleteAssignment = async (req: Request, res: Response) => {
+    try {
+        const assignmentId = Number(req.params.id);
+        await permissionService.deleteAssignment(assignmentId);
+        res.json({ success: true, message: "Deleted successfully" });
+    } catch (err) {
+        res.status(500).json({ error: (err as Error).message });
+    }
+};
+
 export const myAssignments = async (req: Request, res: Response) => {
     try {
         const teacherId = req.user!.id;

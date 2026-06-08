@@ -72,25 +72,39 @@ export const checkAccess = (
 async function hasProgramAccess(teacherId: number, programId: number) {
     const { data } = await supabase
         .from("assignments")
-        .select("*")
+        .select("id, start_at, end_at")
         .eq("teacher_id", teacherId)
         .eq("resource_type", "program")
         .eq("resource_id", programId)
         .eq("status", "active");
 
-    return data && data.length > 0;
+    if (!data || data.length === 0) return false;
+    const now = new Date().toISOString();
+    return data.some((a: any) => {
+        if (a.start_at && a.start_at > now) return false;
+        if (a.end_at && a.end_at <= now) return false;
+        return true;
+    });
 }
 
 async function hasCourseAccess(teacherId: number, courseId: number) {
     const { data: direct } = await supabase
         .from("assignments")
-        .select("*")
+        .select("id, start_at, end_at")
         .eq("teacher_id", teacherId)
         .eq("resource_type", "course")
         .eq("resource_id", courseId)
         .eq("status", "active");
 
-    if (direct && direct.length > 0) return true;
+    if (direct && direct.length > 0) {
+        const now = new Date().toISOString();
+        const hasActiveDirect = direct.some((a: any) => {
+            if (a.start_at && a.start_at > now) return false;
+            if (a.end_at && a.end_at <= now) return false;
+            return true;
+        });
+        if (hasActiveDirect) return true;
+    }
 
     const { data: course } = await supabase
         .from("courses")
@@ -119,13 +133,17 @@ async function hasLessonAccess(teacherId: number, lessonId: number) {
 async function hasStudentCourseAccess(studentId: number, courseId: number) {
     const { data } = await supabase
         .from("enrollments")
-        .select("id")
+        .select("id, start_at, end_at")
         .eq("student_id", studentId)
         .eq("course_id", courseId)
         .eq("status", "active")
         .maybeSingle();
 
-    return !!data;
+    if (!data) return false;
+    const now = new Date().toISOString();
+    if (data.start_at && data.start_at > now) return false;
+    if (data.end_at && data.end_at <= now) return false;
+    return true;
 }
 
 async function hasStudentLessonAccess(studentId: number, lessonId: number) {

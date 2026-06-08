@@ -1,0 +1,600 @@
+CoursePermissionSelector
+.tsx: Một component tái sử dụng giúp Admin phân quyền truy cập cho khóa học (Ví dụ: "draft" | "published" | "archived"). Việc tách riêng logic này giúp dễ dàng nhúng vào bất kỳ form nào cần chọn quyền hạn.
+3.4
+.2. Phân hệ hệ thống quản trị nội dung bài giảng
+Đây là 
+phân
+ hệ phức tạp nhất về mặt kỹ thuật, biến website thành một công cụ soạn thảo nội dung đa phương tiện mạnh mẽ.
+3.4
+.2.1. Trang điều phối: AdminLessonPage.tsx
+Vai trò Container: Trang này không hiển thị trực tiếp nội dung mà đóng vai trò là một "bộ khung" (Hub). Nó quản lý một biến trạng thái activeTab để điều hướng người dùng giữa các module nội dung khác nhau (Nội dung, Slide, Video, Quiz...).
+Quản lý State tập trung: Dữ liệu bài giảng được gọi API một lần tại đây và truyền xuống các component con thông qua props, đảm bảo tính đồng nhất dữ liệu.
+3.4
+.2.2. Các Module Component chi tiết (trong thư mục admin/lesson/):
+Module Đa phương tiện (LessonSlides.tsx & LessonVideo.tsx):
+LessonSlides.tsx: Cho phép upload hàng loạt ảnh slide. Logic xử lý mảng cho phép Admin sắp xếp lại thứ tự (re-order) hoặc xóa từng slide cụ thể mà không ảnh hưởng đến các slide khác. Module này hỗ trợ cho việc quản lý slide bài giảng cho bài học đang trỏ tới.
+LessonProductVideo.tsx: Tương tự như LessonSlides, module này cho phép upload video
+ 
+(nhưng khác với LessonSlide chỉ có thể up 1 video giới thiệu bài giảng) giúp quản lý tài nguyên video rõ ràng. 
+Module Nội dung & Mục tiêu (LessonContent.tsx & LessonObjectives.tsx):
+LessonObjectives.tsx:
+ Quản lý danh sách các gạch đầu dòng "Mục tiêu bài học". Logic sử dụng mảng dynamic, cho phép thêm/xóa dòng mục tiêu linh hoạt bằng các nút + và x.
+Module Đánh giá & Tương tác (LessonQuiz.tsx & LessonChallenge.tsx):
+LessonQuiz.tsx:
+ Hệ thống soạn thảo câu hỏi trắc nghiệm phức tạp.
+Cấu trúc dữ liệu:
+ Mỗi câu hỏi là một object chứa question_text, mảng options (các phương án) và correct_index (chỉ số đáp án đúng).
+Logic:
+ Admin có thể thêm vô số câu hỏi. Giao diện cho phép tích chọn (Radio button) để xác định đáp án đúng ngay trên màn hình soạn thảo.
+LessonChallenge.tsx:
+ Quản lý các bài tập thử thách nâng cao, khuyến khích học viên thực hành sau giờ học.
+Tóm tắt kỹ thuật: Phân hệ này áp dụng triệt để kiến trúc Component Composition (Tổ hợp Component), tách biệt các logic nghiệp vụ phức tạp (như xử lý mảng Slide, cấu trúc JSON lồng nhau của Quiz) thành các module độc lập để dễ bảo trì. Luồng dữ liệu tuân thủ nguyên tắc One-way Data Flow (Dữ liệu một chiều): Container AdminLessonPage chịu trách nhiệm gọi API và quản lý State tập trung, sau đó truyền xuống các Component con thông qua Props, đảm bảo tính nhất quán và giảm thiểu việc render thừa trong quá trình thao tác dữ liệu.
+3.4
+.3. Phân hệ quản lý nhân sự và phân công
+ 
+Phân hệ này giải quyết bài toán nghiệp vụ cốt lõi: Phân phối nguồn lực giảng dạy.
+Quản lý Giáo viên (ManageTeachersPage.tsx & CreateTeacherPage.tsx):
+Danh sách nhân sự:
+ Hiển thị bảng thông tin giáo viên với các cột: Avatar, Tên đăng nhập, Email, Họ tên.
+Chức năng Reset Password:
+ Tích hợp logic cho phép Admin đặt lại mật khẩu cho giáo viên ngay tại danh sách, giúp xử lý nhanh các trường hợp quên mật khẩu.
+Form thêm mới (CreateTeacherPage):
+ Sử dụng các input type password và email kết hợp với validate HTML5 để đảm bảo tính chính xác của dữ liệu tài khoản.
+Hệ thống Phân công (AssignCoursesPage.tsx):
+Mô hình quan hệ:
+ Xử lý mối quan hệ "Nhiều - Nhiều" (Many-to-Many) giữa bảng Users (Giáo viên) và bảng Courses.
+Component AssignmentModal.tsx:
+ Đây là trái tim của phân hệ này.
+Dropdown thông minh:
+ Load danh sách toàn bộ Giáo viên và Khóa học vào 2 menu thả xuống.
+Validation Logic:
+ Khi Admin chọn 1 Giáo viên và 1 Khóa học, hệ thống sẽ kiểm tra xem cặp đôi này đã tồn tại trong cơ sở dữ liệu chưa để ngăn chặn việc phân công trùng lặp (Duplicate Entry).
+Quy trình Duyệt (Approval Workflow):
+ Trang danh sách phân công có các tab trạng thái (Active/Pending). Các yêu cầu phân công mới sẽ nằm ở trạng thái chờ, Admin cần xác nhận để kích hoạt quyền truy cập cho giáo viên.
+Tóm tắt kỹ thuật & Bài học kinh nghiệm:
+Thông qua việc phát triển phân hệ này, sinh viên đã giải quyết thành công bài toán xử lý Quan hệ Nhiều - Nhiều (Many-to-Many) giữa thực thể Giáo viên và Khóa học. Điểm nhấn kỹ thuật nằm ở cơ chế Ngăn chặn trùng lặp dữ liệu (Duplicate Prevention) ngay tại phía Client:
+Logic xử lý: Trong AssignmentModal, hệ thống sử dụng thuật toán lọc mảng (filter kết hợp includes) để so sánh danh sách khóa học đang chọn với danh sách phân công hiện có trong lịch sử.
+Kết quả: Các khóa học đã được gán cho giáo viên đó sẽ tự động bị vô hiệu hóa (Disabled) trên giao diện chọn, giúp ngăn chặn triệt để lỗi vi phạm ràng buộc duy 
+nhất (Unique Constraint) trước khi gửi dữ liệu về Server, đảm bảo tính toàn vẹn của cơ sở dữ liệu.
+Hình 3.4. Minh họa bài toàn xử lý Nhiều – Nhều
+3.4
+.4. Phân hệ Dashboard Tổng quan (Analytics Dashboard)
+Trang hiển thị: AdminDashboardPage.tsx
+Trực quan hóa dữ liệu:
+ Tổng hợp các chỉ số quan trọng (KPIs) như Tổng số giáo viên, Tổng số khóa học đang hoạt động.
+Nhật ký hoạt động (Activity Logs):
+ Component này hiển thị dòng thời gian (Timeline) các thao tác gần nhất trên hệ thống (Ví dụ: "Giáo viên A vừa cập nhật bài giảng B"). Điều này giúp Admin giám sát chặt chẽ mọi thay đổi dữ liệu.
+3.5
+. PHÂN
+ TÍCH CHI TIẾT CHỨC NĂNG FRONTEND VÀ THIẾT KẾ COMPONENT
+3.5
+.1. Phân hệ Xác thực và Bảo mật (Authentication Module)
+Phân hệ này được thiết kế như một hệ thống kiểm soát truy cập toàn diện, sử dụng kiến trúc tập trung dựa trên AuthContext. 
+Quản lý trạng thái
+: Lưu trữ các thông tin cốt lõi gồm đối tượng người dùng, trạng thái isAuthenticated và trạng thái isLoading để ngăn chặn hiện tượng nháy trang khi chưa khởi tạo xong phiên làm việc. 
+Đồng bộ phiên (Hydration)
+: Khi người dùng tải lại trang (F5), hệ thống tự động truy xuất accessToken từ LocalStorage để khôi phục trạng thái đăng nhập, đảm bảo trải nghiệm không bị gián đoạn. 
+Bảo vệ luồng truy cập (Route Guarding)
+: Sử dụng cơ chế Private Route Wrapper để bọc các trang dành riêng cho giáo viên. Nếu người dùng chưa xác thực, hệ thống sẽ cưỡng chế điều hướng về trang đăng nhập. 
+3.5
+.2. Phân hệ Cổng thông tin Giáo viên (Teacher Portal)
+Đảm nhiệm vai trò điều hướng và giúp giáo viên tiếp cận tài liệu giảng dạy thông qua lộ trình 3 bước: Trang chủ > Chọn chương trình > Danh sách khóa học. 
+Thiết kế đáp ứng (Responsive Grid)
+: Sử dụng CSS Grid với hàm repeat
+ 
+(auto-fill, minmax
+ 
+(300px, 1fr)) giúp giao diện tự động thích ứng với nhiều kích thước màn hình từ máy chiếu đến máy tính bảng. 
+Lọc dữ liệu phía Client
+: Tích hợp tính năng tìm kiếm và lọc theo cấp độ ngay tại trình duyệt thông qua useMemo, giúp loại bỏ độ trễ mạng và mang lại phản hồi tức thì cho người dùng. 
+3.5
+.3. Trình phát bài giảng tương tác (Interactive Lesson Player)
+Đây là tính năng cốt lõi, thay thế các công cụ trình chiếu truyền thống bằng một môi trường thực thi bài giảng trực tiếp trên trình duyệt. 
+Kiến trúc chuyển đổi nội dung
+: Áp dụng mô hình StageRenderer để hiển thị nội dung dựa trên 8 bước sư phạm chuẩn (Mục tiêu, Tổng quan, Lắp ráp PDF, Video, Quiz...) mà không cần tải lại trang. 
+Tối ưu hóa trình chiếu Slide
+: Sử dụng kỹ thuật 
+Smart Pre-fetching
+ (tải trước ảnh slide tiếp theo vào bộ nhớ đệm) để đảm bảo độ trễ bằng không khi giáo viên chuyển trang. 
+Quản lý Video thông minh
+: Trình phát video tùy chỉnh có khả năng ghi nhớ mốc thời gian (savedVideoTime) khi người dùng chuyển đổi giữa các tab nội dung, cho phép tiếp tục xem video tại đúng vị trí cũ khi quay lại. 
+CHƯƠNG I
+V
+. 
+QUY TRÌNH XỬ LÝ VÀ 
+KẾ
+T QUẢ
+Qua quá trình phân tích và thiết kế, cơ sở dữ liệu đã đáp ứng:
+Đầy đủ yêu cầu nghiệp vụ đào tạo Robotics
+Hỗ trợ tốt cho phòng Giáo vụ
+Có khả năng mở rộng trong tương lai
+Giữ được tính ổn định, minh bạch và khoa học
+4
+.1. 
+QUY
+ TRÌNH XÂY DỰNG VÀ TRIỂN KHAI CƠ SỞ DỮ LIỆU TRÊN SUPABASE
+4
+.1.1. Lý do lựa chọn nền tảng Supabase
+Trong quá trình triển khai hệ thống, nhóm dự án đã nghiên cứu nhiều giải pháp cơ sở dữ liệu khác nhau như MySQL, Firebase, MongoDB, PostgreSQL thuần và Supabase. Sau khi phân tích, Supabase được lựa chọn vì các lý do chính sau:
+Thứ nhất, Supabase được xây dựng trên nền tảng PostgreSQL. Đây là hệ quản trị cơ sở dữ liệu quan hệ mạnh mẽ, ổn định, bảo mật cao và phù hợp với các hệ thống quản lý nghiệp vụ có cấu trúc dữ liệu rõ ràng. Điều này giúp hệ thống đảm bảo tính toàn vẹn dữ liệu, đặc biệt quan trọng đối với thông tin đào tạo.
+Thứ hai, Supabase cung cấp giao diện quản trị trực quan, giúp nhóm dự án dễ dàng tạo bảng, cấu hình khóa ngoại, xem dữ liệu và ghi nhận lịch sử thay đổi. Điều này hỗ trợ đáng kể trong giai đoạn triển khai thử nghiệm khi đội ngũ phát triển bao gồm sinh viên và thực tập sinh.
+Thứ ba, Supabase tự động sinh ra các API truy xuất dữ liệu theo chuẩn REST. Nhờ đó, hệ thống website có thể kết nối trực tiếp với cơ sở dữ liệu mà không cần xây dựng tầng API thủ công ngay từ đầu, giúp tiết kiệm chi phí và thời gian phát triển.
+Thứ tư, Supabase hỗ trợ bảo mật theo mô hình Row Level Security, cho phép kiểm soát từng dòng dữ liệu dựa trên vai trò người dùng. Điều này phù hợp với môi trường giáo dục, nơi dữ liệu có mức độ nhạy cảm nhất định và không phải người dùng nào cũng có thể truy cập toàn bộ.
+Trong quá trình sử dụng Supabase, em nhận thấy đây là nền tảng khá phù hợp với sinh viên công nghệ thông tin. Supabase cung cấp sẵn giao diện trực quan để quản lý cơ 
+sở dữ liệu, tự động sinh API và hỗ trợ các tính năng như xác thực người dùng, phân quyền và lưu trữ tệp mà không cần thiết lập máy chủ phức tạp. Nhờ đó, sinh viên có thể tập trung nhiều hơn vào việc thiết kế mô hình dữ liệu và xử lý nghiệp vụ thay vì phải tốn thời gian cấu hình hệ thống. Ngoài ra, Supabase còn cho phép sử dụng miễn phí ở mức cơ bản, rất thuận tiện cho việc học tập và thực hiện các dự án nhỏ.
+Từ các phân tích trên có thể khẳng định rằng việc lựa chọn Supabase không chỉ vì lý do kỹ thuật mà còn dựa trên khả năng vận hành thực tế trong bối cảnh hệ thống giáo dục Robotics.
+4
+.1.2. Quy trình triển khai cơ sở dữ liệu
+Quá trình xây dựng cơ sở dữ liệu được triển khai theo các bước sau:
+Bước 1: Phân tích yêu cầu nghiệp vụ từ phòng Giáo vụ.Ở bước này, nhóm dự án làm việc trực tiếp với bộ phận vận hành đào tạo để xác định rõ những thông tin nào cần lưu trữ, cách thức sử dụng, đối tượng sử dụng và yêu cầu trong tương lai.
+Bước 2: Xây dựng mô hình dữ liệu logic.Từ yêu cầu nghiệp vụ, các thực thể dữ liệu được xác định, sau đó thiết lập mối quan hệ giữa chúng. Bước này giúp hình thành hệ thống bảng và khóa ngoại ban đầu.
+Bước 3: Thiết kế mô hình dữ liệu vật lý.Các bảng, trường dữ liệu, kiểu dữ liệu và ràng buộc được tối ưu hóa để phù hợp với PostgreSQL. Các khóa chính, khóa ngoại, ràng buộc toàn vẹn, chỉ mục được thiết lập nhằm đảm bảo tính chính xác và hiệu năng.
+Bước 4: Triển khai cơ sở dữ liệu trên Supabase.Nhóm tiến hành tạo project Supabase, sau đó thực thi các lệnh SQL để tạo toàn bộ 20 bảng dữ liệu. Toàn bộ lược đồ được kiểm tra lại để tránh trùng lặp và sai ràng buộc.
+Bước 5: Kiểm thử dữ liệu bằng cách nhập dữ liệu thật.Một số bài học Robotics, bao gồm cả nội dung, mục tiêu và câu hỏi đánh giá, được nhập vào hệ thống để kiểm nghiệm tính đúng đắn của thiết kế.
+Bước 6: Đánh giá, tối ưu và hoàn thiện.Nhóm thực hiện rà soát, phát hiện các điểm chưa hợp lý và điều chỉnh thiết kế cho phù hợp hơn với nghiệp vụ thực tế.
+Việc tuân thủ quy trình chặt chẽ giúp cơ sở dữ liệu vừa đảm bảo tính khoa học, vừa phù hợp với triển khai thực tế.
+4
+.2. 
+QUY
+ TRÌNH NHẬP DỮ LIỆU THỬ NGHIỆM TỪ TÀI LIỆU BÀI HỌC
+Trong giai đoạn thử nghiệm, dữ liệu được lấy từ tài liệu bài học Robotics thực tế, tiêu biểu như bài học “Làm quen với Sound Blocks – Mô hình Nữ Vũ Công” trong file 
+dữ liệu bài học của công ty Let’s Code
+.
+Quy trình nhập liệu bao gồm các bước sau:
+Bước 1: Xác định khóa học và bài học cần nhập.Trước tiên, khóa học và chương trình mà bài học thuộc về được tạo trong bảng programs và courses. 
+Sau đó, bài học được tạo mới trong bảng lessons.
+Bước 2: Nhập mục tiêu bài học.
+ 
+Các mục tiêu thuộc bốn nhóm: kiến thức, kỹ năng, tư duy, thái độ được nhập vào bảng lesson_objectives. Việc nhập tách riêng giúp thuận tiện cho đánh giá chuẩn đầu ra.
+Bước 3: Nhập nội dung lý thuyết.
+ 
+Các phần như giới thiệu mô hình, nội dung dạy học, hướng dẫn thao tác được tách nhỏ và nhập vào bảng lesson_contents. Điều này giúp hệ thống hiển thị bài học dễ đọc và có cấu trúc rõ ràng.
+Bước 4: Nhập hoạt động thử thách hoặc bài tập.
+ 
+Thông tin về hoạt động thực hành của học sinh được lưu vào bảng lesson_challenges. Đây là nội dung quan trọng của môn Robotics, vì học sinh chỉ thực sự hiểu khi áp dụng vào thực tế.
+Bước 5: Nhập câu hỏi trắc nghiệm và đáp án.
+ 
+Các câu hỏi cuối bài được lưu vào lesson_quizzes, còn đáp án được lưu vào quiz_answers. Nhờ đó, hệ thống có thể phát triển chức năng kiểm tra tự động trong tương lai.
+Bước 6: Gắn tài nguyên đa phương tiện.
+ 
+Hình ảnh và video minh họa được lưu đường dẫn trong bảng media và liên kết với nội dung tại content_media. Điều này đảm bảo mỗi tài nguyên chỉ lưu một lần nhưng có thể sử dụng lại nhiều nơi.
+Việc nhập liệu thử nghiệm giúp kiểm tra:
+cấu trúc cơ sở dữ liệu
+tính hợp lý của quan hệ bảng
+khả năng đáp ứng nhu cầu triển khai thực tế
+4
+.3. 
+CÁCH
+ THỨC HOẠT ĐỘNG CỦA CƠ SỞ DỮ LIỆU TRONG HỆ THỐNG
+Khi hệ thống vận hành, luồng hoạt động của dữ liệu diễn ra như sau:
+Thứ nhất, khi phòng Giáo vụ xây dựng chương trình đào tạo mới, họ tạo bản ghi trong bảng programs. Sau đó, các khóa học thuộc chương trình đó được tạo trong bảng courses, và từng bài học cụ thể được tạo trong bảng lessons.
+Thứ hai, giáo viên phụ trách được phân công thông qua bảng assignments. Nhờ cơ chế khóa ngoại, hệ thống luôn xác định rõ một bài học thuộc khóa nào và giáo viên nào đảm nhiệm.
+Thứ ba, khi học sinh truy cập hệ thống học tập, nội dung của bài học được lấy ra từ các bảng:
+lesson_contents để hiển thị phần lý thuyết
+lesson_models và lesson_builds để cung cấp hướng dẫn lắp ráp
+content_media để hiển thị hình ảnh và video minh họa
+Nhờ thiết kế bảng riêng biệt, giao diện có thể tải dữ liệu theo từng phần mà không gây quá tải.
+Thứ tư, khi học sinh làm bài kiểm tra, hệ thống truy vấn bảng lesson_quizzes và quiz_answers để hiển thị câu hỏi và lựa chọn. Trong tương lai, hệ thống có thể ghi nhận kết quả làm bài để phục vụ đánh giá quá trình.
+Cuối cùng, mọi thay đổi liên quan đến phân công giảng dạy đều được ghi vào bảng assignment_logs, phục vụ công tác kiểm toán nội bộ, đảm bảo tính minh bạch trong quản lý đào tạo.
+Như vậy, cơ sở dữ liệu đóng vai trò trung tâm trong hệ thống, bảo đảm sự vận hành ổn định, nhất quán và khoa học.
+4
+.4. 
+ĐÁNH
+ GIÁ TÍNH PHÙ HỢP CỦA MÔ HÌNH CƠ SỞ DỮ LIỆU ĐỐI VỚI ĐÀO TẠO ROBOTICS
+Mô hình cơ sở dữ liệu đã xây dựng được đánh giá là phù hợp với đặc thù của đào tạo Robotics vì các lý do sau:
+Thứ nhất, nội dung môn Robotics mang tính tích hợp giữa lý thuyết và thực hành. Cơ sở dữ liệu đã tách riêng mô hình lắp ráp, khối lệnh lập trình, hoạt động thử thách và tài nguyên minh họa. Điều này bảo đảm rằng toàn bộ nội dung học tập được quản lý đầy đủ, có hệ thống.
+Thứ hai, việc phân tách rõ ràng giữa chương trình, khóa học và bài học giúp phòng Giáo vụ dễ dàng điều chỉnh cấu trúc đào tạo mà không ảnh hưởng đến dữ liệu cũ đã lưu 
+trữ.
+Thứ ba, hệ thống câu hỏi và đáp án được tổ chức khoa học, tạo tiền đề để triển khai đánh giá năng lực học sinh theo hướng tự động hóa.
+Thứ tư, cơ chế lưu trữ và liên kết tài nguyên đa phương tiện hỗ trợ mạnh mẽ hình thức dạy học trực quan. Đây là yếu tố rất quan trọng với học sinh nhỏ tuổi.
+Từ các yếu tố trên có thể khẳng định rằng mô hình cơ sở dữ liệu đã thiết kế không chỉ đáp ứng nhu cầu hiện tại mà còn có khả năng phát triển lên các hệ thống học tập điện tử quy mô lớn hơn trong tương lai.
+4
+.5. 
+BẢO MẬT VÀ AN TOÀN DỮ LIỆU TRONG HỆ THỐNG CƠ SỞ DỮ LIỆU
+4
+.5.1. Sự cần thiết của bảo mật dữ liệu
+Cơ sở dữ liệu của hệ thống đào tạo Robotics lưu trữ toàn bộ nội dung liên quan đến:
+chương trình và giáo trình đào tạo
+nội dung bài học chi tiết
+tài nguyên học liệu
+ngân hàng câu hỏi và đáp án kiểm tra
+phân công giảng dạy
+Đây đều là những tài sản tri thức quan trọng. Nếu dữ liệu bị truy cập trái phép, sao chép hoặc chỉnh sửa không kiểm soát, hậu quả có thể xảy ra gồm:
+thất thoát tài liệu độc quyền
+sai lệch nội dung giảng dạy
+gián đoạn hoạt động đào tạo
+ảnh hưởng uy tín đơn vị
+Do đó, bảo mật dữ liệu không chỉ là yêu cầu kỹ thuật mà còn là 
+biện pháp bảo vệ tài sản học thuật và hoạt động tổ chức đào tạo
+.
+4
+.5.2. Nguyên tắc bảo mật được áp dụng
+Trong quá trình thiết kế hệ thống cơ sở dữ liệu, các nguyên tắc bảo mật sau được áp dụng:
+a) 
+Nguyên tắc phân quyền truy cập theo vai trò
+Không phải mọi người dùng đều được truy cập toàn bộ dữ liệu. Quyền truy cập phụ thuộc vào vai trò, như:
+quản trị hệ thống
+giáo viên
+nhân sự giáo vụ
+Việc phân quyền này giúp giới hạn phạm vi truy cập và tránh tác động sai phạm.
+b) 
+Nguyên tắc tối thiểu hóa quyền hạn
+Mỗi tài khoản chỉ được cấp đúng quyền cần thiết để thực hiện nhiệm vụ, tránh việc người dùng có thể truy cập sâu hơn nhu cầu công việc.
+c) 
+Nguyên tắc đảm bảo toàn vẹn dữ liệu
+Mọi thao tác ghi dữ liệu phải tuân thủ chặt chẽ các ràng buộc khóa chính, khóa ngoại, kiểu dữ liệu… nhằm ngăn ngừa lỗi logic.
+d) 
+Nguyên tắc truy vết và kiểm soát thay đổi
+Các thay đổi quan trọng phải có khả năng ghi nhận và truy nguyên khi cần.
+4
+.5.3. Cơ chế bảo mật triển khai trên Supabase
+Trong hệ thống cơ sở dữ liệu triển khai trên nền tảng Supabase, nhiều lớp bảo mật được áp dụng đồng thời nhằm đảm bảo tính an toàn của dữ liệu.
+Thứ nhất, hệ thống triển khai cơ chế xác thực người dùng thông qua tài khoản đăng nhập. Người dùng phải sử dụng email và mật khẩu đã đăng ký để truy cập hệ thống. Trong một số trường hợp, cơ chế xác thực hai lớp bằng mã OTP được áp dụng để tăng cường mức độ an toàn. Nhờ đó, chỉ những cá nhân được cấp quyền mới có thể truy cập vào hệ thống cơ sở dữ liệu.
+Thứ hai, quyền truy cập được phân chia theo vai trò người dùng. Vai trò của từng tài khoản được định nghĩa rõ ràng ngay từ khi khởi tạo, ví dụ như giáo viên, nhân sự giáo vụ hoặc quản trị hệ thống. Mỗi nhóm người dùng chỉ được phép truy cập vào những dữ liệu phù hợp với chức năng công việc của mình. Điều này giúp hạn chế tối đa khả năng truy cập nhầm hoặc truy cập vượt quyền, từ đó bảo vệ tính an toàn của dữ liệu.
+Thứ ba, hệ thống sử dụng cơ chế kiểm soát truy cập ở cấp độ từng dòng dữ liệu (Row Level Security – RLS). Nhờ đó, ngay cả khi người dùng có quyền truy cập vào một bảng dữ liệu, họ cũng chỉ có thể xem và sử dụng những dòng dữ liệu liên quan đến phạm vi công việc của mình. Cơ chế này đặc biệt hữu ích đối với dữ liệu phân công giảng dạy và các thông tin quản trị nội bộ.
+Thứ tư, Supabase cho phép thiết lập đầy đủ các ràng buộc toàn vẹn dữ liệu. Các khóa chính, khóa ngoại, ràng buộc kiểu dữ liệu và quy tắc bắt buộc nhập liệu được cấu hình chặt chẽ. Nhờ vậy, hệ thống tránh được tình trạng dữ liệu không hợp lệ, dữ liệu trùng lặp hoặc xuất hiện những bản ghi không có liên kết hợp lệ. Điều này không chỉ giúp duy trì an toàn cho dữ liệu mà còn nâng cao độ tin cậy của hệ thống.
+Cuối cùng, hệ thống triển khai cơ chế ghi nhận lịch sử thay đổi đối với các hoạt động liên quan đến phân công giảng dạy. Thông tin về thời điểm thay đổi, người thực hiện và nội dung thay đổi được lưu lại trong bảng assignment_logs. Việc truy vết lịch sử giúp đảm bảo tính minh bạch trong quản lý, đồng thời hỗ trợ quá trình kiểm tra và khắc phục khi xảy ra sai sót.
+Tổng thể các cơ chế trên kết hợp với nhau tạo thành một hệ thống bảo mật đa lớp, giúp cơ sở dữ liệu vận hành ổn định, 
+an
+ toàn và phù hợp với yêu cầu của môi trường đào tạo.
+Thay vì tập trung vào giao diện hiển thị, chương này sẽ đi sâu vào luồng đi của dữ liệu (Data Flow), cách ứng dụng Client quản lý trạng thái và tương tác với cơ sở dữ liệu thông qua các phương thức RESTful API.
+4
+.6. 
+CƠ
+ CHẾ ĐỒNG BỘ VÀ CHUẨN HÓA DỮ LIỆU
+ 
+Hệ thống không nhận dữ liệu thô và hiển thị ngay lập tức, mà trải qua quy trình Tổng hợp (Aggregation) và Chuẩn hóa (Normalization) để đảm bảo tính nhất quán trước khi đưa vào sử dụng.
+4
+.6.1. Kỹ thuật Fetching dữ liệu song song
+Trong module quản lý khóa học (AdminCoursesPage), dữ liệu được phân tán ở các endpoint khác nhau dựa trên program_id. Để tối ưu hóa thời gian tải, em sử dụng Promise.all để thực hiện các tác vụ gọi API song song thay vì tuần tự.
+Quy trình xử lý:
+Khởi tạo các Promise gọi API đồng thời đến các endpoint chương trình (Program 1 và Program 2).
+Sử dụng await Promise.all
+ 
+([...]) để đợi tất cả các request hoàn tất.
+Gộp (Merge) các mảng dữ liệu trả về thành một danh sách duy nhất.
+Sắp xếp (Sorting): Xử lý sắp xếp dữ liệu theo thời gian tạo (created_at) ngay tại Client để đảm bảo dữ liệu mới nhất luôn hiển thị đầu tiên.
+Hình 4.1 Kỹ thuật Fetching dữ liệu song song
+4
+.6.2. Ánh xạ dữ liệu
+ 
+Dữ liệu từ Database (Supabase) thường chứa các trường kỹ thuật không cần thiết hoặc tên trường không thân thiện với Frontend. 
+Em thực hiện bước Mapping để chuyển đổi dữ liệu thô sang Interface chuẩn (Course, Teacher, Lesson).
+Logic xử lý: Chuyển đổi các trạng thái thô (status: 'archived') sang các biến trạng thái hiển thị, và tính toán các trường phái sinh (derived fields) như categoryGroup dựa trên program_id.
+4
+.7. 
+QUY
+ TRÌNH THÊM MỚI VÀ CẬP NHẬT DỮ LIỆU
+Hệ thống xử lý việc ghi dữ liệu xuống Supabase thông qua các quy trình kiểm tra logic chặt chẽ (Business Logic Validation) trước khi gửi Request.
+4
+.7.1. Logic "Upsert" (Cập nhật hoặc Thêm mới)
+Tại các module chi tiết bài học như LessonObjectives.tsx hay LessonContent.tsx, hệ thống sử dụng cơ chế thông minh để quyết định gọi API POST hay PATCH.
+Quy trình:
+Hệ thống kiểm tra biến trạng thái id (hoặc objId).
+Nếu ID tồn tại: Dữ liệu đang được chỉnh sửa → Gửi Request PATCH để cập nhật bản ghi cụ thể.
+Nếu ID null: Dữ liệu mới → Gửi Request POST để tạo bản ghi mới.
+Phản hồi: Sau khi POST thành công, hệ thống tự động cập nhật lại id trả về từ Server vào State để các lần lưu sau sẽ chuyển thành PATCH.
+Hình 4.2 Logic "Upsert" (Cập nhật hoặc Thêm mới)
+4
+.7.2. Quy trình Upload và Liên kết File Đa phương tiện (Two-Step Media Upload)
+Việc xử lý dữ liệu File (Ảnh, Video, Slide) phức tạp hơn dữ liệu văn bản vì liên quan đến lưu trữ vật lý và liên kết quan hệ (Relation). Em áp dụng quy trình 2 bước để đảm bảo tính toàn vẹn dữ liệu.
+Bước 1: Upload nhị phân (Binary Upload):
+Sử dụng FormData để đóng gói file nhị phân.
+Gửi request POST đến endpoint /api/media/upload. Server (xử lý với Supabase Storage) sẽ trả về thông tin file và quan trọng nhất là mediaId.
+Bước 2: Tạo liên kết quan hệ (Relationship Linking):
+Sử dụng mediaId nhận được, gửi tiếp request POST đến bảng trung gian (ví dụ: lesson_media hoặc content_media).
+Dữ liệu gửi đi bao gồm: mediaId, purpose (mục đích sử dụng: 'gallery', 'main', 'doc'), và sortOrder.
+Hình 4.3. Quy trình Upload và Liên kết File Đa phương tiện (Two-Step Media Upload)
+4
+.8. 
+QUY TRÌNH XỬ LÝ DỮ LIỆU HÀNG LOẠT
+Để tối ưu hiệu năng khi thao tác với nhiều bản ghi cùng lúc (ví dụ: Duyệt nhiều yêu cầu, Sắp xếp lại thứ tự bài học), hệ thống sử dụng kỹ thuật xử lý bất đồng bộ song song.
+4
+.8.1. Cập nhật trạng thái hàng loạt (Bulk Status Update)
+Trong module Phân quyền (AssignCoursesPage.tsx), chức năng "Duyệt nhanh tất cả" yêu cầu cập nhật trạng thái của hàng chục bản ghi cùng lúc.
+Giải thuật:
+Duyệt qua danh sách các items đang chờ (pendingAssignments).
+Tạo ra một mảng các Promise, mỗi Promise tương ứng với một request fetch riêng biệt đến API.
+Sử dụng Promise.all(promises) để gửi tất cả request đi cùng lúc mà không cần chờ request trước đó hoàn tất (
+Non-blocking
+).
+Cập nhật lại giao diện sau khi tất cả đã hoàn thành.
+Hình 4.4 Cập nhật trạng thái hàng loạt (Bulk Status Update)
+4
+.8.2. Sắp xếp lại thứ tự (Re-ordering Data)
+Tại trang AdminLessonPage.tsx, khi người dùng thay đổi thứ tự các bài học, hệ thống không cập nhật từng dòng một mà thu thập toàn bộ thay đổi và gửi đi trong một tác vụ handleBulkSort. Điều này giảm thiểu số lần render lại giao diện và đảm bảo tính nhất quán của dữ liệu thứ tự (sort_order).
+4
+.9. 
+XỬ
+ LÝ LOGIC QUAN HỆ DỮ LIỆU PHỨC TẠP
+4
+.9.1. Logic lọc quan hệ M-N (Many-to-Many Filtering)
+Trong chức năng phân công giảng dạy (AssignmentModal.tsx), hệ thống phải xử lý logic để tránh việc gán trùng lặp một khóa học cho cùng một giáo viên.
+Logic xử lý:
+Lắng nghe sự thay đổi của teacherId.
+Duyệt qua toàn bộ danh sách phân công hiện có (existingAssignments).
+Lọc ra các khóa học mà giáo viên này 
+đã
+ được gán (có trạng thái active hoặc pending).
+Tạo mảng disabledCourseIds và truyền vào component chọn khóa học để vô hiệu hóa (disable) các lựa chọn trùng lặp, ngăn chặn lỗi ràng buộc duy nhất (Unique Constraint) từ phía Database.
+Hình 4.5 Logic lọc quan hệ M-N (Many-to-Many Filtering)
+4
+.9.2. Xóa dữ liệu liên hoàn (Cascade Delete Simulation)
+Do Frontend không thể can thiệp trực tiếp vào Trigger của Database, logic xóa dữ liệu ràng buộc được giả lập tại tầng ứng dụng để đảm bảo sạch rác dữ liệu.
+Quy trình (Ví dụ xóa Thử thách trong LessonChallenge.tsx):
+Hệ thống duyệt qua danh sách các file media đính kèm trong thử thách.
+Gửi request xóa liên kết (lessonMedia) trước.
+Gửi request xóa file vật lý (media) sau.
+Cuối cùng mới gửi request xóa bản ghi Thử thách (challenges). Quy trình này đảm bảo không để lại các file rác (Orphan files) trong Storage sau khi bản ghi cha bị xóa.
+4
+.10. 
+QUY
+ TRÌNH QUẢN LÝ NỘI DUNG ĐA PHƯƠNG TIỆN
+Tại các module chi tiết bài học (LessonProductVideo.tsx, LessonSlides.tsx, LessonPresentation.tsx), hệ thống áp dụng một quy trình chuẩn hóa để xử lý các tệp tin media (Video, Ảnh, PDF), đảm bảo tính toàn vẹn giữa dữ liệu vật lý (File) và dữ liệu logic (Database).
+4
+.10.1. Cơ chế Phân loại Media (Purpose-based Filtering)
+Thay vì tạo nhiều bảng dữ liệu cho từng loại media, hệ thống sử dụng một bảng lesson_media duy nhất và phân loại dựa trên trường purpose.
+Logic xử lý: Khi tải dữ liệu (fetchData), Frontend sẽ gọi API lấy toàn bộ media của bài học, sau đó lọc (filter) tại phía Client để phân phối vào các component tương ứng.
+LessonProductVideo: Lọc purpose === 'intro'.
+LessonSlides: Lọc purpose === 'gallery' hoặc file PDF.
+LessonPresentation: Lọc purpose === 'attachment'.
+LessonContent: Lọc purpose ==
+=  '
+main'.
+LessonChallenge: Lọc purpose ==
+=  '
+other'.
+Hình 4.6 Cơ chế Phân loại Media (Purpose-based Filtering)
+4
+.10.2. Quy trình Upload và Liên kết (Atomic Upload Transaction)
+Để gắn một file vào bài học, hệ thống thực hiện chuỗi tác vụ tuần tự bất đồng bộ:
+Upload vật lý: Gửi file nhị phân lên Server (/api/media/upload). Server trả về mediaId.
+Tạo liên kết: Sử dụng mediaId để tạo bản ghi trong bảng trung gian lesson_media kèm theo metadata (sortOrder, purpose).
+Hình 4.7 Quy trình Upload và Liên kết (Atomic Upload Transaction)
+4
+.10.3. Quy trình Xóa sạch (Deep Clean Delete)
+Khi xóa một file khỏi giao diện, hệ thống phải đảm bảo xóa sạch dấu vết để tránh rác dữ liệu (Orphan Files).
+Quy trình:
+Xóa bản ghi liên kết trong lesson_media (Gỡ file khỏi bài học).
+Xóa bản ghi file gốc trong bảng media (Kích hoạt xóa file vật lý trên ổ cứng/Storage).
+4
+.11. 
+XỬ
+ LÝ DỮ LIỆU PHỨC TẠP VÀ LỒNG NHAU
+Đối với các chức năng tương tác cao như Trắc nghiệm (LessonQuiz) và Thử thách (LessonChallenge), dữ liệu không chỉ là các trường đơn giản mà là các cấu trúc JSON phức tạp.
+4
+.11.1. Quản lý Dữ liệu Trắc nghiệm (Nested JSON Payload)
+Trong LessonQuiz.tsx, một câu hỏi trắc nghiệm bao gồm nội dung câu hỏi và danh sách các đáp án. Thay vì gửi nhiều request lẻ tẻ, Frontend đóng gói toàn bộ cấu trúc này vào một Payload duy nhất.
+Cấu trúc Payload
+Hình 4.8 Cấu trúc Payload
+Logic tính toán thứ tự: Hệ thống tự động tính toán sort_order cho câu hỏi mới bằng cách tìm giá trị lớn nhất hiện có và cộng thêm 1 (
+Math.max(
+...orders) + 1), đảm bảo câu hỏi mới luôn nằm cuối danh sách.
+Hình 4.9 Logic tính toán thứ tự
+4
+.11.2. Quản lý Thử thách kèm Media (Conditional Media Attachment)
+Module LessonChallenge.tsx xử lý một nghiệp vụ phức tạp: Một thử thách có thể có hoặc không có video hướng dẫn đi kèm.
+Logic Form:
+Nếu là Thêm mới (Create): Tạo thử thách trước -> Lấy ID -> Upload Media và gắn vào thử thách đó.
+Nếu là Cập nhật (Update): Chỉ cập nhật thông tin văn bản. Nếu người dùng chọn file mới, thực hiện quy trình upload và thay thế file cũ.
+Xóa Media lẻ: Hệ thống cung cấp chức năng handleRemoveMediaOnly cho phép chỉ gỡ bỏ video đính kèm mà không xóa bản ghi thử thách, giúp Admin linh hoạt trong việc chỉnh sửa nội dung.
+Hình 4.10 Quản lý Thử thách kèm Media (Conditional Media Attachment)
+4
+.12. 
+TỔNG
+ KẾT CÁC API ENDPOINT TƯƠNG TÁC
+Hệ thống Frontend đã xây dựng một lớp giao tiếp API (Service Layer) hoàn chỉnh để tương tác với Backend/Supabase. Dưới đây là bảng tổng hợp các luồng dữ liệu chính:
+Bảng 4.1 Bảng tổng hợp các luồng dữ liệu chính
+Phân hệ
+Phương thức
+Endpoint (Mẫu)
+Mục đích xử lý dữ liệu
+Khóa học
+GET / POST
+/api/courses
+Lấy danh sách, tạo khóa học mới với program_id tự động.
+Nội dung
+PATCH
+/
+lessons
+/lessonContents/:id
+Cập nhật nội dung bài học (Upsert Logic).
+Media
+POST
+/media/upload
+Upload file nhị phân (Binary) lên Storage.
+Media
+DELETE
+/
+lessons
+/lessonMedia/:id
+Gỡ bỏ liên kết file khỏi bài học.
+Quiz
+POST
+/
+lessons
+/quizzes/:id
+Gửi cấu trúc dữ liệu JSON lồng nhau (Câu hỏi + Đáp án).
+Phân quyền
+PATCH
+/api/permissions/status/:id
+Cập nhật trạng thái Active/Revoked cho giáo viên.
+4
+.13. 
+TƯ
+ DUY TƯƠNG TÁC BACKEND VÀ KIẾN TRÚC SERVICE LAYER
+Mặc dù không trực tiếp xây dựng mã nguồn Server (Backend), nhưng để hệ thống Frontend vận hành trơn tru và bảo mật, em đã xây dựng lớp trung gian Service Layer để quản lý toàn bộ việc giao tiếp dữ liệu. Điều này giúp tách biệt hoàn toàn logic gọi API khỏi giao diện người dùng (UI), giúp code dễ bảo trì và nâng cấp.
+4
+.13.1. Chiến lược Tổ chức Service theo Modules (Modular Service Pattern)
+Thay vì viết các hàm gọi API rải rác trong từng trang giao diện (gây khó kiểm soát), em đã quy hoạch và phân tách hệ thống thành các modules dịch vụ độc lập, tương ứng với các thực thể nghiệp vụ:
+Auth Service: Chuyên trách xử lý các tác vụ liên quan đến xác thực, đăng nhập và phân quyền.
+Course & Lesson Services: Quản lý các thao tác CRUD (Thêm, Xóa, Sửa, Lấy dữ liệu) cho khóa học và bài giảng.
+Media Service: Module riêng biệt để xử lý các tác vụ upload và quản lý tài nguyên đa phương tiện.
+Cách tổ chức này giúp hệ thống Frontend tuân thủ nguyên tắc "Separation of Concerns" (Phân tách mối quan tâm), đảm bảo khi Backend thay đổi đường dẫn API, em chỉ cần cập nhật tại một file service duy nhất mà không ảnh hưởng đến toàn bộ dự án.
+4
+.13.2. Cơ chế Bảo mật và Quản lý Phiên làm việc (JWT Authentication)
+Em đã thiết lập quy trình xác thực chặt chẽ dựa trên chuẩn JSON Web Token (JWT). Quy trình này được tự động hóa hoàn toàn trong lớp Service:
+Lưu trữ Token: Khi người dùng đăng nhập thành công, Token định danh trả về từ Server sẽ được Service lưu trữ an toàn vào LocalStorage của trình duyệt.
+Tự động đính kèm (Request Interceptor): Với mọi yêu cầu gửi đi sau đó (như lấy danh sách khóa học hay upload ảnh), Service sẽ tự động lấy Token từ kho lưu trữ và đính kèm vào Header Authorization của gói tin HTTP.
+Cơ chế này đảm bảo: Người dùng không cần đăng nhập lại liên tục, đồng thời hệ thống Backend luôn xác định được "ai đang gửi yêu cầu" để cấp quyền truy cập dữ liệu chính xác.
+4
+.13.3. Xử lý Đa dạng Định dạng Dữ liệu (Payload Handling)
+Một trong những điểm mạnh kỹ thuật của lớp Service này là khả năng phân loại và xử lý linh hoạt các định dạng dữ liệu đầu vào:
+Dữ liệu văn bản (JSON): Đối với các tác vụ như tạo mới khóa học hay cập nhật thông tin giáo viên, Service sẽ tự động đóng gói dữ liệu thành chuẩn JSON và thiết lập header Content-Type: application/json.
+Dữ liệu tệp tin (Multipart/Form-data): Đối với chức năng Upload (ảnh, video, tài liệu), Service sử dụng đối tượng FormData để đóng gói file vật lý. Hệ thống được lập trình để hiểu rằng khi gửi FormData, trình duyệt cần tự động xử lý boundary (ranh giới dữ liệu) thay vì ép kiểu về JSON, đảm bảo file được gửi đi nguyên vẹn.
+4
+.14. 
+KẾT
+ QUẢ ĐẠT ĐƯỢC VÀ DEMO SẢN PHẨM
+P
+hân tích, thiết kế và lập trình, phân hệ Quản trị (Admin Portal) của website đã được hoàn thiện với đầy đủ các chức năng theo yêu cầu. Giao diện được xây dựng theo phong cách hiện đại (Dark Mode & Glassmorphism), đảm bảo tính thẩm mỹ và trải nghiệm người dùng tối ưu.
+4
+.14.1. Giao diện Tổng quan (Dashboard)
+Đây là màn hình trung tâm, cung cấp cái nhìn toàn cảnh về tình hình hoạt động của hệ thống đào tạo.
+Hình 4.11 Giao diện Tổng quan (Dashboard)
+Hình 4.11 Giao diện Tổng quan (Dashboard)
+Mô tả kết quả:
+Thống kê số liệu (Stats Cards): Hiển thị trực quan 3 chỉ số quan trọng: Tổng số Giáo viên, Tổng số Khóa học/Bài giảng và Trạng thái hệ thống. Các thẻ sử dụng hiệu ứng màu gradient phân biệt (Xanh dương, Tím, Xanh lá).
+Lịch trình giảng dạy (Calendar Widget): Một module lịch tương tác chiếm 2/3 màn hình, cho phép Admin xem nhanh các lớp học đang diễn ra trong ngày. Các chấm tròn màu xanh/đỏ biểu thị thời gian bắt đầu và kết thúc của lớp học.
+Hoạt động gần đây (Recent Activities): Bên phải màn hình hiển thị log hoạt động thời gian thực (Real-time logs), ví dụ: 
+"Nguyễn Văn A vừa được phân công khóa Robotic Essential"
+.
+Đánh giá mức độ đáp ứng: Giao diện Dashboard đã đáp ứng tốt yêu cầu "Xây dựng hệ thống báo cáo quản trị trực quan" đặt ra ở đầu dự án. Thay vì phải tổng hợp số liệu thủ công, hệ thống hiện tại cung cấp cho nhà quản lý cái nhìn toàn cảnh về quy mô nhân sự và lớp học theo thời gian thực (Real-time), hỗ trợ ra quyết định nhanh chóng.
+4
+.14.2. Phân hệ Quản lý Khóa học (Course Management)
+Giao diện cho phép Admin quản lý danh mục sản phẩm giáo dục của trung tâm.
+Hình 4.12 Phân hệ Quản lý Khóa học (Course Management)
+Hình 4.12 Phân hệ Quản lý Khóa học (Course Management)
+Mô tả kết quả:
+Danh sách dữ liệu: Hiển thị khóa học dưới dạng bảng với các cột thông tin chi tiết: Tên, Mã (REA/RPA), Cấp độ, Trạng thái (Ẩn/Hiện).
+Công cụ lọc (Filter Tool): Hệ thống tích hợp bộ lọc đa tầng: Tìm kiếm theo tên, Lọc theo Mã khóa học. Kết quả được cập nhật tức thì (Real-time filtering) mà không cần tải lại trang.
+Chức năng Phân trang: Thanh phân trang nằm ở cuối bảng giúp chia nhỏ danh sách dữ liệu lớn, đảm bảo giao diện gọn gàng.
+Hình 4.13 Thêm khóa học mới
+Hình 4.13 Thêm khóa học mới
+Đánh giá mức độ đáp ứng: Phân hệ này đã giải quyết triệt để bài toán "Số hóa và Tập trung dữ liệu đào tạo".
+Về mặt lưu trữ: Thay thế hoàn toàn việc quản lý manh mún qua Excel bằng cơ sở dữ liệu tập trung.
+Về mặt nghiệp vụ: Đáp ứng yêu cầu 
+"Quản lý nội dung đa phương tiện"
+ thông qua khả năng upload và tổ chức Slide, Video, Quiz một cách khoa học, điều mà các công cụ văn phòng cũ không làm được.
+4
+.14.3. Phân hệ Quản trị Nội dung Bài giảng (Lesson CMS)
+Đây là phân hệ phức tạp nhất, nơi Admin biên soạn nội dung chi tiết cho từng buổi học.
+Hình 4.14 Giao diện quản lý danh sách bài học
+Hình 4.14 Giao diện quản lý danh sách bài học
+Mô tả: Giao diện hiển thị danh sách bài học dưới dạng các thẻ (Card) với đầy đủ các nút chức năng: Ẩn/Hiện, Chỉnh sửa, Xóa và Sắp xếp thứ tự.
+Hình 4.15 Giao diện soạn thảo chi tiết
+Hình 4.15 Giao diện soạn thảo chi tiết
+Mô tả: Màn hình chi tiết chia nội dung thành các Tab chuyên biệt để dễ quản lý:
+Mục tiêu (Objectives): Soạn thảo kiến thức, kỹ năng đạt được.
+Video & Slide: Khu vực upload video bài giảng và tài liệu PDF hướng dẫn lắp ráp,.
+Lý thuyết (Content): Trình soạn thảo văn bản cho nội dung bài học.
+Trắc nghiệm (Quiz): Giao diện soạn câu hỏi và chọn đáp án đúng trực tiếp.
+Hình 4.16 Phân hệ Quản lý Giáo viên (Teacher Management)
+Hình 4.16 Phân hệ Quản lý Giáo viên (Teacher Management)
+4
+.14.4. Phân hệ Quản lý Giáo viên (Teacher Management)
+Mô tả kết quả:
+Hiển thị danh sách nhân sự giảng dạy với Avatar (tạo tự động từ tên), Email và Username.
+Cung cấp các thao tác quản trị nhanh: Đặt lại mật khẩu, Chỉnh sửa thông tin cá nhân và Xóa tài khoản khỏi hệ thống.
+Đánh giá mức độ đáp ứng: Đây là tính năng hoàn thành xuất sắc yêu cầu cốt lõi: "Tối ưu hóa quy trình điều phối nguồn lực".
+So với quy trình cũ: Hệ thống tự động kiểm tra logic (tránh trùng lặp), giúp bộ phận Giáo vụ loại bỏ sai sót và tiết kiệm đáng kể thời gian xếp lớp.
+Kết quả: Đáp ứng đúng mục tiêu chuyển đổi số quy trình vận hành của doanh nghiệp.
+4
+.14.5. Phân hệ Phân công và Duyệt (Assignment System)
+Chức năng này giúp Admin điều phối nhân sự cho các lớp học.
+Hình 4.17 Modal phân công khóa học
+Hình 4.17 Modal phân công khóa học
+Mô tả:
+Giao diện AssignmentModal cho phép chọn một Giáo viên và tích chọn nhiều Khóa học cùng lúc.
+Hệ thống tự động làm mờ (Disable) các khóa học mà giáo viên này đã được phân công trước đó để tránh trùng lặp dữ liệu.
+Hình 4.18 Màn hình duyệt yêu cầu chờ (Pending)
+Hình 4.18 Màn hình duyệt yêu cầu chờ (Pending)
+Mô tả:
+Danh sách các yêu cầu phân công đang ở trạng thái Pending (Chờ duyệt).
+Tính năng "Duyệt nhanh tất cả" và "Từ chối tất cả" giúp Admin xử lý hàng loạt yêu cầu chỉ với một cú click chuột, tiết kiệm thời gian vận hành.
+4
+.15. 
+HIỆN
+ THỰC HÓA GIAO DIỆN VÀ CHỨC NĂNG PHÍA CLIENT
+Dựa trên kiến trúc ReactJS đã phân tích ở Chương II, các giao diện chức năng phía Client dành cho giáo viên đã được hiện thực hóa với tiêu chí trực quan và hỗ trợ tối đa cho việc giảng dạy tại lớp.
+4
+.15.1. Phân hệ Cổng thông tin và Lộ trình bài giảng
+Giao diện này đóng vai trò là điểm chạm đầu tiên của giáo viên khi tiếp cận hệ thống bài giảng.
+Mô tả kết quả: Hệ thống hiển thị danh sách các chương trình Robotics (ví dụ: WEDO, EV3) dưới dạng lưới thẻ (Grid layout). Mỗi khóa học bao gồm ảnh minh họa, tên khóa học và cấp độ.
+Đánh giá: Sử dụng cơ chế lọc nhanh (Search filter) giúp giáo viên tìm thấy bài giảng mục tiêu chỉ trong vài giây.
+Hình 4.19 Hình ảnh đăng nhập thất bại
+Hình 4.20 Trang quên mật khẩu
+Hình 4.20 Trang quên mật khẩu
+Hình 4.21 sau khi đăng nhập thành công
+4
+.15.2. Trình phát bài giảng tương tác (Interactive Lesson Player)
+Đây là tính năng cốt lõi giúp chuyển đổi các bước sư phạm truyền thống sang môi trường kỹ thuật số.
+Cơ chế hoạt động: Hệ thống sử dụng logic StageRenderer để điều phối nội dung mà không cần tải lại trang.
+Chức năng Video & PDF: Tích hợp trình phát Video chuẩn HD và bộ xem PDF trực tuyến hỗ trợ các thao tác phóng to/thu nhỏ tài liệu lắp ráp Robot.
+Hình 4.22. Trang phân loại hai chương trình
+Hình 4.23 Danh sách khóa học với bộ lọc tìm kiếm thời gian thực
+Hình 4.24 Giao diện Danh sách các bài học trong khóa
+Hình 4.25 Mục tiêu bài học
+ 
+Hình 4.26 Tổng quan bài học
+Hình 4.27 Giới thiệu về bài học
+Hình 4.28 Chuẩn bị dụng cụ của bài học
+Hình 4.29 Xây dựng trong mỗi bài học
+Hình 4.29 Xây dựng trong mỗi bài học
+Hình 4.30 Nội dung lý thuyết của bài học
+Hình 4.30 Nội dung lý thuyết của bài học
+4
+.15.3. Hệ thống kiểm tra kiến thức (Quiz System)
+Phân hệ này giúp giáo viên tương tác trực tiếp với học sinh thông qua các câu hỏi củng cố kiến thức.
+Mô tả: Câu hỏi được thiết kế sinh động với hình ảnh minh họa. Khi giáo viên hoặc học sinh chọn đáp án, hệ thống sẽ phản hồi ngay lập tức bằng hiệu ứng thị giác (Xanh/Đỏ) kèm âm thanh thông báo.
+Ý nghĩa: Giúp lớp học trở nên sôi nổi và giáo viên nắm bắt được mức độ hiểu bài của học sinh ngay tại lớp.
+Hình 4.32 Các câu hỏi tổng kết sau khi hoàn thiện bài học
+Hình 4.32 Các câu hỏi tổng kết sau khi hoàn thiện bài học
+Hình 4.31 Thử Thách cho từng bài học
+CHƯƠNG V. KẾT LUẬN
+5
+.1. 
+KẾT LUẬN
+Sau quá trình nghiên cứu, thiết kế và thực hiện đề tài “Xây dựng nền tảng website hỗ trợ giáo viên dạy lập trình cho trẻ em”, dự án đã hoàn thành các mục tiêu cụ thể sau:
+5
+.1.1. Kết quả về mặt kỹ thuật và công nghệ
+Hệ thống Cơ sở dữ liệu (Database):
+ Thiết kế và triển khai thành công lược đồ cơ sở dữ liệu quan hệ trên PostgreSQL thông qua nền tảng Supabase. 
+Các bảng dữ liệu (profiles, courses, lessons, steps, assignments) được chuẩn hóa, thiết lập ràng buộc khóa ngoại chặt chẽ. Đặc biệt, đã áp dụng chính sách bảo mật hàng (Row Level Security - RLS) để phân quyền truy cập dữ liệu giữa các vai trò Admin, Staff và Teacher.
+Hệ thống Backend & API:
+ Tối ưu hóa việc xử lý dữ liệu thông qua các hàm (Functions) và Trigger tự động hóa trên Supabase. Hệ thống API đảm bảo khả năng đồng bộ dữ liệu theo thời gian thực, xử lý các tác vụ từ đăng ký, đăng nhập đến quản lý trạng thái bài giảng một cách ổn định.
+Giao diện người dùng (Frontend):
+ * Sử dụng bộ công nghệ 
+ReactJS, TypeScript và Tailwind CSS
+ để xây dựng giao diện hiện đại, đáp ứng tốt trên các trình duyệt phổ biến.
+Qua đó h
+oàn thiện trình phát bài giảng (Lesson Player), cho phép tích hợp đa phương tiện (Video HD, tài liệu PDF hướng dẫn lắp ráp) và hệ thống Quiz tương tác.
+5
+.1.2. Kết quả về mặt nghiệp vụ và quản lý
+Số hóa quy trình quản trị: Triển khai phân hệ Admin và Staff cho phép quản lý tập trung danh sách giáo viên, cơ sở đào tạo và danh mục bài giảng. Thay thế hoàn toàn việc quản lý bằng tệp tin rời rạc.
+Quy trình phê duyệt (Duyệt): Xây dựng thành công luồng nghiệp vụ kiểm soát nội dung. Dữ liệu bài giảng và phân công giáo viên phải trải qua bước phê duyệt từ cấp quản lý trước khi hiển thị trên hệ thống, đảm bảo tính chính xác và đồng bộ.
+Hỗ trợ giảng dạy: Giải quyết được khó khăn của giáo viên trong việc chuẩn bị giáo án. Hệ thống cung cấp lộ trình bài dạy chuẩn hóa, giúp giáo viên tập trung vào việc tương tác và hướng dẫn học sinh lắp ráp, lập trình Robot.
+TÀI LIỆU THAM KHẢO
+[1] 
+Cơ sở thực tập Let's Code
+, 
+Tài liệu nội bộ chương trình đào tạo Robotics
+, 2026.
+[2] 
+ByteGrad
+ (2024), 
+TypeScript in React - COMPLETE Tutorial (Crash Course)
+, YouTube. Available: 
+https://youtu.be/TPACABQTHvM
+ 
+[3] 
+Clear Code
+ (2022), 
+The ultimate introduction to Pygame
+, YouTube. Available: 
+https://youtu.be/AY9MnQ4x3zk
+[4] 
+Clear Code
+ (2025), 
+Master Python by making 5 games [the new ultimate introduction to pygame]
+, YouTube. Available: 
