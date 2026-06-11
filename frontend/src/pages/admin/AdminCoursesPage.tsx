@@ -249,7 +249,7 @@ export default function AdminCoursesPage() {
   const currentCourses = filteredCourses.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#1a0b2e] via-[#0f061a] to-[#1a0b2e] text-white font-sans">
+    <div className="flex flex-col min-h-screen bg-bg-main text-text-primary transition-colors duration-300 font-sans">
       <style>{customStyles}</style>
       
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
@@ -279,11 +279,11 @@ export default function AdminCoursesPage() {
                         <span className="p-2 bg-gradient-to-br from-[#9c00e5] to-[#ff7c7c] rounded-xl shadow-lg shadow-[#9c00e5]/30">
                             <CollectionIcon className="w-6 h-6 text-white" />
                         </span>
-                        <h1 className="text-3xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                        <h1 className="text-3xl font-black bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent transition-colors duration-300">
                             Quản lý khóa học
                         </h1>
                     </div>
-                    <p className="text-gray-400 text-sm ml-12">Quản lý danh sách, nội dung và cấp độ khóa học.</p>
+                    <p className="text-text-secondary text-sm ml-12">Quản lý danh sách, nội dung và cấp độ khóa học.</p>
                 </div>
                 <button 
                     onClick={() => setShowCreateModal(true)} 
@@ -296,11 +296,11 @@ export default function AdminCoursesPage() {
            {/* --- STATS CARDS (GRID 5 CỘT) --- */}
            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
                 {/* Card 1: Total */}
-                <div className="p-5 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition-colors">
+                <div className="p-5 bg-bg-card border border-color-border rounded-2xl backdrop-blur-sm hover:bg-white/10 transition-colors">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Tổng khóa học</p>
-                            <h3 className="text-3xl font-black text-white mt-1">{totalCourses}</h3>
+                            <p className="text-text-secondary text-[10px] font-bold uppercase tracking-wider">Tổng khóa học</p>
+                            <h3 className="text-3xl font-black text-text-primary mt-1 transition-colors duration-300">{totalCourses}</h3>
                         </div>
                         <div className="p-2 bg-[#9c00e5]/20 text-[#9c00e5] rounded-lg">
                             <CollectionIcon className="w-5 h-5" />
@@ -312,7 +312,7 @@ export default function AdminCoursesPage() {
                 <div className="p-5 bg-gradient-to-br from-[#ff7c7c]/10 to-[#ff7c7c]/5 border border-[#ff7c7c]/20 rounded-2xl backdrop-blur-sm hover:border-[#ff7c7c]/40 transition-colors">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Robotic Essential</p>
+                            <p className="text-text-secondary text-[10px] font-bold uppercase tracking-wider">Robotic Essential</p>
                             <h3 className="text-3xl font-black text-[#ff7c7c] mt-1">{essentialCount}</h3>
                         </div>
                         <div className="p-2 bg-[#ff7c7c]/20 text-[#ff7c7c] rounded-lg">
@@ -325,7 +325,7 @@ export default function AdminCoursesPage() {
                 <div className="p-5 bg-gradient-to-br from-[#3c90ff]/10 to-[#3c90ff]/5 border border-[#3c90ff]/20 rounded-2xl backdrop-blur-sm hover:border-[#3c90ff]/40 transition-colors">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Robotic Prime</p>
+                            <p className="text-text-secondary text-[10px] font-bold uppercase tracking-wider">Robotic Prime</p>
                             <h3 className="text-3xl font-black text-[#3c90ff] mt-1">{primeCount}</h3>
                         </div>
                         <div className="p-2 bg-[#3c90ff]/20 text-[#3c90ff] rounded-lg">
@@ -338,7 +338,7 @@ export default function AdminCoursesPage() {
                 <div className="p-5 bg-gradient-to-br from-[#4db933]/10 to-[#4db933]/5 border border-[#4db933]/20 rounded-2xl backdrop-blur-sm hover:border-[#4db933]/40 transition-colors">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Khóa học khả dụng</p>
+                            <p className="text-text-secondary text-[10px] font-bold uppercase tracking-wider">Khóa học khả dụng</p>
                             <h3 className="text-3xl font-black text-[#4db933] mt-1">{publishedCount}</h3>
                         </div>
                         <div className="p-2 bg-[#4db933]/20 text-[#4db933] rounded-lg">
@@ -348,13 +348,13 @@ export default function AdminCoursesPage() {
                 </div>
 
                 {/* Card 5: Hidden (BỊ ẨN) */}
-                <div className="p-5 bg-white/5 border border-gray-600/30 rounded-2xl backdrop-blur-sm hover:border-gray-500/50 transition-colors">
+                <div className="p-5 bg-bg-card border border-gray-600/30 rounded-2xl backdrop-blur-sm hover:border-gray-500/50 transition-colors">
                     <div className="flex justify-between items-start">
                         <div>
-                            <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">Khóa học bị ẩn</p>
-                            <h3 className="text-3xl font-black text-gray-300 mt-1">{hiddenCount}</h3>
+                            <p className="text-text-secondary text-[10px] font-bold uppercase tracking-wider">Khóa học bị ẩn</p>
+                            <h3 className="text-3xl font-black text-text-secondary mt-1">{hiddenCount}</h3>
                         </div>
-                        <div className="p-2 bg-gray-500/20 text-gray-400 rounded-lg">
+                        <div className="p-2 bg-gray-500/20 text-text-secondary rounded-lg">
                             <ArchiveIcon className="w-5 h-5" />
                         </div>
                     </div>
@@ -362,32 +362,32 @@ export default function AdminCoursesPage() {
            </div>
 
            {/* --- SEARCH & FILTER --- */}
-           <div className="flex flex-col md:flex-row gap-4 mb-6 bg-[#1a0b2e]/50 p-4 rounded-2xl border border-white/5 shadow-inner">
+           <div className="flex flex-col md:flex-row gap-4 mb-6 bg-black/5 dark:bg-[#1a0b2e]/50 p-4 rounded-2xl border border-color-border shadow-inner transition-colors duration-300">
                 <div className="relative flex-1">
-                    <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"/>
+                    <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-secondary"/>
                     <input 
-                        className="w-full pl-12 p-3 bg-white/5 border border-white/10 rounded-xl text-white focus:border-[#9c00e5] focus:ring-1 focus:ring-[#9c00e5] focus:outline-none transition-all placeholder-gray-500" 
+                        className="w-full pl-12 p-3 bg-bg-card border border-color-border rounded-xl text-text-primary focus:border-[#9c00e5] focus:ring-1 focus:ring-[#9c00e5] focus:outline-none transition-all placeholder-text-secondary" 
                         placeholder="Tìm kiếm theo tên khóa học..." 
                         value={searchTerm} 
                         onChange={e => setSearchTerm(e.target.value)} 
                     />
                 </div>
                 <div className="relative min-w-[200px]">
-                    <FilterIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"/>
+                    <FilterIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-secondary"/>
                     <select 
-                        className="w-full pl-12 p-3 pr-10 bg-white/5 border border-white/10 rounded-xl text-white appearance-none cursor-pointer focus:border-[#9c00e5] focus:ring-1 focus:ring-[#9c00e5] focus:outline-none transition-all font-medium"
+                        className="w-full pl-12 p-3 pr-10 bg-bg-card border border-color-border rounded-xl text-text-primary appearance-none cursor-pointer focus:border-[#9c00e5] focus:ring-1 focus:ring-[#9c00e5] focus:outline-none transition-all font-medium"
                         value={filterCode}
                         onChange={e => setFilterCode(e.target.value)}
                     >
-                        <option value="all" className="bg-[#1a0b2e]">Tất cả mã</option>
-                        <optgroup label="Essential" className="bg-[#1a0b2e]">
+                        <option value="all" className="bg-bg-main">Tất cả mã</option>
+                        <optgroup label="Essential" className="bg-bg-main">
                             {["REA","REAX","REB","REBX","REC","RECX"].map(c => <option key={c} value={c}>{c}</option>)}
                         </optgroup>
-                        <optgroup label="Prime" className="bg-[#1a0b2e]">
+                        <optgroup label="Prime" className="bg-bg-main">
                             {["RPA","RPAX","RPB","RPBX","RPC","RPCX"].map(c => <option key={c} value={c}>{c}</option>)}
                         </optgroup>
                     </select>
-                    <ChevronDownIcon className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"/>
+                    <ChevronDownIcon className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary pointer-events-none"/>
                 </div>
            </div>
 
@@ -395,7 +395,7 @@ export default function AdminCoursesPage() {
            <div className="overflow-hidden border border-[#9c00e5]/20 rounded-2xl bg-white/[0.02] shadow-2xl">
                <table className="w-full text-left">
                    <thead>
-                       <tr className="bg-gradient-to-r from-[#2a1b3d] to-[#1f1428] text-gray-400 border-b border-[#9c00e5]/20 text-sm uppercase tracking-wider">
+                       <tr className="bg-black/5 dark:bg-gradient-to-r dark:from-[#2a1b3d] dark:to-[#1f1428] text-text-secondary border-b border-color-border text-sm uppercase tracking-wider transition-colors duration-300">
                            <th className="p-5 font-bold">Tên khóa học</th>
                            <th className="p-5 font-bold">Mã</th>
                            <th className="p-5 font-bold">Chương trình</th>
@@ -405,11 +405,11 @@ export default function AdminCoursesPage() {
                            <th className="p-5 font-bold text-center">Hành động</th>
                        </tr>
                    </thead>
-                   <tbody className="divide-y divide-white/5">
+                   <tbody className="divide-y divide-color-border">
                        {loading ? (
-                           <tr><td colSpan={7} className="p-12 text-center text-gray-400 italic">Đang tải dữ liệu...</td></tr>
+                           <tr><td colSpan={7} className="p-12 text-center text-text-secondary italic">Đang tải dữ liệu...</td></tr>
                        ) : currentCourses.length === 0 ? (
-                           <tr><td colSpan={7} className="p-12 text-center text-gray-400">
+                           <tr><td colSpan={7} className="p-12 text-center text-text-secondary">
                                <div className="flex flex-col items-center">
                                    <CollectionIcon className="w-12 h-12 text-gray-600 mb-2"/>
                                    <span>Không tìm thấy khóa học nào</span>
@@ -419,10 +419,10 @@ export default function AdminCoursesPage() {
                            currentCourses.map((c, idx) => (
                                <tr 
                                  key={c.id} 
-                                 className="hover:bg-white/5 transition-all duration-200 group animate-slide-in"
+                                 className="hover:bg-bg-card transition-all duration-200 group animate-slide-in"
                                  style={{ animationDelay: `${idx * 50}ms` }}
                                >
-                                   <td className="p-5 font-bold text-white group-hover:text-[#9c00e5] transition-colors">{c.title}</td>
+                                   <td className="p-5 font-bold text-text-primary group-hover:text-[#9c00e5] transition-colors">{c.title}</td>
                                    <td className="p-5">
                                        <span className={`px-3 py-1 rounded-lg text-xs font-bold border ${
                                             c.categoryGroup === 'Robotic Essential' 
@@ -432,10 +432,10 @@ export default function AdminCoursesPage() {
                                             {c.course_code}
                                        </span>
                                    </td>
-                                   <td className="p-5 text-gray-400 text-sm">{c.categoryGroup}</td>
-                                   <td className="p-5 text-gray-300 font-medium">
+                                   <td className="p-5 text-text-secondary text-sm">{c.categoryGroup}</td>
+                                   <td className="p-5 text-text-secondary font-medium">
                                        <span className="flex items-center gap-2">
-                                           <AcademicCapIcon className="w-4 h-4 text-gray-500"/>
+                                           <AcademicCapIcon className="w-4 h-4 text-text-secondary"/>
                                            {c.level || "---"}
                                        </span>
                                    </td>
@@ -447,14 +447,14 @@ export default function AdminCoursesPage() {
                                                <CheckCircleIcon className="w-3 h-3" /> Hiện
                                            </span>
                                        ) : (
-                                           <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-gray-500/20 text-gray-400 border border-gray-500/30 text-xs font-bold">
+                                           <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-gray-500/20 text-text-secondary border border-gray-500/30 text-xs font-bold">
                                                <XCircleIcon className="w-3 h-3" /> Ẩn
                                            </span>
                                        )}
                                    </td>
 
                                    <td className="p-5 text-center">
-                                       <span className="inline-block min-w-[30px] py-1 px-2 rounded bg-white/10 text-white font-bold text-xs">
+                                       <span className="inline-block min-w-[30px] py-1 px-2 rounded bg-white/10 text-text-primary font-bold text-xs">
                                            {c.quantity}
                                        </span>
                                    </td>
@@ -470,7 +470,7 @@ export default function AdminCoursesPage() {
                                                 className={`p-2 rounded-lg border transition-all shadow-lg hover:scale-110 ${
                                                     c.status === 'published' 
                                                     ? 'bg-blue-500/10 text-blue-400 border-blue-500/20 hover:bg-blue-500/20' 
-                                                    : 'bg-gray-500/10 text-gray-400 border-gray-500/20 hover:bg-gray-500/20'
+                                                    : 'bg-gray-500/10 text-text-secondary border-gray-500/20 hover:bg-gray-500/20'
                                                 }`}
                                                 title={c.status === 'published' ? "Ẩn khóa học" : "Hiện khóa học"}
                                            >
@@ -508,9 +508,9 @@ export default function AdminCoursesPage() {
            {/* --- PAGINATION --- */}
            {totalPages > 1 && (
              <div className="flex justify-between items-center
-              mt-6 px-4 bg-[#1a0b2e]/30 p-4 
-              rounded-xl border border-white/5">
-                <span className="text-sm text-gray-400 font-medium">
+              mt-6 px-4 bg-black/5 dark:bg-[#1a0b2e]/30 p-4 
+              rounded-xl border border-color-border transition-colors duration-300">
+                <span className="text-sm text-text-secondary font-medium">
                     Hiển thị {startIndex + 1}-{Math.min(startIndex + ITEMS_PER_PAGE, filteredCourses.length)} trong tổng số {filteredCourses.length}
                 </span>
                 <div className="flex gap-2">
@@ -521,7 +521,7 @@ export default function AdminCoursesPage() {
                           )
                         }
                         disabled={currentPage === 1}
-                        className="px-4 py-2 bg-white/5 border border-white/10 
+                        className="px-4 py-2 bg-bg-card border border-color-border 
                         rounded-lg hover:bg-white/10 disabled:opacity-50 
                         isabled:cursor-not-allowed transition-all font-bold text-sm"
                     >Trước</button>
@@ -534,7 +534,7 @@ export default function AdminCoursesPage() {
                             className={`w-9 h-9 rounded-lg font-bold text-sm transition-all ${
                                 currentPage === p 
                                 ? 'bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] text-white shadow-lg shadow-[#9c00e5]/30' 
-                                : 'bg-white/5 hover:bg-white/10 border border-white/10'
+                                : 'bg-bg-card hover:bg-black/10 dark:hover:bg-white/10 border border-color-border text-text-primary'
                             }`}
                         >
                             {p}
@@ -547,8 +547,8 @@ export default function AdminCoursesPage() {
                           )
                         }
                         disabled={currentPage === totalPages}
-                        className="px-4 py-2 bg-white/5 border 
-                        border-white/10 rounded-lg 
+                        className="px-4 py-2 bg-bg-card border 
+                        border-color-border rounded-lg 
                         hover:bg-white/10 disabled:opacity-50 
                         disabled:cursor-not-allowed 
                         transition-all font-bold text-sm"

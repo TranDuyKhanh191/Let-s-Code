@@ -46,7 +46,7 @@ const FloatingInput = ({ id, type, label, value, onChange, icon: Icon }: any) =>
       <input
         id={id} type={type} value={value} onChange={onChange}
         onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)}
-        className={`peer block w-full pl-12 pr-4 pt-6 pb-2 rounded-xl border-2 bg-gray-50/50 outline-none transition-all duration-300 ${isFocused ? "border-[#9c00e5] ring-4 ring-[#9c00e5]/10 bg-white" : "border-gray-100 hover:border-gray-200 text-gray-900"}`}
+        className={`peer block w-full pl-12 pr-4 pt-6 pb-2 rounded-xl border-2 bg-gray-50/50 outline-none text-gray-900 transition-all duration-300 ${isFocused ? "border-[#9c00e5] ring-4 ring-[#9c00e5]/10 bg-white" : "border-gray-100 hover:border-gray-200"}`}
         placeholder=" " 
       />
       <label htmlFor={id} className={`absolute left-12 transition-all duration-300 pointer-events-none origin-[0] ${(isFocused || hasValue) ? "top-2 text-xs font-bold text-[#9c00e5] scale-100" : "top-4 text-base font-medium text-gray-500 scale-100"}`}>{label}</label>

@@ -75,22 +75,22 @@ const CreateCourseModal: React.FC<Props> = ({ open, onClose, onSuccess }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="bg-gradient-to-br from-[#2a1b3d] to-[#1f1428] border border-[#9c00e5]/20 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar">
-        <div className="sticky top-0 z-10 flex items-center justify-between px-8 py-6 border-b border-[#9c00e5]/20 bg-gradient-to-r from-[#2a1b3d] to-[#1f1428]">
-          <h2 className="text-2xl font-bold text-white">Thêm khóa học mới</h2>
-          <button onClick={onClose} className="text-xl text-gray-400 transition-colors hover:text-white">✕</button>
+      <div className="bg-bg-card border border-color-border rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar">
+        <div className="sticky top-0 z-10 flex items-center justify-between px-8 py-6 border-b border-color-border bg-black/5">
+          <h2 className="text-2xl font-bold text-text-primary">Thêm khóa học mới</h2>
+          <button onClick={onClose} className="text-xl text-text-secondary transition-colors hover:text-text-primary">✕</button>
         </div>
 
         <form onSubmit={handleSubmit} className="p-8 space-y-6">
           <div>
-            <label className="block mb-2 text-sm font-bold text-gray-400">Tên khóa học</label>
-            <input type="text" name="title" value={formData.title} onChange={handleChange} className="w-full px-4 py-3 text-white bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-[#9c00e5]" required />
+            <label className="block mb-2 text-sm font-bold text-text-secondary">Tên khóa học</label>
+            <input type="text" name="title" value={formData.title} onChange={handleChange} className="w-full px-4 py-3 text-gray-900 dark:text-white bg-white dark:bg-[#1f1428] border border-gray-300 dark:border-[#9c00e5]/50 rounded-lg focus:outline-none focus:border-[#9c00e5]" required />
           </div>
 
           <div className="grid grid-cols-2 gap-6">
             <div>
-              <label className="block mb-2 text-sm font-bold text-gray-400">Mã khóa học</label>
-              <select name="course_code" value={formData.course_code} onChange={handleChange} className="w-full px-4 py-3 text-white bg-[#1f1428] border border-white/10 rounded-lg focus:outline-none focus:border-[#9c00e5] cursor-pointer">
+              <label className="block mb-2 text-sm font-bold text-text-secondary">Mã khóa học</label>
+              <select name="course_code" value={formData.course_code} onChange={handleChange} className="w-full px-4 py-3 text-gray-900 dark:text-white bg-white dark:bg-[#1f1428] border border-gray-300 dark:border-[#9c00e5]/50 rounded-lg focus:outline-none focus:border-[#9c00e5] cursor-pointer">
                 <optgroup label="Robotic Essential (Program 1)">
                   {["REA", "REAX", "REB", "REBX", "REC", "RECX"].map(c => <option key={c} value={c}>{c}</option>)}
                 </optgroup>
@@ -102,13 +102,13 @@ const CreateCourseModal: React.FC<Props> = ({ open, onClose, onSuccess }) => {
             
             {/* Level nhập tay */}
             <div>
-               <label className="block mb-2 text-sm font-bold text-gray-400">Level / Độ tuổi</label>
+               <label className="block mb-2 text-sm font-bold text-text-secondary">Level / Độ tuổi</label>
                <input 
                  type="text" 
                  name="level" 
                  value={formData.level} 
                  onChange={handleChange}
-                 className="w-full px-4 py-3 text-white bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-[#9c00e5]"
+                 className="w-full px-4 py-3 text-gray-900 dark:text-white bg-white dark:bg-[#1f1428] border border-gray-300 dark:border-[#9c00e5]/50 rounded-lg focus:outline-none focus:border-[#9c00e5]"
                  placeholder="VD: 6-11 tuổi" 
                  required
                />
@@ -117,19 +117,23 @@ const CreateCourseModal: React.FC<Props> = ({ open, onClose, onSuccess }) => {
 
           <div className="grid grid-cols-2 gap-6">
             <div className="col-span-2">
-              <label className="block mb-2 text-sm font-bold text-gray-400">Số lượng bài học</label>
-              <input type="number" name="quantity" value={formData.quantity} onChange={handleChange} className="w-full px-4 py-3 text-white bg-white/5 border border-white/10 rounded-lg" min={0} required readOnly/>
+              <label className="block mb-2 text-sm font-bold text-text-secondary">Số lượng bài học</label>
+              <input type="number" name="quantity" value={formData.quantity} onChange={handleChange} className="w-full px-4 py-3 text-gray-900 dark:text-white bg-white dark:bg-[#1f1428] border border-gray-300 dark:border-[#9c00e5]/50 rounded-lg" min={0} required readOnly/>
             </div>
           </div>
 
           <div>
-            <label className="block mb-2 text-sm font-bold text-gray-400">Mục tiêu chung</label>
-            <textarea name="generalObjectives" value={formData.generalObjectives} onChange={handleChange} rows={4} className="w-full px-4 py-3 text-white bg-white/5 border border-white/10 rounded-lg resize-none" />
+            <label className="block mb-2 text-sm font-bold text-text-secondary">Mục tiêu chung</label>
+            <textarea name="generalObjectives" value={formData.generalObjectives} onChange={handleChange} rows={4} className="w-full px-4 py-3 text-gray-900 dark:text-white bg-white dark:bg-[#1f1428] border border-gray-300 dark:border-[#9c00e5]/50 rounded-lg resize-none" />
           </div>
 
-          <div className="flex gap-3 pt-6 border-t border-white/10">
-            <button type="submit" aria-readonly disabled={loading} className="flex-1 px-6 py-3 font-bold text-white rounded-lg bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] hover:scale-105">{loading ? "Đang xử lý..." : "Thêm khóa học"}</button>
-            <button type="button" onClick={onClose} className="flex-1 px-6 py-3 font-bold text-gray-300 border rounded-lg bg-white/5 border-white/10 hover:text-white">Hủy</button>
+          <div className="flex gap-3 pt-6 border-t border-color-border">
+            <button type="submit" aria-readonly disabled={loading} className="flex-1 px-6 py-3 font-bold text-white rounded-lg bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] hover:scale-105 shadow-lg shadow-[#9c00e5]/30">
+              {loading ? "Đang xử lý..." : "Thêm khóa học"}
+            </button>
+            <button type="button" onClick={onClose} className="flex-1 px-6 py-3 font-bold text-text-secondary border border-color-border rounded-lg bg-bg-card hover:text-text-primary transition-colors">
+              Hủy
+            </button>
           </div>
         </form>
       </div>

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useTheme } from "../../context/ThemeContext";
 import Logo from "../../assets/logo/logo_fb.png";
 import "../../styles/admin.css";
 import {
@@ -12,11 +13,14 @@ import {
   BellIcon,
   MenuIcon,
   XIcon,
-  CogIcon
+  CogIcon,
+  SunIcon,
+  MoonIcon
 } from "@heroicons/react/outline";
 
 export default function HeaderAdmin() {
   const { user, logout } = useAuth();
+  const { theme, toggleTheme } = useTheme();
   const nav = useNavigate();
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -119,7 +123,7 @@ export default function HeaderAdmin() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 font-sans border-b shadow-lg bg-gradient-to-r from-[#1a0b2e]/95 to-[#0f061a]/95 backdrop-blur-lg border-[#9c00e5]/20 header-morph">
+    <header className="sticky top-0 z-50 font-sans border-b shadow-lg bg-bg-card backdrop-blur-lg border-color-border transition-colors duration-300 header-morph">
       <div className="container px-4 mx-auto lg:px-8">
         <div className="flex items-center justify-between h-20">
 
@@ -129,13 +133,13 @@ export default function HeaderAdmin() {
               <img src={Logo} alt="LetsCode" className="object-cover w-10 h-10 rounded-md" />
             </div>
             <div>
-              <h1 className="text-xl font-black tracking-wide text-white">LETSCODE</h1>
+              <h1 className="text-xl font-black tracking-wide text-text-primary transition-colors duration-300">LETSCODE</h1>
               <span className="text-[10px] font-bold text-[#9c00e5] uppercase tracking-widest">Admin Panel</span>
             </div>
           </Link>
 
           {/* MIDDLE: MENU DESKTOP */}
-          <nav ref={navRef} className="relative items-center hidden gap-1 p-1 border rounded-full md:flex bg-white/5 border-[#9c00e5]/20">
+          <nav ref={navRef} className="relative items-center hidden gap-1 p-1 border rounded-full md:flex bg-bg-card border-color-border transition-colors duration-300">
             {/* Animated Indicator Background */}
             <div
               className="absolute top-1 bottom-1 rounded-full bg-gradient-to-r from-[#9c00e5]/40 to-[#ff7c7c]/40 blur-sm transition-all duration-500 ease-out pointer-events-none"
@@ -157,8 +161,8 @@ export default function HeaderAdmin() {
                   onMouseLeave={updateIndicatorPosition}
                   className={`relative flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 z-10
                     ${isActive
-                      ? "text-white"
-                      : "text-gray-400 hover:text-white"
+                      ? "text-text-primary"
+                      : "text-text-secondary hover:text-text-primary"
                     }`}
                 >
                   {item.icon}
@@ -172,9 +176,19 @@ export default function HeaderAdmin() {
           <div className="flex items-center gap-4">
 
             {/* User Profile */}
-            <div className="flex items-center gap-3 pl-4 border-l border-[#9c00e5]/20">
+            <div className="flex items-center gap-3 pl-4 border-l border-color-border transition-colors duration-300">
+              
+              {/* Theme Toggle */}
+              <button
+                onClick={toggleTheme}
+                className="p-2 text-text-secondary transition-colors hover:text-primary hover:bg-primary/10 rounded-lg"
+                title="Đổi giao diện"
+              >
+                {theme === "light" ? <MoonIcon className="w-6 h-6" /> : <SunIcon className="w-6 h-6" />}
+              </button>
+
               <div className="hidden text-right lg:block">
-                <p className="text-sm font-bold text-white">{user?.full_name || "Admin"}</p>
+                <p className="text-sm font-bold text-text-primary transition-colors duration-300">{user?.full_name || "Admin"}</p>
                 <p className="text-[10px] font-bold tracking-wider uppercase text-[#9c00e5]">{user?.role || "Administrator"}</p>
               </div>
 
@@ -187,7 +201,7 @@ export default function HeaderAdmin() {
               {/* Nút Logout Desktop */}
               <button
                 onClick={handleLogout}
-                className="hidden p-2 text-gray-400 transition-colors lg:flex hover:text-red-400 hover:bg-red-400/10 rounded-lg"
+                className="hidden p-2 text-text-secondary transition-colors lg:flex hover:text-red-400 hover:bg-red-400/10 rounded-lg"
                 title="Đăng xuất"
               >
                 <LogoutIcon className="w-6 h-6" />
@@ -197,7 +211,7 @@ export default function HeaderAdmin() {
             {/* Nút Menu Mobile */}
             <button
               title={isMenuOpen ? "Đóng menu" : "Mở menu"}
-              className="p-2 text-white md:hidden"
+              className="p-2 text-text-primary transition-colors duration-300 md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <XIcon className="w-7 h-7" /> : <MenuIcon className="w-7 h-7" />}
@@ -208,7 +222,7 @@ export default function HeaderAdmin() {
 
       {/* MOBILE MENU DROPDOWN */}
       {isMenuOpen && (
-        <div className="absolute left-0 right-0 border-t shadow-2xl md:hidden bg-gradient-to-br from-[#1a0b2e] to-[#0f061a] border-[#9c00e5]/20 animate-fade-in-down z-40">
+        <div className="absolute left-0 right-0 border-t shadow-2xl md:hidden bg-bg-main border-color-border animate-fade-in-down z-40 transition-colors duration-300">
           <div className="flex flex-col p-4 space-y-2">
             {menuItems.map((item) => {
               const isActive = checkActive(item.path);
@@ -219,8 +233,8 @@ export default function HeaderAdmin() {
                   onClick={() => setIsMenuOpen(false)}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all
                     ${isActive
-                      ? "bg-gradient-to-r from-[#9c00e5]/30 to-[#ff7c7c]/30 text-white border border-[#9c00e5]/50"
-                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                      ? "bg-primary/20 text-text-primary border border-color-border"
+                      : "text-text-secondary hover:text-text-primary hover:bg-bg-card"
                     }`}
                 >
                   {item.icon}
@@ -228,7 +242,7 @@ export default function HeaderAdmin() {
                 </Link>
               )
             })}
-            <div className="pt-4 mt-2 border-t border-[#9c00e5]/20">
+            <div className="pt-4 mt-2 border-t border-color-border transition-colors duration-300">
               <button
                 onClick={handleLogout}
                 className="flex items-center w-full gap-3 px-4 py-3 font-bold text-red-400 transition-colors rounded-xl hover:bg-red-500/10"

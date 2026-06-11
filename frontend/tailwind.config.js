@@ -4,6 +4,7 @@ module.exports = {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
       colors: {
@@ -21,6 +22,15 @@ module.exports = {
         'lc-pastel-purple': 'var(--lc-pastel-purple)',
         'lc-medium-purple': 'var(--lc-medium-purple)',
         'lc-bg-dark': 'var(--lc-bg-dark)',
+        
+        // Semantic Theme Colors
+        'bg-main': 'var(--bg-main)',
+        'bg-card': 'var(--bg-card)',
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'color-border': 'var(--color-border)',
+        'primary': 'var(--color-primary)',
+        'accent': 'var(--color-accent)',
       },
       // Giữ lại các animation cũ
       animation: {
