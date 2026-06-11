@@ -80,31 +80,31 @@ const AssignmentModal: React.FC<AssignmentModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="bg-gradient-to-br from-[#2a1b3d] to-[#1f1428] border border-[#9c00e5]/20 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar shadow-2xl">
+      <div className="bg-bg-card border border-color-border rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar shadow-2xl">
         
-        <div className="sticky top-0 z-10 flex items-center justify-between px-8 py-6 border-b border-[#9c00e5]/20 bg-gradient-to-r from-[#2a1b3d] to-[#1f1428]">
-          <h2 className="text-2xl font-bold text-white">
+        <div className="sticky top-0 z-10 flex items-center justify-between px-8 py-6 border-b border-color-border bg-black/5">
+          <h2 className="text-2xl font-bold text-text-primary">
             {editingAssignment ? "Cập nhật phân quyền" : "Giao khóa học mới"}
           </h2>
-          <button onClick={onClose} className="text-xl text-gray-400 transition-colors hover:text-white">✕</button>
+          <button onClick={onClose} className="text-xl text-text-secondary transition-colors hover:text-text-primary">✕</button>
         </div>
 
         <form onSubmit={handleSubmit} className="p-8 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className={editingAssignment ? "md:col-span-1" : "md:col-span-2"}>
-                <label className="block mb-2 text-sm font-bold text-gray-400">
+                <label className="block mb-2 text-sm font-bold text-text-secondary">
                 Giáo viên {editingAssignment && "(Không thể thay đổi)"}
                 </label>
                 <select
                 value={teacherId}
                 onChange={(e) => setTeacherId(e.target.value)}
                 disabled={!!editingAssignment}
-                className={`w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-[#9c00e5] appearance-none ${!!editingAssignment ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                className={`w-full px-4 py-3 bg-white dark:bg-[#1f1428] border border-gray-300 dark:border-[#9c00e5]/50 rounded-lg text-text-primary focus:outline-none focus:border-[#9c00e5] appearance-none ${!!editingAssignment ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
                 required
                 >
-                <option value="" className="bg-[#1a0b2e]">-- Chọn giáo viên --</option>
+                <option value="" className="bg-white dark:bg-[#1f1428]">-- Chọn giáo viên --</option>
                 {teachers.map((t) => (
-                    <option key={t.id} value={t.id} className="bg-[#1a0b2e]">
+                    <option key={t.id} value={t.id} className="bg-white dark:bg-[#1f1428]">
                     {t.full_name} ({t.email})
                     </option>
                 ))}
@@ -114,25 +114,25 @@ const AssignmentModal: React.FC<AssignmentModalProps> = ({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white/5 p-4 rounded-xl border border-white/5">
               <div>
-                  <label className="block mb-2 text-sm font-bold text-gray-400 flex items-center gap-2">
+                  <label className="block mb-2 text-sm font-bold text-text-secondary flex items-center gap-2">
                      <CalendarIcon className="w-4 h-4" /> Ngày bắt đầu
                   </label>
                   <input 
                     type="date" 
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
-                    className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white focus:outline-none focus:border-[#9c00e5]"
+                    className="w-full px-4 py-3 bg-white dark:bg-[#1f1428] border border-gray-300 dark:border-[#9c00e5]/50 rounded-lg text-text-primary focus:outline-none focus:border-[#9c00e5]"
                   />
               </div>
               <div>
-                  <label className="block mb-2 text-sm font-bold text-gray-400 flex items-center gap-2">
+                  <label className="block mb-2 text-sm font-bold text-text-secondary flex items-center gap-2">
                      <CalendarIcon className="w-4 h-4" /> Ngày kết thúc
                   </label>
                   <input 
                     type="date" 
                     value={endDate}
                     onChange={(e) => setEndDate(e.target.value)}
-                    className="w-full px-4 py-3 bg-black/20 border border-white/10 rounded-lg text-white focus:outline-none focus:border-[#9c00e5]"
+                    className="w-full px-4 py-3 bg-white dark:bg-[#1f1428] border border-gray-300 dark:border-[#9c00e5]/50 rounded-lg text-text-primary focus:outline-none focus:border-[#9c00e5]"
                   />
               </div>
           </div>
@@ -140,28 +140,28 @@ const AssignmentModal: React.FC<AssignmentModalProps> = ({
           {editingAssignment ? (
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                <div>
-                  <label className="block mb-2 text-sm font-bold text-gray-400">Khóa học đang chọn</label>
-                  <div className="px-4 py-3 text-white rounded-lg bg-white/10 border border-white/10">
+                  <label className="block mb-2 text-sm font-bold text-text-secondary">Khóa học đang chọn</label>
+                  <div className="px-4 py-3 text-text-primary rounded-lg bg-black/5 dark:bg-[#1f1428] border border-gray-300 dark:border-[#9c00e5]/50">
                      {courses.find(c => c.id == editingAssignment.resource_id)?.name || "N/A"}
                   </div>
                </div>
 
                <div>
-                  <label className="block mb-2 text-sm font-bold text-gray-400">Trạng thái (Permission)</label>
+                  <label className="block mb-2 text-sm font-bold text-text-secondary">Trạng thái (Permission)</label>
                   <select
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-[#9c00e5] cursor-pointer"
+                    className="w-full px-4 py-3 bg-white dark:bg-[#1f1428] border border-gray-300 dark:border-[#9c00e5]/50 rounded-lg text-text-primary focus:outline-none focus:border-[#9c00e5] cursor-pointer"
                   >
-                    <option value="active" className="text-green-400 bg-[#1a0b2e]">Active (Hoạt động)</option>
-                    <option value="pending" className="text-yellow-400 bg-[#1a0b2e]">Pending (Chờ duyệt)</option>
-                    <option value="revoked" className="text-red-400 bg-[#1a0b2e]">Revoked (Thu hồi)</option>
+                    <option value="active" className="text-green-400 bg-white dark:bg-[#1f1428]">Active (Hoạt động)</option>
+                    <option value="pending" className="text-yellow-400 bg-white dark:bg-[#1f1428]">Pending (Chờ duyệt)</option>
+                    <option value="revoked" className="text-red-400 bg-white dark:bg-[#1f1428]">Revoked (Thu hồi)</option>
                   </select>
                </div>
             </div>
           ) : (
             <div>
-              <label className="block mb-2 text-sm font-bold text-gray-400">
+              <label className="block mb-2 text-sm font-bold text-text-secondary">
                 Chọn các khóa học cần giao {teacherId && "(Khóa đã có quyền active/pending sẽ bị mờ)"}
               </label>
               {teacherId ? (
@@ -172,22 +172,22 @@ const AssignmentModal: React.FC<AssignmentModalProps> = ({
                     disabledCourseIds={disabledCourseIds}
                   />
               ) : (
-                  <div className="p-8 text-center border rounded-lg border-white/10 bg-white/5 text-gray-400 italic">
+                  <div className="p-8 text-center border rounded-lg border-white/10 bg-white/5 text-text-secondary italic">
                       Vui lòng chọn giáo viên trước để xem danh sách khóa học khả dụng.
                   </div>
               )}
             </div>
           )}
 
-          <div className="flex gap-3 pt-6 border-t border-white/10">
+          <div className="flex gap-3 pt-6 border-t border-color-border">
             <button
               type="submit"
               disabled={submitting}
-              className={`flex-1 px-6 py-3 font-bold text-white transition-all rounded-lg shadow-lg flex justify-center items-center gap-2 ${submitting ? 'bg-gray-600 cursor-not-allowed' : 'bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] hover:shadow-[#9c00e5]/30'}`}
+              className={`flex-1 px-6 py-3 font-bold text-text-primary transition-all rounded-lg shadow-lg flex justify-center items-center gap-2 ${submitting ? 'bg-gray-600 cursor-not-allowed' : 'bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] hover:shadow-[#9c00e5]/30'}`}
             >
               {submitting ? (
                  <>
-                   <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                   <svg className="animate-spin h-5 w-5 text-text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                    </svg>
@@ -201,7 +201,7 @@ const AssignmentModal: React.FC<AssignmentModalProps> = ({
               type="button"
               onClick={onClose}
               disabled={submitting}
-              className="flex-1 px-6 py-3 font-bold text-gray-300 transition-colors border rounded-lg bg-white/5 border-white/10 hover:text-white disabled:opacity-50"
+              className="flex-1 px-6 py-3 font-bold text-text-secondary border border-color-border rounded-lg bg-bg-card hover:text-text-primary transition-colors disabled:opacity-50"
             >
               Hủy bỏ
             </button>

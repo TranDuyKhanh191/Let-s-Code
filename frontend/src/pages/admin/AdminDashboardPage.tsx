@@ -37,11 +37,12 @@ const customStyles = `
   .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #9c00e5; }
   
   .glass-panel {
-    background: rgba(30, 20, 50, 0.7);
+    background: var(--bg-card);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .calendar-day { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -102,24 +103,24 @@ const DateDetailModal = ({
         {/* Header */}
         <div className="p-6 pb-4 flex justify-between items-center shrink-0">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 flex flex-col items-center justify-center bg-white/5 border border-white/10 rounded-2xl text-white shadow-inner">
-              <span className="text-xs font-medium uppercase text-gray-400">
+            <div className="w-14 h-14 flex flex-col items-center justify-center bg-bg-card border border-color-border rounded-2xl text-text-primary shadow-inner">
+              <span className="text-xs font-medium uppercase text-text-secondary">
                 {date.toLocaleString("default", { month: "short" })}
               </span>
               <span className="text-2xl font-black">{date.getDate()}</span>
             </div>
             <div>
-              <h3 className="text-white font-bold text-lg leading-tight">
+              <h3 className="text-text-primary font-bold text-lg leading-tight">
                 Chi tiết lịch trình
               </h3>
-              <p className="text-gray-400 text-sm">
+              <p className="text-text-secondary text-sm">
                 {events.length} sự kiện diễn ra
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-white/10 rounded-full text-gray-400 hover:text-white transition-colors"
+            className="p-2 hover:bg-black/10 dark:hover:bg-white/10 rounded-full text-text-secondary hover:text-text-primary transition-colors"
           >
             <XIcon className="w-6 h-6" />
           </button>
@@ -131,7 +132,7 @@ const DateDetailModal = ({
             events.map((evt, idx) => (
               <div
                 key={idx}
-                className="group p-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/5 transition-colors relative overflow-hidden"
+                className="group p-4 rounded-2xl bg-bg-card hover:opacity-80 border border-color-border transition-colors relative overflow-hidden"
               >
                 <div
                   className={`absolute left-0 top-0 bottom-0 w-1 ${
@@ -149,25 +150,25 @@ const DateDetailModal = ({
                     {evt.type === "start" ? "Bắt đầu" : "Kết thúc"}
                   </span>
                 </div>
-                <h4 className="text-white font-bold text-sm mb-1 pl-3 line-clamp-2">
+                <h4 className="text-text-primary font-bold text-sm mb-1 pl-3 line-clamp-2">
                   {evt.course}
                 </h4>
                 <div className="flex items-center gap-2 pl-3 mt-2">
                   <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#3c90ff] to-[#9c00e5] flex items-center justify-center text-[10px] font-bold text-white">
                     {evt.teacher.charAt(0)}
                   </div>
-                  <p className="text-gray-400 text-xs font-medium">
+                  <p className="text-text-secondary text-xs font-medium">
                     GV: {evt.teacher}
                   </p>
                 </div>
               </div>
             ))
           ) : (
-            <div className="py-12 text-center flex flex-col items-center justify-center opacity-50">
-              <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mb-3">
-                <CalendarIcon className="w-8 h-8 text-gray-400" />
+            <div className="py-12 text-center flex flex-col items-center justify-center opacity-70">
+              <div className="w-16 h-16 bg-bg-card border border-color-border rounded-full flex items-center justify-center mb-3">
+                <CalendarIcon className="w-8 h-8 text-text-secondary" />
               </div>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-text-secondary">
                 Không có sự kiện nào trong ngày này.
               </p>
             </div>
@@ -348,7 +349,7 @@ const AdminDashboardPage = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#0f061a] via-[#130826] to-[#0f061a] text-white font-sans">
+    <div className="flex flex-col min-h-screen bg-bg-main text-text-primary font-sans transition-colors duration-300">
       <style>{customStyles}</style>
 
       {/* Background Decor */}
@@ -390,13 +391,13 @@ const AdminDashboardPage = () => {
                 Admin Dashboard
               </span>
             </div>
-            <h1 className="text-4xl font-black text-white leading-tight">
+            <h1 className="text-4xl font-black text-text-primary leading-tight transition-colors duration-300">
               Xin chào,{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9c00e5] to-[#3c90ff]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
                 Quản trị viên
               </span>
             </h1>
-            <p className="text-gray-400 mt-1">
+            <p className="text-text-secondary mt-1">
               Hôm nay là{" "}
               {new Date().toLocaleDateString("vi-VN", {
                 weekday: "long",
@@ -409,10 +410,10 @@ const AdminDashboardPage = () => {
           </div>
           <button
             onClick={fetchDashboardData}
-            className="group px-5 py-2.5 bg-white/5 border border-white/10 hover:border-[#9c00e5]/50 hover:bg-[#9c00e5]/10 text-white rounded-xl transition-all flex items-center gap-2 font-bold shadow-lg"
+            className="group px-5 py-2.5 bg-bg-card border border-color-border hover:border-[#9c00e5]/50 hover:bg-[#9c00e5]/10 text-text-primary rounded-xl transition-all flex items-center gap-2 font-bold shadow-lg"
           >
             <RefreshIcon
-              className={`w-5 h-5 text-gray-400 group-hover:text-[#9c00e5] transition-transform ${
+              className={`w-5 h-5 text-text-secondary group-hover:text-[#9c00e5] transition-transform ${
                 loading ? "animate-spin" : ""
               }`}
             />
@@ -437,10 +438,10 @@ const AdminDashboardPage = () => {
                 </span>
               </div>
               <div className="flex items-end gap-2">
-                <h3 className="text-4xl font-black text-white">
+                <h3 className="text-4xl font-black text-text-primary transition-colors duration-300">
                   {loading ? "..." : stats.totalTeachers}
                 </h3>
-                <span className="text-sm text-gray-400 mb-1">nhân sự</span>
+                <span className="text-sm text-text-secondary mb-1">nhân sự</span>
               </div>
             </div>
           </div>
@@ -460,10 +461,10 @@ const AdminDashboardPage = () => {
                 </span>
               </div>
               <div className="flex items-end gap-2">
-                <h3 className="text-4xl font-black text-white">
+                <h3 className="text-4xl font-black text-text-primary transition-colors duration-300">
                   {loading ? "..." : stats.totalCourses}
                 </h3>
-                <span className="text-sm text-gray-400 mb-1">bài giảng</span>
+                <span className="text-sm text-text-secondary mb-1">bài giảng</span>
               </div>
             </div>
           </div>
@@ -487,7 +488,7 @@ const AdminDashboardPage = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4db933] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-[#4db933]"></span>
                 </span>
-                <span className="text-xl font-bold text-white">
+                <span className="text-xl font-bold text-text-primary transition-colors duration-300">
                   Hoạt động tốt
                 </span>
               </div>
@@ -501,15 +502,15 @@ const AdminDashboardPage = () => {
           <div className="lg:col-span-2 glass-panel rounded-3xl p-6 flex flex-col h-[600px]">
             {/* Calendar Header */}
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl font-bold text-white flex items-center gap-3">
-                <div className="p-2 bg-[#9c00e5] rounded-lg shadow-lg shadow-[#9c00e5]/40">
+              <h3 className="text-xl font-bold text-text-primary flex items-center gap-3 transition-colors duration-300">
+                <div className="p-2 bg-primary rounded-lg shadow-lg shadow-primary/40">
                   <CalendarIcon className="w-5 h-5 text-white" />
                 </div>
                 Lịch trình giảng dạy
               </h3>
 
               {/* Controls */}
-              <div className="flex items-center gap-1 bg-white/5 rounded-xl p-1 border border-white/10">
+              <div className="flex items-center gap-1 bg-bg-card rounded-xl p-1 border border-color-border">
                 <button
                   onClick={() =>
                     setCurrentDate(
@@ -519,11 +520,11 @@ const AdminDashboardPage = () => {
                       )
                     )
                   }
-                  className="p-2 hover:bg-white/10 rounded-lg transition-colors text-gray-300 hover:text-white"
+                  className="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-lg transition-colors text-text-secondary hover:text-text-primary"
                 >
                   <ChevronRightIcon className="w-4 h-4 rotate-180" />
                 </button>
-                <span className="text-sm font-bold text-white min-w-[120px] text-center uppercase tracking-wide">
+                <span className="text-sm font-bold text-text-primary min-w-[120px] text-center uppercase tracking-wide">
                   {monthNames[currentDate.getMonth()]}{" "}
                   {currentDate.getFullYear()}
                 </span>
@@ -536,7 +537,7 @@ const AdminDashboardPage = () => {
                       )
                     )
                   }
-                  className="p-2 hover:bg-white/10 rounded-lg transition-colors text-gray-300 hover:text-white"
+                  className="p-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-lg transition-colors text-text-secondary hover:text-text-primary"
                 >
                   <ChevronRightIcon className="w-4 h-4" />
                 </button>
@@ -544,14 +545,14 @@ const AdminDashboardPage = () => {
             </div>
 
             {/* Calendar Grid */}
-            <div className="flex-1 flex flex-col bg-black/20 rounded-2xl border border-white/5 p-4 overflow-hidden">
+            <div className="flex-1 flex flex-col bg-bg-card rounded-2xl border border-color-border p-4 overflow-hidden">
               {/* Weekday Header */}
               <div className="grid grid-cols-7 mb-4">
                 {["CN", "T2", "T3", "T4", "T5", "T6", "T7"].map((d, i) => (
                   <div
                     key={d}
                     className={`text-center text-xs font-extrabold uppercase ${
-                      i === 0 || i === 6 ? "text-[#ff7c7c]" : "text-gray-500"
+                      i === 0 || i === 6 ? "text-[#ff7c7c]" : "text-text-secondary"
                     }`}
                   >
                     {d}
@@ -583,16 +584,16 @@ const AdminDashboardPage = () => {
                                  calendar-day relative rounded-xl border flex flex-col items-center justify-start py-2 cursor-pointer
                                  ${
                                    isToday
-                                     ? "bg-[#9c00e5]/20 border-[#9c00e5] shadow-[0_0_15px_rgba(156,0,229,0.2)]"
-                                     : "bg-white/[0.02] border-white/5 hover:bg-white/[0.08] hover:border-white/20"
+                                     ? "bg-primary/20 border-primary shadow-[0_0_15px_rgba(156,0,229,0.2)]"
+                                     : "bg-black/5 dark:bg-white/[0.02] border-color-border hover:bg-black/10 dark:hover:bg-white/[0.08]"
                                  }
                               `}
                       >
                         <span
-                          className={`text-sm font-bold mb-1 ${
+                          className={`text-sm font-bold mb-1 transition-colors duration-300 ${
                             isToday
-                              ? "text-[#9c00e5]"
-                              : "text-gray-400 group-hover:text-white"
+                              ? "text-primary"
+                              : "text-text-secondary group-hover:text-text-primary"
                           }`}
                         >
                           {day}
@@ -614,7 +615,7 @@ const AdminDashboardPage = () => {
                               )
                           )}
                           {evts.length > 4 && (
-                            <span className="text-[8px] text-gray-500 leading-none font-bold">
+                            <span className="text-[8px] text-text-secondary leading-none font-bold">
                               +
                             </span>
                           )}
@@ -631,8 +632,8 @@ const AdminDashboardPage = () => {
           <div className="flex flex-col gap-6">
             {/* 1. Quick Actions */}
             <div className="glass-panel rounded-3xl p-6">
-              <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <CogIcon className="w-5 h-5 text-[#ffee00]" /> Thao tác nhanh
+              <h3 className="text-lg font-bold text-text-primary mb-4 flex items-center gap-2 transition-colors duration-300">
+                <CogIcon className="w-5 h-5 text-accent" /> Thao tác nhanh
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 <button
@@ -640,7 +641,7 @@ const AdminDashboardPage = () => {
                   className="p-4 bg-gradient-to-br from-[#3c90ff]/10 to-[#3c90ff]/5 border border-[#3c90ff]/20 rounded-2xl hover:border-[#3c90ff]/50 hover:shadow-[0_0_15px_rgba(60,144,255,0.2)] transition-all group flex flex-col items-center gap-2 text-center"
                 >
                   <UsersIcon className="w-8 h-8 text-[#3c90ff] group-hover:scale-110 transition-transform" />
-                  <span className="text-xs font-bold text-gray-300 group-hover:text-white">
+                  <span className="text-xs font-bold text-text-secondary group-hover:text-text-primary transition-colors">
                     Thêm Giáo viên
                   </span>
                 </button>
@@ -649,27 +650,27 @@ const AdminDashboardPage = () => {
                   className="p-4 bg-gradient-to-br from-[#9c00e5]/10 to-[#9c00e5]/5 border border-[#9c00e5]/20 rounded-2xl hover:border-[#9c00e5]/50 hover:shadow-[0_0_15px_rgba(156,0,229,0.2)] transition-all group flex flex-col items-center gap-2 text-center"
                 >
                   <BookOpenIcon className="w-8 h-8 text-[#9c00e5] group-hover:scale-110 transition-transform" />
-                  <span className="text-xs font-bold text-gray-300 group-hover:text-white">
+                  <span className="text-xs font-bold text-text-secondary group-hover:text-text-primary transition-colors">
                     Tạo Khóa học
                   </span>
                 </button>
                 <button
                   onClick={() => navigate("/admin/assign-courses")}
-                  className="col-span-2 p-3 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all flex items-center justify-center gap-3 group"
+                  className="col-span-2 p-3 bg-bg-card border border-color-border rounded-2xl hover:bg-black/5 dark:hover:bg-white/10 transition-all flex items-center justify-center gap-3 group"
                 >
                   <ShieldCheckIcon className="w-5 h-5 text-[#4db933]" />
-                  <span className="font-bold text-sm text-gray-300 group-hover:text-white">
+                  <span className="font-bold text-sm text-text-secondary group-hover:text-text-primary transition-colors">
                     Quản lý Phân quyền
                   </span>
-                  <ChevronRightIcon className="w-4 h-4 text-gray-500 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRightIcon className="w-4 h-4 text-text-secondary group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>
 
             {/* 2. Recent Activity (New Section) */}
             <div className="glass-panel rounded-3xl p-6 flex-1 flex flex-col">
-              <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <ClockIcon className="w-5 h-5 text-[#ff7c7c]" /> Hoạt động gần
+              <h3 className="text-lg font-bold text-text-primary mb-4 flex items-center gap-2 transition-colors duration-300">
+                <ClockIcon className="w-5 h-5 text-accent" /> Hoạt động gần
                 đây
               </h3>
               <div className="flex-1 overflow-y-auto custom-scrollbar space-y-4 pr-2 max-h-[300px]">
@@ -677,14 +678,14 @@ const AdminDashboardPage = () => {
                   recentActivities.map((act, idx) => (
                     <div
                       key={idx}
-                      className="flex gap-3 items-start p-3 rounded-xl bg-white/[0.02] border border-white/5"
+                      className="flex gap-3 items-start p-3 rounded-xl bg-bg-card border border-color-border"
                     >
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#9c00e5] to-[#3c90ff] flex items-center justify-center shrink-0 font-bold text-xs">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#9c00e5] to-[#3c90ff] flex items-center justify-center shrink-0 font-bold text-xs text-white">
                         {act.users?.full_name?.charAt(0) || "U"}
                       </div>
                       <div>
-                        <p className="text-xs text-gray-300 leading-relaxed">
-                          <span className="text-white font-bold">
+                        <p className="text-xs text-text-secondary leading-relaxed">
+                          <span className="text-text-primary font-bold">
                             {act.users?.full_name}
                           </span>{" "}
                           vừa được phân công khóa{" "}
@@ -696,14 +697,14 @@ const AdminDashboardPage = () => {
                           </span>
                           .
                         </p>
-                        <span className="text-[10px] text-gray-500 mt-1 block">
+                        <span className="text-[10px] text-text-secondary mt-1 block">
                           {new Date(act.created_at).toLocaleString("vi-VN")}
                         </span>
                       </div>
                     </div>
                   ))
                 ) : (
-                  <p className="text-center text-gray-500 text-sm py-4">
+                  <p className="text-center text-text-secondary text-sm py-4">
                     Chưa có hoạt động nào.
                   </p>
                 )}

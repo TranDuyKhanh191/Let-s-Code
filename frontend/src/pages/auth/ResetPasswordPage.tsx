@@ -89,10 +89,10 @@ const FloatingInput = ({ id, type, label, value, onChange, icon: Icon, rightElem
         onChange={onChange}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        className={`peer block w-full pl-12 pr-12 pt-6 pb-2 rounded-xl border-2 bg-gray-50/50 outline-none transition-all duration-300
+        className={`peer block w-full pl-12 pr-12 pt-6 pb-2 rounded-xl border-2 bg-gray-50/50 outline-none text-gray-900 transition-all duration-300
           ${isFocused 
             ? "border-[#9c00e5] ring-4 ring-[#9c00e5]/10 bg-white" 
-            : "border-gray-100 hover:border-gray-200 text-gray-900"
+            : "border-gray-100 hover:border-gray-200"
           }
         `}
         placeholder=" " 

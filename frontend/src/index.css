@@ -1,3 +1,4 @@
+@import "./styles/theme.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +15,9 @@ body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background-color: white; /* Đặt nền trắng */
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
   
   /* Xóa dòng display: flex và place-items: center cũ đi */
   display: block; 

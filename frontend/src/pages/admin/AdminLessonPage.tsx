@@ -386,7 +386,7 @@ export default function AdminLessonPage() {
     .sort((a, b) => (a.sort_order || 9999) - (b.sort_order || 9999) || (a.id - b.id));
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#1a0b2e] via-[#0f061a] to-[#1a0b2e] text-white font-sans">
+    <div className="flex flex-col min-h-screen bg-bg-main text-text-primary transition-colors duration-300 font-sans">
       <style>{customStyles}</style>
 
       {/* Background Effects */}
@@ -408,17 +408,17 @@ export default function AdminLessonPage() {
                   <BookOpenIcon className="w-6 h-6 text-white" />
                 </span>
                 <div>
-                  <h1 className="text-4xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Quản lý bài học</h1>
-                  <p className="text-gray-400 text-sm mt-1">Chọn khóa học bên dưới để quản lý nội dung.</p>
+                  <h1 className="text-4xl font-black bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent transition-colors duration-300">Quản lý bài học</h1>
+                  <p className="text-text-secondary text-sm mt-1">Chọn khóa học bên dưới để quản lý nội dung.</p>
                 </div>
               </div>
             </div>
 
             {/* Filter - Giữ nguyên code filter ở đây */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-white/5 p-5 rounded-2xl border border-white/10 backdrop-blur-md shadow-xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-bg-card p-5 rounded-2xl border border-color-border backdrop-blur-md shadow-xl">
                 {/* 1. Chọn Chương trình */}
                 <div className="relative">
-                    <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1 uppercase">1: Chọn Chương trình</label>
+                    <label className="block text-xs font-bold text-text-secondary mb-1.5 ml-1 uppercase">1: Chọn Chương trình</label>
                     <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><CubeIcon className="h-5 w-5 text-[#9c00e5]" /></div>
                         <select value={filterProgram} onChange={(e) => { const val = e.target.value === 'all' ? 'all' : Number(e.target.value); setFilterProgram(val); setSelectedCourse(null); }} className="w-full pl-10 pr-10 py-3 bg-[#1a0b2e] border border-white/20 rounded-xl text-white focus:outline-none focus:border-[#9c00e5] transition-colors appearance-none cursor-pointer font-semibold">
@@ -426,51 +426,51 @@ export default function AdminLessonPage() {
                             <option value={1}>Robotic Essential</option>
                             <option value={2}>Robotic Prime</option>
                         </select>
-                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><ChevronDownIcon className="h-5 w-5 text-gray-500" /></div>
+                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><ChevronDownIcon className="h-5 w-5 text-text-secondary" /></div>
                     </div>
                 </div>
                 {/* 2. Lọc theo Mã */}
                 <div className="relative">
-                    <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1 uppercase">2: Lọc theo Mã</label>
+                    <label className="block text-xs font-bold text-text-secondary mb-1.5 ml-1 uppercase">2: Lọc theo Mã</label>
                     <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><FilterIcon className="h-5 w-5 text-[#3c90ff]" /></div>
                         <select value={filterCode} onChange={(e) => { setFilterCode(e.target.value); setSelectedCourse(null); }} className="w-full pl-10 pr-10 py-3 bg-[#1a0b2e] border border-white/20 rounded-xl text-white focus:outline-none focus:border-[#3c90ff] transition-colors appearance-none cursor-pointer font-semibold">
                             <option value="all">Tất cả mã</option>
                             {availableCodes.map(code => <option key={code} value={code}>{code}</option>)}
                         </select>
-                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><ChevronDownIcon className="h-5 w-5 text-gray-500" /></div>
+                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><ChevronDownIcon className="h-5 w-5 text-text-secondary" /></div>
                     </div>
                 </div>
                 {/* 3. Chọn Khóa học */}
                 <div className="relative">
-                    <label className="block text-xs font-bold text-gray-400 mb-1.5 ml-1 uppercase">3: Chọn Khóa học</label>
+                    <label className="block text-xs font-bold text-text-secondary mb-1.5 ml-1 uppercase">3: Chọn Khóa học</label>
                     <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><CollectionIcon className="h-5 w-5 text-[#ff7c7c]" /></div>
                         <select value={selectedCourse?.id || ""} onChange={(e) => { const course = courses.find((c) => c.id?.toString() === e.target.value); setSelectedCourse(course || null); setSearchTerm(""); }} className="w-full pl-10 pr-10 py-3 bg-[#1a0b2e] border border-white/20 rounded-xl text-white focus:outline-none focus:border-[#ff7c7c] transition-colors appearance-none cursor-pointer font-bold shadow-inner">
-                            <option value="" className="text-gray-500">-- Chọn khóa học --</option>
+                            <option value="" className="text-text-secondary">-- Chọn khóa học --</option>
                             {filteredCourseOptions.map((c) => <option key={c.id} value={c.id}>{c.name || c.title}</option>)}
                         </select>
-                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><ChevronDownIcon className="h-5 w-5 text-gray-500" /></div>
+                        <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"><ChevronDownIcon className="h-5 w-5 text-text-secondary" /></div>
                     </div>
                 </div>
             </div>
           </div>
 
           {!selectedCourse ? (
-            <div className="flex flex-col items-center justify-center py-20 bg-white/5 border border-white/10 rounded-3xl border-dashed backdrop-blur-sm animate-slide-in">
+            <div className="flex flex-col items-center justify-center py-20 bg-bg-card border border-color-border rounded-3xl border-dashed backdrop-blur-sm animate-slide-in">
               <div className="p-6 bg-[#9c00e5]/10 rounded-full mb-6 animate-bounce">
                 <BookOpenIcon className="w-16 h-16 text-[#9c00e5]" />
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">Chưa chọn khóa học</h3>
-              <p className="text-gray-400 text-center max-w-md">Vui lòng sử dụng bộ lọc ở trên để tìm và chọn khóa học bạn muốn quản lý.</p>
+              <p className="text-text-secondary text-center max-w-md">Vui lòng sử dụng bộ lọc ở trên để tìm và chọn khóa học bạn muốn quản lý.</p>
             </div>
           ) : !selectedLesson ? (
             /* --- LESSON LIST VIEW --- */
             <div className="space-y-6 animate-slide-in">
-              <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white/5 p-4 rounded-2xl border border-white/10">
+              <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-bg-card p-4 rounded-2xl border border-color-border">
                 <div className="flex items-center gap-3">
-                    <span className="text-white font-bold text-lg">Đang quản lý: <span className="text-[#9c00e5]">{selectedCourse.name}</span></span>
-                    <span className="bg-white/10 px-2 py-1 rounded text-xs font-mono text-gray-300">{selectedCourse.derivedCode}</span>
+                    <span className="text-text-primary font-bold text-lg">Đang quản lý: <span className="text-[#9c00e5]">{selectedCourse.name}</span></span>
+                    <span className="bg-white/10 px-2 py-1 rounded text-xs font-mono text-text-secondary">{selectedCourse.derivedCode}</span>
                 </div>
                 
                 <div className="flex gap-2 w-full sm:w-auto">
@@ -485,7 +485,7 @@ export default function AdminLessonPage() {
 
                     <button
                         onClick={() => setShowCreateModal(true)}
-                        className="flex-1 sm:flex-none flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#9c00e5] to-[#7c3aed] hover:from-[#b02be0] hover:to-[#8b5cf6] text-white font-bold rounded-xl shadow-lg shadow-[#9c00e5]/30 transform hover:-translate-y-0.5 transition-all justify-center"
+                        className="flex-1 sm:flex-none flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#9c00e5] to-[#7c3aed] hover:from-[#b02be0] hover:to-[#8b5cf6] text-text-primary font-bold rounded-xl shadow-lg shadow-[#9c00e5]/30 transform hover:-translate-y-0.5 transition-all justify-center"
                     >
                         <PlusIcon className="w-5 h-5" />
                         Thêm bài học
@@ -494,11 +494,11 @@ export default function AdminLessonPage() {
               </div>
 
               {loading ? (
-                 <div className="text-center py-20 text-gray-400">Đang tải dữ liệu...</div>
+                 <div className="text-center py-20 text-text-secondary">Đang tải dữ liệu...</div>
               ) : lessons.length === 0 ? (
-                <div className="text-center py-20 bg-white/5 rounded-2xl border border-white/5">
-                  <p className="text-gray-400 text-lg">Khóa học này chưa có bài học nào.</p>
-                  <button onClick={() => setShowCreateModal(true)} className="mt-4 text-[#9c00e5] hover:text-white font-bold underline decoration-2 underline-offset-4 transition-colors">Tạo bài học đầu tiên ngay</button>
+                <div className="text-center py-20 bg-bg-card rounded-2xl border border-color-border">
+                  <p className="text-text-secondary text-lg">Khóa học này chưa có bài học nào.</p>
+                  <button onClick={() => setShowCreateModal(true)} className="mt-4 text-[#9c00e5] hover:text-text-primary font-bold underline decoration-2 underline-offset-4 transition-colors">Tạo bài học đầu tiên ngay</button>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -506,7 +506,7 @@ export default function AdminLessonPage() {
                     <div
                       key={lesson.id}
                       onClick={() => { setSelectedLesson(lesson); setActiveTab(0); }}
-                      className="group relative p-6 bg-[#1f1129]/80 backdrop-blur-md border border-white/10 rounded-2xl cursor-pointer transition-all duration-300 hover:bg-[#2a1635] hover:border-[#9c00e5]/50 hover:shadow-2xl hover:shadow-[#9c00e5]/20 hover:-translate-y-1 flex flex-col justify-between min-h-[220px]"
+                      className="group relative p-6 bg-[#1f1129]/80 backdrop-blur-md border border-color-border rounded-2xl cursor-pointer transition-all duration-300 hover:bg-[#2a1635] hover:border-[#9c00e5]/50 hover:shadow-2xl hover:shadow-[#9c00e5]/20 hover:-translate-y-1 flex flex-col justify-between min-h-[220px]"
                     >
                       {/* ... (Phần hiển thị card bài học giữ nguyên) ... */}
                       <div className="flex justify-between items-start mb-4">
@@ -514,9 +514,9 @@ export default function AdminLessonPage() {
                             <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#9c00e5]/20 text-[#9c00e5] font-bold text-sm group-hover:bg-[#9c00e5] group-hover:text-white transition-colors">
                               {lesson.sort_order || idx + 1}
                             </div>
-                            <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Lesson</span>
+                            <span className="text-xs font-semibold text-text-secondary uppercase tracking-wider">Lesson</span>
                           </div>
-                          <div className={`px-2 py-1 rounded text-xs font-bold border flex items-center gap-1 ${lesson.status === 'published' ? 'bg-green-500/20 text-green-400 border-green-500/30' : 'bg-gray-500/20 text-gray-400 border-gray-500/30'}`}>
+                          <div className={`px-2 py-1 rounded text-xs font-bold border flex items-center gap-1 ${lesson.status === 'published' ? 'bg-green-500/20 text-green-400 border-green-500/30' : 'bg-gray-500/20 text-text-secondary border-gray-500/30'}`}>
                              {lesson.status === 'published' ? <CheckCircleIcon className="w-3 h-3"/> : <XCircleIcon className="w-3 h-3"/>}
                              {lesson.status === 'published' ? 'Hiện' : 'Ẩn'}
                           </div>
@@ -527,17 +527,17 @@ export default function AdminLessonPage() {
                             <span className="text-[#9c00e5] mr-2">Bài {lesson.sort_order || idx + 1}:</span>
                             {lesson.title || lesson.name}
                           </h3>
-                          <p className="text-sm text-gray-400 line-clamp-2 mb-4">
+                          <p className="text-sm text-text-secondary line-clamp-2 mb-4">
                             {lesson.description || "Chưa có mô tả"}
                           </p>
                       </div>
                       
-                      <div className="h-px w-full bg-white/5 mb-4 group-hover:bg-white/10 transition-colors"></div>
+                      <div className="h-px w-full bg-bg-card mb-4 group-hover:bg-white/10 transition-colors"></div>
 
                       <div className="flex items-center justify-end gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                          <button 
                             onClick={(e) => handleToggleStatus(e, lesson)} 
-                            className={`p-2 rounded-lg border transition-all hover:scale-110 ${lesson.status === 'published' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20 hover:bg-blue-500/20' : 'bg-gray-500/10 text-gray-400 border-gray-500/20 hover:bg-gray-500/20'}`} 
+                            className={`p-2 rounded-lg border transition-all hover:scale-110 ${lesson.status === 'published' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20 hover:bg-blue-500/20' : 'bg-gray-500/10 text-text-secondary border-gray-500/20 hover:bg-gray-500/20'}`} 
                             title={lesson.status === 'published' ? "Ẩn bài học" : "Hiện bài học"}
                          >
                             {lesson.status === 'published' ? <EyeIcon className="w-4 h-4"/> : <EyeOffIcon className="w-4 h-4"/>}
@@ -565,35 +565,35 @@ export default function AdminLessonPage() {
           ) : (
             /* --- LESSON DETAIL VIEW --- */
             <div className="animate-slide-in">
-              <button onClick={() => setSelectedLesson(null)} className="flex items-center gap-2 text-gray-400 hover:text-white mb-6 transition-colors group px-4 py-2 rounded-lg hover:bg-white/5 w-fit">
+              <button onClick={() => setSelectedLesson(null)} className="flex items-center gap-2 text-text-secondary hover:text-white mb-6 transition-colors group px-4 py-2 rounded-lg hover:bg-bg-card w-fit">
                 <ArrowLeftIcon className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 <span className="font-bold">Quay lại danh sách</span>
               </button>
 
-              <div className="bg-[#1f1129]/90 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
-                <div className="p-8 border-b border-white/10 bg-gradient-to-r from-[#2a1635] to-[#1f1129]">
+              <div className="bg-[#1f1129]/90 backdrop-blur-xl border border-color-border rounded-3xl overflow-hidden shadow-2xl">
+                <div className="p-8 border-b border-color-border bg-gradient-to-r from-[#2a1635] to-[#1f1129]">
                   <div className="flex items-center gap-5">
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#9c00e5] to-[#ff7c7c] flex items-center justify-center shadow-lg shadow-[#9c00e5]/30">
                       <PencilIcon className="w-8 h-8 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl md:text-3xl font-black text-white mb-1">
+                      <h2 className="text-2xl md:text-3xl font-black text-text-primary transition-colors duration-300 mb-1">
                           <span className="text-[#9c00e5] mr-3">Bài {processedLessons.findIndex(l => l.id === selectedLesson.id) + 1}:</span>
                           {selectedLesson.title || selectedLesson.name}
                       </h2>
                       <div className="flex items-center gap-3">
-                         <span className={`px-2 py-0.5 rounded text-xs font-bold border ${selectedLesson.status === 'published' ? 'text-green-400 border-green-500/30' : 'text-gray-400 border-gray-500/30'}`}>
+                         <span className={`px-2 py-0.5 rounded text-xs font-bold border ${selectedLesson.status === 'published' ? 'text-green-400 border-green-500/30' : 'text-text-secondary border-gray-500/30'}`}>
                             {selectedLesson.status === 'published' ? 'Đang hiện' : 'Đang ẩn'}
                          </span>
-                         <p className="text-gray-400 text-sm">Chỉnh sửa nội dung chi tiết</p>
+                         <p className="text-text-secondary text-sm">Chỉnh sửa nội dung chi tiết</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex overflow-x-auto border-b border-white/10 custom-scrollbar bg-black/20">
+                <div className="flex overflow-x-auto border-b border-color-border custom-scrollbar bg-bg-card">
                   {TABS.map((tab, idx) => (
-                    <button key={tab} onClick={() => setActiveTab(idx)} className={`flex-shrink-0 px-8 py-5 font-bold text-sm relative transition-all ${activeTab === idx ? "text-white" : "text-gray-500 hover:text-gray-300 hover:bg-white/5"}`}>
+                    <button key={tab} onClick={() => setActiveTab(idx)} className={`flex-shrink-0 px-8 py-5 font-bold text-sm relative transition-all ${activeTab === idx ? "text-white" : "text-text-secondary hover:text-text-secondary hover:bg-bg-card"}`}>
                       {tab}
                       {activeTab === idx && <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] rounded-t-full"></span>}
                     </button>
@@ -622,22 +622,22 @@ export default function AdminLessonPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onClick={() => !actionLoading && !isSubmittingRef.current && setShowCreateModal(false)}></div>
           <div className="relative bg-[#1f1129] border border-[#9c00e5]/30 rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden modal-enter ring-1 ring-white/10">
-            <div className="px-6 py-4 border-b border-white/10 flex justify-between items-center bg-white/5">
+            <div className="px-6 py-4 border-b border-color-border flex justify-between items-center bg-bg-card">
               <h3 className="text-xl font-bold text-white flex items-center gap-2"><PlusIcon className="w-5 h-5 text-[#9c00e5]" /> Thêm bài học mới</h3>
-              <button onClick={() => !actionLoading && setShowCreateModal(false)} className="text-gray-400 hover:text-white transition-colors p-1 hover:bg-white/10 rounded-full"><XIcon className="w-6 h-6" /></button>
+              <button onClick={() => !actionLoading && setShowCreateModal(false)} className="text-text-secondary hover:text-white transition-colors p-1 hover:bg-white/10 rounded-full"><XIcon className="w-6 h-6" /></button>
             </div>
             <form onSubmit={handleCreateLesson} className="p-6 space-y-5">
               <div>
-                <label className="block text-sm font-semibold text-gray-300 mb-2">Tên bài học <span className="text-red-500">*</span></label>
-                <input type="text" required value={newLessonData.title} onChange={(e) => setNewLessonData({ ...newLessonData, title: e.target.value })} placeholder="Ví dụ: Giới thiệu Robot" className="w-full px-4 py-3 bg-black/30 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:border-[#9c00e5] focus:ring-1 focus:ring-[#9c00e5] focus:outline-none transition-all" />
+                <label className="block text-sm font-semibold text-text-secondary mb-2">Tên bài học <span className="text-red-500">*</span></label>
+                <input type="text" required value={newLessonData.title} onChange={(e) => setNewLessonData({ ...newLessonData, title: e.target.value })} placeholder="Ví dụ: Giới thiệu Robot" className="w-full px-4 py-3 bg-black/30 border border-color-border rounded-xl text-white placeholder-gray-600 focus:border-[#9c00e5] focus:ring-1 focus:ring-[#9c00e5] focus:outline-none transition-all" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-300 mb-2">Mô tả ngắn</label>
-                <textarea rows={4} value={newLessonData.description} onChange={(e) => setNewLessonData({ ...newLessonData, description: e.target.value })} placeholder="Mô tả nội dung chính..." className="w-full px-4 py-3 bg-black/30 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:border-[#9c00e5] focus:ring-1 focus:ring-[#9c00e5] focus:outline-none transition-all resize-none" />
+                <label className="block text-sm font-semibold text-text-secondary mb-2">Mô tả ngắn</label>
+                <textarea rows={4} value={newLessonData.description} onChange={(e) => setNewLessonData({ ...newLessonData, description: e.target.value })} placeholder="Mô tả nội dung chính..." className="w-full px-4 py-3 bg-black/30 border border-color-border rounded-xl text-white placeholder-gray-600 focus:border-[#9c00e5] focus:ring-1 focus:ring-[#9c00e5] focus:outline-none transition-all resize-none" />
               </div>
               <div className="pt-2 flex gap-3">
-                <button type="button" onClick={() => setShowCreateModal(false)} disabled={actionLoading} className="flex-1 px-4 py-3 rounded-xl border border-white/10 text-gray-300 font-bold hover:bg-white/5 transition-colors">Hủy bỏ</button>
-                <button type="submit" disabled={actionLoading} className="flex-1 px-4 py-3 rounded-xl bg-[#9c00e5] hover:bg-[#8500c4] text-white font-bold shadow-lg shadow-[#9c00e5]/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2">
+                <button type="button" onClick={() => setShowCreateModal(false)} disabled={actionLoading} className="flex-1 px-4 py-3 rounded-xl border border-color-border text-text-secondary font-bold hover:bg-bg-card transition-colors">Hủy bỏ</button>
+                <button type="submit" disabled={actionLoading} className="flex-1 px-4 py-3 rounded-xl bg-[#9c00e5] hover:bg-[#8500c4] text-text-primary font-bold shadow-lg shadow-[#9c00e5]/30 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2">
                   {actionLoading ? "Đang tạo..." : "Tạo bài học"}
                 </button>
               </div>
@@ -651,22 +651,22 @@ export default function AdminLessonPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onClick={() => !actionLoading && !isSubmittingRef.current && setShowEditModal(false)}></div>
           <div className="relative bg-[#1f1129] border border-yellow-500/30 rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden modal-enter ring-1 ring-white/10">
-            <div className="px-6 py-4 border-b border-white/10 flex justify-between items-center bg-white/5">
+            <div className="px-6 py-4 border-b border-color-border flex justify-between items-center bg-bg-card">
               <h3 className="text-xl font-bold text-white flex items-center gap-2"><PencilIcon className="w-5 h-5 text-yellow-500" /> Chỉnh sửa bài học</h3>
-              <button onClick={() => !actionLoading && setShowEditModal(false)} className="text-gray-400 hover:text-white transition-colors p-1 hover:bg-white/10 rounded-full"><XIcon className="w-6 h-6" /></button>
+              <button onClick={() => !actionLoading && setShowEditModal(false)} className="text-text-secondary hover:text-white transition-colors p-1 hover:bg-white/10 rounded-full"><XIcon className="w-6 h-6" /></button>
             </div>
             <form onSubmit={handleUpdateLesson} className="p-6 space-y-5">
               <div>
-                <label className="block text-sm font-semibold text-gray-300 mb-2">Tên bài học <span className="text-red-500">*</span></label>
-                <input type="text" required value={editingLessonData.title} onChange={(e) => setEditingLessonData({ ...editingLessonData, title: e.target.value })} className="w-full px-4 py-3 bg-black/30 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 focus:outline-none transition-all" />
+                <label className="block text-sm font-semibold text-text-secondary mb-2">Tên bài học <span className="text-red-500">*</span></label>
+                <input type="text" required value={editingLessonData.title} onChange={(e) => setEditingLessonData({ ...editingLessonData, title: e.target.value })} className="w-full px-4 py-3 bg-black/30 border border-color-border rounded-xl text-white placeholder-gray-600 focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 focus:outline-none transition-all" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-300 mb-2">Mô tả ngắn</label>
-                <textarea rows={4} value={editingLessonData.description} onChange={(e) => setEditingLessonData({ ...editingLessonData, description: e.target.value })} className="w-full px-4 py-3 bg-black/30 border border-white/10 rounded-xl text-white placeholder-gray-600 focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 focus:outline-none transition-all resize-none" />
+                <label className="block text-sm font-semibold text-text-secondary mb-2">Mô tả ngắn</label>
+                <textarea rows={4} value={editingLessonData.description} onChange={(e) => setEditingLessonData({ ...editingLessonData, description: e.target.value })} className="w-full px-4 py-3 bg-black/30 border border-color-border rounded-xl text-white placeholder-gray-600 focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 focus:outline-none transition-all resize-none" />
               </div>
               <div className="pt-2 flex gap-3">
-                <button type="button" onClick={() => setShowEditModal(false)} disabled={actionLoading} className="flex-1 px-4 py-3 rounded-xl border border-white/10 text-gray-300 font-bold hover:bg-white/5 transition-colors">Hủy bỏ</button>
-                <button type="submit" disabled={actionLoading} className="flex-1 px-4 py-3 rounded-xl bg-yellow-600 hover:bg-yellow-500 text-white font-bold shadow-lg shadow-yellow-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2">
+                <button type="button" onClick={() => setShowEditModal(false)} disabled={actionLoading} className="flex-1 px-4 py-3 rounded-xl border border-color-border text-text-secondary font-bold hover:bg-bg-card transition-colors">Hủy bỏ</button>
+                <button type="submit" disabled={actionLoading} className="flex-1 px-4 py-3 rounded-xl bg-yellow-600 hover:bg-yellow-500 text-text-primary font-bold shadow-lg shadow-yellow-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center gap-2">
                   {actionLoading ? "Đang lưu..." : "Lưu thay đổi"}
                 </button>
               </div>
@@ -681,25 +681,25 @@ export default function AdminLessonPage() {
           <div className="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onClick={() => !actionLoading && !isSubmittingRef.current && setShowSortModal(false)}></div>
           <div className="relative bg-[#1f1129] border border-blue-500/30 rounded-2xl shadow-2xl w-full max-w-3xl overflow-hidden modal-enter ring-1 ring-white/10 flex flex-col max-h-[80vh]">
             {/* Header Modal */}
-            <div className="px-6 py-4 border-b border-white/10 flex justify-between items-center bg-white/5">
+            <div className="px-6 py-4 border-b border-color-border flex justify-between items-center bg-bg-card">
               <h3 className="text-xl font-bold text-white flex items-center gap-2">
                   <SortAscendingIcon className="w-5 h-5 text-blue-500" /> Sắp xếp thứ tự bài học
               </h3>
-              <button onClick={() => !actionLoading && setShowSortModal(false)} className="text-gray-400 hover:text-white transition-colors p-1 hover:bg-white/10 rounded-full"><XIcon className="w-6 h-6" /></button>
+              <button onClick={() => !actionLoading && setShowSortModal(false)} className="text-text-secondary hover:text-white transition-colors p-1 hover:bg-white/10 rounded-full"><XIcon className="w-6 h-6" /></button>
             </div>
             
             {/* Table Area */}
             <div className="p-6 overflow-y-auto custom-scrollbar flex-1">
                 <table className="w-full text-left border-collapse">
                     <thead>
-                        <tr className="border-b border-white/10 text-gray-400 text-sm uppercase">
+                        <tr className="border-b border-color-border text-text-secondary text-sm uppercase">
                             <th className="py-3 px-4">Tên bài học</th>
                             <th className="py-3 px-4 w-40 text-center">Thứ tự</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-white/5">
+                    <tbody className="divide-y divide-color-border">
                         {sortData.map((item) => (
-                            <tr key={item.id} className="hover:bg-white/5 transition-colors">
+                            <tr key={item.id} className="hover:bg-bg-card transition-colors">
                                 <td className="py-3 px-4 text-white font-medium">{item.title}</td>
                                 <td className="py-3 px-4 text-center">
                                     <input 
@@ -716,18 +716,18 @@ export default function AdminLessonPage() {
             </div>
 
             {/* Footer Actions */}
-            <div className="px-6 py-4 border-t border-white/10 bg-white/5 flex justify-end gap-3">
+            <div className="px-6 py-4 border-t border-color-border bg-bg-card flex justify-end gap-3">
                 <button 
                     onClick={() => setShowSortModal(false)} 
                     disabled={actionLoading}
-                    className="px-6 py-2 rounded-xl border border-white/10 text-gray-300 font-bold hover:bg-white/5 transition-colors"
+                    className="px-6 py-2 rounded-xl border border-color-border text-text-secondary font-bold hover:bg-bg-card transition-colors"
                 >
                     Hủy bỏ
                 </button>
                 <button 
                     onClick={handleBulkSort} 
                     disabled={actionLoading}
-                    className="px-6 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold shadow-lg shadow-blue-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                    className="px-6 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-text-primary font-bold shadow-lg shadow-blue-500/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 >
                     {actionLoading ? "Đang lưu..." : "Lưu thứ tự"}
                 </button>

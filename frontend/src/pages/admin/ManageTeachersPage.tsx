@@ -204,7 +204,7 @@ export default function ManageTeachersPage() {
   const currentTeachers = filteredTeachers.slice(startIndex, endIndex);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#1a0b2e] via-[#0f061a] to-[#1a0b2e] text-white font-sans">
+    <div className="flex flex-col min-h-screen bg-bg-main text-text-primary transition-colors duration-300 font-sans">
       <style>{customStyles}</style>
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-20 left-10 w-96 h-96 bg-[#9c00e5]/20 rounded-full filter blur-3xl animate-pulse" style={{ animation: 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}></div>
@@ -219,10 +219,10 @@ export default function ManageTeachersPage() {
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <span className="bg-gradient-to-br from-[#9c00e5] to-[#ff7c7c] p-3 rounded-lg shadow-lg shadow-[#9c00e5]/40">
-                  <UserGroupIcon className="w-6 h-6 text-white" />
+                  <UserGroupIcon className="w-6 h-6 text-text-primary" />
                 </span>
                 <div>
-                  <h1 className="text-4xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                  <h1 className="text-4xl font-black bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent transition-colors duration-300">
                     Quản lý giáo viên
                   </h1>
                   <span className="inline-block mt-1 text-xs font-bold text-[#9c00e5] bg-[#9c00e5]/20 px-3 py-1 rounded-full">
@@ -230,19 +230,19 @@ export default function ManageTeachersPage() {
                   </span>
                 </div>
               </div>
-              <p className="text-gray-400 text-sm ml-12">Quản lý tất cả giáo viên trên nền tảng LETSCODE.</p>
+              <p className="text-text-secondary text-sm ml-12">Quản lý tất cả giáo viên trên nền tảng LETSCODE.</p>
             </div>
 
             <div className="flex gap-3">
               <button
                 onClick={() => navigate("/admin/assign-courses")}
-                className="px-6 py-2.5 text-sm font-bold text-white transition-all duration-200 border border-[#9c00e5]/50 bg-white/5 rounded-xl hover:bg-white/10 w-fit"
+                className="px-6 py-2.5 text-sm font-bold text-text-primary transition-all duration-200 border border-[#9c00e5]/50 bg-bg-card rounded-xl hover:bg-white/10 w-fit"
               >
                 Phân quyền khóa học
               </button>
               <button
                 onClick={() => navigate("/admin/create-teacher")}
-                className="px-6 py-2.5 text-sm font-bold text-white transition-all duration-200 shadow-lg bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] rounded-xl hover:shadow-[#9c00e5]/40 hover:from-[#ff7c7c] hover:to-[#9c00e5] hover:scale-105 active:scale-95 w-fit"
+                className="px-6 py-2.5 text-sm font-bold text-text-primary transition-all duration-200 shadow-lg bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] rounded-xl hover:shadow-[#9c00e5]/40 hover:from-[#ff7c7c] hover:to-[#9c00e5] hover:scale-105 active:scale-95 w-fit"
               >
                 + Thêm giáo viên
               </button>
@@ -251,13 +251,13 @@ export default function ManageTeachersPage() {
 
           <div className="mb-8">
             <div className="relative">
-              <SearchIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
+              <SearchIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-text-secondary" />
               <input
                 type="text"
                 placeholder="Tìm kiếm giáo viên..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-[#9c00e5] transition-colors"
+                className="w-full pl-12 pr-4 py-3 bg-bg-card border border-color-border rounded-xl text-text-primary placeholder-text-secondary focus:outline-none focus:border-[#9c00e5] transition-colors"
               />
             </div>
           </div>
@@ -265,40 +265,40 @@ export default function ManageTeachersPage() {
           <div className="overflow-x-auto rounded-2xl border border-[#9c00e5]/20">
             <table className="w-full">
               <thead>
-                <tr className="bg-gradient-to-r from-[#2a1b3d] to-[#1f1428] border-b border-[#9c00e5]/20">
-                  <th className="px-6 py-4 text-left text-sm font-bold text-gray-400">Tên giáo viên</th>
-                  <th className="px-6 py-4 text-left text-sm font-bold text-gray-400">Email</th>
-                  <th className="px-6 py-4 text-left text-sm font-bold text-gray-400">Username</th>
+                <tr className="bg-black/5 border-b border-color-border">
+                  <th className="px-6 py-4 text-left text-sm font-bold text-text-secondary">Tên giáo viên</th>
+                  <th className="px-6 py-4 text-left text-sm font-bold text-text-secondary">Email</th>
+                  <th className="px-6 py-4 text-left text-sm font-bold text-text-secondary">Username</th>
                   {/* Đã xóa cột Program */}
-                  <th className="px-6 py-4 text-left text-sm font-bold text-gray-400">Ngày tạo</th>
-                  <th className="px-6 py-4 text-center text-sm font-bold text-gray-400">Hành động</th>
+                  <th className="px-6 py-4 text-left text-sm font-bold text-text-secondary">Ngày tạo</th>
+                  <th className="px-6 py-4 text-center text-sm font-bold text-text-secondary">Hành động</th>
                 </tr>
               </thead>
               <tbody>
                 {loading ? (
-                  <tr><td colSpan={5} className="px-6 py-12 text-center text-gray-400">Đang tải danh sách giáo viên...</td></tr>
+                  <tr><td colSpan={5} className="px-6 py-12 text-center text-text-secondary">Đang tải danh sách giáo viên...</td></tr>
                 ) : filteredTeachers.length === 0 ? (
-                  <tr><td colSpan={5} className="px-6 py-12 text-center text-gray-400">Không tìm thấy giáo viên nào</td></tr>
+                  <tr><td colSpan={5} className="px-6 py-12 text-center text-text-secondary">Không tìm thấy giáo viên nào</td></tr>
                 ) : (
                   currentTeachers.map((teacher, idx) => (
-                    <tr key={teacher.id} className={`${idx % 2 === 0 ? "bg-white/[0.02]" : "bg-transparent"} border-b border-[#9c00e5]/10 hover:bg-white/5 transition-colors`}>
+                    <tr key={teacher.id} className={`${idx % 2 === 0 ? "bg-white/[0.02]" : "bg-transparent"} border-b border-[#9c00e5]/10 hover:bg-bg-card transition-colors`}>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#9c00e5] to-[#ff7c7c] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#9c00e5] to-[#ff7c7c] flex items-center justify-center text-text-primary font-bold text-sm flex-shrink-0">
                             {teacher.full_name.charAt(0).toUpperCase()}
                           </div>
-                          <p className="text-white font-semibold">{teacher.full_name}</p>
+                          <p className="text-text-primary font-semibold transition-colors">{teacher.full_name}</p>
                         </div>
                       </td>
-                      <td className="px-6 py-4"><span className="text-gray-300 text-sm">{teacher.email}</span></td>
-                      <td className="px-6 py-4"><span className="text-gray-300 text-sm">{teacher.username}</span></td>
+                      <td className="px-6 py-4"><span className="text-text-secondary text-sm">{teacher.email}</span></td>
+                      <td className="px-6 py-4"><span className="text-text-secondary text-sm">{teacher.username}</span></td>
                       {/* Đã xóa hiển thị Program */}
                       <td className="px-6 py-4">
-                        <span className="text-gray-400 text-sm">{teacher.created_at ? new Date(teacher.created_at).toLocaleDateString("vi-VN") : "N/A"}</span>
+                        <span className="text-text-secondary text-sm">{teacher.created_at ? new Date(teacher.created_at).toLocaleDateString("vi-VN") : "N/A"}</span>
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center justify-center gap-2">
-                          <button onClick={() => handleEdit(teacher)} className="p-2 bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] hover:from-[#ff7c7c] hover:to-[#9c00e5] rounded-lg font-bold text-white transition-all hover:shadow-lg hover:shadow-[#9c00e5]/30">
+                          <button onClick={() => handleEdit(teacher)} className="p-2 bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] hover:from-[#ff7c7c] hover:to-[#9c00e5] rounded-lg font-bold text-text-primary transition-all hover:shadow-lg hover:shadow-[#9c00e5]/30">
                             <PencilIcon className="w-4 h-4" />
                           </button>
                           <button onClick={() => handleDelete(teacher.id)} className="p-2 bg-red-500/20 hover:bg-red-500/30 border border-red-500/30 rounded-lg font-bold text-red-400 transition-all">
@@ -315,15 +315,15 @@ export default function ManageTeachersPage() {
 
           {totalPages > 1 && (
             <div className="flex items-center justify-between mt-6 px-4">
-              <div className="text-sm text-gray-400">Hiển thị {startIndex + 1}-{Math.min(endIndex, filteredTeachers.length)} trong {filteredTeachers.length} giáo viên</div>
+              <div className="text-sm text-text-secondary">Hiển thị {startIndex + 1}-{Math.min(endIndex, filteredTeachers.length)} trong {filteredTeachers.length} giáo viên</div>
               <div className="flex items-center gap-2">
-                <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1} className="px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:enabled:bg-white/10">← Trước</button>
+                <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1} className="px-3 py-2 bg-bg-card border border-color-border rounded-lg text-text-primary text-sm font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:enabled:bg-white/10">← Trước</button>
                 <div className="flex gap-1">
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                    <button key={page} onClick={() => setCurrentPage(page)} className={`px-3 py-2 rounded-lg text-sm font-bold transition-all ${currentPage === page ? "bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] text-white shadow-lg shadow-[#9c00e5]/30" : "bg-white/5 border border-white/10 text-white hover:bg-white/10"}`}>{page}</button>
+                    <button key={page} onClick={() => setCurrentPage(page)} className={`px-3 py-2 rounded-lg text-sm font-bold transition-all ${currentPage === page ? "bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] text-text-primary shadow-lg shadow-[#9c00e5]/30" : "bg-bg-card border border-color-border text-text-primary hover:bg-white/10"}`}>{page}</button>
                   ))}
                 </div>
-                <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} className="px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:enabled:bg-white/10">Tiếp →</button>
+                <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} className="px-3 py-2 bg-bg-card border border-color-border rounded-lg text-text-primary text-sm font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:enabled:bg-white/10">Tiếp →</button>
               </div>
             </div>
           )}
@@ -333,14 +333,14 @@ export default function ManageTeachersPage() {
       {/* MODAL SỬA */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-          <div className="bg-gradient-to-br from-[#2a1b3d] to-[#1f1428] border border-[#9c00e5]/20 rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar shadow-2xl">
-            <div className="sticky top-0 z-10 flex items-center justify-between px-8 py-6 border-b border-[#9c00e5]/20 bg-gradient-to-r from-[#2a1b3d] to-[#1f1428]">
-              <h2 className="text-2xl font-bold text-white">
+          <div className="bg-bg-card border border-color-border rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar shadow-2xl">
+            <div className="sticky top-0 z-10 flex items-center justify-between px-8 py-6 border-b border-color-border bg-black/5">
+              <h2 className="text-2xl font-bold text-text-primary">
                 {editingTeacher ? "Chỉnh sửa giáo viên" : "Thêm giáo viên"}
               </h2>
               <button
                 onClick={() => { setShowModal(false); resetForm(); }}
-                className="text-xl text-gray-400 transition-colors hover:text-white"
+                className="text-xl text-text-secondary transition-colors hover:text-text-primary"
               >
                 ✕
               </button>
@@ -348,32 +348,32 @@ export default function ManageTeachersPage() {
 
             <form onSubmit={handleSubmit} className="p-8 space-y-6">
               <div>
-                <label className="block mb-2 text-sm font-bold text-gray-400">Tên đầy đủ</label>
-                <input type="text" name="full_name" value={formData.full_name} onChange={handleInputChange} required className="w-full px-4 py-3 text-white transition-colors border rounded-lg bg-white/5 border-white/10 focus:outline-none focus:border-[#9c00e5]" />
+                <label className="block mb-2 text-sm font-bold text-text-secondary">Tên đầy đủ</label>
+                <input type="text" name="full_name" value={formData.full_name} onChange={handleInputChange} required className="w-full px-4 py-3 text-gray-900 dark:text-white transition-colors border rounded-lg bg-white dark:bg-[#1f1428] border-gray-300 dark:border-[#9c00e5]/50 focus:outline-none focus:border-[#9c00e5]" />
               </div>
 
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className="block mb-2 text-sm font-bold text-gray-400">Username</label>
-                  <input type="text" name="username" value={formData.username} onChange={handleInputChange} required className="w-full px-4 py-3 text-white transition-colors border rounded-lg bg-white/5 border-white/10 focus:outline-none focus:border-[#9c00e5]" />
+                  <label className="block mb-2 text-sm font-bold text-text-secondary">Username</label>
+                  <input type="text" name="username" value={formData.username} onChange={handleInputChange} required className="w-full px-4 py-3 text-gray-900 dark:text-white transition-colors border rounded-lg bg-white dark:bg-[#1f1428] border-gray-300 dark:border-[#9c00e5]/50 focus:outline-none focus:border-[#9c00e5]" />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm font-bold text-gray-400">Email</label>
-                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full px-4 py-3 text-white transition-colors border rounded-lg bg-white/5 border-white/10 focus:outline-none focus:border-[#9c00e5]" />
+                  <label className="block mb-2 text-sm font-bold text-text-secondary">Email</label>
+                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full px-4 py-3 text-gray-900 dark:text-white transition-colors border rounded-lg bg-white dark:bg-[#1f1428] border-gray-300 dark:border-[#9c00e5]/50 focus:outline-none focus:border-[#9c00e5]" />
                 </div>
               </div>
 
               {/* Đã xóa phần chọn Program trong Modal, chỉ còn Mật khẩu */}
               <div>
-                <label className="block mb-2 text-sm font-bold text-gray-400">Mật khẩu {editingTeacher && "(Để trống nếu không đổi)"}</label>
-                <input type="password" name="password" value={formData.password} onChange={handleInputChange} className="w-full px-4 py-3 text-white transition-colors border rounded-lg bg-white/5 border-white/10 focus:outline-none focus:border-[#9c00e5]" />
+                <label className="block mb-2 text-sm font-bold text-text-secondary">Mật khẩu {editingTeacher && "(Để trống nếu không đổi)"}</label>
+                <input type="password" name="password" value={formData.password} onChange={handleInputChange} className="w-full px-4 py-3 text-gray-900 dark:text-white transition-colors border rounded-lg bg-white dark:bg-[#1f1428] border-gray-300 dark:border-[#9c00e5]/50 focus:outline-none focus:border-[#9c00e5]" />
               </div>
 
-              <div className="flex gap-3 pt-6 border-t border-white/10">
-                <button type="submit" className="flex-1 px-6 py-3 font-bold text-white transition-all rounded-lg shadow-lg bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] hover:shadow-[#9c00e5]/30">
+              <div className="flex gap-3 pt-6 border-t border-color-border">
+                <button type="submit" className="flex-1 px-6 py-3 font-bold text-text-primary transition-all rounded-lg shadow-lg bg-gradient-to-r from-[#9c00e5] to-[#ff7c7c] hover:shadow-[#9c00e5]/30">
                   {editingTeacher ? "Cập nhật" : "Thêm mới"}
                 </button>
-                <button type="button" onClick={() => { setShowModal(false); resetForm(); }} className="flex-1 px-6 py-3 font-bold text-gray-300 transition-colors border rounded-lg bg-white/5 border-white/10 hover:text-white">
+                <button type="button" onClick={() => { setShowModal(false); resetForm(); }} className="flex-1 px-6 py-3 font-bold text-text-secondary transition-colors border rounded-lg bg-bg-card border-color-border hover:text-text-primary">
                   Hủy
                 </button>
               </div>

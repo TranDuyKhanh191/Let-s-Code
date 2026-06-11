@@ -1,4 +1,5 @@
-:root {
+:root, [data-theme="dark"] {
+  /* Common Palette */
   --lc-purple: #9c00e5;
   --lc-purple-dark: #5b27f5;
   --lc-blue: #3fd9ff;
@@ -9,9 +10,29 @@
   --lc-pink: #ff7c7c;
   --lc-red: #fd3d3d;
 
+  /* Default (Dark Mode) Variables */
   --bg-main: #0f0518;
-  --bg-card: rgba(255,255,255,0.06);
+  --bg-card: rgba(255, 255, 255, 0.06);
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af; /* gray-400 equivalent */
+  --color-border: rgba(156, 0, 229, 0.2); /* #9c00e5/20 equivalent */
+  --color-primary: #9c00e5;
+  --color-accent: #ff7c7c;
 
   --glow-purple: 0 0 30px rgba(156,0,229,0.5);
   --glow-yellow: 0 0 30px rgba(255,228,0,0.4);
+}
+
+[data-theme="light"] {
+  /* Light Mode Variables */
+  --bg-main: #F8F9FA;
+  --bg-card: #FFFFFF;
+  --text-primary: #212529;
+  --text-secondary: #6C757D;
+  --color-border: #DEE2E6;
+  --color-primary: #6F42C1;
+  --color-accent: #FFC107;
+  
+  --glow-purple: 0 0 30px rgba(111, 66, 193, 0.3);
+  --glow-yellow: 0 0 30px rgba(255, 193, 7, 0.3);
 }
